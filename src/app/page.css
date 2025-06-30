@@ -1,0 +1,53 @@
+/* Typography Setup */
+h1 {
+    @apply text-4xl font-bold text-gray-900 dark:text-white mb-4;
+}
+
+h2 {
+    @apply text-3xl font-semibold text-gray-800 dark:text-gray-100 mb-3;
+}
+
+h3 {
+    @apply text-2xl font-medium text-gray-700 dark:text-gray-200 mb-2;
+}
+
+p {
+    @apply text-base leading-relaxed text-gray-600 dark:text-gray-300 mb-4;
+}
+
+a {
+    @apply text-blue-600 hover:underline dark:text-blue-400;
+}
+
+ul {
+    @apply list-disc list-inside mb-4;
+}
+
+code {
+    @apply bg-gray-100 text-pink-600 font-mono px-1 rounded dark:bg-gray-800;
+}
+
+table {
+    @apply w-full border border-gray-300 dark:border-gray-600;
+}
+
+th,
+td {
+    @apply px-4 py-2 border border-gray-300 dark:border-gray-600;
+}
+
+/* Layout Helpers */
+body {
+    @apply bg-white text-gray-900 dark:bg-zinc-900 dark:text-white;
+}
+
+.container {
+    @apply w-full max-w-[1280px] mx-auto px-4;
+}
+
+.grid-layout {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-4;
+}
+
+.content-area {
+    @apply col-span-full md:col-span-8 md:col-start-3; }
