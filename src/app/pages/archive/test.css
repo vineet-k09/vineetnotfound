@@ -1,0 +1,11 @@
+/* styles.css */
+.fade-in {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
