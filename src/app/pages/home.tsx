@@ -67,39 +67,6 @@ export default function Home() {
                             </div>
                         ))}
                     </div>
-
-                    {/* 📋 Example Table and Code */}
-                    <h2>Tables? Sure.</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Role</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{visibleText.name}</td>
-                                <td>Developer</td>
-                            </tr>
-                            <tr>
-                                <td>GPT</td>
-                                <td>Sidekick</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h2>Code Snippet</h2>
-                    <pre>
-                        <code>const hello = world;</code>
-                    </pre>
-
-                    <h2>List of Awesomeness</h2>
-                    <ul>
-                        <li>Responsive as hell</li>
-                        <li>Grid-powered layout</li>
-                        <li>Dark mode friendly</li>
-                    </ul>
                 </div>
             </div>
         </div>
