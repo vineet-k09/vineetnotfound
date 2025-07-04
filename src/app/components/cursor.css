@@ -10,8 +10,6 @@
     z-index: 9999;
     transition: border-radius 1.2s ease-in-out;
     animation: morph 6s infinite alternate ease-in-out;
-    background: rgba(0, 0, 0, 0.4);
-    mix-blend-mode: difference;
     top: -40;
     left: -40;
 }
@@ -39,7 +37,6 @@
     left: -5px;
     pointer-events: none;
     z-index: 9999;
-    mix-blend-mode: difference;
 }
 
 .vertical-follower {
