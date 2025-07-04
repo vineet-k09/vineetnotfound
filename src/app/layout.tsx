@@ -2,7 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Metadata } from "next";
 import "./globals.css";
 import { LangProvider } from "../hooks/useLang"; // make sure path is correct
-import CustomCursor from "./components/cursor";
+import CustomCursor from "./components/cursor"; 
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Analytics />
         <CustomCursor />
         <LangProvider>
           {children}
