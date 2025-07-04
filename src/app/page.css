@@ -1,64 +1,48 @@
 /* Typography Setup */
-@reference './globals.css'; 
+@reference './globals.css';
 
 h1 {
-    @apply text-4xl 
-    font-bold 
-    mb-4;
-    
+    @apply text-4xl font-bold mb-4;
+
 }
 
 h2 {
-    @apply text-3xl 
-    font-semibold 
-    mb-3;
+    @apply text-3xl font-semibold
+    /* mb-3; */
 }
 
 h3 {
-    @apply text-2xl 
-    font-medium 
-    mb-2;
+    @apply text-2xl font-medium
 }
 
 p {
-    @apply text-base 
-    leading-relaxed 
-    mb-4;
+    @apply text-base leading-relaxed mb-4;
 }
 
 a {
-    @apply 
-    hover:underline; 
+    @apply hover:underline;
 }
 
 ul {
-    @apply list-disc list-inside mb-4;
+    @apply list-inside;
 }
 
 code {
-    @apply 
-    font-mono 
-    px-1 
-    rounded; 
+    @apply font-mono px-1 rounded;
 }
 
 table {
-    @apply 
-    w-full 
-    border; 
+    @apply w-full border;
 }
 
 th,
 td {
-    @apply 
-    px-4 
-    py-2 border; 
+    @apply px-4 py-2 border;
 }
 
 /* Layout Helpers */
 body {
-    @apply 
-    bg-[var(--bg)]
+    @apply bg-[var(--bg)]
 }
 
 .container {
@@ -72,3 +56,27 @@ body {
 .content-area {
     @apply col-span-full md:col-span-8 md:col-start-3;
 }
+section {
+    @apply mb-12
+}
+.fade-in {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* .fade-in {
+    opacity: 0;
+    transform: scale(0.98) translateY(10px);
+    transition: all 0.4s ease-in-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: scale(1) translateY(0); } */
+

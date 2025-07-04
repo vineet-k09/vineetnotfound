@@ -1,52 +1,29 @@
-// src/hooks/useLang.ts
-import { useEffect, useState } from 'react';
-import { translations } from '../app/components/lang';
+// src/hooks/useLang.tsx
+'use client'
+import { useState, createContext, useContext } from 'react';
+import en from '../locales/en.json';
+import hi from '../locales/hi.json';
 
-export function useLang() {
-    const [lang, setLang] = useState<'en' | 'hi' | 'kn'>('en');
-    const [visibleText, setVisibleText] = useState(translations[lang]);
-    const [fadeKeys, setFadeKeys] = useState<string[]>([]);
+export const translations: Translations = {
+    en,
+    hi,
+};
 
-    useEffect(() => {
-        const keys = Object.keys(translations[lang]);
-        setFadeKeys(keys);
-    }, [lang]);
-
-    const fadeClass = (key: string) =>
-        fadeKeys.includes(key) ? 'fade-in show' : 'fade-in';
-
-    const changeLang = () => {
-        switchLang({
-            lang,
-            setLang,
-            setVisibleText,
-            setFadeKeys,
-            translations
-        });
-    };
-
-    return {
-        lang,
-        visibleText,
-        fadeClass,
-        changeLang,
-    };
-}
-
-type Language = 'en' | 'hi' | 'kn';
+export type LangKey = keyof typeof translations;
+type Language = 'en' | 'hi';
 
 interface TranslationContent {
     name: string;
     role: string;
     skills: string;
-    projects: {
+    projects?: {
         mainLabel: string;
         list: {
             title: string;
             description: string;
         }[];
     };
-    experience: {
+    experience?: {
         mainLabel: string;
         list: {
             title: string;
@@ -55,7 +32,7 @@ interface TranslationContent {
             description: string;
         }[];
     };
-    education: {
+    education?: {
         mainLabel: string;
         list: {
             degree: string;
@@ -73,39 +50,34 @@ type Translations = {
     [key in Language]: TranslationContent;
 };
 
-type Props = {
-    translations: Translations;
-    lang: Language;
-    setFadeKeys: React.Dispatch<React.SetStateAction<string[]>>;
-    setVisibleText: React.Dispatch<React.SetStateAction<TranslationContent>>;
-    setLang: React.Dispatch<React.SetStateAction<Language>>;
+const LangContext = createContext<ReturnType<typeof useLang> | null>(null);
+
+export const LangProvider = ({ children }: { children: React.ReactNode }) => {
+    const langData = useLang();
+    return <LangContext.Provider value={langData}>{children}</LangContext.Provider>;
 };
 
-function switchLang({
-    lang,
-    setLang,
-    setVisibleText,
-    setFadeKeys,
-    translations,
-}: Props) {
-    const newLang = lang === 'en' ? 'hi' :
-        lang == 'hi' ? 'kn' : 'en';
-    const keys = Object.keys(translations[lang]) as (keyof typeof translations['en'])[];
+export const useLangContext = () => {
+    const ctx = useContext(LangContext);
+    if (!ctx) throw new Error('useLangContext must be used within LangProvider');
+    return ctx;
+};
 
-    keys.forEach((key, index) => {
+export function useLang() {
+    const [lang, setLang] = useState<Language>('en');
+    const [visibleText, setVisibleText] = useState<TranslationContent>(translations[lang]);
+
+    const changeLang = () => {
+        const newLang = lang === 'en' ? 'hi' : 'en';
         setTimeout(() => {
-            setFadeKeys(prev => prev.filter(k => k !== key));
+            setLang(newLang);
+            setVisibleText(translations[newLang]);
+        }, 300); // Just 300ms delay, no drama
+    };
 
-            setTimeout(() => {
-                setVisibleText(prev => ({
-                    ...prev,
-                    [key]: translations[newLang][key],
-                }));
-
-                setFadeKeys(prev => [...prev, key as string]);
-            }, 200);
-        }, index * 300);
-    });
-
-    setLang(newLang);
+    return {
+        lang,
+        visibleText,
+        changeLang,
+    };
 }

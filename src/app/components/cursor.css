@@ -1,0 +1,65 @@
+.lasso {
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: border-radius 1.2s ease-in-out;
+    animation: morph 6s infinite alternate ease-in-out;
+    background: rgba(0, 0, 0, 0.4);
+    mix-blend-mode: difference;
+    top: -40;
+    left: -40;
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 60% 40% 30% 70% / 50% 60% 40% 60%;
+    }
+
+    50% {
+        border-radius: 50% 50% 60% 40% / 60% 30% 70% 50%;
+    }
+
+    100% {
+        border-radius: 40% 60% 50% 50% / 30% 70% 60% 40%;
+    }
+}
+
+.square {
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    position: fixed;
+    top: -5px;
+    left: -5px;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+}
+
+.vertical-follower {
+    width: 10px;
+    height: 40px;
+    background: var(--accent);
+    position: fixed;
+    left: 0px;
+    top: -20px;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.horizontal-follower {
+    width: 40px;
+    height: 10px;
+    background: var(--accent);
+    position: fixed;
+    bottom: 0;
+    left: -20px;
+    pointer-events: none;
+    z-index: 9999;
+}
