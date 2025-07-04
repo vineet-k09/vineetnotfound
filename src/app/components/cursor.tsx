@@ -1,6 +1,6 @@
 'use client';
 import { useEffect } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import './cursor.css'
 
 export default function CustomCursor() {
@@ -16,10 +16,19 @@ export default function CustomCursor() {
     const vertY = useSpring(mouseY, { damping: 20, stiffness: 100 });
     const horX = useSpring(mouseX, { damping: 20, stiffness: 100 });
 
+    // Apply a spring to the values for smoothing
+    const smoothX = useSpring(mouseX, { damping: 20, stiffness: 150 });
+    const smoothY = useSpring(mouseY, { damping: 20, stiffness: 150 });
+
+    // Transform to fixed decimals
+    const visibleX = useTransform(smoothX, (v) => (v / 3.325).toFixed(2));
+    const visibleY = useTransform(smoothY, (v) => (v / 1.425).toFixed(2));
+
     useEffect(() => {
         const moveCursor = (e: MouseEvent) => {
             mouseX.set(e.clientX);
             mouseY.set(e.clientY);
+
         };
         window.addEventListener('mousemove', moveCursor);
         return () => window.removeEventListener('mousemove', moveCursor);
@@ -27,9 +36,11 @@ export default function CustomCursor() {
 
     return (
         <>
+            <motion.div className='z-[9999] hidden sm:block fixed bottom-4 left-20 font-mono text-sm'>{visibleX}</motion.div>
+            <motion.div className='z-[9999] hidden sm:block fixed top-60 rotate-90 font-mono text-sm'>{visibleY}</motion.div>
             {/* Lasso Circle */}
             <motion.div
-                className="lasso"
+                className="lasso hidden sm:block"
                 style={{
                     x: circleX,
                     y: circleY,
@@ -38,7 +49,7 @@ export default function CustomCursor() {
 
             {/* Square */}
             <motion.div
-                className="square"
+                className="square hidden sm:block"
                 style={{
                     x: squareX,
                     y: squareY,
