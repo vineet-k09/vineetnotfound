@@ -6,11 +6,14 @@ import Home from './pages/home'
 import Navbar from './components/narbar'
 import Background from "./components/background"
 import { useLangContext } from '../hooks/useLang';
+import { useAudio } from '../context/AudioContext'
 
 export default function Page() {
   const [theme, setTheme] = useState('theme-charcoal')
   const [themeVar, setThemeVar] = useState('𐰁')
   const {visibleText, changeLang} = useLangContext();
+  
+  const { toggleAudio } = useAudio();
 
   useEffect(() => {
     document.documentElement.className = theme
@@ -34,6 +37,12 @@ export default function Page() {
         <Navbar />
         <Home />     
       <div className="wrapper fixed bottom-5 right-5 z-50 flex flex-col gap-1">
+
+        <button 
+        onClick={toggleAudio}
+          className="hover:scale-120 transition-all h-12 w-12 text-center justify-center rounded-full shadow bg-[var(--accent)] text-[var(--bg)]">
+          ♫
+        </button>
         <button 
         onClick={changeLang}
           className="hover:scale-120 transition-all h-12 w-12 text-center justify-center rounded-full shadow bg-[var(--accent)] text-[var(--bg)]">
