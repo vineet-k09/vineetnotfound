@@ -4,14 +4,12 @@
     border: 2px solid var(--accent);
     border-radius: 50%;
     position: fixed;
-    top: 0;
-    left: 0;
     pointer-events: none;
     z-index: 9999;
     transition: border-radius 1.2s ease-in-out;
     animation: morph 6s infinite alternate ease-in-out;
-    top: -40;
-    left: -40;
+    top: -40px;
+    left: -40px;
 }
 
 @keyframes morph {
