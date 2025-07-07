@@ -4,6 +4,7 @@
   --bg: #1a1a1a;
   --text: #e5e5e5;
   --accent: #0ea5e9;
+  --accent-rgb: 14, 165, 233;
   --selection: #374151;
 }
 
@@ -12,6 +13,7 @@
     --bg: #f3f0e6;
     --text: #2c2a28;
     --accent: #c47f17;
+    --accent-rgb: 196, 127, 23;
     --selection: #e9d8a6;
   }
 }
@@ -20,6 +22,7 @@
   --bg: #1e0e14;
   --text: #f5e9f0;
   --accent: #dc2626;
+  --accent-rgb: 220, 38, 38;
   --selection: #0ea5e9;
 }
 
@@ -27,6 +30,7 @@
   --bg: #1a1a1a;
   --text: #e5e5e5;
   --accent: #0ea5e9;
+  --accent-rgb: 14, 165, 233;
   --selection: #374151;
 }
 
@@ -34,6 +38,7 @@
   --bg: #f3f0e6;
   --text: #2c2a28;
   --accent: #c47f17;
+  --accent-rgb: 196, 127, 23;
   --selection: #e9d8a6;
 }
 
@@ -41,6 +46,7 @@
   --bg: #fefae0;
   --text: #1c1b1f;
   --accent: #facc15;
+  --accent-rgb: 250, 204, 21;
   --selection: #fde68a;
 }
 
@@ -55,6 +61,19 @@ body {
 body::selection {
   color: var(--text);
   background-color: var(--selection);
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: pink;
+  border-radius: 40px;
 }
 
 .specific::selection {
