@@ -3,8 +3,8 @@ import { useState, useEffect } from "react"
 import './page.css'
 
 import Home from './pages/home'
-import Navbar from './components/narbar'
-import Background from "./components/background"
+// import Navbar from './components/narbar'
+// import Background from "./components/background"
 import { useLangContext } from '../hooks/useLang';
 import { useAudio } from '../context/AudioContext'
 
@@ -33,8 +33,8 @@ export default function Page() {
 
   return (
       <main className="transition-theme duration-1500">
-        <Background />
-        <Navbar />
+        {/* <Background /> */}
+        {/* <Navbar /> */}
         <Home />     
       <div className="wrapper fixed bottom-5 right-5 z-50 flex flex-col gap-1">
 

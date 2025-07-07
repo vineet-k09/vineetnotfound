@@ -1,12 +1,14 @@
 //src/app/home.tsx
 import { useLangContext } from '../../hooks/useLang';
 import Image from 'next/image';
+import Navbar from '../components/narbar';
 
 export default function Home() {
     const { visibleText } = useLangContext();
 
     return (
         <>
+            <Navbar />
             <section className='hero mx-auto min-h-screen flex flex-col justify-center items-center px-4'>
                 {/* 🧍 Hero Section */}
                 <h1 >{visibleText.name}</h1>
