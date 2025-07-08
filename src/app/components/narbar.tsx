@@ -76,7 +76,7 @@ export default function Navbar() {
                             {/* <div className="burger block sm:hidden"></div> */}
                             <ul className="list-none hidden sm:flex gap-5">
                                 <li className='text-sm border-2 min-w-18 my-auto rounded-lg'>{isTime ? time : temp}</li>
-                                <li className='py-1'><a href="#">Home</a></li>
+                                <li className='py-1'><a href="">Home</a></li>
                                 <li className='py-1'><a href="#">Projects</a></li>
                                 <li className='py-1'><a href="#">Contact</a></li>
                             </ul>

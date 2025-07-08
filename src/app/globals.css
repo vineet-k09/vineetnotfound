@@ -72,12 +72,13 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: pink;
+  background-color: var(--accent);
   border-radius: 40px;
 }
 
 .specific::selection {
   color: var(--accent);
+  @apply font-extrabold;
 }
 
 .shadow {
