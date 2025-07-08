@@ -94,6 +94,7 @@ export default function Navbar() {
                                     fontSize: fontSize,
                                     fontWeight: 'bold'
                                 }}
+                                className='specific'
                             >Vineet Kushwaha</motion.h3>
                             {/* <div className="burger block sm:hidden"></div> */}
                             <ul className="list-none flex gap-5">
