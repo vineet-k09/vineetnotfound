@@ -7,6 +7,7 @@ export default function Navbar() {
     const [isTime, setIsTime] = useState(true);
     const [time, setTime] = useState('');
     const [temp, setTemp] = useState('--°C');
+    // const [city, setCity] = useState('Bengaluru')
     // const { visibleText } = useLangContext();
     const { scrollY } = useScroll();
 
@@ -40,14 +41,35 @@ export default function Navbar() {
 
     // Fetch temp once (can enhance to use IP later)
     useEffect(() => {
-        fetch('https://api.open-meteo.com/v1/forecast?latitude=12.97&longitude=77.59&current_weather=true')
+        // Helper function to fetch weather
+        const fetchWeather = (latitude: number, longitude: number) => {
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`)
+                .then(res => res.json())
+                .then(data => {
+                    const c = data?.current_weather?.temperature;
+                    if (typeof c === 'number') setTemp(`${c}°C`);
+                    else throw new Error('Invalid temp');
+                })
+                .catch(() => setTemp('N/A'));
+        };
+        // Try IP-based location first
+        fetch('https://ipapi.co/json/')
             .then(res => res.json())
-            .then(data => {
-                const c = data?.current_weather?.temperature;
-                if (typeof c === 'number') setTemp(`${c}°C`);
+            .then(loc => {
+                const { latitude, longitude } = loc;
+                if (latitude && longitude) {
+                    fetchWeather(latitude, longitude);
+                } else {
+                    throw new Error('No location data');
+                }
+                // setCity(loc.city)
             })
-            .catch(() => setTemp('N/A'));
+            .catch(() => {
+                // Fallback: Bangalore
+                fetchWeather(12.97, 77.59);
+            });
     }, []);
+    
 
     // Toggle time/weather every 5 seconds
     useEffect(() => {
@@ -74,11 +96,11 @@ export default function Navbar() {
                                 }}
                             >Vineet Kushwaha</motion.h3>
                             {/* <div className="burger block sm:hidden"></div> */}
-                            <ul className="list-none hidden sm:flex gap-5">
+                            <ul className="list-none flex gap-5">
                                 <li className='text-sm border-2 min-w-18 my-auto rounded-lg'>{isTime ? time : temp}</li>
-                                <li className='py-1'><a href="">Home</a></li>
-                                <li className='py-1'><a href="#">Projects</a></li>
-                                <li className='py-1'><a href="#">Contact</a></li>
+                                <li className='py-1 hidden sm:flex'><a href="">Home</a></li>
+                                <li className='py-1 hidden sm:flex'><a href="#">Projects</a></li>
+                                <li className='py-1 hidden sm:flex'><a href="#">Contact</a></li>
                             </ul>
                         </div>
                     </div>

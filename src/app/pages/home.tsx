@@ -79,14 +79,14 @@ export default function Home() {
                             }}
                             className='text-3xl'>
                                 I&apos;m a <span className='specific'>
-                                    &#123; full-stack web developer &#125;</span> with a strong grip on React, Node.js, and everything in between. <span className="specific">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I&apos;m also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.
+                                    <span className="font-extrabold">&#123;</span> full-stack web developer <span className="font-extrabold">&#125;</span></span> with a strong grip on React, Node.js, and everything in between. <span className="specific">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I&apos;m also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.
                             </p>
                         </section>
                         <section className='section grid grid-cols-7'>
                             {/* 🛠️ Skills Section */}
                             <h2 className='col-span-1'>Skills</h2>
                             <div className="col-span-1"></div>
-                            <ul className="grid grid-cols-2 col-span-5 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                            <ul className="grid grid-cols-2 col-span-5 sm:grid-cols-3 md:grid-cols-4 gap-2 specific">
                                 <li>React</li>
                                 <li>Node.js</li>
                                 <li>MongoDB</li>
@@ -110,7 +110,7 @@ export default function Home() {
                                             background: 'rgba(var(--accent-rgb), 0.29)'
                                         }}
                                         className='border boxShadow p-4 rounded-2xl hover:scale-110 duration-100'>
-                                        <h3>{project.title}</h3>
+                                        <h3 className='specific text-3xl'>{project.title}</h3>
                                         <p>{project.description}</p>
                                     </div>
                                 ))}
@@ -124,7 +124,7 @@ export default function Home() {
                             <div className="space-y-4 col-span-5">
                                 {visibleText.experience?.list.map((exp, idx) => (
                                     <div key={idx}>
-                                        <h3>{exp.title} – {exp.company}</h3>
+                                        <h3 className='specific'>{exp.title} – {exp.company}</h3>
                                         <p>{exp.description} ({exp.duration})</p>
                                     </div>
                                 ))}
@@ -138,7 +138,7 @@ export default function Home() {
                             <div className="space-y-4 col-span-5">
                                 {visibleText.education?.list.map((edu, idx) => (
                                     <div key={idx}>
-                                        <h3>{edu.degree}</h3>
+                                        <h3 className='specific'>{edu.degree}</h3>
                                         <p>{edu.institute} – {edu.location}</p>
                                         <p>{edu.duration}</p>
                                         <p className='font-bold'>{edu.cgpa}</p>
