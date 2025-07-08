@@ -11,26 +11,32 @@ export default function Home() {
             "list": [
                 {
                     "title": "Endxiety",
+                    "link": "",
                     "description": "AI-powered mental wellness app with anonymous chat, emotion tracking, and journaling."
                 },
                 {
                     "title": "Saarthi AI",
+                    "link": "",
                     "description": "Multilingual scheme recommender using AI, accessible via voice and text."
                 },
                 {
                     "title": "BiblioVerse",
+                    "link": "",
                     "description": "AI-based ebook recommender system with big data filtering and a modern UI."
                 },
                 {
                     "title": "Real-Time Hand Gesture MIDI Synthesizer",
+                    "link": "",
                     "description": "Gesture-based MIDI controller built using OpenCV + MediaPipe for real-time music output."
                 },
                 {
                     "title": "Bengaluru AI Road Guardian",
+                    "link": "",
                     "description": "Smart city pothole reporter with AI-based image classification and emergency dashboards."
                 },
                 {
                     "title": "Portfolio Website",
+                    "link": "",
                     "description": "A personal site showcasing projects, resume, and creative UI experiments."
                 }
             ]
@@ -73,11 +79,11 @@ export default function Home() {
                             {/* 🧍 Hero Section */}
                             <h1 > Vineet Kushwaha  </h1>
                             <p >Web Developer</p>
-                            <p 
-                            style={{
-                                fontSize: '1.2em'
-                            }}
-                            className='text-3xl'>
+                            <p
+                                style={{
+                                    fontSize: '1.2em'
+                                }}
+                                className='text-3xl'>
                                 I&apos;m a <span className='specific'>
                                     <span className="font-extrabold">&#123;</span> full-stack web developer <span className="font-extrabold">&#125;</span></span> with a strong grip on React, Node.js, and everything in between. <span className="specific">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I&apos;m also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.
                             </p>
