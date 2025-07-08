@@ -73,6 +73,14 @@ export default function Home() {
                             {/* 🧍 Hero Section */}
                             <h1 > Vineet Kushwaha  </h1>
                             <p >Web Developer</p>
+                            <p 
+                            style={{
+                                fontSize: '1.2em'
+                            }}
+                            className='text-3xl'>
+                                I&apos;m a <span className='specific'>
+                                    &#123; full-stack web developer &#125;</span> with a strong grip on React, Node.js, and everything in between. <span className="specific">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I&apos;m also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.
+                            </p>
                         </section>
                         <section className='section grid grid-cols-7'>
                             {/* 🛠️ Skills Section */}
@@ -101,7 +109,7 @@ export default function Home() {
                                         style={{
                                             background: 'rgba(var(--accent-rgb), 0.29)'
                                         }}
-                                        className='border boxShadow p-4 rounded-2xl'>
+                                        className='border boxShadow p-4 rounded-2xl hover:scale-110 duration-100'>
                                         <h3>{project.title}</h3>
                                         <p>{project.description}</p>
                                     </div>
