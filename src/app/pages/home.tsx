@@ -50,7 +50,6 @@ export default function Home() {
                                 "> ♫ </button>
                         </section>
                         <section className='section grid grid-cols-7'>
-                            {/* 🛠️ Skills Section */}
                             <h2 className='col-span-1'>Skills</h2>
                             <div className="col-span-1"></div>
                             <div className="col-span-5">
@@ -108,7 +107,7 @@ export default function Home() {
                             </div>
                         </section>
 
-                        <section className='section gap-x-20'>
+                        <section className='section sm:gap-x-20'>
                             {/* 💼 Experience Section */}
                             <h2 className='col-span-1'>Experience</h2>
                             <div className="col-span-1"></div>
@@ -122,7 +121,7 @@ export default function Home() {
                             </div>
                         </section>
 
-                        <section className='section gap-x-20'>
+                        <section className='section sm:gap-x-20'>
                             {/* 🎓 Education Section */}
                             <h2 className='col-span-1'>{visibleText.education?.mainLabel}</h2>
                             <div className="col-span-1"></div>
