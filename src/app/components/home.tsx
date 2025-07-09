@@ -1,7 +1,7 @@
 //src/app/home.tsx
 // import { useLangContext } from '../../hooks/useLang';
 // import Image from 'next/image';
-import Navbar from './narbar';
+import Navbar from './navbar';
 import { useAudio } from '@/context/AudioContext';
 import { visibleText } from './utility/visibletext';
 
