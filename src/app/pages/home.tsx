@@ -18,7 +18,7 @@ export default function Home() {
 
             <div className="container mt-10">
                 <div className="grid-layout">
-                    <div className="content-area px-10">
+                    <div className="content-area sm:px-10">
                         <section className='hero mx-auto my-20 grid grid-cols-8'>
                             {/* 🧍 Hero Section */}
                             <div className="col-span-4">
