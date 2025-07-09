@@ -1,55 +1,30 @@
 'use client'
-import { useState, useEffect } from "react"
 import './page.css'
 
-import Home from './pages/home'
-// import Navbar from './components/narbar'
+import Home from './components/home'
+import Navbar from './components/narbar'
+import Footer from './components/footer'
+import { useTheme } from '@/context/ThemeContext'
 // import Background from "./components/background"
 // import { useLangContext } from '../hooks/useLang';
 
 export default function Page() {
-  const [theme, setTheme] = useState('theme-charcoal')
-  const [themeVar, setThemeVar] = useState('𐰁')
-  // const {visibleText, changeLang} = useLangContext();
-
-  useEffect(() => {
-    document.documentElement.className = theme
-  }, [theme])
-  const cycleTheme = () => {
-    setTheme(prev =>
-      prev === 'theme-charcoal' ? 'theme-sunlight' :
-        prev === 'theme-sunlight' ? 'theme-crimson' :
-          prev === 'theme-crimson' ? 'theme-neon' : 'theme-charcoal'
-    )
-    setThemeVar(prev =>
-      prev === '𐰁' ? '☽' :
-        prev == '☽' ? '☁︎' :
-          prev == '☁︎' ? 'ᯓ' : '𐰁'
-    )
-  }
-
+  const { themeVar, cycleTheme } = useTheme()
   return (
-      <main className="transition-theme duration-1500">
-        {/* <Background /> */}
-        {/* <Navbar /> */}
-        <Home />     
+    <main className="transition-theme duration-1500">
+      {/* <Background /> */}
+      <Navbar />
+      <Home />
       <div className="wrapper fixed bottom-5 right-5 z-50 flex flex-col gap-1">
-        {/* <button 
-        onClick={changeLang}
-          className="hover:scale-120 transition-all h-12 w-12 text-center justify-center rounded-full shadow bg-[var(--accent)] text-[var(--bg)]">
-          {visibleText.toggleLangBtn ?? "Change Language"}
-        </button> */}
         <button
-        onClick={cycleTheme}
-        style={{
-            boxShadow: '0px 0px 30px 2px rgba(var(--accent-rgb), 0.3)'
-        }}
-        className="transition-theme boxShadow bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center">
-        {themeVar}
-      </button></div>  
-      <footer className='boxShadow flex py-auto justify-center'>
-        <span>Vineet Kushwaha - 2025</span>
-      </footer>
-      </main>
+          onClick={cycleTheme}
+          style={{ boxShadow: '0px 0px 30px 2px rgba(var(--accent-rgb), 0.3)' }}
+          className="transition-theme boxShadow bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center"
+        >
+          {themeVar}
+        </button>
+      </div>
+      <Footer />
+    </main>
   );
 }
