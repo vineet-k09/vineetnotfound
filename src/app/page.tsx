@@ -2,7 +2,7 @@
 import './page.css'
 
 import Home from './components/home'
-import Navbar from './components/narbar'
+import Navbar from './components/navbar'
 import Footer from './components/footer'
 import { useTheme } from '@/context/ThemeContext'
 // import Background from "./components/background"

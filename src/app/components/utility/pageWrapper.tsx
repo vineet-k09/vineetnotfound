@@ -1,5 +1,5 @@
 import Theme from "./theme"
-import Navbar from "../narbar"
+import Navbar from "../navbar"
 import Footer from "../footer"
 export default function PageWrapper({
     children,

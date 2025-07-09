@@ -5,7 +5,8 @@ import { LangProvider } from "@/hooks/useLang"; // make sure path is correct
 import CustomCursor from "./components/render/cursor";
 import { Analytics } from "@vercel/analytics/next"
 import { AudioProvider } from "@/context/AudioContext";
-import { ThemeProvider } from '@/context/ThemeContext'
+import { ThemeProvider } from '@/context/ThemeContext';
+import { LocationProvider } from "@/context/LocationProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,7 +41,7 @@ export default function RootLayout({
             <Analytics />
             <CustomCursor />
             <LangProvider>
-              {children}
+              <LocationProvider>{children}</LocationProvider>
             </LangProvider>
           </AudioProvider>
         </ThemeProvider>
