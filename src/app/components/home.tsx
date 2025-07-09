@@ -1,21 +1,18 @@
 //src/app/home.tsx
 // import { useLangContext } from '../../hooks/useLang';
 // import Image from 'next/image';
-import Navbar from '../components/narbar';
+import Navbar from './narbar';
 import { useAudio } from '@/context/AudioContext';
-import { visibleText } from '../components/visibletext';
+import { visibleText } from './utility/visibletext';
 
 export default function Home() {
     // const { visibleText } = useLangContext();
-    
+
     const { toggleAudio, isPlaying } = useAudio();
 
     return (
         <>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
             <Navbar />
-
             <div className="container mt-10">
                 <div className="grid-layout">
                     <div className="content-area sm:px-10">
@@ -27,9 +24,9 @@ export default function Home() {
                             </div>
                             <div className="col-span-1"></div>
                             <div className="reactOut col-span-3 flex gap-2">
-                                <a href='https://github.com/vineet-k09' target='_blank'><i className="devicon devicon-github-original"></i></a>
-                                <a href='https://www.linkedin.com/in/vineet-kushwaha-2666b5257/' target='_blank'><i className="devicon devicon-linkedin-plain"></i></a>
-                                <a href='mailTo:vineetkushwaha6325@gmail.com'><i className="fa-solid fa-envelope"></i></a>
+                                <a href='https://github.com/vineet-k09' target='_blank'><i className="devicon devicon-github-original hover:text-[var(--accent)]"></i></a>
+                                <a href='https://www.linkedin.com/in/vineet-kushwaha-2666b5257/' target='_blank'><i className="devicon devicon-linkedin-plain hover:text-[var(--accent)]"></i></a>
+                                <a href='mailTo:vineetkushwaha6325@gmail.com'><i className="fa-solid fa-envelope hover:text-[var(--accent)]"></i></a>
                             </div>
                             <p
                                 style={{
@@ -43,7 +40,7 @@ export default function Home() {
                             <button
                                 style={{
                                     color: isPlaying ? 'var(--accent)' : 'var(--bg)'
-                                  }}
+                                }}
                                 onClick={toggleAudio}
                                 className="hover:scale-120 transition-all h-8 w-12 text-center justify-center rounded-2xl boxShadow 
                                 bg-[var(--text)]
@@ -86,20 +83,20 @@ export default function Home() {
                             <h2 className='col-span-1'>Projects</h2>
                             <div className="col-span-1"></div>
                             <div
-                                className="space-y-4 grid grid-cols-2 gap-4 col-span-5">
+                                className="space-y-4 grid grid-cols-2 gap-4 col-span-5 items-start">
                                 {visibleText.projects?.list?.map((project, idx) => (
                                     <div
                                         key={idx}
                                         style={{
                                             // background: 'rgba(var(--accent-rgb), 0.29)'
                                             background: 'var(--text)',
-                                            color: 'var(--bg)'
+                                            color: 'var(--bg)',
                                         }}
                                         className='border boxShadow p-4 rounded-2xl hover:scale-110 duration-100'>
                                         <h3 className='specific text-3xl'>{project.title}</h3>
                                         <p>{project.description}</p>
                                         <a href={project.github} target='_blank'>
-                                            <i  
+                                            <i
                                                 className="devicon devicon-github-original 
                                                 text-[var(--bg)] hover:text-[var(--accent)]"></i></a>
                                     </div>

@@ -1,10 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Metadata } from "next";
 import "./globals.css";
-import { LangProvider } from "../hooks/useLang"; // make sure path is correct
-import CustomCursor from "./components/cursor";
+import { LangProvider } from "@/hooks/useLang"; // make sure path is correct
+import CustomCursor from "./components/render/cursor";
 import { Analytics } from "@vercel/analytics/next"
 import { AudioProvider } from "@/context/AudioContext";
+import { ThemeProvider } from '@/context/ThemeContext'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,15 +32,18 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/icon.png" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vineet-k09/devicon@latest/devicon.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <AudioProvider>
-          <Analytics />
-          <CustomCursor />
-          <LangProvider>
-            {children}
-          </LangProvider>
-        </AudioProvider>
+        <ThemeProvider>
+          <AudioProvider>
+            <Analytics />
+            <CustomCursor />
+            <LangProvider>
+              {children}
+            </LangProvider>
+          </AudioProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

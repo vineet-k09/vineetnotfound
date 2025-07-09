@@ -1,5 +1,8 @@
+//src/app/components/navbar.tsx
+'use client'
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import Link from 'next/link';
 
 // import { useLangContext } from '../../hooks/useLang';
 
@@ -69,7 +72,7 @@ export default function Navbar() {
                 fetchWeather(12.97, 77.59);
             });
     }, []);
-    
+
 
     // Toggle time/weather every 5 seconds
     useEffect(() => {
@@ -87,7 +90,7 @@ export default function Navbar() {
                 }}
                 className="navbar boxShadow backdrop-blur-sm fixed">
                 <nav className="px-7">
-                    <div className="">
+                    <div>
                         <div className="justify-between items-center flex text-center my-2 ">
                             <motion.h3
                                 style={{
@@ -99,9 +102,16 @@ export default function Navbar() {
                             {/* <div className="burger block sm:hidden"></div> */}
                             <ul className="list-none flex gap-5">
                                 <li className='text-sm border-2 min-w-18 my-auto rounded-lg'>{isTime ? time : temp}</li>
-                                <li className='py-1 hidden sm:flex'><a href="">Home</a></li>
-                                <li className='py-1 hidden sm:flex'><a href="#">Projects</a></li>
-                                <li className='py-1 hidden sm:flex'><a href="#">Contact</a></li>
+                                <li className='py-1 hidden sm:flex'>
+                                    {/* <a href="">Home</a> */}
+                                    <Link href='/'>Home</Link>
+                                </li>
+                                <li className='py-1 hidden sm:flex'>
+                                    <Link href="/projects">Projects</Link>
+                                </li>
+                                <li className='py-1 hidden sm:flex'>
+                                    <Link href="/contact">Contact</Link>
+                                    </li>
                             </ul>
                         </div>
                     </div>
