@@ -6,9 +6,8 @@ import PageWrapper from '../components/utility/pageWrapper'
 export default function Projects() {
     return (
         <PageWrapper>
-            <main className="flex-grow container mt-10">
                 <div className="grid-layout">
-                    <div className="content-area mt-10 sm:px-10 flex justify-center flex-col">
+                    <div className="content-area sm:px-10 flex justify-center flex-col">
                         <h2 className='text-center my-10'>Projects</h2>
                         <section className='section'>
                             {/* 🚀 Projects Section */}
@@ -35,7 +34,6 @@ export default function Projects() {
                         </section>
                     </div>
                 </div>
-            </main>
         </PageWrapper>
     )
 }
