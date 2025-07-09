@@ -71,19 +71,30 @@ export default function Home() {
 
     return (
         <>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
             <Navbar />
+
             <div className="container mt-10">
                 <div className="grid-layout">
                     <div className="content-area">
-                        <section className='hero mx-auto my-20 flex flex-col x-4'>
+                        <section className='hero mx-auto my-20 grid grid-cols-8'>
                             {/* 🧍 Hero Section */}
-                            <h1 > Vineet Kushwaha  </h1>
-                            <p >Web Developer</p>
+                            <div className="col-span-4">
+                                <h1 > Vineet Kushwaha  </h1>
+                                <p >Web Developer</p>
+                            </div>
+                            <div className="col-span-1"></div>
+                            <div className="reactOut col-span-3 flex gap-2">
+                                <a href='https://github.com/vineet-k09' target='_blank'><i className="devicon devicon-github-original"></i></a>
+                                <a href='https://www.linkedin.com/in/vineet-kushwaha-2666b5257/' target='_blank'><i className="devicon devicon-linkedin-plain"></i></a>
+                                <a href='mailTo:vineetkushwaha6325@gmail.com'><i className="fa-solid fa-envelope"></i></a>
+                            </div>
                             <p
                                 style={{
                                     fontSize: '1.2em'
                                 }}
-                                className='text-3xl'>
+                                className='text-3xl col-span-8'>
                                 I&apos;m a <span className='specific'>
                                     <span className="font-extrabold">&#123;</span> full-stack web developer <span className="font-extrabold">&#125;</span></span> with a strong grip on React, Node.js, and everything in between. <span className="specific">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I&apos;m also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.
                             </p>
@@ -92,16 +103,34 @@ export default function Home() {
                             {/* 🛠️ Skills Section */}
                             <h2 className='col-span-1'>Skills</h2>
                             <div className="col-span-1"></div>
-                            <ul className="grid grid-cols-2 col-span-5 sm:grid-cols-3 md:grid-cols-4 gap-2 specific">
-                                <li>React</li>
-                                <li>Node.js</li>
-                                <li>MongoDB</li>
-                                <li>Python</li>
-                                <li>TypeScript</li>
-                                <li>TailwindCSS</li>
-                                <li>Git</li>
-                                <li>Docker</li>
-                            </ul>
+                            <div className="col-span-5">
+                                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                                    <li className="flex items-center gap-2 specific">
+                                        <i className="devicon-react-original colored text-xl "></i> React
+                                    </li>
+                                    <li className="flex items-center gap-2 specific">
+                                        <i className="devicon-nodejs-plain colored text-xl"></i> Node.js
+                                    </li>
+                                    <li className="flex items-center gap-2 specific">
+                                        <i className="devicon-mongodb-plain colored text-xl"></i> MongoDB
+                                    </li>
+                                    <li className="flex items-center gap-2 specific">
+                                        <i className="devicon-python-plain text-blue-500 text-xl"></i> Python
+                                    </li>
+                                    <li className="flex items-center gap-2 specific">
+                                        <i className="devicon-typescript-plain colored text-xl"></i> TypeScript
+                                    </li>
+                                    <li className="flex items-center gap-2 specific">
+                                        <i className="devicon-tailwindcss-original colored text-xl"></i> TailwindCSS
+                                    </li>
+                                    <li className="flex items-center gap-2 specific">
+                                        <i className="devicon-git-plain colored text-xl"></i> Git
+                                    </li>
+                                    <li className="flex items-center gap-2 specific">
+                                        <i className="devicon-docker-plain colored text-xl"></i> Docker
+                                    </li>
+                                </ul>
+                            </div>
                         </section>
                         <section className='section'>
                             {/* 🚀 Projects Section */}

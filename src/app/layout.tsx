@@ -29,8 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-
         <link rel="icon" href="/icon.png" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vineet-k09/devicon@latest/devicon.min.css" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <AudioProvider>
