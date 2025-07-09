@@ -78,7 +78,6 @@ body::-webkit-scrollbar-thumb {
 
 .specific::selection {
   color: var(--accent);
-  @apply font-extrabold;
 }
 
 .shadow {
