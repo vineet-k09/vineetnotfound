@@ -4,6 +4,7 @@
 import Navbar from './navbar';
 import { useAudio } from '@/context/AudioContext';
 import { visibleText } from './utility/visibletext';
+import { skills1, skills2, skills3, skills4 } from './utility/skills';
 
 export default function Home() {
     // const { visibleText } = useLangContext();
@@ -50,31 +51,48 @@ export default function Home() {
                             <h2 className='col-span-1'>Skills</h2>
                             <div className="col-span-1"></div>
                             <div className="col-span-5">
-                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
-                                    <li className="flex items-center gap-2 specific">
-                                        <i className="devicon-react-original colored text-xl "></i> React
-                                    </li>
-                                    <li className="flex items-center gap-2 specific">
-                                        <i className="devicon-nodejs-plain colored text-xl"></i> Node.js
-                                    </li>
-                                    <li className="flex items-center gap-2 specific">
-                                        <i className="devicon-mongodb-plain colored text-xl"></i> MongoDB
-                                    </li>
-                                    <li className="flex items-center gap-2 specific">
-                                        <i className="devicon-python-plain text-blue-500 text-xl"></i> Python
-                                    </li>
-                                    <li className="flex items-center gap-2 specific">
-                                        <i className="devicon-typescript-plain colored text-xl"></i> TypeScript
-                                    </li>
-                                    <li className="flex items-center gap-2 specific">
-                                        <i className="devicon-tailwindcss-original colored text-xl"></i> TailwindCSS
-                                    </li>
-                                    <li className="flex items-center gap-2 specific">
-                                        <i className="devicon-git-plain colored text-xl"></i> Git
-                                    </li>
-                                    <li className="flex items-center gap-2 specific">
-                                        <i className="devicon-docker-plain colored text-xl"></i> Docker
-                                    </li>
+                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5  text-sm">
+                                    {skills1.map(({ className, label, link }) => (
+                                        <li key={label} className="flex items-center gap-2 specific">
+                                            <a href={link} target="_blank" rel="noopener noreferrer">
+                                                <i className={className}></i>
+                                            </a>
+                                            {label}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <hr className='my-4' />
+                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5 text-sm">
+                                    {skills2.map(({ className, label, link }) => (
+                                        <li key={label} className="flex items-center gap-2 specific">
+                                            <a href={link} target="_blank" rel="noopener noreferrer">
+                                                <i className={className}></i>
+                                            </a>
+                                            {label}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <hr className='my-4' />
+                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5  text-sm">
+                                    {skills3.map(({ className, label, link }) => (
+                                        <li key={label} className="flex items-center gap-2 specific">
+                                            <a href={link} target="_blank" rel="noopener noreferrer">
+                                                <i className={className}></i>
+                                            </a>
+                                            {label}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <hr className='my-4' />
+                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5 text-sm">
+                                    {skills4.map(({ className, label, link }) => (
+                                        <li key={label} className="flex items-center gap-2 specific">
+                                            <a href={link} target="_blank" rel="noopener noreferrer">
+                                                <i className={className}></i>
+                                            </a>
+                                            {label}
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </section>
@@ -83,7 +101,9 @@ export default function Home() {
                             <h2 className='col-span-1'>Projects</h2>
                             <div className="col-span-1"></div>
                             <div
-                                className="space-y-4 grid grid-cols-2 gap-4 col-span-5 items-start">
+                                className="space-y-4 grid grid-cols-2 gap-4 col-span-5 
+                                //items-start
+                                ">
                                 {visibleText.projects?.list?.map((project, idx) => (
                                     <div
                                         key={idx}
