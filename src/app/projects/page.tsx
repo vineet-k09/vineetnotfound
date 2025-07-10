@@ -7,11 +7,11 @@ export default function Projects() {
             <div className="grid-layout">
                 <div className="content-area sm:px-10 flex flex-col items-center">
                     <h2 className='text-center my-10 text-4xl font-bold'>Projects</h2>
-                    <div className="grid gap-6">
+                    <div className="grid gap-6 grid-cols-6">
                         {visibleText.projects?.list?.map((project, idx) => (
                             <div
                                 key={idx}
-                                className="rounded-xl shadow-lg border p-4 bg-[var(--text)] text-[var(--bg)] transition-transform hover:scale-[1.01]"
+                                className="rounded-xl shadow-lg border p-4 bg-[var(--text)] text-[var(--bg)] transition-transform hover:scale-[1.01] col-span-6 overflow-hidden"
                             >
                                 <h3 className="text-2xl mb-2">{project.title}</h3>
                                 <p className="text-sm mb-2">{project.description}</p>

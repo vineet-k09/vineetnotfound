@@ -6,6 +6,8 @@
   --accent: #0ea5e9;
   --accent-rgb: 14, 165, 233;
   --selection: #374151;
+  --lg-width: 500px;
+  --sm-width: 200px;
 }
 
 @media (prefers-color-scheme: light) {

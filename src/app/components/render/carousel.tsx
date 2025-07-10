@@ -1,4 +1,5 @@
 'use client'
+import '../../page.css'
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
@@ -34,27 +35,17 @@ export default function ProjectCarousel({ images = [] }: { images: string[] }) {
                     <div
                         key={i}
                         id= {i.toString()}
-                        className="relative shrink-0 rounded-xl overflow-hidden"
-                        style={{
-                            width: IMAGE_WIDTH,
-                            height: 300,
-                            flex: `0 0 ${IMAGE_WIDTH}px`,
-                            // objectFit: 'cover',
-                        }}
+                        className="relative shrink-0 rounded-xl overflow-hidden w-[80vw] sm:w-[50vw] h-[300px] flex-none"
                     >
                         <Image
                             src={src}
                             alt={`Screenshot ${i + 1}`}
                             layout="fill"
-                            className="rounded-xl object-cover "
-                            quality={99}
+                            className="rounded-xl //sm:object-cover"
                         />
                     </div>
                 ))}
             </div>
-
-            {/* Fade on right */}
-            <div className="pointer-events-none absolute top-0 right-0 h-full w-[80px] bg-gradient-to-l from-[var(--text)] to-transparent z-10" />
         </div>
     );
 }
