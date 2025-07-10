@@ -51,46 +51,46 @@ export default function Home() {
                             <h2 className='col-span-1'>Skills</h2>
                             <div className="col-span-1"></div>
                             <div className="col-span-5">
-                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5  text-sm">
+                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5 gap-x-20 sm:gap-x-18  text-sm">
                                     {skills1.map(({ className, label, link }) => (
-                                        <li key={label} className="flex items-center gap-2 specific">
-                                            <a href={link} target="_blank" rel="noopener noreferrer">
+                                        <li key={label} className="specific">
+                                            <a href={link} target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 '>
                                                 <i className={className}></i>
+                                                {label}
                                             </a>
-                                            {label}
                                         </li>
                                     ))}
                                 </ul>
-                                <hr className='my-4' />
-                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5 text-sm">
+                                <hr className='my-4 col-span-4' />
+                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5 gap-x-20 sm:gap-x-18 text-sm">
                                     {skills2.map(({ className, label, link }) => (
-                                        <li key={label} className="flex items-center gap-2 specific">
-                                            <a href={link} target="_blank" rel="noopener noreferrer">
+                                        <li key={label} className="specific">
+                                            <a href={link} target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 '>
                                                 <i className={className}></i>
+                                                {label}
                                             </a>
-                                            {label}
                                         </li>
                                     ))}
                                 </ul>
                                 <hr className='my-4' />
-                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5  text-sm">
+                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5 gap-x-20 sm:gap-x-18 text-sm">
                                     {skills3.map(({ className, label, link }) => (
-                                        <li key={label} className="flex items-center gap-2 specific">
-                                            <a href={link} target="_blank" rel="noopener noreferrer">
+                                        <li key={label} className="specific">
+                                            <a href={link} target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 '>
                                                 <i className={className}></i>
+                                                {label}
                                             </a>
-                                            {label}
                                         </li>
                                     ))}
                                 </ul>
                                 <hr className='my-4' />
-                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5 text-sm">
+                                <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-5 gap-x-20 sm:gap-x-18 text-sm">
                                     {skills4.map(({ className, label, link }) => (
-                                        <li key={label} className="flex items-center gap-2 specific">
-                                            <a href={link} target="_blank" rel="noopener noreferrer">
+                                        <li key={label} className="specific">
+                                            <a href={link} target="_blank" rel="noopener noreferrer" className='flex items-center gap-2 '>
                                                 <i className={className}></i>
+                                                {label}
                                             </a>
-                                            {label}
                                         </li>
                                     ))}
                                 </ul>
@@ -124,7 +124,7 @@ export default function Home() {
                             </div>
                         </section>
 
-                        <section className='section sm:gap-x-20'>
+                        <section className='section sm:gap-x-22'>
                             {/* 💼 Experience Section */}
                             <h2 className='col-span-1'>Experience</h2>
                             <div className="col-span-1"></div>
@@ -138,7 +138,7 @@ export default function Home() {
                             </div>
                         </section>
 
-                        <section className='section sm:gap-x-20'>
+                        <section className='section sm:gap-x-22'>
                             {/* 🎓 Education Section */}
                             <h2 className='col-span-1'>{visibleText.education?.mainLabel}</h2>
                             <div className="col-span-1"></div>
@@ -149,9 +149,9 @@ export default function Home() {
                                         <p>{edu.institute} – {edu.location}</p>
                                         <p>{edu.duration}</p>
                                         <p className='font-bold'>{edu.cgpa}</p>
-                                        <ul className="list-disc grid grid-cols-3">
+                                        <ul className="grid sm:grid-cols-2 grid-cols-3 list-disc -pl-5">
                                             {edu.courses.map((course, i) => (
-                                                <li key={i}>{course}</li>
+                                                <li key={i} className=''>{course}</li>
                                             ))}
                                         </ul>
                                     </div>
