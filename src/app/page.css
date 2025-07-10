@@ -73,7 +73,9 @@ body {
 }
 
 footer {
-    background: rgba(var(--accent-rgb), 0.19);
+    /* background: rgba(var(--accent-rgb), 0.19); */
+    background: var(--text);
+    color: var(--bg);
     border-top: 1px solid rgba(var(--accent-rgb), 0.57);
     @apply py-3;
 }
