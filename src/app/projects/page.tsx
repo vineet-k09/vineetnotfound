@@ -5,8 +5,8 @@ export default function Projects() {
     return (
         <PageWrapper>
             <div className="grid-layout">
-                <div className="content-area sm:px-10 flex flex-col items-center">
-                    <h2 className='text-center my-10 text-4xl font-bold'>Projects</h2>
+                <div className="content-area sm:px-10 flex flex-col items-center my-10">
+                    <h2 className='text-center my-5 text-4xl font-bold'>Projects</h2>
                     <div className="grid gap-6 grid-cols-6">
                         {visibleText.projects?.list?.map((project, idx) => (
                             <div
@@ -18,7 +18,7 @@ export default function Projects() {
                                 <ProjectCarousel images={project?.image} />
                                 <div className="flex flex-wrap gap-2 mt-3">
                                     {project.stack?.map((tech, i) => (
-                                        <span key={i} className="bg-[var(--bg)] text-[var(--text)] text-xs px-2 py-1 rounded">
+                                        <span key={i} className="bg-[var(--bg)] text-[var(--text)] text-xs px-2 py-1 rounded cursor-default hover:bg-[var(--accent)]">
                                             {tech}
                                         </span>
                                     ))}
