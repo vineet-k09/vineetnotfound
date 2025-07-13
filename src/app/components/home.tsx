@@ -5,6 +5,7 @@ import Navbar from './navbar';
 import { useAudio } from '@/context/AudioContext';
 import { visibleText } from './utility/visibletext';
 import { skills1, skills2, skills3, skills4 } from './utility/skills';
+import Link from 'next/link';
 
 export default function Home() {
     // const { visibleText } = useLangContext();
@@ -25,9 +26,12 @@ export default function Home() {
                             </div>
                             <div className="col-span-1"></div>
                             <div className="reactOut col-span-3 flex gap-2">
-                                <a href='https://github.com/vineet-k09' target='_blank'><i className="devicon devicon-github-original hover:text-[var(--accent)]"></i></a>
-                                <a href='https://www.linkedin.com/in/vineet-kushwaha-2666b5257/' target='_blank'><i className="devicon devicon-linkedin-plain hover:text-[var(--accent)]"></i></a>
-                                <a href='mailTo:vineetkushwaha6325@gmail.com'><i className="fa-solid fa-envelope hover:text-[var(--accent)]"></i></a>
+                                <a href='https://github.com/vineet-k09' target='_blank'><i className="devicon devicon-github-original 
+                                hover:text-[var(--accent)] 
+                                border-2 p-1 border-transparent 
+                                hover:border-[var(--accent)] rounded-full duration-250"></i></a>
+                                <a href='https://www.linkedin.com/in/vineet-kushwaha-2666b5257/' target='_blank'><i className="devicon devicon-linkedin-plain hover:text-[var(--accent)] border-2 p-1 border-transparent hover:border-[var(--accent)] rounded-xl duration-250"></i></a>
+                                <a href='mailTo:vineetkushwaha6325@gmail.com'><i className="fa-solid fa-envelope hover:text-[var(--accent)] border-2 p-1 border-transparent hover:border-[var(--accent)] -mt-1 rounded-xl duration-250"></i></a>
                             </div>
                             <p
                                 style={{
@@ -36,6 +40,7 @@ export default function Home() {
                                 className='text-3xl col-span-8'>
                                 I&apos;m a <span className='specific'>
                                     <span className="font-extrabold">&#123;</span> full-stack web developer <span className="font-extrabold">&#125;</span></span> with a strong grip on React, Node.js, and everything in between. <span className="specific">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I&apos;m also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.
+                                    {/* {visibleText.aboutme1} */}
                             </p>
 
                             <button
@@ -43,8 +48,12 @@ export default function Home() {
                                     color: isPlaying ? 'var(--accent)' : 'var(--bg)'
                                 }}
                                 onClick={toggleAudio}
-                                className="hover:scale-120 transition-all h-8 w-12 text-center justify-center rounded-2xl boxShadow 
+                                className="hover:scale-120 hover:bg-[var(--accent)] 
+                                border-2 
+                                hover:border-[var(--text)]
+                                transition-all h-8 w-12 text-center justify-center rounded-2xl boxShadow 
                                 bg-[var(--text)]
+                                duration-250
                                 "> ♫ </button>
                         </section>
                         <section className='section grid grid-cols-7'>
@@ -101,7 +110,7 @@ export default function Home() {
                             <h2 className='col-span-1'>Projects</h2>
                             <div className="col-span-1"></div>
                             <div
-                                className="space-y-4 grid grid-cols-2 gap-4 col-span-5 
+                                className="space-y-4 grid grid-cols-1 sm:grid-cols-2 gap-4 col-span-5 
                                 //items-start
                                 ">
                                 {visibleText.projects?.list?.map((project, idx) => (
@@ -112,13 +121,17 @@ export default function Home() {
                                             background: 'var(--text)',
                                             color: 'var(--bg)',
                                         }}
-                                        className='border boxShadow p-4 rounded-2xl hover:scale-110 duration-100'>
+                                        className='border boxShadow p-4 rounded-2xl hover:scale-110 duration-250'>
                                         <h3 className='specific text-3xl'>{project.title}</h3>
                                         <p>{project.description}</p>
                                         <a href={project.github} target='_blank'>
                                             <i
                                                 className="devicon devicon-github-original 
-                                                text-[var(--bg)] hover:text-[var(--accent)]"></i></a>
+                                                text-[var(--bg)] hover:text-[var(--accent)] border-2 p-1 border-transparent hover:border-[var(--accent)] rounded-full duration-250"></i></a>
+                                        <Link href={`/projects#${idx}`}>
+                                            <i
+                                                className="devicon fa-solid fa-link 
+                                                text-[var(--bg)] hover:text-[var(--accent)] border-2 p-1 border-transparent hover:border-[var(--accent)] rounded-full duration-250"></i></Link>
                                     </div>
                                 ))}
                             </div>
@@ -147,28 +160,11 @@ export default function Home() {
                                     <div key={idx}>
                                         <h3 className='specific'>{edu.degree}</h3>
                                         <p>{edu.institute} – {edu.location}</p>
-                                        <p>{edu.duration}</p>
-                                        <p className='font-bold'>{edu.cgpa}</p>
-                                        <ul className="grid sm:grid-cols-2 grid-cols-3 list-disc -pl-5">
-                                            {edu.courses.map((course, i) => (
-                                                <li key={i} className=''>{course}</li>
-                                            ))}
-                                        </ul>
+                                        <p className='font-bold'>{edu.duration}</p>
                                     </div>
                                 ))}
                             </div>
                         </section>
-
-                        {/* <section className='mx-8 sm:-mx-12 md:-mx-20 lg:-mx-40 mb-12'>
-                            <div className="grid grid-cols-6 gap-1 overflow-hidden">
-                                <Image src="/name/1.jpg" height={200} width={200} alt="Image 1: Mapleton, Maine" className='hover:scale-105 duration-200' />
-                                <Image src="/name/2.jpg" height={200} width={200} alt="Image 2:Canandaigua lake, New York" className='hover:scale-105 duration-200' />
-                                <Image src="/name/3.jpg" height={200} width={200} alt="Image 3:Yapacani, Bolivia" className='hover:scale-105 duration-200' />
-                                <Image src="/name/4.jpg" height={200} width={200} alt="Image 4:Sea of Okhotsk" className='hover:scale-105 duration-200' />
-                                <Image src="/name/5.jpg" height={200} width={200} alt="Image 5:Bellona Plateau" className='hover:scale-105 duration-200' />
-                                <Image src="/name/6.jpg" height={200} width={200} alt="Image 6:Liwa, United Arab Emirate" className='hover:scale-105 duration-200' />
-                            </div>
-                        </section> */}
                     </div>
                 </div>
             </div>

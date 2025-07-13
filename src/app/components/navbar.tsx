@@ -10,12 +10,9 @@ import { useLocation } from '@/context/LocationProvider';
 export default function Navbar() {
     const [isTime, setIsTime] = useState(true);
     const [time, setTime] = useState('');
-    // const [temp, setTemp] = useState('--°C');
     const [isOpen, setIsOpen] = useState(false)
     const menuRef = useRef<HTMLElement>(null)
     const { weather } = useLocation()
-    // const [city, setCity] = useState('Bengaluru')
-    // const { visibleText } = useLangContext();
     const { scrollY } = useScroll();
 
     const smoothScroll = useSpring(scrollY, {
@@ -45,39 +42,6 @@ export default function Navbar() {
         const interval = setInterval(update, 60 * 1000);
         return () => clearInterval(interval);
     }, []);
-
-    // // Fetch temp once (can enhance to use IP later)
-    // useEffect(() => {
-    //     // Helper function to fetch weather
-    //     const fetchWeather = (latitude: number, longitude: number) => {
-    //         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`)
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 const c = data?.current_weather?.temperature;
-    //                 if (typeof c === 'number') setTemp(`${c}°C`);
-    //                 else throw new Error('Invalid temp');
-    //             })
-    //             .catch(() => setTemp('N/A'));
-    //     };
-    //     // Try IP-based location first
-    //     fetch('/api/location')
-    //         .then(res => res.json())
-    //         .then(loc => {
-    //             const { latitude, longitude } = loc;
-    //             console.log(latitude,longitude)
-    //             if (latitude && longitude) {
-    //                 fetchWeather(latitude, longitude);
-    //             } else {
-    //                 throw new Error('No location data');
-    //             }
-    //             // setCity(loc.city)
-    //         })
-    //         .catch(() => {
-    //             // Fallback: Bangalore
-    //             fetchWeather(12.97, 77.59);
-    //         });
-    // }, []);
-
 
     // Toggle time/weather every 5 seconds
     useEffect(() => {
@@ -110,7 +74,9 @@ export default function Navbar() {
                     top: top,
                     borderRadius: bRadius,
                 }}
-                className="navbar boxShadow backdrop-blur-sm fixed">
+                className="navbar
+                backdrop-blur-sm 
+                 fixed z-50">
                 <nav
                     ref={menuRef}
                     className="px-7">
@@ -128,13 +94,13 @@ export default function Navbar() {
                                 <li className='text-sm border-2 min-w-18 my-auto rounded-lg'>{isTime ? time : `${weather}°C`}</li>
                                 <li className='py-1 hidden sm:flex'>
                                     {/* <a href="">Home</a> */}
-                                    <Link href='/'>Home</Link>
+                                    <Link href='/' className=''>Home</Link>
                                 </li>
                                 <li className='py-1 hidden sm:flex'>
                                     <Link href="/projects">Projects</Link>
                                 </li>
                                 <li className='py-1 hidden sm:flex'>
-                                    <Link href="/contact">Contact</Link>
+                                    <Link href="/about">About</Link>
                                 </li>
                                 <li>
 
