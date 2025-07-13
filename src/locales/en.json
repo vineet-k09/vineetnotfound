@@ -1,6 +1,7 @@
 {    "name": "Vineet Kushwaha",
     "role": "Web Developer",
     "skills": "Skills",
+    "aboutme1": "I'm a <span className='specific'><span className=\"font-extrabold\">&#123;</span> full-stack web developer <span className=\"font-extrabold\">&#125;</span></span> with a strong grip on React, Node.js, and everything in between. <span className=\"specific\">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I'm also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.",
     "projects": {
         "mainLabel": "Projects",
         "list": [

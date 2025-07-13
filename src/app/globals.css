@@ -2,9 +2,10 @@
 
 :root {
   --bg: #1a1a1a;
+  --bg-rgba: rgba(26, 26, 26, 0.5);
   --text: #e5e5e5;
   --accent: #0ea5e9;
-  --accent-rgb: 14, 165, 233;
+  --accent-rgb: 299, 299, 299;
   --selection: #374151;
   --lg-width: 500px;
   --sm-width: 200px;
@@ -13,42 +14,47 @@
 @media (prefers-color-scheme: light) {
   :root {
     --bg: #f3f0e6;
+    --bg-rgba: rgba(243, 240, 230, 0.5);
     --text: #2c2a28;
     --accent: #c47f17;
-    --accent-rgb: 196, 127, 23;
+    --accent-rgb: 44, 42, 40;
     --selection: #e9d8a6;
   }
 }
 
 .theme-crimson {
   --bg: #1e0e14;
+  --bg-rgba: rgba(30, 14, 20,0.5);
   --text: #f5e9f0;
   --accent: #dc2626;
-  --accent-rgb: 220, 38, 38;
+  --accent-rgb: 245, 233, 240;
   --selection: #0ea5e9;
 }
 
 .theme-charcoal {
   --bg: #1a1a1a;
+  --bg-rgba: rgba(26, 26, 26,0.5);
   --text: #e5e5e5;
   --accent: #0ea5e9;
-  --accent-rgb: 14, 165, 233;
+  --accent-rgb: 299, 299, 299;
   --selection: #374151;
 }
 
 .theme-sunlight {
   --bg: #f3f0e6;
+  --bg-rgba: rgba(243, 240, 230,0.5);
   --text: #2c2a28;
   --accent: #c47f17;
-  --accent-rgb: 196, 127, 23;
+  --accent-rgb: 44, 42, 40;
   --selection: #e9d8a6;
 }
 
 .theme-neon {
   --bg: #fefae0;
+  --bg-rgba: rgba(254, 250, 224,0.5);
   --text: #1c1b1f;
   --accent: #facc15;
-  --accent-rgb: 250, 204, 21;
+  --accent-rgb: 28, 27, 31;
   --selection: #fde68a;
 }
 
