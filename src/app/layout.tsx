@@ -1,4 +1,3 @@
-'use client'
 import { Geist, Geist_Mono } from "next/font/google";
 import { Metadata } from "next";
 import "./globals.css";
