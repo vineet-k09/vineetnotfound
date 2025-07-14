@@ -1,61 +1,96 @@
 {
     "name": "विनीत कुशवाहा",
-    "role": "एक रचनात्मक डेवलपर जो वेब और मोबाइल प्लेटफ़ॉर्म पर इंटरेक्टिव, इमर्सिव और सहज डिजिटल अनुभव बनाने के लिए उत्साही हैं।",
-    "skills": "React जैसे फ्रंटएंड फ्रेमवर्क और Node.js जैसी बैकएंड तकनीकों के साथ-साथ डेटा साइंस, डिज़ाइन थिंकिंग और रियल-टाइम सिस्टम में विशेषज्ञता।",
+    "role": "वेब डेवलपर",
+    "navbar": [
+  ["होम", " "],
+  ["प्रोजेक्ट्स", "projects"],
+  ["बायो", "about"]
+],
+    "aboutme11": "मैं एक ",
+    "aboutme12": "{",
+    "aboutme13": "फुल-स्टैक वेब डेवलपर",
+    "aboutme121": "}",
+    "aboutme14": "हूँ, जिसे React, Node.js और इनके बीच की बाकी चीज़ों में अच्छी पकड़ है। ",
+    "aboutme15": "मुझे बनाना पसंद है",
+    "aboutme16": "ऐसे responsive और रियल-वर्ल्ड ऐप्स जो इस्तेमाल में आसान हों और बनाने में मज़ेदार लगें। ",
+    "aboutme17": "वेब डेवलपमेंट के साथ-साथ मैं Python का इस्तेमाल टास्क ऑटोमेशन, नए आइडिया एक्सपेरिमेंट और कंप्यूटर विज़न प्रोजेक्ट्स में करता हूँ। मैं डेटा साइंस की पढ़ाई भी कर रहा हूँ, जिससे मुझे प्रॉब्लम सॉल्व करने और कोड को समझने का एक अलग नजरिया मिलता है। अभी सीख रहा हूँ, लेकिन हर प्रोजेक्ट के साथ मैं बेहतर बनने की कोशिश करता हूँ और सोच-समझ कर बनाता हूँ।",
     "projects": {
-        "mainLabel": "प्रोजेक्ट्स",
-        "list": [
-            {
-                "title": "Endxiety",
-                "description": "AI-संचालित मानसिक स्वास्थ्य ऐप जिसमें गुमनाम चैट, भावना ट्रैकिंग और जर्नलिंग शामिल है।"
-            },
-            {
-                "title": "Saarthi AI",
-                "description": "AI-आधारित बहुभाषी योजना अनुशंसा प्रणाली, जो आवाज़ और टेक्स्ट दोनों के माध्यम से सुलभ है।"
-            },
-            {
-                "title": "BiblioVerse",
-                "description": "AI-आधारित ईबुक अनुशंसा प्रणाली, बड़े डेटा फ़िल्टरिंग और आधुनिक UI के साथ।"
-            },
-            {
-                "title": "रीयल-टाइम हैंड जेस्चर MIDI सिंथेसाइज़र",
-                "description": "OpenCV + MediaPipe का उपयोग कर बनाया गया जेस्चर-आधारित MIDI नियंत्रक जो रीयल-टाइम संगीत आउटपुट देता है।"
-            },
-            {
-                "title": "बेंगलुरु AI रोड गार्जियन",
-                "description": "AI-आधारित छवि वर्गीकरण और आपातकालीन डैशबोर्ड के साथ स्मार्ट सिटी पॉटहोल रिपोर्टिंग सिस्टम।"
-            },
-            {
-                "title": "पोर्टफोलियो वेबसाइट",
-                "description": "एक व्यक्तिगत साइट जो प्रोजेक्ट्स, रिज़्यूमे और रचनात्मक UI प्रयोगों को प्रदर्शित करती है।"
-            }
-        ]
+      "title": "प्रोजेक्ट्स",
+      "list": [
+        {
+          "title": "Endxiety",
+          "github": "https://github.com/vineet-k09/Endxiety",
+          "description": "AI-संचालित मेंटल वेलनेस ऐप जिसमें गुमनाम चैट, इमोशन ट्रैकिंग और जर्नलिंग की सुविधा है।",
+          "stack": ["ReactJs","MongoDB","ViteJS","OpenAI API"],
+          "live": "https://emo-son-ai.vercel.app/",
+          "image": ["/projects/endxiety/1.png"]
+        },
+        {
+          "title": "Saarthi AI",
+          "github": "https://github.com/Sarthi-AI/saarthi-ai",
+          "description": "आवाज़ और टेक्स्ट के जरिए उपयोग होने वाला मल्टीलिंगुअल स्कीम रिकमेंडर, AI की मदद से।",
+          "stack": ["ReactJs", "TypeScript", "ToughTongue", "ChatBaseAPI"],
+          "live": "https://saarthi-ai-one.vercel.app/",
+          "image": ["/projects/saarthi/1.png", "/projects/saarthi/2.png", "/projects/saarthi/3.png"]
+        },
+        {
+          "title": "BiblioVerse",
+          "github": "https://github.com/vineet-k09/E-Book-Recommendation",
+          "description": "AI-आधारित ईबुक रिकमेंडेशन सिस्टम जिसमें बिग डेटा फिल्टरिंग और मॉडर्न UI शामिल है।",
+          "stack": ["NextJs", "MongoDB", "NodeJS", "Hadoop", "PySpark"],
+          "live": "https://e-book-recommendation.vercel.app/",
+          "figma": "https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
+          "image": ["/projects/biblioverse/1.png", "/projects/biblioverse/2.png", "/projects/biblioverse/3.png", "/projects/biblioverse/4.png"]
+        },
+        {
+          "title": "रीयल-टाइम हैंड जेस्चर MIDI सिंथेसाइज़र",
+          "github": "https://github.com/shyamkrishnabnair/hand-gesture-recognition-mediapipe-main",
+          "description": "OpenCV और MediaPipe पर आधारित रीयल-टाइम म्यूज़िक आउटपुट वाला जेस्चर MIDI कंट्रोलर।",
+          "stack": ["OpenCV", "MediaPipe", "CustomTKinter"],
+          "live": "",
+          "image": []
+        },
+        {
+          "title": "Bengaluru AI रोड गार्जियन",
+          "github": "https://github.com/vineet-k09/potholeaAnalytics",
+          "description": "AI-आधारित इमेज क्लासिफिकेशन और इमरजेंसी डैशबोर्ड्स के साथ स्मार्ट सिटी पॉटहोल रिपोर्टर।",
+          "stack": ["HTLM5", "CSS3", "ChartJs", "LeafletJs"],
+          "live": "",
+          "image": []
+        },
+        {
+          "title": "पोर्टफोलियो वेबसाइट",
+          "github": "https://github.com/vineet-k09/vineet-k09.github.io",
+          "description": "(लीगेसी वर्जन) एक पर्सनल साइट जिसमें प्रोजेक्ट्स, रिज़्यूमे और क्रिएटिव UI एक्सपेरिमेंट्स हैं।",
+          "stack": ["HTLM5", "CSS3", "JavaScript"],
+          "live": "https://vineet-k09.github.io/indexOLD.html",
+          "image": ["/projects/portfolioWeb/1.png", "/projects/portfolioWeb/2.png", "/projects/portfolioWeb/3.png"]
+        }
+      ]
     },
     "experience": {
-        "mainLabel": "कार्य अनुभव",
-        "list": [
-            {
-                "title": "ग्राफिक डिज़ाइन इंटर्न",
-                "company": "Curiosense Innovations Pvt. Ltd.",
-                "duration": "6 महीने",
-                "description": "ब्रांडिंग और UI एसेट्स डिज़ाइन किए। उत्पाद टीमों के साथ सहयोग किया। एजाइल कार्यप्रणाली का अभ्यास किया।"
-            }
-        ]
+      "title": "वर्क एक्सपीरियंस",
+      "list": [
+        {
+          "title": "ग्राफिक डिज़ाइन इंटर्न",
+          "company": "Curiosense Innovations Pvt. Ltd.",
+          "duration": "6 महीने",
+          "description": "ब्रांडिंग और UI से जुड़े डिज़ाइन बनाए। प्रोडक्ट टीम्स के साथ काम किया। Agile वर्कफ़्लो में काम करने का अनुभव लिया।"
+        }
+      ]
     },
     "education": {
-        "mainLabel": "शिक्षा",
-        "list": [
-            {
-                "degree": "बैचलर ऑफ इंजीनियरिंग - CSE (डेटा साइंस)",
-                "institute": "आचार्य इंस्टिट्यूट ऑफ टेक्नोलॉजी",
-                "duration": "अपेक्षित 2026",
-                "location": "बेंगलुरु",
-                "cgpa": "CGPA: 8.2/10 (छठे सेमेस्टर तक)",
-                "courses": [
-                    "MERN स्टैक", "MySQL", "Hadoop", "MongoDB", "DBMS", "DSA"
-                ]
-            }
-        ]
+      "title": "शिक्षा",
+      "list": [
+        {
+          "degree": "बैचलर ऑफ इंजीनियरिंग - CSE (डेटा साइंस)",
+          "institute": "आचार्य इंस्टिट्यूट ऑफ टेक्नोलॉजी",
+          "duration": "2026 तक अपेक्षित",
+          "location": "बेंगलुरु"
+        }
+      ]
     },
-    "toggleLangBtn": "A"
-}
+    "footer": "{ } द्वारा ❤ के साथ विनीत कुशवाहा",
+    "toggleLangBtn": "क"
+  }
+  

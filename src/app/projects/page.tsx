@@ -1,14 +1,16 @@
+'use client'
 import ProjectCarousel from '../components/render/carousel';
 import '../page.css'
-import { visibleText } from '../components/utility/visibletext'
 import PageWrapper from '../components/utility/pageWrapper'
+import { useLangContext } from '@/hooks/useLang';
 
 export default function Projects() {
+    const {visibleText} = useLangContext()
     return (
         <PageWrapper>
             <div className="grid-layout">
                 <div className="content-area sm:px-10 flex flex-col items-center my-10">
-                    <h2 className='text-center my-5 text-4xl font-bold'>Projects</h2>
+                    <h2 className='text-center my-5 text-4xl font-bold'>{visibleText.projects?.title}</h2>
                     <div className="grid gap-6 grid-cols-6">
                         {visibleText.projects?.list?.map((project, idx) => (
                             <div

@@ -1,10 +1,12 @@
 'use client'
 import { useTheme } from '@/context/ThemeContext'
 import { useAudio } from '@/context/AudioContext';
+import { useLangContext } from '@/hooks/useLang';
 
 export default function Theme() {
     const { themeVar, cycleTheme } = useTheme()
     const { toggleAudio } = useAudio();
+    const { changeLang, visibleText } = useLangContext();
 
     return (
         <div className="wrapper fixed bottom-5 right-5 z-50 flex flex-col gap-1">
@@ -21,6 +23,14 @@ export default function Theme() {
                 style={{ boxShadow: '0px 0px 30px 2px rgba(var(--accent-rgb), 0.3)' }}
                 className="transition-theme boxShadow bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center">
                 {themeVar}
+            </button>
+
+            <button
+                onClick={changeLang}
+                style={{ boxShadow: '0px 0px 30px 2px rgba(var(--accent-rgb), 0.3)' }}
+                className="transition-theme boxShadow bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center"
+            >
+                {visibleText.toggleLangBtn}
             </button>
         </div>
     )

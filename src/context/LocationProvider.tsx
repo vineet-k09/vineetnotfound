@@ -2,10 +2,10 @@
 'use client'
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-const LocationContext = createContext({ weather: '--°C' })
+const LocationContext = createContext({ weather: '--' })
 
 export function LocationProvider({ children }: { children: ReactNode }) {
-    const [weather, setWeather] = useState('--°C')
+    const [weather, setWeather] = useState('--')
 
     useEffect(() => {
         fetch('/api/location')
@@ -16,7 +16,7 @@ export function LocationProvider({ children }: { children: ReactNode }) {
             .then(res => res.json())
             .then(data => setWeather(data.current_weather.temperature))
             .catch(() => {
-                setWeather('--°C')
+                setWeather('--')
             })
     }, [])
 
