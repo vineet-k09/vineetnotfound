@@ -15,16 +15,29 @@ type Language = 'en' | 'hi';
 interface TranslationContent {
     name: string;
     role: string;
-    skills: string;
+    navbar: string[][];
+    aboutme11: string;
+    aboutme12: string;
+    aboutme13: string;
+    aboutme121: string;
+    aboutme14: string;
+    aboutme15: string;
+    aboutme16: string;
+    aboutme17: string;
     projects?: {
-        mainLabel: string;
+        title: string;
         list: {
             title: string;
             description: string;
+            github: string;
+            stack: string[]
+            live: string
+            image: string[]
+            figma?: string
         }[];
     };
     experience?: {
-        mainLabel: string;
+        title: string;
         list: {
             title: string;
             company: string;
@@ -33,16 +46,15 @@ interface TranslationContent {
         }[];
     };
     education?: {
-        mainLabel: string;
+        title: string;
         list: {
             degree: string;
             institute: string;
             duration: string;
             location: string;
-            cgpa: string;
-            courses: string[];
         }[];
     };
+    footer: string;
     toggleLangBtn: string;
 }
 

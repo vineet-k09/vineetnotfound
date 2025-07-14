@@ -1,14 +1,14 @@
 //src/app/home.tsx
-// import { useLangContext } from '../../hooks/useLang';
+import { useLangContext } from '../../hooks/useLang';
 // import Image from 'next/image';
 import Navbar from './navbar';
 import { useAudio } from '@/context/AudioContext';
-import { visibleText } from './utility/visibletext';
+// import { visibleText } from './utility/visibletext';
 import { skills1, skills2, skills3, skills4 } from './utility/skills';
 import Link from 'next/link';
 
 export default function Home() {
-    // const { visibleText } = useLangContext();
+    const { visibleText } = useLangContext();
 
     const { toggleAudio, isPlaying } = useAudio();
 
@@ -21,8 +21,8 @@ export default function Home() {
                         <section className='hero mx-auto my-20 grid grid-cols-8'>
                             {/* 🧍 Hero Section */}
                             <div className="col-span-4">
-                                <h1 > Vineet Kushwaha  </h1>
-                                <p >Web Developer</p>
+                                <h1 >{visibleText.name}</h1>
+                                <p >{visibleText.role}</p>
                             </div>
                             <div className="col-span-1"></div>
                             <div className="reactOut col-span-3 flex gap-2">
@@ -37,10 +37,13 @@ export default function Home() {
                                 style={{
                                     fontSize: '1.2em'
                                 }}
-                                className='text-3xl col-span-8'>
-                                I&apos;m a <span className='specific'>
-                                    <span className="font-extrabold">&#123;</span> full-stack web developer <span className="font-extrabold">&#125;</span></span> with a strong grip on React, Node.js, and everything in between. <span className="specific">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I&apos;m also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.
-                                    {/* {visibleText.aboutme1} */}
+                                className='text-3xl col-span-8 aboutme-main'>
+                                {/* I&apos;m a <span className='specific'>
+                                    <span className="font-extrabold">&#123;</span> full-stack web developer <span className="font-extrabold">&#125;</span></span> with a strong grip on React, Node.js, and everything in between. <span className="specific">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I&apos;m also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project. */}
+                                {visibleText['aboutme11']}<span className='specific'>
+                                    <span className="font-extrabold">{visibleText['aboutme12']}</span> {visibleText['aboutme13']} <span className="font-extrabold">{visibleText['aboutme121']}</span></span> {visibleText['aboutme14']} <span className="specific">{visibleText['aboutme15']}</span> {visibleText['aboutme16']} <br />
+                                {visibleText['aboutme17']}
+                                {/* {visibleText.aboutme1} */}
                             </p>
 
                             <button
@@ -107,7 +110,7 @@ export default function Home() {
                         </section>
                         <section className='section'>
                             {/* 🚀 Projects Section */}
-                            <h2 className='col-span-1'>Projects</h2>
+                            <h2 className='col-span-1'>{visibleText.projects?.title}</h2>
                             <div className="col-span-1"></div>
                             <div
                                 className="space-y-4 grid grid-cols-1 sm:grid-cols-2 gap-4 col-span-5 
@@ -139,7 +142,9 @@ export default function Home() {
 
                         <section className='section sm:gap-x-22'>
                             {/* 💼 Experience Section */}
-                            <h2 className='col-span-1'>Experience</h2>
+                            <h2 className='col-span-1'>
+                                {visibleText.experience?.title}
+                                </h2>
                             <div className="col-span-1"></div>
                             <div className="space-y-4 col-span-5">
                                 {visibleText.experience?.list.map((exp, idx) => (
@@ -153,7 +158,7 @@ export default function Home() {
 
                         <section className='section sm:gap-x-22'>
                             {/* 🎓 Education Section */}
-                            <h2 className='col-span-1'>{visibleText.education?.mainLabel}</h2>
+                            <h2 className='col-span-1'>{visibleText.education?.title}</h2>
                             <div className="col-span-1"></div>
                             <div className="space-y-4 col-span-5">
                                 {visibleText.education?.list.map((edu, idx) => (

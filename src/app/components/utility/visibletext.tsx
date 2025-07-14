@@ -1,8 +1,19 @@
 export const visibleText = {
-    "aboutme1": "I'm a <span className='specific'><span className=\"font-extrabold\">&#123;</span> full-stack web developer <span className=\"font-extrabold\">&#125;</span></span> with a strong grip on React, Node.js, and everything in between. <span className=\"specific\">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I'm also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project."
-,
+    "name":"Vineet Kushwaha",
+    "role":"Web Developer",
+    "navbar":[
+        ["Home"," "], ["Projects","projects"], ["About","about"]
+    ],
+    "aboutme1.1": "I'm a ",
+    "aboutme1.2":"{",
+    "aboutme1.2.1":"}",
+    "aboutme1.3":"full-stack web developer",
+    "aboutme1.4":"with a strong grip on React, Node.js, and everything in between. ",
+    "aboutme1.5":"I like building",
+    "aboutme1.6": "responsive, real-world applications that are easy to use and fun to make. ",
+    "aboutme1.7":"Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I'm also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.",
     "projects": {
-        "mainLabel": "Projects",
+        "title": "Projects",
         "list": [
             {
                 "title": "Endxiety",
@@ -48,7 +59,7 @@ export const visibleText = {
             {
                 "title": "Portfolio Website",
                 "github": "https://github.com/vineet-k09/vineet-k09.github.io",
-                "description": "A personal site showcasing projects, resume, and creative UI experiments.",
+                "description": "(Legacy Version) A personal site showcasing projects, resume, and creative UI experiments.",
                 "stack": ['HTLM5', 'CSS3', 'JavaScript'],
                 'live': "https://vineet-k09.github.io/indexOLD.html",
                 "image": ['/projects/portfolioWeb/1.png', '/projects/portfolioWeb/2.png', '/projects/portfolioWeb/3.png',]
@@ -56,7 +67,7 @@ export const visibleText = {
         ]
     },
     "experience": {
-        "mainLabel": "Work Experience",
+        "title": "Work Experience",
         "list": [
             {
                 "title": "Graphic Design Intern",
@@ -67,18 +78,16 @@ export const visibleText = {
         ]
     },
     "education": {
-        "mainLabel": "Education",
+        "title": "Education",
         "list": [
             {
                 "degree": "Bachelor of Engineering - CSE (Data Science)",
                 "institute": "Acharya Institute of Technology",
                 "duration": "Expected 2026",
-                "location": "Bengaluru",
-                "cgpa": "CGPA: 8.2/10 (up to 6th Semester)",
-                "courses": [
-                    "MERN Stack", "MySQL", "Hadoop", "MongoDB", "DBMS", "DSA"
-                ]
+                "location": "Bengaluru"
             }
         ]
     },
-}
+    "footer":"{ } with ❤ by Vineet Kushwaha",
+    "toggleLangBtn": "क"
+} 

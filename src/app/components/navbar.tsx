@@ -5,9 +5,10 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Link from 'next/link';
 import { useLocation } from '@/context/LocationProvider';
 
-// import { useLangContext } from '../../hooks/useLang';
+import { useLangContext } from '../../hooks/useLang';
 
 export default function Navbar() {
+    const { visibleText } = useLangContext()
     const [isTime, setIsTime] = useState(true);
     const [time, setTime] = useState('');
     const [isOpen, setIsOpen] = useState(false)
@@ -88,20 +89,15 @@ export default function Navbar() {
                                     fontWeight: 'bold'
                                 }}
                                 className='specific'
-                            >Vineet Kushwaha</motion.h3>
+                            >{visibleText.name}</motion.h3>
                             {/* <div className="burger block sm:hidden"></div> */}
                             <ul className="list-none flex gap-5">
                                 <li className='text-sm border-2 min-w-18 my-auto rounded-lg'>{isTime ? time : `${weather}°C`}</li>
-                                <li className='py-1 hidden sm:flex'>
-                                    {/* <a href="">Home</a> */}
-                                    <Link href='/' className=''>Home</Link>
-                                </li>
-                                <li className='py-1 hidden sm:flex'>
-                                    <Link href="/projects">Projects</Link>
-                                </li>
-                                <li className='py-1 hidden sm:flex'>
-                                    <Link href="/about">About</Link>
-                                </li>
+                                {visibleText.navbar.map((value, id) =>
+                                    <li key={id} className='py-1 hidden sm:flex'>
+                                        <Link href={`/${value[1]}`} className=''>{value[0]}</Link>
+                                    </li>
+                                )}
                                 <li>
 
                                     <button
@@ -132,15 +128,11 @@ export default function Navbar() {
                                 className="
                                 sm:hidden 
                                 flex flex-col mt-2 gap-3 text-center">
-                                <Link href="/" onClick={() => setIsOpen(false)}>
-                                    Home
-                                </Link>
-                                <Link href="/projects" onClick={() => setIsOpen(false)}>
-                                    Projects
-                                </Link>
-                                <Link href="/contact" onClick={() => setIsOpen(false)}>
-                                    Contact
-                                </Link>
+                                {visibleText.navbar.map((value, id) =>
+                                    <Link key={id} href={`/${value[1]}`} onClick={() => setIsOpen(false)}>
+                                        {value[0]}
+                                    </Link>
+                                )}
                             </div>
                         )}
                     </div>
