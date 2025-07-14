@@ -1,4 +1,5 @@
 //src/app/contact/page.tsx
+'use client'
 import '../page.css'
 import PageWrapper from '../components/utility/pageWrapper'
 // import Image from 'next/image'
