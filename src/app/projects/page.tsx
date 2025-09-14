@@ -15,6 +15,7 @@ export default function Projects() {
                         {visibleText.projects?.list?.map((project, idx) => (
                             <div
                                 key={idx}
+                                id={idx.toString()}
                                 className="rounded-xl shadow-lg border p-4 bg-[var(--text)] text-[var(--bg)] transition-transform hover:scale-[1.01] col-span-6 overflow-hidden duration-250"
                             >
                                 <h3 className="text-2xl mb-2">{project.title}</h3>

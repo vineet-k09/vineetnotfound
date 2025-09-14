@@ -15,6 +15,14 @@
         "title": "Projects",
         "list": [
             {
+                "title": "SkillMatrix",
+                "github": "https://github.com/SkillMatrix-io/skillmatrix",
+                "description": "A website to create and join online courses supporting Text, PDFs and Videos and role based user access.",
+                "stack": ["ReactJs","MySQL","Django"],
+                "live": "https://skillmatrix-beta.vercel.app/",
+                "image": ["/projects/skillmatrix/1.png","/projects/skillmatrix/2.png"]
+            },
+            {
                 "title": "Endxiety",
                 "github": "https://github.com/vineet-k09/Endxiety",
                 "description": "AI-powered mental wellness app with anonymous chat, emotion tracking, and journaling.",
@@ -61,7 +69,7 @@
                 "description": "(Legacy Version) A personal site showcasing projects, resume, and creative UI experiments.",
                 "stack": ["HTLM5", "CSS3", "JavaScript"],
                 "live": "https://vineet-k09.github.io/indexOLD.html",
-                "image": ["/projects/portfolioWeb/1.png', '/projects/portfolioWeb/2.png', '/projects/portfolioWeb/3.png"]
+                "image": ["/projects/portfolioWeb/1.png", "/projects/portfolioWeb/2.png", "/projects/portfolioWeb/3.png"]
             }
         ]
     },
@@ -88,5 +96,18 @@
         ]
     },
     "footer":"{ } with ❤ by Vineet Kushwaha",
-    "toggleLangBtn": "क"
+    "toggleLangBtn": "क",
+    "intro11": "Hey there, I’m ",
+    "intro12": "{",
+    "intro13": "Vineet Kushwaha",
+    "intro121": "}",
+    "intro14": ". I’m a web developer and a data science student- but mostly, I’m just someone trying to make sense of the chaos, one line of code at a time.",
+  
+    "intro21": "Between pixels and Python, I’ve learned that building things-apps, ideas, futures-",
+    "intro22": "isn’t just about logic, it’s about heart.",
+    "intro23": " Every bug fixed is a tiny win, every late-night debug session a quiet act of belief.",
+  
+    "intro31": "I don’t have all the answers (yet), but I’m here-learning, breaking, rebuilding.",
+    "intro32": " Life’s messy. So is code.",
+    "intro33": " But when it runs… it’s kind of beautiful."
 }

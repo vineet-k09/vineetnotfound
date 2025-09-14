@@ -2,29 +2,34 @@
 'use client'
 import '../page.css'
 import PageWrapper from '../components/utility/pageWrapper'
+import { useLangContext } from '@/hooks/useLang'
 // import Image from 'next/image'
 
 export default function Contact() {
+    const { visibleText } = useLangContext()
     return (
         <PageWrapper>
-            
             <div className="grid-layout">
                 <div className="content-area sm:px-10 flex justify-center flex-col">
                     <h2 className='text-center my-10'>About</h2>
                     <section className='grid grid-cols-6 gap-10'>
-                        <p 
-                        style={{
-                            fontSize: '1.3rem'
-                        }}
-                        className='col-span-6'>
-                            Hey there, I’m <span className="specific">Vineet Kushwaha</span>. I’m a web developer and a data science student—
-                            but mostly, I’m just someone trying to make sense of the chaos, one line of code at a time.
+                        <p
+                            style={{ fontSize: '1.3rem' }}
+                            className="col-span-6"
+                        >
+                            {visibleText.intro11}
+                            <span className="specific">
+                                {visibleText.intro13}
+                            </span>
+                            {visibleText.intro14}
                             <br />
-                            Between pixels and Python, I’ve learned that building things—apps, ideas, futures—isn’t just about logic,
-                            it’s about heart. Every bug fixed is a tiny win, every late-night debug session a quiet act of belief.
+                            {visibleText.intro21}
+                            {visibleText.intro22}
+                            {visibleText.intro23}
                             <br />
-                            I don’t have all the answers (yet), but I’m here—learning, breaking, rebuilding. Life’s messy. So is code.
-                            But when it runs… it’s kind of beautiful.
+                            {visibleText.intro31}
+                            {visibleText.intro32}
+                            {visibleText.intro33}
                         </p>
                     </section>
                     <h2 className='text-center my-10'>Contact</h2>
