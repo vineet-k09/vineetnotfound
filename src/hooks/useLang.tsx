@@ -56,6 +56,17 @@ interface TranslationContent {
     };
     footer: string;
     toggleLangBtn: string;
+    intro11: string;
+    intro12: string;
+    intro13: string;
+    intro121: string;
+    intro14: string;
+    intro21: string;
+    intro22: string;
+    intro23: string;
+    intro31: string;
+    intro32: string;
+    intro33: string;
 }
 
 type Translations = {
