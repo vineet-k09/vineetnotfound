@@ -38,8 +38,6 @@ export default function Home() {
                                     fontSize: '1.2em'
                                 }}
                                 className='text-3xl col-span-8 aboutme-main'>
-                                {/* I&apos;m a <span className='specific'>
-                                    <span className="font-extrabold">&#123;</span> full-stack web developer <span className="font-extrabold">&#125;</span></span> with a strong grip on React, Node.js, and everything in between. <span className="specific">I like building</span> responsive, real-world applications that are easy to use and fun to make. <br /> Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I&apos;m also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project. */}
                                 {visibleText['aboutme11']}<span className='specific'>
                                     <span className="font-extrabold">{visibleText['aboutme12']}</span> {visibleText['aboutme13']} <span className="font-extrabold">{visibleText['aboutme121']}</span></span> {visibleText['aboutme14']} <span className="specific">{visibleText['aboutme15']}</span> {visibleText['aboutme16']} <br />
                                 {visibleText['aboutme17']}
@@ -59,6 +57,28 @@ export default function Home() {
                                 duration-250
                                 "> ♫ </button>
                         </section>
+
+
+                        <section className='section sm:gap-x-22'>
+                            {/* 💼 Experience Section */}
+                            <h2 className='col-span-1'>
+                                {visibleText.experience?.title}
+                            </h2>
+                            <div className="col-span-1"></div>
+                            <div className="space-y-4 col-span-5">
+                                {visibleText.experience?.list.map((exp, idx) => (
+                                    <div key={idx}>
+                                        <h2 className='specific'>{exp.title}
+                                        </h2>
+                                        <h3 className='opacity-70'>{exp.company}</h3>
+                                        <div className='py-2 italic'>{exp.timeLine}</div>
+                                        <p>{exp.description} ({exp.duration})</p>
+                                        <br></br>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+
                         <section className='section grid grid-cols-7'>
                             <h2 className='col-span-1'>Skills</h2>
                             <div className="col-span-1"></div>
@@ -135,22 +155,6 @@ export default function Home() {
                                             <i
                                                 className="devicon fa-solid fa-link 
                                                 text-[var(--bg)] hover:text-[var(--accent)] border-2 p-1 border-transparent hover:border-[var(--accent)] rounded-full duration-250"></i></Link>
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-
-                        <section className='section sm:gap-x-22'>
-                            {/* 💼 Experience Section */}
-                            <h2 className='col-span-1'>
-                                {visibleText.experience?.title}
-                                </h2>
-                            <div className="col-span-1"></div>
-                            <div className="space-y-4 col-span-5">
-                                {visibleText.experience?.list.map((exp, idx) => (
-                                    <div key={idx}>
-                                        <h3 className='specific'>{exp.title} – {exp.company}</h3>
-                                        <p>{exp.description} ({exp.duration})</p>
                                     </div>
                                 ))}
                             </div>

@@ -1,5 +1,5 @@
 {   "name":"Vineet Kushwaha",
-    "role": "Web Developer",
+    "role": "Full-Stack Software Developer",
     "navbar":[
         ["Home"," "], ["Projects","projects"], ["About","about"]
     ],
@@ -17,16 +17,16 @@
             {
                 "title": "SkillMatrix",
                 "github": "https://github.com/SkillMatrix-io/skillmatrix",
-                "description": "A website to create and join online courses supporting Text, PDFs and Videos and role based user access.",
-                "stack": ["ReactJs","MySQL","Django"],
+                "description": "A full-stack learning platform supporting role-based access, course creation, and multimedia content delivery (text, PDFs, video). Designed backend APIs and database schema to handle user roles, enrollments, and content management.",
+                "stack": ["React","MySQL","Django"],
                 "live": "https://skillmatrix-beta.vercel.app/",
                 "image": ["/projects/skillmatrix/1.png","/projects/skillmatrix/2.png"]
             },
             {
                 "title": "Endxiety",
                 "github": "https://github.com/vineet-k09/Endxiety",
-                "description": "AI-powered mental wellness app with anonymous chat, emotion tracking, and journaling.",
-                "stack": ["ReactJs","MongoDB","ViteJS","OpenAI API"],
+                "description": "An AI-assisted mental wellness platform featuring anonymous chat, emotion tracking, and journaling. Focused on privacy-aware design, state management, and integrating LLM-based insights into user workflows.",
+                "stack": ["React","MongoDB","Vite","OpenAI API"],
                 "live": "https://emo-son-ai.vercel.app/",
                 "image": ["/projects/endxiety/1.png"]
             },
@@ -34,15 +34,15 @@
                 "title": "Saarthi AI",
                 "github": "https://github.com/Sarthi-AI/saarthi-ai",
                 "description": "Multilingual scheme recommender using AI, accessible via voice and text.",
-                "stack": ["ReactJs", "TypeScript", "ToughTongue", "ChatBaseAPI"],
+                "stack": ["React", "TypeScript", "ToughTongue", "ChatBaseAPI"],
                 "live": "https://saarthi-ai-one.vercel.app/",
                 "image": ["/projects/saarthi/1.png", "/projects/saarthi/2.png", "/projects/saarthi/3.png"]
             },
             {
                 "title": "BiblioVerse",
                 "github": "https://github.com/vineet-k09/E-Book-Recommendation",
-                "description": "AI-based ebook recommender system with big data filtering and a modern UI.",
-                "stack": ["NextJs", "MongoDB", "NodeJS", "Hadoop", "PySpark"],
+                "description": "An AI-driven ebook recommendation system combining big-data filtering with a modern web interface. Implemented data pipelines using Hadoop and PySpark, and integrated recommendations into a full-stack Next.js application.",
+                "stack": ["NextJs", "MongoDB", "Node.js", "Hadoop", "PySpark"],
                 "live": "https://e-book-recommendation.vercel.app/",
                 "figma":"https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
                 "image": ["/projects/biblioverse/1.png", "/projects/biblioverse/2.png", "/projects/biblioverse/3.png", "/projects/biblioverse/4.png"]
@@ -59,7 +59,7 @@
                 "title": "Bengaluru AI Road Guardian",
                 "github": "https://github.com/vineet-k09/potholeaAnalytics",
                 "description": "Smart city pothole reporter with AI-based image classification and emergency dashboards.",
-                "stack": ["HTLM5", "CSS3", "ChartJs", "LeafletJs"],
+                "stack": ["HTML5", "CSS3", "ChartJs", "LeafletJs"],
                 "live": "",
                 "image": []
             },
@@ -77,10 +77,25 @@
         "title": "Work Experience",
         "list": [
             {
+                "title": "Data Analyst",
+                "company": "Vodafone Intelligent Solutions (VOIS)",
+                "duration": "6 months",
+                "description":"Built and maintained SQL-driven dashboards and automated reporting pipelines to support KPI analysis and stakeholder decision-making. Improved report reliability and reduced manual data preparation through automation.",
+                "timeLine":"Jan 2026 - Present"
+            },
+            {
+                "title": "Full Stack Developer",
+                "company": "Infosys Springboard",
+                "duration": "3 months",
+                "description":"Developed a full-stack platform connecting NGOs and volunteers. Designed RESTful APIs, implemented reusable React components, and collaborated on end-to-end user workflows from onboarding to task coordination.",
+                "timeLine":"Oct 2025 - Dec 2025"
+            },
+            {
                 "title": "Graphic Design Intern",
                 "company": "Curiosense Innovations Pvt. Ltd.",
                 "duration": "6 months",
-                "description": "Designed branding and UI assets. Collaborated with product teams. Practiced Agile workflow."
+                "description": "Designed branding and UI assets. Collaborated with product teams. Practiced Agile workflow.",
+                "timeLine": ""
             }
         ]
     },
