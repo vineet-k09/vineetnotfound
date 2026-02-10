@@ -3,14 +3,16 @@
 import { useState, createContext, useContext } from 'react';
 import en from '../locales/en.json';
 import hi from '../locales/hi.json';
+import kn from '../locales/kn.json';
 
 export const translations: Translations = {
     en,
     hi,
+    kn,
 };
 
 export type LangKey = keyof typeof translations;
-type Language = 'en' | 'hi';
+type Language = 'en' | 'hi' | 'kn';
 
 interface TranslationContent {
     name: string;
@@ -43,6 +45,7 @@ interface TranslationContent {
             company: string;
             duration: string;
             description: string;
+            timeLine: string;
         }[];
     };
     education?: {
@@ -91,7 +94,15 @@ export function useLang() {
     const [visibleText, setVisibleText] = useState<TranslationContent>(translations[lang]);
 
     const changeLang = () => {
-        const newLang = lang === 'en' ? 'hi' : 'en';
+        // const newLang =
+        //     lang === 'en' ? 'hi' :
+        //         lang === 'kn' ? 'en' :
+        //             'hi';
+
+        const newLang =
+            lang === 'en' ? 'hi' :
+                lang === 'hi' ? 'kn' :
+                    'en';
         setTimeout(() => {
             setLang(newLang);
             setVisibleText(translations[newLang]);
