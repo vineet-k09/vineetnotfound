@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import PageWrapper from "../components/utility/pageWrapper";
 import "../page.css";
 
@@ -12,6 +13,8 @@ interface GalleryItem {
 	src: string;
 	description: string;
 	locationOrTool: string;
+	width: number;
+	height: number;
 }
 
 const GALLERY_ITEMS: GalleryItem[] = [
@@ -24,6 +27,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A quiet moment with one of Bengaluru's many street cats, captured in its own little world.",
 		locationOrTool: "Bengaluru • Mobile",
+		width: 2000,
+		height: 1125,
 	},
 	{
 		id: 2,
@@ -34,6 +39,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"Another candid frame of a city cat, highlighting everyday life hidden in plain sight.",
 		locationOrTool: "Bengaluru • Mobile",
+		width: 1125,
+		height: 2000,
 	},
 	{
 		id: 3,
@@ -44,6 +51,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A calm portrait capturing the quiet confidence and curiosity of an urban feline.",
 		locationOrTool: "Bengaluru • Mobile",
+		width: 2000,
+		height: 1125,
 	},
 	{
 		id: 4,
@@ -54,6 +63,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A glimpse of lush greenery around campus, where everyday pathways meet unexpected calm.",
 		locationOrTool: "Acharya Campus • Mobile",
+		width: 1500,
+		height: 2000,
 	},
 	{
 		id: 5,
@@ -64,6 +75,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A simple composition focused on light, atmosphere, and the quiet mood of campus evenings.",
 		locationOrTool: "Acharya Campus • Mobile",
+		width: 1125,
+		height: 2000,
 	},
 	{
 		id: 6,
@@ -74,6 +87,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"Exploring the timeless architectural beauty and intricate stone craftsmanship of Hampi.",
 		locationOrTool: "Hampi • Mobile",
+		width: 1125,
+		height: 2000,
 	},
 	{
 		id: 7,
@@ -84,6 +99,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A peaceful landscape capturing open skies, water, and the serenity of nature.",
 		locationOrTool: "Hampi • Mobile",
+		width: 1125,
+		height: 2000,
 	},
 	{
 		id: 8,
@@ -94,6 +111,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A travel memory preserved with friends against the backdrop of a memorable journey.",
 		locationOrTool: "Hampi • Mobile",
+		width: 2000,
+		height: 1500,
 	},
 	{
 		id: 9,
@@ -104,6 +123,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"Capturing the artistic beauty and cultural significance of an ancient stone sculpture.",
 		locationOrTool: "Hampi • Mobile",
+		width: 1125,
+		height: 2000,
 	},
 	{
 		id: 10,
@@ -114,6 +135,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A panoramic perspective showcasing Hampi's iconic rocky terrain and expansive vistas.",
 		locationOrTool: "Hampi • Mobile",
+		width: 2000,
+		height: 1457,
 	},
 	{
 		id: 11,
@@ -124,6 +147,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A peaceful boating experience framed through soft light and gentle reflections.",
 		locationOrTool: "Kolkata • Mobile",
+		width: 1125,
+		height: 2000,
 	},
 	{
 		id: 12,
@@ -134,6 +159,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"The excitement of departure captured somewhere between anticipation and adventure.",
 		locationOrTool: "Kolkata Airport • Mobile",
+		width: 1125,
+		height: 2000,
 	},
 	{
 		id: 13,
@@ -144,6 +171,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A travel frame reflecting movement, stories, and the rhythm of railway stations.",
 		locationOrTool: "Kolkata • Mobile",
+		width: 2000,
+		height: 1125,
 	},
 	{
 		id: 14,
@@ -154,6 +183,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A candid slice of Kolkata's vibrant streets filled with everyday life and motion.",
 		locationOrTool: "Kolkata • Mobile",
+		width: 1500,
+		height: 2000,
 	},
 	{
 		id: 15,
@@ -164,6 +195,8 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"A travel photograph capturing the feeling of being somewhere between destinations.",
 		locationOrTool: "Mumbai • Mobile",
+		width: 2000,
+		height: 1125,
 	},
 	{
 		id: 16,
@@ -174,57 +207,69 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		description:
 			"Long roads, changing skies, and the quiet beauty found through a highway window.",
 		locationOrTool: "Mumbai • Mobile",
+		width: 2000,
+		height: 1125,
 	},
-{
-	id: 17,
-	title: "Murder Mystery Competition Poster",
-	category: "graphics",
-	categoryLabel: "Poster Design",
-	src: "/creative/designs/murdermysterycompetetion.png",
-	description:
-		"A promotional poster designed for a murder mystery competition, focusing on suspenseful visuals and bold typography.",
-	locationOrTool: "Adobe Photoshop",
-},
-{
-	id: 18,
-	title: "Short Film Competition Poster",
-	category: "graphics",
-	categoryLabel: "Poster Design",
-	src: "/creative/designs/short movie making competition.png",
-	description:
-		"A creative event poster designed to promote a short movie making competition with a cinematic visual style.",
-	locationOrTool: "Adobe Photoshop",
-},
-{
-	id: 19,
-	title: "VOIS Landing Page Mockup",
-	category: "uiux",
-	categoryLabel: "UI/UX Design",
-	src: "/creative/uiux/vois_mockup_front.png",
-	description:
-		"A modern landing page concept created for a VOIS-themed web experience, emphasizing clean layouts and intuitive navigation.",
-	locationOrTool: "Figma",
-},
-{
-	id: 20,
-	title: "VOIS About Us Page",
-	category: "uiux",
-	categoryLabel: "UI/UX Design",
-	src: "/creative/uiux/vois_mockup_aboutus_page.png",
-	description:
-		"An About Us page mockup designed to present company information with clarity, visual consistency, and strong information hierarchy.",
-	locationOrTool: "Figma",
-},
-{
-	id: 21,
-	title: "VOIS Contact Page",
-	category: "uiux",
-	categoryLabel: "UI/UX Design",
-	src: "/creative/uiux/vois_mockup_contact_us_page.png",
-	description:
-		"A responsive contact page concept focused on accessibility, user-friendly forms, and a polished visual identity.",
-	locationOrTool: "Figma",
-}
+	{
+		id: 17,
+		title: "Murder Mystery Competition Poster",
+		category: "graphics",
+		categoryLabel: "Poster Design",
+		src: "/creative/designs/murdermysterycompetetion.png",
+		description:
+			"A promotional poster designed for a murder mystery competition, focusing on suspenseful visuals and bold typography.",
+		locationOrTool: "Adobe Photoshop",
+		width: 1080,
+		height: 1350,
+	},
+	{
+		id: 18,
+		title: "Short Film Competition Poster",
+		category: "graphics",
+		categoryLabel: "Poster Design",
+		src: "/creative/designs/short movie making competition.png",
+		description:
+			"A creative event poster designed to promote a short movie making competition with a cinematic visual style.",
+		locationOrTool: "Adobe Photoshop",
+		width: 1414,
+		height: 2000,
+	},
+	{
+		id: 19,
+		title: "VOIS Landing Page Mockup",
+		category: "uiux",
+		categoryLabel: "UI/UX Design",
+		src: "/creative/uiux/vois_mockup_front.png",
+		description:
+			"A modern landing page concept created for a VOIS-themed web experience, emphasizing clean layouts and intuitive navigation.",
+		locationOrTool: "Figma",
+		width: 1916,
+		height: 937,
+	},
+	{
+		id: 20,
+		title: "VOIS About Us Page",
+		category: "uiux",
+		categoryLabel: "UI/UX Design",
+		src: "/creative/uiux/vois_mockup_aboutus_page.png",
+		description:
+			"An About Us page mockup designed to present company information with clarity, visual consistency, and strong information hierarchy.",
+		locationOrTool: "Figma",
+		width: 1916,
+		height: 937,
+	},
+	{
+		id: 21,
+		title: "VOIS Contact Page",
+		category: "uiux",
+		categoryLabel: "UI/UX Design",
+		src: "/creative/uiux/vois_mockup_contact_us_page.png",
+		description:
+			"A responsive contact page concept focused on accessibility, user-friendly forms, and a polished visual identity.",
+		locationOrTool: "Figma",
+		width: 1916,
+		height: 937,
+	}
 ];
 
 export default function Photography() {
@@ -293,18 +338,21 @@ export default function Photography() {
 
 					{/* Masonry Gallery Grid */}
 					<div className="masonry-grid w-full">
-						{filteredItems.map((item) => (
+						{filteredItems.map((item, index) => (
 							<div
 								key={item.id}
 								onClick={() => openLightbox(item)}
 								className="masonry-item group border border-[var(--text)] border-opacity-10 rounded-2xl overflow-hidden bg-[var(--text)] bg-opacity-[0.02] hover:border-[var(--accent)] hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer">
 								{/* Image Container */}
 								<div className="w-full overflow-hidden relative bg-neutral-900 flex items-center justify-center">
-									<img
+									<Image
 										src={item.src}
 										alt={item.title}
+										width={item.width}
+										height={item.height}
 										className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
-										loading="lazy"
+										sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+										priority={index < 4}
 									/>
 									<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
 										<span className="text-white text-xs font-mono">
@@ -360,11 +408,14 @@ export default function Photography() {
 						onClick={(e) => e.stopPropagation()}
 						className="max-w-4xl w-full flex flex-col md:flex-row bg-[#121212] border border-neutral-800 rounded-3xl overflow-hidden shadow-2xl">
 						{/* Image */}
-						<div className="flex-grow max-h-[70vh] bg-black flex items-center justify-center md:w-2/3">
-							<img
+						<div className="flex-grow max-h-[70vh] bg-black flex items-center justify-center md:w-2/3 relative">
+							<Image
 								src={lightboxItem.src}
 								alt={lightboxItem.title}
-								className="max-w-full max-h-[70vh] object-contain"
+								width={lightboxItem.width}
+								height={lightboxItem.height}
+								className="max-w-full max-h-[70vh] object-contain w-auto h-auto"
+								priority
 							/>
 						</div>
 
