@@ -1,146 +1,167 @@
-{   "name":"Vineet Kushwaha",
-    "role": "Full-Stack Software Developer",
-    "navbar":[
-        ["Home"," "], ["Projects","projects"], ["Art & Photos","photography"], ["About","about"]
-    ],
-    "aboutme11": "I'm a ",
-    "aboutme12":"{",
-    "aboutme13":"full-stack web developer",
-    "aboutme121":"}",
-    "aboutme14":"with a strong grip on React, Node.js, and everything in between. ",
-    "aboutme15":"I like building",
-    "aboutme16": "responsive, real-world applications that are easy to use and fun to make. ",
-    "aboutme17":"Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I'm also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.",
-    "projects": {
-        "title": "Projects",
-        "list": [
-            {
-                "title": "SkillMatrix",
-                "github": "https://github.com/SkillMatrix-io/skillmatrix",
-                "description": "A full-stack learning platform supporting role-based access, course creation, and multimedia content delivery (text, PDFs, video). Designed backend APIs and database schema to handle user roles, enrollments, and content management.",
-                "stack": ["React","MySQL","Django"],
-                "image": ["/projects/skillmatrix/1.png","/projects/skillmatrix/2.png"]
-            },
-            {
-                "title": "Endxiety",
-                "github": "https://github.com/vineet-k09/Endxiety",
-                "description": "An AI-assisted mental wellness platform featuring anonymous chat, emotion tracking, and journaling. Focused on privacy-aware design, state management, and integrating LLM-based insights into user workflows.",
-                "stack": ["React","MongoDB","Vite","OpenAI API"],
-                "image": ["/projects/endxiety/1.png"]
-            },
-            {
-                "title": "Saarthi AI",
-                "github": "https://github.com/Sarthi-AI/saarthi-ai",
-                "description": "Multilingual scheme recommender using AI, accessible via voice and text.",
-                "stack": ["React", "TypeScript", "ToughTongue", "ChatBaseAPI"],
-                "image": ["/projects/saarthi/1.png", "/projects/saarthi/2.png", "/projects/saarthi/3.png"]
-            },
-            {
-                "title": "BiblioVerse",
-                "github": "https://github.com/vineet-k09/E-Book-Recommendation",
-                "description": "An AI-driven ebook recommendation system combining big-data filtering with a modern web interface. Implemented data pipelines using Hadoop and PySpark, and integrated recommendations into a full-stack Next.js application.",
-                "stack": ["NextJs", "MongoDB", "Node.js", "Hadoop", "PySpark"],
-                "figma":"https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
-                "image": ["/projects/biblioverse/1.png", "/projects/biblioverse/2.png", "/projects/biblioverse/3.png", "/projects/biblioverse/4.png"]
-            },
-            {
-                "title": "Real-Time Hand Gesture MIDI Synthesizer",
-                "github": "https://github.com/shyamkrishnabnair/hand-gesture-recognition-mediapipe-main",
-                "description": "Gesture-based MIDI controller built using OpenCV + MediaPipe for real-time music output.",
-                "stack": ["OpenCV", "MediaPipe", "CustomTKinter"],
-                "live": "",
-                "image": []
-            },
-            {
-                "title": "Bengaluru AI Road Guardian",
-                "github": "https://github.com/vineet-k09/potholeaAnalytics",
-                "description": "Smart city pothole reporter with AI-based image classification and emergency dashboards.",
-                "stack": ["HTML5", "CSS3", "ChartJs", "LeafletJs"],
-                "live": "",
-                "image": []
-            },
-            {
-                "title": "Portfolio Website",
-                "github": "https://github.com/vineet-k09/vineet-k09.github.io",
-                "description": "(Legacy Version) A personal site showcasing projects, resume, and creative UI experiments.",
-                "stack": ["HTLM5", "CSS3", "JavaScript"],
-                "live": "https://vineet-k09.github.io/indexOLD.html",
-                "image": ["/projects/portfolioWeb/1.png", "/projects/portfolioWeb/2.png", "/projects/portfolioWeb/3.png"]
-            }
-        ]
-    },
-    "experience": {
-        "title": "Work Experience",
-        "list": [
-            {
-                "title": "Data Analyst",
-                "company": "Vodafone Intelligent Solutions (VOIS)",
-                "duration": "6 months",
-                "description":"Built and maintained SQL-driven dashboards and automated reporting pipelines to support KPI analysis and stakeholder decision-making. Improved report reliability and reduced manual data preparation through automation.",
-                "timeLine":"Jan 2026 - Present"
-            },
-            {
-                "title": "Full Stack Developer",
-                "company": "Infosys Springboard",
-                "duration": "3 months",
-                "description":"Developed a full-stack platform connecting NGOs and volunteers. Designed RESTful APIs, implemented reusable React components, and collaborated on end-to-end user workflows from onboarding to task coordination.",
-                "timeLine":"Oct 2025 - Dec 2025"
-            },
-            {
-                "title": "Graphic Design Intern",
-                "company": "Curiosense Innovations Pvt. Ltd.",
-                "duration": "6 months",
-                "description": "Designed branding and UI assets. Collaborated with product teams. Practiced Agile workflow.",
-                "timeLine": ""
-            }
-        ]
-    },
-    "education": {
-        "title": "Education",
-        "list": [
-            {
-                "degree": "Bachelor of Engineering - CSE (Data Science)",
-                "institute": "Acharya Institute of Technology",
-                "duration": "Expected 2026",
-                "location": "Bengaluru"
-            }
-        ]
-    },
-    "footer":"{ } with ❤ by Vineet Kushwaha",
-    "toggleLangBtn": "क",
-    "intro11": "Hey there, I’m ",
-    "intro12": "{",
-    "intro13": "Vineet Kushwaha",
-    "intro121": "}",
-    "intro14": ". I’m a web developer and a data science student- but mostly, I’m just someone trying to make sense of the chaos, one line of code at a time.",
-  
-    "intro21": "Between pixels and Python, I’ve learned that building things-apps, ideas, futures-",
-    "intro22": "isn’t just about logic, it’s about heart.",
-    "intro23": " Every bug fixed is a tiny win, every late-night debug session a quiet act of belief.",
-  
-    "intro31": "I don’t have all the answers (yet), but I’m here-learning, breaking, rebuilding.",
-    "intro32": " Life’s messy. So is code.",
-    "intro33": " But when it runs… it’s kind of beautiful.",
-    "homeCards": {
-        "github": {
-            "title": "Codebase & GitHub",
-            "stats": "50+ Repositories",
-            "desc": "Check out my open-source work, scripts, notebooks, and automation tools."
-        },
-        "projects": {
-            "title": "Projects & Labs",
-            "stats": "7+ Featured Works",
-            "desc": "Explore web platforms, AI scheme recommenders, and database solutions."
-        },
-        "art": {
-            "title": "Photography & Design",
-            "stats": "UI/UX & Visuals",
-            "desc": "Browse branding projects, graphic layouts, and captured moments."
-        },
-        "about": {
-            "title": "Life & Philosophy",
-            "stats": "CSE Student (DS)",
-            "desc": "Read about my background, learning process, and what drives me."
-        }
-    }
+{
+	"name": "Vineet Kushwaha",
+	"role": "Full-Stack Software Developer",
+	"navbar": [
+		["Home", " "],
+		["Projects", "projects"],
+		["Art & Photos", "photography"],
+		["About", "about"]
+	],
+	"aboutme11": "I'm a ",
+	"aboutme12": "{",
+	"aboutme13": "full-stack web developer",
+	"aboutme121": "}",
+	"aboutme14": "with a strong grip on React, Node.js, and everything in between. ",
+	"aboutme15": "I like building",
+	"aboutme16": "responsive, real-world applications that are easy to use and fun to make. ",
+	"aboutme17": "Alongside web dev, I use Python for automating tasks, experimenting with ideas, and working on computer vision projects. I'm also studying Data Science, which adds some extra perspective to how I solve problems and think about code. I’m still learning, but I try to build with intention and keep getting better with every project.",
+	"projects": {
+		"title": "Projects",
+		"list": [
+			{
+				"title": "SkillMatrix",
+				"github": "https://github.com/SkillMatrix-io/skillmatrix",
+				"description": "A full-stack learning platform supporting role-based access, course creation, and multimedia content delivery (text, PDFs, video). Designed backend APIs and database schema to handle user roles, enrollments, and content management.",
+				"stack": ["React", "MySQL", "Django"],
+				"live": "",
+				"image": ["/projects/skillmatrix/1.png", "/projects/skillmatrix/2.png"]
+			},
+			{
+				"title": "Endxiety",
+				"github": "https://github.com/vineet-k09/Endxiety",
+				"description": "An AI-assisted mental wellness platform featuring anonymous chat, emotion tracking, and journaling. Focused on privacy-aware design, state management, and integrating LLM-based insights into user workflows.",
+				"live": "",
+				"stack": ["React", "MongoDB", "Vite", "OpenAI API"],
+				"image": ["/projects/endxiety/1.png"]
+			},
+			{
+				"title": "Saarthi AI",
+				"github": "https://github.com/Sarthi-AI/saarthi-ai",
+				"description": "Multilingual scheme recommender using AI, accessible via voice and text.",
+				"stack": ["React", "TypeScript", "ToughTongue", "ChatBaseAPI"],
+				"live": "",
+				"image": [
+					"/projects/saarthi/1.png",
+					"/projects/saarthi/2.png",
+					"/projects/saarthi/3.png"
+				]
+			},
+			{
+				"title": "BiblioVerse",
+				"github": "https://github.com/vineet-k09/E-Book-Recommendation",
+				"description": "An AI-driven ebook recommendation system combining big-data filtering with a modern web interface. Implemented data pipelines using Hadoop and PySpark, and integrated recommendations into a full-stack Next.js application.",
+				"stack": ["NextJs", "MongoDB", "Node.js", "Hadoop", "PySpark"],
+				"figma": "https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
+				"live": "",
+				"image": [
+					"/projects/biblioverse/1.png",
+					"/projects/biblioverse/2.png",
+					"/projects/biblioverse/3.png",
+					"/projects/biblioverse/4.png"
+				]
+			},
+			{
+				"title": "Real-Time Hand Gesture MIDI Synthesizer",
+				"github": "https://github.com/shyamkrishnabnair/hand-gesture-recognition-mediapipe-main",
+				"description": "Gesture-based MIDI controller built using OpenCV + MediaPipe for real-time music output.",
+				"stack": ["OpenCV", "MediaPipe", "CustomTKinter"],
+				"live": "",
+				"image": []
+			},
+			{
+				"title": "Bengaluru AI Road Guardian",
+				"github": "https://github.com/vineet-k09/potholeaAnalytics",
+				"description": "Smart city pothole reporter with AI-based image classification and emergency dashboards.",
+				"stack": ["HTML5", "CSS3", "ChartJs", "LeafletJs"],
+				"live": "",
+				"image": []
+			},
+			{
+				"title": "Portfolio Website",
+				"github": "https://github.com/vineet-k09/vineet-k09.github.io",
+				"description": "(Legacy Version) A personal site showcasing projects, resume, and creative UI experiments.",
+				"stack": ["HTLM5", "CSS3", "JavaScript"],
+				"live": "https://vineet-k09.github.io/indexOLD.html",
+				"image": [
+					"/projects/portfolioWeb/1.png",
+					"/projects/portfolioWeb/2.png",
+					"/projects/portfolioWeb/3.png"
+				]
+			}
+		]
+	},
+	"experience": {
+		"title": "Work Experience",
+		"list": [
+			{
+				"title": "Data Analyst",
+				"company": "Vodafone Intelligent Solutions (VOIS)",
+				"duration": "6 months",
+				"description": "Built and maintained SQL-driven dashboards and automated reporting pipelines to support KPI analysis and stakeholder decision-making. Improved report reliability and reduced manual data preparation through automation.",
+				"timeLine": "Jan 2026 - Present"
+			},
+			{
+				"title": "Full Stack Developer",
+				"company": "Infosys Springboard",
+				"duration": "3 months",
+				"description": "Developed a full-stack platform connecting NGOs and volunteers. Designed RESTful APIs, implemented reusable React components, and collaborated on end-to-end user workflows from onboarding to task coordination.",
+				"timeLine": "Oct 2025 - Dec 2025"
+			},
+			{
+				"title": "Graphic Design Intern",
+				"company": "Curiosense Innovations Pvt. Ltd.",
+				"duration": "6 months",
+				"description": "Designed branding and UI assets. Collaborated with product teams. Practiced Agile workflow.",
+				"timeLine": ""
+			}
+		]
+	},
+	"education": {
+		"title": "Education",
+		"list": [
+			{
+				"degree": "Bachelor of Engineering - CSE (Data Science)",
+				"institute": "Acharya Institute of Technology",
+				"duration": "Expected 2026",
+				"location": "Bengaluru"
+			}
+		]
+	},
+	"footer": "{ } with ❤ by Vineet Kushwaha",
+	"toggleLangBtn": "क",
+	"intro11": "Hey there, I’m ",
+	"intro12": "{",
+	"intro13": "Vineet Kushwaha",
+	"intro121": "}",
+	"intro14": ". I’m a web developer and a data science student- but mostly, I’m just someone trying to make sense of the chaos, one line of code at a time.",
+
+	"intro21": "Between pixels and Python, I’ve learned that building things-apps, ideas, futures-",
+	"intro22": "isn’t just about logic, it’s about heart.",
+	"intro23": " Every bug fixed is a tiny win, every late-night debug session a quiet act of belief.",
+
+	"intro31": "I don’t have all the answers (yet), but I’m here-learning, breaking, rebuilding.",
+	"intro32": " Life’s messy. So is code.",
+	"intro33": " But when it runs… it’s kind of beautiful.",
+	"homeCards": {
+		"github": {
+			"title": "Codebase & GitHub",
+			"stats": "50+ Repositories",
+			"desc": "Check out my open-source work, scripts, notebooks, and automation tools."
+		},
+		"projects": {
+			"title": "Projects & Labs",
+			"stats": "7+ Featured Works",
+			"desc": "Explore web platforms, AI scheme recommenders, and database solutions."
+		},
+		"art": {
+			"title": "Photography & Design",
+			"stats": "UI/UX & Visuals",
+			"desc": "Browse branding projects, graphic layouts, and captured moments."
+		},
+		"about": {
+			"title": "Life & Philosophy",
+			"stats": "CSE Student (DS)",
+			"desc": "Read about my background, learning process, and what drives me."
+		}
+	}
 }

@@ -1,156 +1,173 @@
 {
-  "name": "ವಿನೀತ್ ಕುಶ್ವಾಹಾ",
-  "role": "ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್",
-  "navbar": [
-    ["ಮುಖಪುಟ", " "],
-    ["ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು", "projects"],
-    ["ಕಲೆ ಮತ್ತು ವಿನ್ಯಾಸ", "photography"],
-    ["ಪರಿಚಯ", "about"]
-  ],
+	"name": "ವಿನೀತ್ ಕುಶ್ವಾಹಾ",
+	"role": "ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಸಾಫ್ಟ್‌ವೇರ್ ಡೆವಲಪರ್",
+	"navbar": [
+		["ಮುಖಪುಟ", " "],
+		["ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು", "projects"],
+		["ಕಲೆ ಮತ್ತು ವಿನ್ಯಾಸ", "photography"],
+		["ಪರಿಚಯ", "about"]
+	],
 
-  "aboutme11": "ನಾನು ಒಂದು ",
-  "aboutme12": "{",
-  "aboutme13": "ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ವೆಬ್ ಡೆವಲಪರ್",
-  "aboutme121": "}",
-  "aboutme14": "ಆಗಿದ್ದು, React, Node.js ಮತ್ತು ಅವುಗಳ ನಡುವಿನ ಎಲ್ಲಾ ತಂತ್ರಜ್ಞಾನಗಳಲ್ಲಿ ಉತ್ತಮ ಹಿಡಿತ ಹೊಂದಿದ್ದೇನೆ. ",
-  "aboutme15": "ನನಗೆ ನಿರ್ಮಿಸಲು ಇಷ್ಟ",
-  "aboutme16": "ಬಳಕೆ ಮಾಡಲು ಸುಲಭವಾಗಿರುವ ಹಾಗೂ ನಿರ್ಮಿಸಲು ಖುಷಿ ನೀಡುವ responsive, real-world ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು. ",
-  "aboutme17": "ವೆಬ್ ಡೆವಲಪ್ಮೆಂಟ್ ಜೊತೆಗೆ, ನಾನು Python ಅನ್ನು ಟಾಸ್ಕ್‌ಗಳ automation, ಹೊಸ ಐಡಿಯಾಗಳ ಮೇಲೆ ಪ್ರಯೋಗ ಮಾಡಲು ಮತ್ತು computer vision ಪ್ರಾಜೆಕ್ಟ್‌ಗಳಲ್ಲಿ ಬಳಸುತ್ತೇನೆ. ಜೊತೆಗೆ ನಾನು Data Science ಅಧ್ಯಯನವನ್ನೂ ಮಾಡುತ್ತಿದ್ದೇನೆ, ಇದು ಸಮಸ್ಯೆಗಳನ್ನು ಪರಿಹರಿಸುವುದು ಮತ್ತು ಕೋಡ್ ಬಗ್ಗೆ ಚಿಂತಿಸುವ ರೀತಿಗೆ ಹೆಚ್ಚುವರಿ ದೃಷ್ಟಿಕೋನವನ್ನು ನೀಡುತ್ತದೆ. ನಾನು ಇನ್ನೂ ಕಲಿಯುತ್ತೇನೆ, ಆದರೆ ಪ್ರತಿಯೊಂದು ಪ್ರಾಜೆಕ್ಟ್‌ನೊಂದಿಗೆ ಉದ್ದೇಶಪೂರ್ವಕವಾಗಿ ನಿರ್ಮಿಸಿ ಇನ್ನಷ್ಟು ಉತ್ತಮವಾಗಲು ಪ್ರಯತ್ನಿಸುತ್ತೇನೆ.",
+	"aboutme11": "ನಾನು ಒಂದು ",
+	"aboutme12": "{",
+	"aboutme13": "ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ವೆಬ್ ಡೆವಲಪರ್",
+	"aboutme121": "}",
+	"aboutme14": "ಆಗಿದ್ದು, React, Node.js ಮತ್ತು ಅವುಗಳ ನಡುವಿನ ಎಲ್ಲಾ ತಂತ್ರಜ್ಞಾನಗಳಲ್ಲಿ ಉತ್ತಮ ಹಿಡಿತ ಹೊಂದಿದ್ದೇನೆ. ",
+	"aboutme15": "ನನಗೆ ನಿರ್ಮಿಸಲು ಇಷ್ಟ",
+	"aboutme16": "ಬಳಕೆ ಮಾಡಲು ಸುಲಭವಾಗಿರುವ ಹಾಗೂ ನಿರ್ಮಿಸಲು ಖುಷಿ ನೀಡುವ responsive, real-world ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು. ",
+	"aboutme17": "ವೆಬ್ ಡೆವಲಪ್ಮೆಂಟ್ ಜೊತೆಗೆ, ನಾನು Python ಅನ್ನು ಟಾಸ್ಕ್‌ಗಳ automation, ಹೊಸ ಐಡಿಯಾಗಳ ಮೇಲೆ ಪ್ರಯೋಗ ಮಾಡಲು ಮತ್ತು computer vision ಪ್ರಾಜೆಕ್ಟ್‌ಗಳಲ್ಲಿ ಬಳಸುತ್ತೇನೆ. ಜೊತೆಗೆ ನಾನು Data Science ಅಧ್ಯಯನವನ್ನೂ ಮಾಡುತ್ತಿದ್ದೇನೆ, ಇದು ಸಮಸ್ಯೆಗಳನ್ನು ಪರಿಹರಿಸುವುದು ಮತ್ತು ಕೋಡ್ ಬಗ್ಗೆ ಚಿಂತಿಸುವ ರೀತಿಗೆ ಹೆಚ್ಚುವರಿ ದೃಷ್ಟಿಕೋನವನ್ನು ನೀಡುತ್ತದೆ. ನಾನು ಇನ್ನೂ ಕಲಿಯುತ್ತೇನೆ, ಆದರೆ ಪ್ರತಿಯೊಂದು ಪ್ರಾಜೆಕ್ಟ್‌ನೊಂದಿಗೆ ಉದ್ದೇಶಪೂರ್ವಕವಾಗಿ ನಿರ್ಮಿಸಿ ಇನ್ನಷ್ಟು ಉತ್ತಮವಾಗಲು ಪ್ರಯತ್ನಿಸುತ್ತೇನೆ.",
 
-  "projects": {
-    "title": "ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು",
-    "list": [
-      {
-        "title": "SkillMatrix",
-        "github": "https://github.com/SkillMatrix-io/skillmatrix",
-        "description": "Role-based access, ಕೋರ್ಸ್ ನಿರ್ಮಾಣ ಮತ್ತು ಮಲ್ಟಿಮೀಡಿಯಾ ಕಂಟೆಂಟ್ ವಿತರಣೆಯನ್ನು (ಟೆಕ್ಸ್ಟ್, PDFs, ವಿಡಿಯೋ) ಬೆಂಬಲಿಸುವ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಲರ್ನಿಂಗ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್. ಯೂಸರ್ ರೋಲ್‌ಗಳು, enrollment ಮತ್ತು content management ನಿಭಾಯಿಸಲು backend APIs ಮತ್ತು ಡೇಟಾಬೇಸ್ ಸ್ಕೀಮಾವನ್ನು ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ.",
-        "stack": ["React", "MySQL", "Django"],
-        "image": ["/projects/skillmatrix/1.png", "/projects/skillmatrix/2.png"]
-      },
-      {
-        "title": "Endxiety",
-        "github": "https://github.com/vineet-k09/Endxiety",
-        "description": "ಅನಾಮಧೇಯ ಚಾಟ್, ಭಾವನೆಗಳ ಟ್ರ್ಯಾಕಿಂಗ್ ಮತ್ತು ಜರ್ನಲಿಂಗ್ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಹೊಂದಿರುವ AI ಸಹಾಯಕ ಮಾನಸಿಕ ಆರೋಗ್ಯ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್. Privacy-aware design, state management ಮತ್ತು user workflows ನಲ್ಲಿ LLM ಆಧಾರಿತ insights ಗಳ integration ಮೇಲೆ ಗಮನಹರಿಸಲಾಗಿದೆ.",
-        "stack": ["React", "MongoDB", "Vite", "OpenAI API"],
-        "image": ["/projects/endxiety/1.png"]
-      },
-      {
-        "title": "Saarthi AI",
-        "github": "https://github.com/Sarthi-AI/saarthi-ai",
-        "description": "AI ಬಳಸುವ ಬಹುಭಾಷಾ ಯೋಜನೆ ಶಿಫಾರಸು ವ್ಯವಸ್ಥೆ, ಧ್ವನಿ ಮತ್ತು ಪಠ್ಯ ಎರಡರ ಮೂಲಕವೂ ಪ್ರವೇಶಿಸಬಹುದಾಗಿದೆ.",
-        "stack": ["React", "TypeScript", "ToughTongue", "ChatBaseAPI"],
-        "image": ["/projects/saarthi/1.png", "/projects/saarthi/2.png", "/projects/saarthi/3.png"]
-      },
-      {
-        "title": "BiblioVerse",
-        "github": "https://github.com/vineet-k09/E-Book-Recommendation",
-        "description": "Big-data filtering ಮತ್ತು ಆಧುನಿಕ ವೆಬ್ ಇಂಟರ್‌ಫೇಸ್ ಅನ್ನು ಸಂಯೋಜಿಸುವ AI ಆಧಾರಿತ ebook ಶಿಫಾರಸು ವ್ಯವಸ್ಥೆ. Hadoop ಮತ್ತು PySpark ಬಳಸಿ data pipelines ನಿರ್ಮಿಸಿ, ಶಿಫಾರಸುಗಳನ್ನು ಫುಲ್-ಸ್ಟ್ಯಾಕ್ Next.js ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಸಂಯೋಜಿಸಲಾಗಿದೆ.",
-        "stack": ["NextJs", "MongoDB", "Node.js", "Hadoop", "PySpark"],
-        "figma": "https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
-        "image": ["/projects/biblioverse/1.png", "/projects/biblioverse/2.png", "/projects/biblioverse/3.png", "/projects/biblioverse/4.png"]
-      },
-      {
-        "title": "ರಿಯಲ್-ಟೈಮ್ ಹ್ಯಾಂಡ್ ಜೆಸ್ಚರ್ MIDI ಸಿಂಥಸೈಜರ್",
-        "github": "https://github.com/shyamkrishnabnair/hand-gesture-recognition-mediapipe-main",
-        "description": "OpenCV ಮತ್ತು MediaPipe ಬಳಸಿ ನಿರ್ಮಿಸಲಾದ ಜೆಸ್ಚರ್ ಆಧಾರಿತ MIDI ನಿಯಂತ್ರಕ, ತಕ್ಷಣಿಕ ಸಂಗೀತ ಔಟ್‌ಪುಟ್‌ಗಾಗಿ.",
-        "stack": ["OpenCV", "MediaPipe", "CustomTKinter"],
-        "live": "",
-        "image": []
-      },
-      {
-        "title": "ಬೆಂಗಳೂರು AI ರಸ್ತೆ ಗಾರ್ಡಿಯನ್",
-        "github": "https://github.com/vineet-k09/potholeaAnalytics",
-        "description": "AI ಆಧಾರಿತ ಇಮೇಜ್ ವರ್ಗೀಕರಣ ಮತ್ತು ತುರ್ತು ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗಳೊಂದಿಗೆ ನಿರ್ಮಿಸಲಾದ ಸ್ಮಾರ್ಟ್ ಸಿಟಿ ಪಾಟ್‌ಹೋಲ್ ವರದಿ ವ್ಯವಸ್ಥೆ.",
-        "stack": ["HTML5", "CSS3", "ChartJs", "LeafletJs"],
-        "live": "",
-        "image": []
-      },
-      {
-        "title": "ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ವೆಬ್‌ಸೈಟ್",
-        "github": "https://github.com/vineet-k09/vineet-k09.github.io",
-        "description": "(ಲೆಗಸಿ ಆವೃತ್ತಿ) ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು, ರೆಸ್ಯೂಮ್ ಮತ್ತು ಕ್ರಿಯೇಟಿವ್ UI ಪ್ರಯೋಗಗಳನ್ನು ಪ್ರದರ್ಶಿಸುವ ವೈಯಕ್ತಿಕ ವೆಬ್‌ಸೈಟ್.",
-        "stack": ["HTML5", "CSS3", "JavaScript"],
-        "live": "https://vineet-k09.github.io/indexOLD.html",
-        "image": ["/projects/portfolioWeb/1.png", "/projects/portfolioWeb/2.png", "/projects/portfolioWeb/3.png"]
-      }
-    ]
-  },
+	"projects": {
+		"title": "ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು",
+		"list": [
+			{
+				"title": "SkillMatrix",
+				"github": "https://github.com/SkillMatrix-io/skillmatrix",
+				"description": "Role-based access, ಕೋರ್ಸ್ ನಿರ್ಮಾಣ ಮತ್ತು ಮಲ್ಟಿಮೀಡಿಯಾ ಕಂಟೆಂಟ್ ವಿತರಣೆಯನ್ನು (ಟೆಕ್ಸ್ಟ್, PDFs, ವಿಡಿಯೋ) ಬೆಂಬಲಿಸುವ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಲರ್ನಿಂಗ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್. ಯೂಸರ್ ರೋಲ್‌ಗಳು, enrollment ಮತ್ತು content management ನಿಭಾಯಿಸಲು backend APIs ಮತ್ತು ಡೇಟಾಬೇಸ್ ಸ್ಕೀಮಾವನ್ನು ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ.",
+				"stack": ["React", "MySQL", "Django"],
+				"live": "",
+				"image": ["/projects/skillmatrix/1.png", "/projects/skillmatrix/2.png"]
+			},
+			{
+				"title": "Endxiety",
+				"github": "https://github.com/vineet-k09/Endxiety",
+				"description": "ಅನಾಮಧೇಯ ಚಾಟ್, ಭಾವನೆಗಳ ಟ್ರ್ಯಾಕಿಂಗ್ ಮತ್ತು ಜರ್ನಲಿಂಗ್ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಹೊಂದಿರುವ AI ಸಹಾಯಕ ಮಾನಸಿಕ ಆರೋಗ್ಯ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್. Privacy-aware design, state management ಮತ್ತು user workflows ನಲ್ಲಿ LLM ಆಧಾರಿತ insights ಗಳ integration ಮೇಲೆ ಗಮನಹರಿಸಲಾಗಿದೆ.",
+				"stack": ["React", "MongoDB", "Vite", "OpenAI API"],
+				"live": "",
+				"image": ["/projects/endxiety/1.png"]
+			},
+			{
+				"title": "Saarthi AI",
+				"github": "https://github.com/Sarthi-AI/saarthi-ai",
+				"description": "AI ಬಳಸುವ ಬಹುಭಾಷಾ ಯೋಜನೆ ಶಿಫಾರಸು ವ್ಯವಸ್ಥೆ, ಧ್ವನಿ ಮತ್ತು ಪಠ್ಯ ಎರಡರ ಮೂಲಕವೂ ಪ್ರವೇಶಿಸಬಹುದಾಗಿದೆ.",
+				"stack": ["React", "TypeScript", "ToughTongue", "ChatBaseAPI"],
+				"live": "",
+				"image": [
+					"/projects/saarthi/1.png",
+					"/projects/saarthi/2.png",
+					"/projects/saarthi/3.png"
+				]
+			},
+			{
+				"title": "BiblioVerse",
+				"github": "https://github.com/vineet-k09/E-Book-Recommendation",
+				"description": "Big-data filtering ಮತ್ತು ಆಧುನಿಕ ವೆಬ್ ಇಂಟರ್‌ಫೇಸ್ ಅನ್ನು ಸಂಯೋಜಿಸುವ AI ಆಧಾರಿತ ebook ಶಿಫಾರಸು ವ್ಯವಸ್ಥೆ. Hadoop ಮತ್ತು PySpark ಬಳಸಿ data pipelines ನಿರ್ಮಿಸಿ, ಶಿಫಾರಸುಗಳನ್ನು ಫುಲ್-ಸ್ಟ್ಯಾಕ್ Next.js ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಸಂಯೋಜಿಸಲಾಗಿದೆ.",
+				"stack": ["NextJs", "MongoDB", "Node.js", "Hadoop", "PySpark"],
+				"live": "",
+				"figma": "https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
+				"image": [
+					"/projects/biblioverse/1.png",
+					"/projects/biblioverse/2.png",
+					"/projects/biblioverse/3.png",
+					"/projects/biblioverse/4.png"
+				]
+			},
+			{
+				"title": "ರಿಯಲ್-ಟೈಮ್ ಹ್ಯಾಂಡ್ ಜೆಸ್ಚರ್ MIDI ಸಿಂಥಸೈಜರ್",
+				"github": "https://github.com/shyamkrishnabnair/hand-gesture-recognition-mediapipe-main",
+				"description": "OpenCV ಮತ್ತು MediaPipe ಬಳಸಿ ನಿರ್ಮಿಸಲಾದ ಜೆಸ್ಚರ್ ಆಧಾರಿತ MIDI ನಿಯಂತ್ರಕ, ತಕ್ಷಣಿಕ ಸಂಗೀತ ಔಟ್‌ಪುಟ್‌ಗಾಗಿ.",
+				"stack": ["OpenCV", "MediaPipe", "CustomTKinter"],
+				"live": "",
+				"image": []
+			},
+			{
+				"title": "ಬೆಂಗಳೂರು AI ರಸ್ತೆ ಗಾರ್ಡಿಯನ್",
+				"github": "https://github.com/vineet-k09/potholeaAnalytics",
+				"description": "AI ಆಧಾರಿತ ಇಮೇಜ್ ವರ್ಗೀಕರಣ ಮತ್ತು ತುರ್ತು ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗಳೊಂದಿಗೆ ನಿರ್ಮಿಸಲಾದ ಸ್ಮಾರ್ಟ್ ಸಿಟಿ ಪಾಟ್‌ಹೋಲ್ ವರದಿ ವ್ಯವಸ್ಥೆ.",
+				"stack": ["HTML5", "CSS3", "ChartJs", "LeafletJs"],
+				"live": "",
+				"image": []
+			},
+			{
+				"title": "ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ವೆಬ್‌ಸೈಟ್",
+				"github": "https://github.com/vineet-k09/vineet-k09.github.io",
+				"description": "(ಲೆಗಸಿ ಆವೃತ್ತಿ) ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು, ರೆಸ್ಯೂಮ್ ಮತ್ತು ಕ್ರಿಯೇಟಿವ್ UI ಪ್ರಯೋಗಗಳನ್ನು ಪ್ರದರ್ಶಿಸುವ ವೈಯಕ್ತಿಕ ವೆಬ್‌ಸೈಟ್.",
+				"stack": ["HTML5", "CSS3", "JavaScript"],
+				"live": "https://vineet-k09.github.io/indexOLD.html",
+				"image": [
+					"/projects/portfolioWeb/1.png",
+					"/projects/portfolioWeb/2.png",
+					"/projects/portfolioWeb/3.png"
+				]
+			}
+		]
+	},
 
-  "experience": {
-    "title": "ಕೆಲಸದ ಅನುಭವ",
-    "list": [
-      {
-        "title": "ಡೇಟಾ ಅನಾಲಿಸ್ಟ್",
-        "company": "Vodafone Intelligent Solutions (VOIS)",
-        "duration": "6 ತಿಂಗಳು",
-        "description": "KPI ವಿಶ್ಲೇಷಣೆ ಮತ್ತು ಸ್ಟೇಕ್‌ಹೋಲ್ಡರ್ ನಿರ್ಧಾರಗಳನ್ನು ಬೆಂಬಲಿಸಲು SQL ಆಧಾರಿತ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗಳು ಮತ್ತು ಸ್ವಯಂಚಾಲಿತ ರಿಪೋರ್ಟಿಂಗ್ ಪೈಪ್‌ಲೈನ್‌ಗಳನ್ನು ನಿರ್ಮಿಸಿ ನಿರ್ವಹಿಸಲಾಯಿತು. Automation ಮೂಲಕ ಮಾನವೀಯ ಡೇಟಾ ತಯಾರಿಕೆಯನ್ನು ಕಡಿಮೆ ಮಾಡಿ, ವರದಿಗಳ ವಿಶ್ವಾಸಾರ್ಹತೆಯನ್ನು ಹೆಚ್ಚಿಸಲಾಯಿತು.",
-        "timeLine": "ಜನವರಿ 2026 - ಪ್ರಸ್ತುತ"
-      },
-      {
-        "title": "ಫುಲ್ ಸ್ಟ್ಯಾಕ್ ಡೆವಲಪರ್",
-        "company": "Infosys Springboard",
-        "duration": "3 ತಿಂಗಳು",
-        "description": "NGOಗಳು ಮತ್ತು ಸ್ವಯಂಸೇವಕರನ್ನು ಸಂಪರ್ಕಿಸುವ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಅಭಿವೃದ್ಧಿಪಡಿಸಲಾಯಿತು. RESTful APIs ವಿನ್ಯಾಸಗೊಳಿಸಿ, reusable React components ಅನುಷ್ಠಾನಗೊಳಿಸಿ, onboarding ರಿಂದ task coordination ವರೆಗೆ end-to-end user workflows ಮೇಲೆ ಸಹಕರಿಸಲಾಯಿತು.",
-        "timeLine": "ಅಕ್ಟೋಬರ್ 2025 - ಡಿಸೆಂಬರ್ 2025"
-      },
-      {
-        "title": "ಗ್ರಾಫಿಕ್ ಡಿಸೈನ್ ಇಂಟರ್ನ್",
-        "company": "Curiosense Innovations Pvt. Ltd.",
-        "duration": "6 ತಿಂಗಳು",
-        "description": "ಬ್ರ್ಯಾಂಡಿಂಗ್ ಮತ್ತು UI assets ವಿನ್ಯಾಸಗೊಳಿಸಲಾಯಿತು. ಉತ್ಪನ್ನ ತಂಡಗಳೊಂದಿಗೆ ಸಹಕರಿಸಲಾಯಿತು. Agile workflow ಅನ್ನು ಅನುಸರಿಸಲಾಯಿತು.",
-        "timeLine": ""
-      }
-    ]
-  },
+	"experience": {
+		"title": "ಕೆಲಸದ ಅನುಭವ",
+		"list": [
+			{
+				"title": "ಡೇಟಾ ಅನಾಲಿಸ್ಟ್",
+				"company": "Vodafone Intelligent Solutions (VOIS)",
+				"duration": "6 ತಿಂಗಳು",
+				"description": "KPI ವಿಶ್ಲೇಷಣೆ ಮತ್ತು ಸ್ಟೇಕ್‌ಹೋಲ್ಡರ್ ನಿರ್ಧಾರಗಳನ್ನು ಬೆಂಬಲಿಸಲು SQL ಆಧಾರಿತ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗಳು ಮತ್ತು ಸ್ವಯಂಚಾಲಿತ ರಿಪೋರ್ಟಿಂಗ್ ಪೈಪ್‌ಲೈನ್‌ಗಳನ್ನು ನಿರ್ಮಿಸಿ ನಿರ್ವಹಿಸಲಾಯಿತು. Automation ಮೂಲಕ ಮಾನವೀಯ ಡೇಟಾ ತಯಾರಿಕೆಯನ್ನು ಕಡಿಮೆ ಮಾಡಿ, ವರದಿಗಳ ವಿಶ್ವಾಸಾರ್ಹತೆಯನ್ನು ಹೆಚ್ಚಿಸಲಾಯಿತು.",
+				"timeLine": "ಜನವರಿ 2026 - ಪ್ರಸ್ತುತ"
+			},
+			{
+				"title": "ಫುಲ್ ಸ್ಟ್ಯಾಕ್ ಡೆವಲಪರ್",
+				"company": "Infosys Springboard",
+				"duration": "3 ತಿಂಗಳು",
+				"description": "NGOಗಳು ಮತ್ತು ಸ್ವಯಂಸೇವಕರನ್ನು ಸಂಪರ್ಕಿಸುವ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಅಭಿವೃದ್ಧಿಪಡಿಸಲಾಯಿತು. RESTful APIs ವಿನ್ಯಾಸಗೊಳಿಸಿ, reusable React components ಅನುಷ್ಠಾನಗೊಳಿಸಿ, onboarding ರಿಂದ task coordination ವರೆಗೆ end-to-end user workflows ಮೇಲೆ ಸಹಕರಿಸಲಾಯಿತು.",
+				"timeLine": "ಅಕ್ಟೋಬರ್ 2025 - ಡಿಸೆಂಬರ್ 2025"
+			},
+			{
+				"title": "ಗ್ರಾಫಿಕ್ ಡಿಸೈನ್ ಇಂಟರ್ನ್",
+				"company": "Curiosense Innovations Pvt. Ltd.",
+				"duration": "6 ತಿಂಗಳು",
+				"description": "ಬ್ರ್ಯಾಂಡಿಂಗ್ ಮತ್ತು UI assets ವಿನ್ಯಾಸಗೊಳಿಸಲಾಯಿತು. ಉತ್ಪನ್ನ ತಂಡಗಳೊಂದಿಗೆ ಸಹಕರಿಸಲಾಯಿತು. Agile workflow ಅನ್ನು ಅನುಸರಿಸಲಾಯಿತು.",
+				"timeLine": ""
+			}
+		]
+	},
 
-  "education": {
-    "title": "ಶಿಕ್ಷಣ",
-    "list": [
-      {
-        "degree": "ಬ್ಯಾಚುಲರ್ ಆಫ್ ಎಂಜಿನಿಯರಿಂಗ್ - CSE (ಡೇಟಾ ಸೈನ್ಸ್)",
-        "institute": "ಆಚಾರ್ಯ ಇನ್‌ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಟೆಕ್ನಾಲಜಿ",
-        "duration": "2026 ನಿರೀಕ್ಷಿತ",
-        "location": "ಬೆಂಗಳೂರು"
-      }
-    ]
-  },
+	"education": {
+		"title": "ಶಿಕ್ಷಣ",
+		"list": [
+			{
+				"degree": "ಬ್ಯಾಚುಲರ್ ಆಫ್ ಎಂಜಿನಿಯರಿಂಗ್ - CSE (ಡೇಟಾ ಸೈನ್ಸ್)",
+				"institute": "ಆಚಾರ್ಯ ಇನ್‌ಸ್ಟಿಟ್ಯೂಟ್ ಆಫ್ ಟೆಕ್ನಾಲಜಿ",
+				"duration": "2026 ನಿರೀಕ್ಷಿತ",
+				"location": "ಬೆಂಗಳೂರು"
+			}
+		]
+	},
 
-  "footer": "{ } ❤ ಸಹಿತ ವಿನೀತ್ ಕುಶ್ವಾಹಾ",
-  "toggleLangBtn": "ಕ",
+	"footer": "{ } ❤ ಸಹಿತ ವಿನೀತ್ ಕುಶ್ವಾಹಾ",
+	"toggleLangBtn": "ಕ",
 
-  "intro11": "ನಮಸ್ಕಾರ, ನಾನು ",
-  "intro12": "{",
-  "intro13": "ವಿನೀತ್ ಕುಶ್ವಾಹಾ",
-  "intro121": "}",
-  "intro14": ". ನಾನು ಒಬ್ಬ ವೆಬ್ ಡೆವಲಪರ್ ಮತ್ತು ಡೇಟಾ ಸೈನ್ಸ್ ವಿದ್ಯಾರ್ಥಿ — ಆದರೆ ಹೆಚ್ಚಾಗಿ, ಈ ಅಸ್ತವ್ಯಸ್ತತೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಪ್ರಯತ್ನಿಸುವ ವ್ಯಕ್ತಿ, ಒಂದೊಂದು ಕೋಡ್ ಸಾಲಿನ ಮೂಲಕ.",
+	"intro11": "ನಮಸ್ಕಾರ, ನಾನು ",
+	"intro12": "{",
+	"intro13": "ವಿನೀತ್ ಕುಶ್ವಾಹಾ",
+	"intro121": "}",
+	"intro14": ". ನಾನು ಒಬ್ಬ ವೆಬ್ ಡೆವಲಪರ್ ಮತ್ತು ಡೇಟಾ ಸೈನ್ಸ್ ವಿದ್ಯಾರ್ಥಿ — ಆದರೆ ಹೆಚ್ಚಾಗಿ, ಈ ಅಸ್ತವ್ಯಸ್ತತೆಯನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಪ್ರಯತ್ನಿಸುವ ವ್ಯಕ್ತಿ, ಒಂದೊಂದು ಕೋಡ್ ಸಾಲಿನ ಮೂಲಕ.",
 
-  "intro21": "ಪಿಕ್ಸೆಲ್‌ಗಳು ಮತ್ತು Python ನಡುವಿನಲ್ಲಿ, ನಾನು ಕಲಿತಿದ್ದು ಏನೆಂದರೆ — ವಸ್ತುಗಳನ್ನು ನಿರ್ಮಿಸುವುದು, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು, ಆಲೋಚನೆಗಳು, ಭವಿಷ್ಯಗಳು —",
-  "intro22": "ಅವು ಕೇವಲ ಲಾಜಿಕ್ ಬಗ್ಗೆ ಮಾತ್ರವಲ್ಲ, ಹೃದಯದ ಬಗ್ಗೆ ಕೂಡ.",
-  "intro23": "ಪ್ರತಿ ಬಗ್ ಸರಿಪಡಿಸುವುದು ಒಂದು ಚಿಕ್ಕ ಜಯ, ಪ್ರತಿಯೊಂದು ತಡರಾತ್ರಿ ಡಿಬಗ್ ಸೆಷನ್ ಒಂದು ಮೌನ ನಂಬಿಕೆಯ ಕಾರ್ಯ.",
+	"intro21": "ಪಿಕ್ಸೆಲ್‌ಗಳು ಮತ್ತು Python ನಡುವಿನಲ್ಲಿ, ನಾನು ಕಲಿತಿದ್ದು ಏನೆಂದರೆ — ವಸ್ತುಗಳನ್ನು ನಿರ್ಮಿಸುವುದು, ಅಪ್ಲಿಕೇಶನ್‌ಗಳು, ಆಲೋಚನೆಗಳು, ಭವಿಷ್ಯಗಳು —",
+	"intro22": "ಅವು ಕೇವಲ ಲಾಜಿಕ್ ಬಗ್ಗೆ ಮಾತ್ರವಲ್ಲ, ಹೃದಯದ ಬಗ್ಗೆ ಕೂಡ.",
+	"intro23": "ಪ್ರತಿ ಬಗ್ ಸರಿಪಡಿಸುವುದು ಒಂದು ಚಿಕ್ಕ ಜಯ, ಪ್ರತಿಯೊಂದು ತಡರಾತ್ರಿ ಡಿಬಗ್ ಸೆಷನ್ ಒಂದು ಮೌನ ನಂಬಿಕೆಯ ಕಾರ್ಯ.",
 
-  "intro31": "ನನಗೆ ಇನ್ನೂ ಎಲ್ಲಾ ಉತ್ತರಗಳು ಗೊತ್ತಿಲ್ಲ (ಇನ್ನೂ), ಆದರೆ ನಾನು ಇಲ್ಲಿದ್ದೇನೆ — ಕಲಿಯುತ್ತಾ, ಮುರಿಯುತ್ತಾ, ಮತ್ತೆ ನಿರ್ಮಿಸುತ್ತಾ.",
-  "intro32": "ಜೀವನವೂ ಗೊಂದಲದದ್ದೇ. ಕೋಡೂ ಹಾಗೇ.",
-  "intro33": "ಆದರೆ ಅದು ಓಡಿದಾಗ… ಅದು ನಿಜಕ್ಕೂ ಸುಂದರವಾಗಿರುತ್ತದೆ.",
-  "homeCards": {
-    "github": {
-      "title": "ಕೋಡ್‌ಬೇಸ್ ಮತ್ತು ಗಿಟ್‌ಹಬ್",
-      "stats": "50+ ರೆಪೊಸಿಟರಿಗಳು",
-      "desc": "ನನ್ನ ಓಪನ್-ಸೋರ್ಸ್ ಕೆಲಸ, ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳು, ನೋಟ್‌ಬುಕ್‌ಗಳು ಮತ್ತು ಆಟೊಮೇಷನ್ ಪರಿಕರಗಳನ್ನು ನೋಡಿ."
-    },
-    "projects": {
-      "title": "ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು ಮತ್ತು ಲ್ಯಾಬ್ಸ್",
-      "stats": "7+ ಪ್ರಮುಖ ಕೃತಿಗಳು",
-      "desc": "ವೆಬ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳು, AI ಸ್ಕೀಮ್ ಶಿಫಾರಸುದಾರರು ಮತ್ತು ಡೇಟಾಬೇಸ್ ಪರಿಹಾರಗಳನ್ನು ಅನ್ವೇಷಿಸಿ."
-    },
-    "art": {
-      "title": "ಛಾಯಾಗ್ರಹಣ ಮತ್ತು ವಿನ್ಯಾಸ",
-      "stats": "UI/UX ಮತ್ತು ದೃಶ್ಯಗಳು",
-      "desc": "ಬ್ರ್ಯಾಂಡಿಂಗ್ ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು, ಗ್ರಾಫಿಕ್ ಲೇಔಟ್‌ಗಳು ಮತ್ತು ಸೆರೆಹಿಡಿದ ಕ್ಷಣಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ."
-    },
-    "about": {
-      "title": "ಜೀವನ ಮತ್ತು ತತ್ವಶಾಸ್ತ್ರ",
-      "stats": "CSE ವಿದ್ಯಾರ್ಥಿ (DS)",
-      "desc": "ನನ್ನ ಹಿನ್ನೆಲೆ, ಕಲಿಕೆಯ ಪ್ರಕ್ರಿಯೆ ಮತ್ತು ನನ್ನನ್ನು ಪ್ರೇರೇಪಿಸುವ ವಿಷಯಗಳ ಬಗ್ಗೆ ಓದಿ."
-    }
-  }
+	"intro31": "ನನಗೆ ಇನ್ನೂ ಎಲ್ಲಾ ಉತ್ತರಗಳು ಗೊತ್ತಿಲ್ಲ (ಇನ್ನೂ), ಆದರೆ ನಾನು ಇಲ್ಲಿದ್ದೇನೆ — ಕಲಿಯುತ್ತಾ, ಮುರಿಯುತ್ತಾ, ಮತ್ತೆ ನಿರ್ಮಿಸುತ್ತಾ.",
+	"intro32": "ಜೀವನವೂ ಗೊಂದಲದದ್ದೇ. ಕೋಡೂ ಹಾಗೇ.",
+	"intro33": "ಆದರೆ ಅದು ಓಡಿದಾಗ… ಅದು ನಿಜಕ್ಕೂ ಸುಂದರವಾಗಿರುತ್ತದೆ.",
+	"homeCards": {
+		"github": {
+			"title": "ಕೋಡ್‌ಬೇಸ್ ಮತ್ತು ಗಿಟ್‌ಹಬ್",
+			"stats": "50+ ರೆಪೊಸಿಟರಿಗಳು",
+			"desc": "ನನ್ನ ಓಪನ್-ಸೋರ್ಸ್ ಕೆಲಸ, ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳು, ನೋಟ್‌ಬುಕ್‌ಗಳು ಮತ್ತು ಆಟೊಮೇಷನ್ ಪರಿಕರಗಳನ್ನು ನೋಡಿ."
+		},
+		"projects": {
+			"title": "ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು ಮತ್ತು ಲ್ಯಾಬ್ಸ್",
+			"stats": "7+ ಪ್ರಮುಖ ಕೃತಿಗಳು",
+			"desc": "ವೆಬ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳು, AI ಸ್ಕೀಮ್ ಶಿಫಾರಸುದಾರರು ಮತ್ತು ಡೇಟಾಬೇಸ್ ಪರಿಹಾರಗಳನ್ನು ಅನ್ವೇಷಿಸಿ."
+		},
+		"art": {
+			"title": "ಛಾಯಾಗ್ರಹಣ ಮತ್ತು ವಿನ್ಯಾಸ",
+			"stats": "UI/UX ಮತ್ತು ದೃಶ್ಯಗಳು",
+			"desc": "ಬ್ರ್ಯಾಂಡಿಂಗ್ ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು, ಗ್ರಾಫಿಕ್ ಲೇಔಟ್‌ಗಳು ಮತ್ತು ಸೆರೆಹಿಡಿದ ಕ್ಷಣಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ."
+		},
+		"about": {
+			"title": "ಜೀವನ ಮತ್ತು ತತ್ವಶಾಸ್ತ್ರ",
+			"stats": "CSE ವಿದ್ಯಾರ್ಥಿ (DS)",
+			"desc": "ನನ್ನ ಹಿನ್ನೆಲೆ, ಕಲಿಕೆಯ ಪ್ರಕ್ರಿಯೆ ಮತ್ತು ನನ್ನನ್ನು ಪ್ರೇರೇಪಿಸುವ ವಿಷಯಗಳ ಬಗ್ಗೆ ಓದಿ."
+		}
+	}
 }
