@@ -26,6 +26,12 @@ interface TranslationContent {
     aboutme15: string;
     aboutme16: string;
     aboutme17: string;
+    homeCards?: {
+        github: { title: string; stats: string; desc: string };
+        projects: { title: string; stats: string; desc: string };
+        art: { title: string; stats: string; desc: string };
+        about: { title: string; stats: string; desc: string };
+    };
     projects?: {
         title: string;
         list: {
