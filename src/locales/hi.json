@@ -4,6 +4,7 @@
   "navbar": [
     ["होम", " "],
     ["प्रोजेक्ट्स", "projects"],
+    ["कला और डिज़ाइन", "photography"],
     ["अबाउट", "about"]
   ],
 
@@ -24,7 +25,6 @@
         "github": "https://github.com/SkillMatrix-io/skillmatrix",
         "description": "एक फुल-स्टैक लर्निंग प्लेटफ़ॉर्म जिसमें role-based access, कोर्स निर्माण और मल्टीमीडिया कंटेंट डिलीवरी (टेक्स्ट, PDF, वीडियो) का सपोर्ट है। यूज़र रोल्स, एनरोलमेंट और कंटेंट मैनेजमेंट को संभालने के लिए backend APIs और डेटाबेस स्कीमा डिज़ाइन किया गया।",
         "stack": ["React", "MySQL", "Django"],
-        "live": "https://skillmatrix-beta.vercel.app/",
         "image": ["/projects/skillmatrix/1.png", "/projects/skillmatrix/2.png"]
       },
       {
@@ -32,7 +32,6 @@
         "github": "https://github.com/vineet-k09/Endxiety",
         "description": "AI-सहायता प्राप्त मेंटल वेलनेस प्लेटफ़ॉर्म जिसमें गुमनाम चैट, इमोशन ट्रैकिंग और जर्नलिंग की सुविधाएँ हैं। प्राइवेसी-अवेयर डिज़ाइन, स्टेट मैनेजमेंट और यूज़र वर्कफ़्लो में LLM-आधारित इनसाइट्स के इंटीग्रेशन पर फ़ोकस किया गया।",
         "stack": ["React", "MongoDB", "Vite", "OpenAI API"],
-        "live": "https://emo-son-ai.vercel.app/",
         "image": ["/projects/endxiety/1.png"]
       },
       {
@@ -40,7 +39,6 @@
         "github": "https://github.com/Sarthi-AI/saarthi-ai",
         "description": "AI की मदद से बनाया गया मल्टीलिंगुअल स्कीम रिकमेंडर, जो आवाज़ और टेक्स्ट दोनों के माध्यम से उपयोग किया जा सकता है।",
         "stack": ["React", "TypeScript", "ToughTongue", "ChatBaseAPI"],
-        "live": "https://saarthi-ai-one.vercel.app/",
         "image": ["/projects/saarthi/1.png", "/projects/saarthi/2.png", "/projects/saarthi/3.png"]
       },
       {
@@ -48,7 +46,6 @@
         "github": "https://github.com/vineet-k09/E-Book-Recommendation",
         "description": "एक AI-आधारित ईबुक रिकमेंडेशन सिस्टम जो बिग-डेटा फ़िल्टरिंग को एक आधुनिक वेब इंटरफ़ेस के साथ जोड़ता है। Hadoop और PySpark का उपयोग करके डेटा पाइपलाइन्स बनाई गईं और रिकमेंडेशन को फुल-स्टैक Next.js एप्लिकेशन में इंटीग्रेट किया गया।",
         "stack": ["NextJs", "MongoDB", "Node.js", "Hadoop", "PySpark"],
-        "live": "https://e-book-recommendation.vercel.app/",
         "figma": "https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
         "image": ["/projects/biblioverse/1.png", "/projects/biblioverse/2.png", "/projects/biblioverse/3.png", "/projects/biblioverse/4.png"]
       },
@@ -133,5 +130,27 @@
 
   "intro31": "मेरे पास अभी सभी जवाब नहीं हैं (अभी तक), लेकिन मैं यहाँ हूँ — सीखते हुए, तोड़ते हुए, और फिर से बनाते हुए।",
   "intro32": "ज़िंदगी भी उलझी हुई है। कोड भी।",
-  "intro33": "लेकिन जब यह चलता है… तो वाकई ख़ूबसूरत लगता है।"
+  "intro33": "लेकिन जब यह चलता है… तो वाकई ख़ूबसूरत लगता है।",
+  "homeCards": {
+    "github": {
+      "title": "कोडबेस और गिटहब",
+      "stats": "50+ रिपॉजिटरी",
+      "desc": "मेरे ओपन-सोर्स काम, स्क्रिप्ट, नोटबुक और ऑटोमेशन टूल देखें।"
+    },
+    "projects": {
+      "title": "प्रोजेक्ट्स और लैब्स",
+      "stats": "7+ चुनिंदा कार्य",
+      "desc": "वेब प्लेटफॉर्म, एआई स्कीम रिकमेंडर्स और डेटाबेस समाधान देखें।"
+    },
+    "art": {
+      "title": "फोटोग्राफी और डिजाइन",
+      "stats": "UI/UX और विजुअल्स",
+      "desc": "ब्रांडिंग प्रोजेक्ट, ग्राफिक लेआउट और कैमरे में कैद पलों को देखें।"
+    },
+    "about": {
+      "title": "जीवन और दर्शन",
+      "stats": "CSE छात्र (डेटा साइंस)",
+      "desc": "मेरे बैकग्राउंड, सीखने की प्रक्रिया और मेरी प्रेरणा के बारे में पढ़ें।"
+    }
+  }
 }

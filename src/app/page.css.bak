@@ -342,39 +342,38 @@ a:hover {
     line-height: 1.5;
 }
 
-/* 🎨 Soft Theme Card styles (Raised Theme Surfaces) */
+/* 🎨 Inverted Theme Card styles (Opposite Theme Font Color) */
 .inverted-theme-card {
-    background-color: var(--card-bg) !important;
-    color: var(--text) !important;
-    border: 1px solid rgba(var(--accent-rgb), 0.15);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: var(--text) !important;
+    color: var(--bg) !important;
+    border: 1.5px solid rgba(var(--accent-rgb), 0.2);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .inverted-theme-card:hover {
     transform: translateY(-2px);
-    border-color: var(--accent);
-    box-shadow: 0 10px 30px -10px rgba(var(--accent-rgb), 0.25);
+    box-shadow: 0 10px 30px -10px rgba(var(--accent-rgb), 0.35);
 }
 
 .inverted-theme-card h2,
 .inverted-theme-card h3,
 .inverted-theme-card h4,
 .inverted-theme-card span.specific {
-    color: var(--text) !important;
+    color: var(--bg) !important;
 }
 
 .inverted-theme-card p,
 .inverted-theme-card div,
 .inverted-theme-card li,
 .inverted-theme-card a {
-    color: var(--text) !important;
+    color: var(--bg) !important;
 }
 
 .inverted-theme-card .inverted-tag {
     background-color: var(--bg) !important;
     color: var(--text) !important;
-    border: 1px solid rgba(var(--accent-rgb), 0.12);
+    border: 1px solid rgba(var(--accent-rgb), 0.1);
     transition: all 0.25s ease;
 }
 

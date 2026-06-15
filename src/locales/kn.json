@@ -4,6 +4,7 @@
   "navbar": [
     ["ಮುಖಪುಟ", " "],
     ["ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು", "projects"],
+    ["ಕಲೆ ಮತ್ತು ವಿನ್ಯಾಸ", "photography"],
     ["ಪರಿಚಯ", "about"]
   ],
 
@@ -24,7 +25,6 @@
         "github": "https://github.com/SkillMatrix-io/skillmatrix",
         "description": "Role-based access, ಕೋರ್ಸ್ ನಿರ್ಮಾಣ ಮತ್ತು ಮಲ್ಟಿಮೀಡಿಯಾ ಕಂಟೆಂಟ್ ವಿತರಣೆಯನ್ನು (ಟೆಕ್ಸ್ಟ್, PDFs, ವಿಡಿಯೋ) ಬೆಂಬಲಿಸುವ ಫುಲ್-ಸ್ಟ್ಯಾಕ್ ಲರ್ನಿಂಗ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್. ಯೂಸರ್ ರೋಲ್‌ಗಳು, enrollment ಮತ್ತು content management ನಿಭಾಯಿಸಲು backend APIs ಮತ್ತು ಡೇಟಾಬೇಸ್ ಸ್ಕೀಮಾವನ್ನು ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ.",
         "stack": ["React", "MySQL", "Django"],
-        "live": "https://skillmatrix-beta.vercel.app/",
         "image": ["/projects/skillmatrix/1.png", "/projects/skillmatrix/2.png"]
       },
       {
@@ -32,7 +32,6 @@
         "github": "https://github.com/vineet-k09/Endxiety",
         "description": "ಅನಾಮಧೇಯ ಚಾಟ್, ಭಾವನೆಗಳ ಟ್ರ್ಯಾಕಿಂಗ್ ಮತ್ತು ಜರ್ನಲಿಂಗ್ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಹೊಂದಿರುವ AI ಸಹಾಯಕ ಮಾನಸಿಕ ಆರೋಗ್ಯ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್. Privacy-aware design, state management ಮತ್ತು user workflows ನಲ್ಲಿ LLM ಆಧಾರಿತ insights ಗಳ integration ಮೇಲೆ ಗಮನಹರಿಸಲಾಗಿದೆ.",
         "stack": ["React", "MongoDB", "Vite", "OpenAI API"],
-        "live": "https://emo-son-ai.vercel.app/",
         "image": ["/projects/endxiety/1.png"]
       },
       {
@@ -40,7 +39,6 @@
         "github": "https://github.com/Sarthi-AI/saarthi-ai",
         "description": "AI ಬಳಸುವ ಬಹುಭಾಷಾ ಯೋಜನೆ ಶಿಫಾರಸು ವ್ಯವಸ್ಥೆ, ಧ್ವನಿ ಮತ್ತು ಪಠ್ಯ ಎರಡರ ಮೂಲಕವೂ ಪ್ರವೇಶಿಸಬಹುದಾಗಿದೆ.",
         "stack": ["React", "TypeScript", "ToughTongue", "ChatBaseAPI"],
-        "live": "https://saarthi-ai-one.vercel.app/",
         "image": ["/projects/saarthi/1.png", "/projects/saarthi/2.png", "/projects/saarthi/3.png"]
       },
       {
@@ -48,7 +46,6 @@
         "github": "https://github.com/vineet-k09/E-Book-Recommendation",
         "description": "Big-data filtering ಮತ್ತು ಆಧುನಿಕ ವೆಬ್ ಇಂಟರ್‌ಫೇಸ್ ಅನ್ನು ಸಂಯೋಜಿಸುವ AI ಆಧಾರಿತ ebook ಶಿಫಾರಸು ವ್ಯವಸ್ಥೆ. Hadoop ಮತ್ತು PySpark ಬಳಸಿ data pipelines ನಿರ್ಮಿಸಿ, ಶಿಫಾರಸುಗಳನ್ನು ಫುಲ್-ಸ್ಟ್ಯಾಕ್ Next.js ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಸಂಯೋಜಿಸಲಾಗಿದೆ.",
         "stack": ["NextJs", "MongoDB", "Node.js", "Hadoop", "PySpark"],
-        "live": "https://e-book-recommendation.vercel.app/",
         "figma": "https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
         "image": ["/projects/biblioverse/1.png", "/projects/biblioverse/2.png", "/projects/biblioverse/3.png", "/projects/biblioverse/4.png"]
       },
@@ -133,5 +130,27 @@
 
   "intro31": "ನನಗೆ ಇನ್ನೂ ಎಲ್ಲಾ ಉತ್ತರಗಳು ಗೊತ್ತಿಲ್ಲ (ಇನ್ನೂ), ಆದರೆ ನಾನು ಇಲ್ಲಿದ್ದೇನೆ — ಕಲಿಯುತ್ತಾ, ಮುರಿಯುತ್ತಾ, ಮತ್ತೆ ನಿರ್ಮಿಸುತ್ತಾ.",
   "intro32": "ಜೀವನವೂ ಗೊಂದಲದದ್ದೇ. ಕೋಡೂ ಹಾಗೇ.",
-  "intro33": "ಆದರೆ ಅದು ಓಡಿದಾಗ… ಅದು ನಿಜಕ್ಕೂ ಸುಂದರವಾಗಿರುತ್ತದೆ."
+  "intro33": "ಆದರೆ ಅದು ಓಡಿದಾಗ… ಅದು ನಿಜಕ್ಕೂ ಸುಂದರವಾಗಿರುತ್ತದೆ.",
+  "homeCards": {
+    "github": {
+      "title": "ಕೋಡ್‌ಬೇಸ್ ಮತ್ತು ಗಿಟ್‌ಹಬ್",
+      "stats": "50+ ರೆಪೊಸಿಟರಿಗಳು",
+      "desc": "ನನ್ನ ಓಪನ್-ಸೋರ್ಸ್ ಕೆಲಸ, ಸ್ಕ್ರಿಪ್ಟ್‌ಗಳು, ನೋಟ್‌ಬುಕ್‌ಗಳು ಮತ್ತು ಆಟೊಮೇಷನ್ ಪರಿಕರಗಳನ್ನು ನೋಡಿ."
+    },
+    "projects": {
+      "title": "ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು ಮತ್ತು ಲ್ಯಾಬ್ಸ್",
+      "stats": "7+ ಪ್ರಮುಖ ಕೃತಿಗಳು",
+      "desc": "ವೆಬ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳು, AI ಸ್ಕೀಮ್ ಶಿಫಾರಸುದಾರರು ಮತ್ತು ಡೇಟಾಬೇಸ್ ಪರಿಹಾರಗಳನ್ನು ಅನ್ವೇಷಿಸಿ."
+    },
+    "art": {
+      "title": "ಛಾಯಾಗ್ರಹಣ ಮತ್ತು ವಿನ್ಯಾಸ",
+      "stats": "UI/UX ಮತ್ತು ದೃಶ್ಯಗಳು",
+      "desc": "ಬ್ರ್ಯಾಂಡಿಂಗ್ ಪ್ರಾಜೆಕ್ಟ್‌ಗಳು, ಗ್ರಾಫಿಕ್ ಲೇಔಟ್‌ಗಳು ಮತ್ತು ಸೆರೆಹಿಡಿದ ಕ್ಷಣಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ."
+    },
+    "about": {
+      "title": "ಜೀವನ ಮತ್ತು ತತ್ವಶಾಸ್ತ್ರ",
+      "stats": "CSE ವಿದ್ಯಾರ್ಥಿ (DS)",
+      "desc": "ನನ್ನ ಹಿನ್ನೆಲೆ, ಕಲಿಕೆಯ ಪ್ರಕ್ರಿಯೆ ಮತ್ತು ನನ್ನನ್ನು ಪ್ರೇರೇಪಿಸುವ ವಿಷಯಗಳ ಬಗ್ಗೆ ಓದಿ."
+    }
+  }
 }

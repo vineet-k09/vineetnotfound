@@ -2,7 +2,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
 type ThemeType = 'theme-charcoal' | 'theme-sunlight' | 'theme-crimson' | 'theme-neon'
-type ThemeVarType = '𐰁' | '☽' | '☁︎' | 'ᯓ'
+type ThemeVarType = '☀︎' | '☽' | '☁︎' | '⋆⁺₊'
 
 interface ThemeContextType {
     theme: ThemeType
@@ -15,7 +15,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [theme, setTheme] = useState<ThemeType>('theme-charcoal')
-    const [themeVar, setThemeVar] = useState<ThemeVarType>('𐰁')
+    const [themeVar, setThemeVar] = useState<ThemeVarType>('☀︎')
 
     useEffect(() => {
         document.documentElement.className = theme
@@ -29,10 +29,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
                         'theme-charcoal'
         )
         setThemeVar(prev =>
-            prev === '𐰁' ? '☽' :
+            prev === '☀︎' ? '☽' :
                 prev === '☽' ? '☁︎' :
-                    prev === '☁︎' ? 'ᯓ' :
-                        '𐰁'
+                    prev === '☁︎' ? '⋆⁺₊' :
+                        '☀︎'
         )
     }
 

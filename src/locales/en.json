@@ -1,7 +1,7 @@
 {   "name":"Vineet Kushwaha",
     "role": "Full-Stack Software Developer",
     "navbar":[
-        ["Home"," "], ["Projects","projects"], ["About","about"]
+        ["Home"," "], ["Projects","projects"], ["Art & Photos","photography"], ["About","about"]
     ],
     "aboutme11": "I'm a ",
     "aboutme12":"{",
@@ -19,7 +19,6 @@
                 "github": "https://github.com/SkillMatrix-io/skillmatrix",
                 "description": "A full-stack learning platform supporting role-based access, course creation, and multimedia content delivery (text, PDFs, video). Designed backend APIs and database schema to handle user roles, enrollments, and content management.",
                 "stack": ["React","MySQL","Django"],
-                "live": "https://skillmatrix-beta.vercel.app/",
                 "image": ["/projects/skillmatrix/1.png","/projects/skillmatrix/2.png"]
             },
             {
@@ -27,7 +26,6 @@
                 "github": "https://github.com/vineet-k09/Endxiety",
                 "description": "An AI-assisted mental wellness platform featuring anonymous chat, emotion tracking, and journaling. Focused on privacy-aware design, state management, and integrating LLM-based insights into user workflows.",
                 "stack": ["React","MongoDB","Vite","OpenAI API"],
-                "live": "https://emo-son-ai.vercel.app/",
                 "image": ["/projects/endxiety/1.png"]
             },
             {
@@ -35,7 +33,6 @@
                 "github": "https://github.com/Sarthi-AI/saarthi-ai",
                 "description": "Multilingual scheme recommender using AI, accessible via voice and text.",
                 "stack": ["React", "TypeScript", "ToughTongue", "ChatBaseAPI"],
-                "live": "https://saarthi-ai-one.vercel.app/",
                 "image": ["/projects/saarthi/1.png", "/projects/saarthi/2.png", "/projects/saarthi/3.png"]
             },
             {
@@ -43,7 +40,6 @@
                 "github": "https://github.com/vineet-k09/E-Book-Recommendation",
                 "description": "An AI-driven ebook recommendation system combining big-data filtering with a modern web interface. Implemented data pipelines using Hadoop and PySpark, and integrated recommendations into a full-stack Next.js application.",
                 "stack": ["NextJs", "MongoDB", "Node.js", "Hadoop", "PySpark"],
-                "live": "https://e-book-recommendation.vercel.app/",
                 "figma":"https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
                 "image": ["/projects/biblioverse/1.png", "/projects/biblioverse/2.png", "/projects/biblioverse/3.png", "/projects/biblioverse/4.png"]
             },
@@ -124,5 +120,27 @@
   
     "intro31": "I don’t have all the answers (yet), but I’m here-learning, breaking, rebuilding.",
     "intro32": " Life’s messy. So is code.",
-    "intro33": " But when it runs… it’s kind of beautiful."
+    "intro33": " But when it runs… it’s kind of beautiful.",
+    "homeCards": {
+        "github": {
+            "title": "Codebase & GitHub",
+            "stats": "50+ Repositories",
+            "desc": "Check out my open-source work, scripts, notebooks, and automation tools."
+        },
+        "projects": {
+            "title": "Projects & Labs",
+            "stats": "7+ Featured Works",
+            "desc": "Explore web platforms, AI scheme recommenders, and database solutions."
+        },
+        "art": {
+            "title": "Photography & Design",
+            "stats": "UI/UX & Visuals",
+            "desc": "Browse branding projects, graphic layouts, and captured moments."
+        },
+        "about": {
+            "title": "Life & Philosophy",
+            "stats": "CSE Student (DS)",
+            "desc": "Read about my background, learning process, and what drives me."
+        }
+    }
 }

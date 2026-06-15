@@ -12,23 +12,18 @@ export default function Theme() {
         <div className="wrapper fixed bottom-5 right-5 z-50 flex flex-col gap-1">
             <button
                 onClick={toggleAudio}
-                style={{
-                    boxShadow: '0px 0px 30px 2px rgba(var(--accent-rgb), 0.3)'
-                }}
-                className="transition-theme boxShadow bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center"
+                className="transition-theme bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center"
             >♫</button>
 
             <button
                 onClick={cycleTheme}
-                style={{ boxShadow: '0px 0px 30px 2px rgba(var(--accent-rgb), 0.3)' }}
-                className="transition-theme boxShadow bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center">
+                className="transition-theme bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center">
                 {themeVar}
             </button>
 
             <button
                 onClick={changeLang}
-                style={{ boxShadow: '0px 0px 30px 2px rgba(var(--accent-rgb), 0.3)' }}
-                className="transition-theme boxShadow bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center"
+                className="transition-theme bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center"
             >
                 {visibleText.toggleLangBtn}
             </button>

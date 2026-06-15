@@ -95,7 +95,7 @@ export default function Navbar() {
                                 <li className='text-sm border-2 min-w-18 my-auto rounded-lg'>{isTime ? time : `${weather}°C`}</li>
                                 {visibleText.navbar.map((value, id) =>
                                     <li key={id} className='py-1 hidden sm:flex'>
-                                        <Link href={`/${value[1]}`} className=''>{value[0]}</Link>
+                                        <Link href={`/${value[1].trim()}`} className='hover:text-[var(--accent)] transition-colors duration-250 font-medium'>{value[0]}</Link>
                                     </li>
                                 )}
                                 <li>
@@ -127,9 +127,9 @@ export default function Navbar() {
                             <div
                                 className="
                                 sm:hidden 
-                                flex flex-col mt-2 gap-3 text-center">
+                                flex flex-col mt-2 pb-4 gap-3 text-center border-t border-[var(--text)] border-opacity-10 pt-3">
                                 {visibleText.navbar.map((value, id) =>
-                                    <Link key={id} href={`/${value[1]}`} onClick={() => setIsOpen(false)}>
+                                    <Link key={id} href={`/${value[1].trim()}`} onClick={() => setIsOpen(false)} className="hover:text-[var(--accent)] transition-colors duration-250 py-1">
                                         {value[0]}
                                     </Link>
                                 )}

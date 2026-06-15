@@ -1,67 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #121214;
-  --bg-rgba: rgba(18, 18, 20, 0.5);
-  --text: #e2e8f0;
-  --card-bg: #1e1e24;
-  --accent: #38bdf8;
-  --accent-rgb: 56, 189, 248;
-  --selection: #334155;
+  --bg: #1a1a1a;
+  --bg-rgba: rgba(26, 26, 26, 0.5);
+  --text: #e5e5e5;
+  --accent: #0ea5e9;
+  --accent-rgb: 299, 299, 299;
+  --selection: #374151;
   --lg-width: 500px;
   --sm-width: 200px;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #f5f2eb;
-    --bg-rgba: rgba(245, 242, 235, 0.5);
-    --text: #332f2c;
-    --card-bg: #eae6da;
-    --accent: #b45309;
-    --accent-rgb: 180, 83, 9;
-    --selection: #f0e9d2;
+    --bg: #f3f0e6;
+    --bg-rgba: rgba(243, 240, 230, 0.5);
+    --text: #2c2a28;
+    --accent: #c47f17;
+    --accent-rgb: 44, 42, 40;
+    --selection: #e9d8a6;
   }
 }
 
 .theme-crimson {
-  --bg: #150a0e;
-  --bg-rgba: rgba(21, 10, 14, 0.5);
-  --text: #f1e6ed;
-  --card-bg: #231219;
-  --accent: #f43f5e;
-  --accent-rgb: 244, 63, 94;
-  --selection: #4c1d24;
+  --bg: #1e0e14;
+  --bg-rgba: rgba(30, 14, 20,0.5);
+  --text: #f5e9f0;
+  --accent: #dc2626;
+  --accent-rgb: 245, 233, 240;
+  --selection: #0ea5e9;
 }
 
 .theme-charcoal {
-  --bg: #121214;
-  --bg-rgba: rgba(18, 18, 20, 0.5);
-  --text: #e2e8f0;
-  --card-bg: #1e1e24;
-  --accent: #38bdf8;
-  --accent-rgb: 56, 189, 248;
-  --selection: #334155;
+  --bg: #1a1a1a;
+  --bg-rgba: rgba(26, 26, 26,0.5);
+  --text: #e5e5e5;
+  --accent: #0ea5e9;
+  --accent-rgb: 299, 299, 299;
+  --selection: #374151;
 }
 
 .theme-sunlight {
-  --bg: #f5f2eb;
-  --bg-rgba: rgba(245, 242, 235, 0.5);
-  --text: #332f2c;
-  --card-bg: #eae6da;
-  --accent: #b45309;
-  --accent-rgb: 180, 83, 9;
-  --selection: #f0e9d2;
+  --bg: #f3f0e6;
+  --bg-rgba: rgba(243, 240, 230,0.5);
+  --text: #2c2a28;
+  --accent: #c47f17;
+  --accent-rgb: 44, 42, 40;
+  --selection: #e9d8a6;
 }
 
 .theme-neon {
-  --bg: #faf7dc;
-  --bg-rgba: rgba(250, 247, 220, 0.5);
-  --text: #201f1c;
-  --card-bg: #efecc6;
-  --accent: #d97706;
-  --accent-rgb: 217, 119, 6;
-  --selection: #f4efb5;
+  --bg: #fefae0;
+  --bg-rgba: rgba(254, 250, 224,0.5);
+  --text: #1c1b1f;
+  --accent: #facc15;
+  --accent-rgb: 28, 27, 31;
+  --selection: #fde68a;
 }
 
 body {
