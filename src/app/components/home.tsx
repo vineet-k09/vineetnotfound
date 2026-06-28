@@ -175,52 +175,57 @@ export default function Home() {
                             variants={revealVariants}
                             className="hero-header my-16"
                         >
-                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
-                                <div>
+                            <div className="flex flex-col md:flex-row justify-between items-center gap-10 mb-8">
+                                <div className="flex-1">
                                     <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-2 transition-all duration-500">
                                         <TypedName name={visibleText.name} />
                                     </h1>
-                                    <p className="text-lg md:text-xl opacity-80 font-medium transition-all duration-500">
+                                    <p className="text-lg md:text-xl opacity-80 font-medium transition-all duration-500 mb-6">
                                         {visibleText.role}
                                     </p>
+                                    <p className="text-lg opacity-90 max-w-2xl mb-6 leading-relaxed font-normal">
+                                        I&apos;m a <span className="text-[var(--accent)] font-semibold">{visibleText['aboutme13']}</span> with a strong grip on React, Node.js, and data analytics. Below is a mix-and-match interactive playground of my domains — hover to explore each theme.
+                                    </p>
+                                    <div className="flex items-center gap-4 h-12 mt-4">
+                                        <div className="reactOut flex gap-3 items-center h-full">
+                                            <a href='https://github.com/vineet-k09' target='_blank' aria-label="GitHub" className="flex items-center justify-center">
+                                                <i className="devicon devicon-github-original hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-full duration-250 flex items-center justify-center" style={{ fontSize: '16px' }}></i>
+                                            </a>
+                                            <a href='https://www.linkedin.com/in/vineet-kushwaha-2666b5257/' target='_blank' aria-label="LinkedIn" className="flex items-center justify-center">
+                                                <i className="devicon devicon-linkedin-plain hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center" style={{ fontSize: '16px' }}></i>
+                                            </a>
+                                            <a href='mailTo:vineetkushwaha6325@gmail.com' aria-label="Email" className="flex items-center justify-center">
+                                                <i className="fa-regular fa-envelope hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center" style={{ fontSize: '16px' }}></i>
+                                            </a>
+                                            <button
+                                                style={{
+                                                    color: isPlaying ? 'var(--accent)' : 'var(--bg)'
+                                                }}
+                                                onClick={toggleAudio}
+                                                className="hover:scale-120 hover:bg-[var(--accent)] 
+                                                border-2 
+                                                hover:border-[var(--text)]
+                                                transition-all h-9 w-12 flex items-center justify-center rounded-2xl boxShadow 
+                                                bg-[var(--text)]
+                                                duration-250
+                                                cursor-pointer
+                                                font-semibold
+                                                text-lg
+                                                "
+                                                aria-label="Toggle music"
+                                            >
+                                                ♫
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="flex items-center gap-4 h-12">
-                                    <div className="reactOut flex gap-3 items-center h-full">
-                                        <a href='https://github.com/vineet-k09' target='_blank' aria-label="GitHub" className="flex items-center justify-center">
-                                            <i className="devicon devicon-github-original hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-full duration-250 flex items-center justify-center" style={{ fontSize: '16px' }}></i>
-                                        </a>
-                                        <a href='https://www.linkedin.com/in/vineet-kushwaha-2666b5257/' target='_blank' aria-label="LinkedIn" className="flex items-center justify-center">
-                                            <i className="devicon devicon-linkedin-plain hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center" style={{ fontSize: '16px' }}></i>
-                                        </a>
-                                        <a href='mailTo:vineetkushwaha6325@gmail.com' aria-label="Email" className="flex items-center justify-center">
-                                            <i className="fa-regular fa-envelope hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center" style={{ fontSize: '16px' }}></i>
-                                        </a>
-                                        <button
-                                            style={{
-                                                color: isPlaying ? 'var(--accent)' : 'var(--bg)'
-                                            }}
-                                            onClick={toggleAudio}
-                                            className="hover:scale-120 hover:bg-[var(--accent)] 
-                                            border-2 
-                                            hover:border-[var(--text)]
-                                            transition-all h-9 w-12 flex items-center justify-center rounded-2xl boxShadow 
-                                            bg-[var(--text)]
-                                            duration-250
-                                            cursor-pointer
-                                            font-semibold
-                                            text-lg
-                                            "
-                                            aria-label="Toggle music"
-                                        >
-                                            ♫
-                                        </button>
+                                <div className="flex-shrink-0 flex items-center justify-center">
+                                    <div className="morphing-blob-container">
+                                        <div className="morphing-blob-glow" />
+                                        <div className="morphing-blob" style={{ backgroundImage: "url('/photos/hero.jpg')" }} />
                                     </div>
                                 </div>
                             </div>
-                            
-                            <p className="text-lg opacity-90 max-w-3xl mb-8 leading-relaxed font-normal">
-                                I&apos;m a <span className="text-[var(--accent)] font-semibold">{visibleText['aboutme13']}</span> with a strong grip on React, Node.js, and data analytics. Below is a mix-and-match interactive playground of my domains — hover to explore each theme.
-                            </p>
 
                             {/* Theme Mix and Match Cards */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
