@@ -145,7 +145,7 @@ export default function Home() {
             title: homeCards.about.title,
             stats: homeCards.about.stats,
             desc: homeCards.about.desc,
-            icon: 'fa-regular fa-circle-info',
+            icon: 'fa-solid fa-circle-info',
             link: '/about',
             isExternal: false
         },
