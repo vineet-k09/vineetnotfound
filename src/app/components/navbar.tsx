@@ -13,13 +13,13 @@ const getIcon = (path: string) => {
         case ' ':
             return 'fa-solid fa-house';
         case 'projects':
-            return 'fa-solid fa-code';
+            return 'fa-regular fa-folder-open';
         case 'photography':
-            return 'fa-solid fa-camera';
+            return 'fa-regular fa-images';
         case 'about':
-            return 'fa-solid fa-user';
+            return 'fa-regular fa-user';
         default:
-            return 'fa-solid fa-link';
+            return 'fa-regular fa-circle';
     }
 };
 
@@ -112,7 +112,7 @@ export default function Navbar() {
                                 {visibleText.navbar.map((value, id) =>
                                     <li key={id} className='py-1 hidden sm:flex'>
                                         <Link href={`/${value[1].trim()}`} title={value[0]} className='hover:text-[var(--accent)] transition-colors duration-250 flex items-center justify-center'>
-                                            <i className={`${getIcon(value[1])}`} style={{ fontSize: '20px' }}></i>
+                                            <i className={`${getIcon(value[1])}`} style={{ fontSize: '16px' }}></i>
                                         </Link>
                                     </li>
                                 )}

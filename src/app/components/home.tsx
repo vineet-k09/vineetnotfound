@@ -135,7 +135,7 @@ export default function Home() {
             title: homeCards.projects.title,
             stats: homeCards.projects.stats,
             desc: homeCards.projects.desc,
-            icon: 'fa-solid fa-code-branch',
+            icon: 'fa-regular fa-folder-open',
             link: '/projects',
             isExternal: false
         },
@@ -145,7 +145,7 @@ export default function Home() {
             title: homeCards.about.title,
             stats: homeCards.about.stats,
             desc: homeCards.about.desc,
-            icon: 'fa-solid fa-circle-info',
+            icon: 'fa-regular fa-circle-info',
             link: '/about',
             isExternal: false
         },
@@ -155,7 +155,7 @@ export default function Home() {
             title: homeCards.art.title,
             stats: homeCards.art.stats,
             desc: homeCards.art.desc,
-            icon: 'fa-solid fa-camera-retro',
+            icon: 'fa-regular fa-images',
             link: '/photography',
             isExternal: false
         }
@@ -187,13 +187,13 @@ export default function Home() {
                                 <div className="flex items-center gap-4 h-12">
                                     <div className="reactOut flex gap-3 items-center h-full">
                                         <a href='https://github.com/vineet-k09' target='_blank' aria-label="GitHub" className="flex items-center justify-center">
-                                            <i className="devicon devicon-github-original hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-full duration-250 flex items-center justify-center" style={{ fontSize: '24px' }}></i>
+                                            <i className="devicon devicon-github-original hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-full duration-250 flex items-center justify-center" style={{ fontSize: '16px' }}></i>
                                         </a>
                                         <a href='https://www.linkedin.com/in/vineet-kushwaha-2666b5257/' target='_blank' aria-label="LinkedIn" className="flex items-center justify-center">
-                                            <i className="devicon devicon-linkedin-plain hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center" style={{ fontSize: '24px' }}></i>
+                                            <i className="devicon devicon-linkedin-plain hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center" style={{ fontSize: '16px' }}></i>
                                         </a>
                                         <a href='mailTo:vineetkushwaha6325@gmail.com' aria-label="Email" className="flex items-center justify-center">
-                                            <i className="fa-solid fa-envelope hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center" style={{ fontSize: '22px' }}></i>
+                                            <i className="fa-regular fa-envelope hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center" style={{ fontSize: '16px' }}></i>
                                         </a>
                                         <button
                                             style={{
@@ -228,7 +228,7 @@ export default function Home() {
                                     const cardContent = (
                                         <div className="horizontal-bento-card-inner">
                                             <div className="card-icon-wrapper">
-                                                <i className={`${card.icon} text-2xl`} />
+                                                <i className={`${card.icon}`} style={{ fontSize: '18px' }} />
                                             </div>
                                             <div className="card-content-wrapper">
                                                 <span className="card-tag">{card.stats}</span>
@@ -330,7 +330,7 @@ export default function Home() {
                                                             rel="noopener noreferrer"
                                                             className="inverted-tag flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm no-underline font-medium"
                                                         >
-                                                            <i className={`${className} text-lg`} style={{ fontSize: '18px' }}></i>
+                                                            <i className={`${className}`} style={{ fontSize: '14px' }}></i>
                                                             <span>{label}</span>
                                                         </a>
                                                     </li>

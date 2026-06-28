@@ -1,21 +1,21 @@
 export const languages = [
     {
-        className: "devicon-python-plain colored",
+        className: "devicon-python-plain",
         label: "Python",
         link: "https://www.python.org"
     },
     {
-        className: "devicon-javascript-plain colored",
+        className: "devicon-javascript-plain",
         label: "JavaScript",
         link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
     },
     {
-        className: "devicon-typescript-plain colored",
+        className: "devicon-typescript-plain",
         label: "TypeScript",
         link: "https://www.typescriptlang.org"
     },
     {
-        className: "devicon-java-plain colored",
+        className: "devicon-java-plain",
         label: "Java",
         link: "https://www.oracle.com/java/"
     }
@@ -23,7 +23,7 @@ export const languages = [
 
 export const tools = [
     {
-        className: "devicon-git-plain colored",
+        className: "devicon-git-plain",
         label: "Git",
         link: "https://git-scm.com"
     },
@@ -33,7 +33,7 @@ export const tools = [
         link: "https://github.com"
     },
     {
-        className: "devicon-linux-plain colored",
+        className: "devicon-linux-plain",
         label: "Linux (Fedora)",
         link: "https://getfedora.org"
     }
@@ -41,22 +41,22 @@ export const tools = [
 
 export const frontend = [
     {
-        className: "devicon-react-original colored",
+        className: "devicon-react-original",
         label: "ReactJS",
         link: "https://reactjs.org"
     },
     {
-        className: "devicon-vitejs-plain colored",
+        className: "devicon-vitejs-plain",
         label: "Vite",
         link: "https://vitejs.dev"
     },
     {
-        className: "devicon-nextjs-plain text-[var(--text)]",
+        className: "devicon-nextjs-plain",
         label: "NextJS",
         link: "https://nextjs.org"
     },
     {
-        className: "devicon-angularjs-plain colored",
+        className: "devicon-angularjs-plain",
         label: "Angular",
         link: "https://angular.io"
     }
@@ -64,27 +64,27 @@ export const frontend = [
 
 export const databases = [
     {
-        className: "devicon-postgresql-plain colored",
+        className: "devicon-postgresql-plain",
         label: "PostgreSQL",
         link: "https://www.postgresql.org"
     },
     {
-        className: "devicon-mongodb-plain colored",
+        className: "devicon-mongodb-plain",
         label: "MongoDB",
         link: "https://www.mongodb.com"
     },
     {
-        className: "devicon-redis-plain colored",
+        className: "devicon-redis-plain",
         label: "Redis",
         link: "https://redis.io"
     },
     {
-        className: "devicon-mysql-plain colored",
+        className: "devicon-mysql-plain",
         label: "MySQL",
         link: "https://www.mysql.com"
     },
     {
-        className: "devicon-googlecloud-plain colored",
+        className: "devicon-googlecloud-plain",
         label: "BigQuery",
         link: "https://cloud.google.com/bigquery"
     }
@@ -92,7 +92,7 @@ export const databases = [
 
 export const backend = [
     {
-        className: "devicon-nodejs-plain colored",
+        className: "devicon-nodejs-plain",
         label: "Node.js",
         link: "https://nodejs.org"
     },
@@ -102,22 +102,22 @@ export const backend = [
         link: "https://expressjs.com"
     },
     {
-        className: "devicon-django-plain colored",
+        className: "devicon-django-plain",
         label: "Django",
         link: "https://www.djangoproject.com"
     },
     {
-        className: "devicon-fastapi-plain colored",
+        className: "devicon-fastapi-plain",
         label: "FastAPI",
         link: "https://fastapi.tiangolo.com"
     },
     {
-        className: "fa-solid fa-gears text-[var(--accent)]",
+        className: "fa-solid fa-gears",
         label: "REST APIs",
         link: "https://en.wikipedia.org/wiki/REST"
     },
     {
-        className: "fa-solid fa-key text-[var(--accent)]",
+        className: "fa-solid fa-key",
         label: "JWT Authentication",
         link: "https://jwt.io"
     },
@@ -127,7 +127,7 @@ export const backend = [
         link: "https://www.prisma.io"
     },
     {
-        className: "fa-solid fa-cubes text-[var(--accent)]",
+        className: "fa-solid fa-cubes",
         label: "Microservices",
         link: "https://microservices.io"
     }
@@ -135,17 +135,17 @@ export const backend = [
 
 export const cloudDevops = [
     {
-        className: "devicon-googlecloud-plain colored",
+        className: "devicon-googlecloud-plain",
         label: "GCP",
         link: "https://cloud.google.com"
     },
     {
-        className: "devicon-docker-plain colored",
+        className: "devicon-docker-plain",
         label: "Docker",
         link: "https://www.docker.com"
     },
     {
-        className: "devicon-githubactions-plain colored",
+        className: "devicon-githubactions-plain",
         label: "CI/CD (GitHub Actions)",
         link: "https://github.com/features/actions"
     }
