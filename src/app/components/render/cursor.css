@@ -1,6 +1,12 @@
 .lasso {
-    width: 80px;
+    /* width: 80px;
     height: 80px;
+    top: -40px;
+    left: -40px; */
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: -20px;
     border: 2px solid var(--accent);
     border-radius: 50%;
     position: fixed;
@@ -8,8 +14,6 @@
     z-index: 9999;
     transition: border-radius 1.2s ease-in-out;
     animation: morph 6s infinite alternate ease-in-out;
-    top: -40px;
-    left: -40px;
 }
 
 @keyframes morph {

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import "./globals.css";
 import { LangProvider } from "@/hooks/useLang"; // make sure path is correct
 import CustomCursor from "./components/render/cursor";
+import Preloader from "./components/render/Preloader";
 import { Analytics } from "@vercel/analytics/next"
 import { AudioProvider } from "@/context/AudioContext";
 import { ThemeProvider } from '@/context/ThemeContext';
@@ -40,6 +41,7 @@ export default function RootLayout({
           <AudioProvider>
             <Analytics />
             <CustomCursor />
+            <Preloader />
             <LangProvider>
               <LocationProvider>{children}</LocationProvider>
             </LangProvider>

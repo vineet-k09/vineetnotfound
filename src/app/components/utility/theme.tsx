@@ -1,12 +1,12 @@
 'use client'
-import { useTheme } from '@/context/ThemeContext'
+// import { useTheme } from '@/context/ThemeContext'
 import { useAudio } from '@/context/AudioContext';
-import { useLangContext } from '@/hooks/useLang';
+// import { useLangContext } from '@/hooks/useLang';
 
 export default function Theme() {
-    const { themeVar, cycleTheme } = useTheme()
+    // const { themeVar, cycleTheme } = useTheme()
     const { toggleAudio } = useAudio();
-    const { changeLang, visibleText } = useLangContext();
+    // const { changeLang, visibleText } = useLangContext();
 
     return (
         <div className="wrapper fixed bottom-5 right-5 z-50 flex flex-col gap-1">
@@ -15,6 +15,7 @@ export default function Theme() {
                 className="transition-theme bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center"
             >♫</button>
 
+            {/*
             <button
                 onClick={cycleTheme}
                 className="transition-theme bg-[var(--accent)] text-[var(--bg)] hover:scale-120 rounded-full transition-all h-12 w-12 text-center justify-center">
@@ -27,6 +28,7 @@ export default function Theme() {
             >
                 {visibleText.toggleLangBtn}
             </button>
+            */}
         </div>
     )
 }

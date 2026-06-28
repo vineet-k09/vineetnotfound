@@ -53,7 +53,7 @@ body {
 }
 
 .content-area {
-    @apply col-span-full md:col-span-8 md:col-start-3;
+    @apply col-span-full md:col-span-10 md:col-start-2;
 }
 
 .section {
@@ -157,13 +157,13 @@ a:hover {
 .horizontal-bento-card.theme-neon {
     background-color: #fefae0;
     color: #1c1b1f;
-    --accent: #facc15;
-    --accent-rgb: 250, 204, 21;
-    border-color: rgba(250, 204, 21, 0.15);
+    --accent: #a16207;
+    --accent-rgb: 161, 98, 7;
+    border-color: rgba(161, 98, 7, 0.15);
 }
 .horizontal-bento-card.theme-neon:hover {
-    border-color: #facc15;
-    box-shadow: 0 10px 35px -10px rgba(250, 204, 21, 0.45);
+    border-color: #a16207;
+    box-shadow: 0 10px 35px -10px rgba(161, 98, 7, 0.45);
 }
 
 .horizontal-bento-card:hover {
@@ -262,6 +262,110 @@ a:hover {
     margin-bottom: 1.5rem;
     display: inline-block;
     width: 100%;
+}
+
+/* 🖼️ Archive Masonry Grid (3-column Flex/Grid layout) */
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .archive-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .archive-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.archive-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.archive-item-img {
+    width: 100%;
+    height: auto;
+    border: 1.5px solid rgba(var(--accent-rgb), 0.3);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.archive-item-img:hover {
+    transform: scale(1.03) translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(var(--accent-rgb), 0.35);
+}
+
+/* 🏷️ Interactive Big Text Shadow Effect */
+.interactive-archive-section {
+    position: relative;
+    width: 100%;
+}
+
+.big-shadow-text {
+    font-size: 24vw;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--shadow-base, #fff7d8);
+    transition: text-shadow 0.15s ease-out, color 0.5s ease;
+    letter-spacing: -0.04em;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    user-select: none;
+}
+
+/* Theme Fallbacks and Overrides */
+:root {
+  --shadow-base: #fff7d8;
+  --shadow-color-1: #ffeeaa;
+  --shadow-color-2: #ffdd55;
+  --shadow-color-3: #ffcc00;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --shadow-base: #332f2c;
+    --shadow-color-1: #b45309;
+    --shadow-color-2: #d97706;
+    --shadow-color-3: #f59e0b;
+  }
+}
+
+.theme-charcoal {
+  --shadow-base: #fff7d8;
+  --shadow-color-1: #ffeeaa;
+  --shadow-color-2: #ffdd55;
+  --shadow-color-3: #ffcc00;
+}
+
+.theme-sunlight {
+  --shadow-base: #332f2c;
+  --shadow-color-1: #b45309;
+  --shadow-color-2: #d97706;
+  --shadow-color-3: #f59e0b;
+}
+
+.theme-neon {
+  --shadow-base: #201f1c;
+  --shadow-color-1: #d97706;
+  --shadow-color-2: #f59e0b;
+  --shadow-color-3: #fbbf24;
+}
+
+.theme-crimson {
+  --shadow-base: #f1e6ed;
+  --shadow-color-1: #f43f5e;
+  --shadow-color-2: #e11d48;
+  --shadow-color-3: #be123c;
 }
 
 /* 💻 Interactive Terminal for About Page */

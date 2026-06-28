@@ -3,41 +3,112 @@
 import { useLangContext } from '../../hooks/useLang';
 import Navbar from './navbar';
 import { useAudio } from '@/context/AudioContext';
-import { useTheme } from '@/context/ThemeContext';
-import { skills1, skills2, skills3, skills4 } from './utility/skills';
-import Link from 'next/link';
+// import { useTheme } from '@/context/ThemeContext';
+import { languages, tools, frontend, databases, backend, cloudDevops } from './utility/skills';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+import Link from 'next/link';
 
 type ThemeType = 'theme-charcoal' | 'theme-sunlight' | 'theme-crimson' | 'theme-neon';
+
+function TypedName({ name }: { name: string }) {
+    const parts = name.split(' ');
+    const firstName = parts[0] || '';
+    const lastName = parts.slice(1).join(' ') || '';
+
+    const [text, setText] = useState('');
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [cursorVisible, setCursorVisible] = useState(true);
+
+    useEffect(() => {
+        setText('');
+        setIsDeleting(false);
+    }, [lastName]);
+
+    useEffect(() => {
+        if (!lastName) return;
+        const cursorInterval = setInterval(() => {
+            setCursorVisible(prev => !prev);
+        }, 530);
+        return () => clearInterval(cursorInterval);
+    }, [lastName]);
+
+    useEffect(() => {
+        if (!lastName) return;
+
+        let timer: NodeJS.Timeout;
+        if (isDeleting) {
+            timer = setTimeout(() => {
+                setText(prev => prev.slice(0, -1));
+            }, 80);
+        } else {
+            timer = setTimeout(() => {
+                setText(lastName.slice(0, text.length + 1));
+            }, 100);
+        }
+
+        if (!isDeleting && text === lastName) {
+            timer = setTimeout(() => {
+                setIsDeleting(true);
+            }, 2000);
+        } else if (isDeleting && text === '') {
+            setIsDeleting(false);
+        }
+
+        return () => clearTimeout(timer);
+    }, [text, isDeleting, lastName]);
+
+    return (
+        <span className="inline-flex items-baseline">
+            <span>{firstName}&nbsp;</span>
+            <span style={{ WebkitTextStroke: '1.5px var(--text)', color: 'transparent' }}>
+                {text}
+            </span>
+            <span className="transition-opacity duration-100" style={{ color: 'var(--accent)', opacity: cursorVisible ? 1 : 0 }}>.</span>
+        </span>
+    );
+}
+
+const revealVariants = {
+    hidden: { opacity: 0, y: 35 },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" as const }
+    }
+};
 
 export default function Home() {
     const { visibleText } = useLangContext();
     const { toggleAudio, isPlaying } = useAudio();
-    const { theme, setTheme } = useTheme();
+    // const { theme, setTheme } = useTheme();
 
-    const [savedTheme, setSavedTheme] = useState<ThemeType>('theme-charcoal');
-    const [hoveredTheme, setHoveredTheme] = useState<ThemeType | null>(null);
+    // const [savedTheme, setSavedTheme] = useState<ThemeType>('theme-charcoal');
+    // const [hoveredTheme, setHoveredTheme] = useState<ThemeType | null>(null);
 
     // Keep savedTheme in sync with the global theme when not hovering
-    useEffect(() => {
-        if (!hoveredTheme) {
-            setSavedTheme(theme as ThemeType);
-        }
-    }, [theme, hoveredTheme]);
+    // useEffect(() => {
+    //     if (!hoveredTheme) {
+    //         setSavedTheme(theme as ThemeType);
+    //     }
+    // }, [theme, hoveredTheme]);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const handleMouseEnter = (cardTheme: ThemeType) => {
-        setHoveredTheme(cardTheme);
-        setTheme(cardTheme);
+        // setHoveredTheme(cardTheme);
+        // setTheme(cardTheme);
     };
 
     const handleMouseLeave = () => {
-        setHoveredTheme(null);
-        setTheme(savedTheme);
+        // setHoveredTheme(null);
+        // setTheme(savedTheme);
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const handleCardClick = (cardTheme: ThemeType) => {
-        setSavedTheme(cardTheme);
-        setTheme(cardTheme);
+        // setSavedTheme(cardTheme);
+        // setTheme(cardTheme);
     };
 
     const homeCards = visibleText.homeCards || {
@@ -97,12 +168,17 @@ export default function Home() {
                 <div className="grid-layout">
                     <div className="content-area sm:px-10">
                         {/* 🧍 Hero Section */}
-                        <section className="hero-header my-16">
+                        <motion.section 
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={revealVariants}
+                            className="hero-header my-16"
+                        >
                             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
                                 <div>
-                                    <span className="text-xs font-mono uppercase tracking-wider text-[var(--accent)] font-semibold mb-1 block">portfolio hub</span>
-                                    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-2 bg-gradient-to-r from-[var(--text)] via-[var(--accent)] to-[var(--text)] bg-clip-text text-transparent transition-all duration-500">
-                                        {visibleText.name}
+                                    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-2 transition-all duration-500">
+                                        <TypedName name={visibleText.name} />
                                     </h1>
                                     <p className="text-lg md:text-xl opacity-80 font-medium transition-all duration-500">
                                         {visibleText.role}
@@ -192,9 +268,15 @@ export default function Home() {
                                     );
                                 })}
                             </div>
-                        </section>
+                        </motion.section>
 
-                        <section className='section sm:gap-x-22'>
+                        <motion.section 
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={revealVariants}
+                            className='section sm:gap-x-22'
+                        >
                             {/* 💼 Experience Section */}
                             <h2 className='col-span-1'>
                                 {visibleText.experience?.title}
@@ -216,18 +298,26 @@ export default function Home() {
                                     ))}
                                 </div>
                             </div>
-                        </section>
+                        </motion.section>
 
-                        <section className='section grid grid-cols-7'>
+                        <motion.section 
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={revealVariants}
+                            className='section grid grid-cols-7'
+                        >
                             <h2 className='col-span-1'>Skills</h2>
                             <div className="col-span-1"></div>
                             <div className="col-span-5">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {[
-                                        { title: "Core & Full Stack", list: skills1 },
-                                        { title: "Languages", list: skills2 },
-                                        { title: "DevOps & Tools", list: skills3 },
-                                        { title: "Design & Creative", list: skills4 }
+                                        { title: "Languages", list: languages },
+                                        { title: "Tools", list: tools },
+                                        { title: "Frontend", list: frontend },
+                                        { title: "Databases", list: databases },
+                                        { title: "Backend", list: backend },
+                                        { title: "Cloud & DevOps", list: cloudDevops }
                                     ].map((cat, idx) => (
                                         <div key={idx} className="inverted-theme-card p-5 rounded-2xl">
                                             <h3 className="text-lg font-bold mb-4 border-b border-opacity-10 border-[var(--text)] pb-2 text-[var(--accent)]">{cat.title}</h3>
@@ -250,9 +340,15 @@ export default function Home() {
                                     ))}
                                 </div>
                             </div>
-                        </section>
+                        </motion.section>
 
-                        <section className='section'>
+                        <motion.section 
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={revealVariants}
+                            className='section'
+                        >
                             {/* 🚀 Projects Section */}
                             <h2 className='col-span-1'>{visibleText.projects?.title}</h2>
                             <div className="col-span-1"></div>
@@ -292,9 +388,15 @@ export default function Home() {
                                     </div>
                                 ))}
                             </div>
-                        </section>
+                        </motion.section>
 
-                        <section className='section sm:gap-x-22'>
+                        <motion.section 
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={revealVariants}
+                            className='section sm:gap-x-22'
+                        >
                             {/* 🎓 Education Section */}
                             <h2 className='col-span-1'>{visibleText.education?.title}</h2>
                             <div className="col-span-1"></div>
@@ -313,7 +415,7 @@ export default function Home() {
                                     ))}
                                 </div>
                             </div>
-                        </section>
+                        </motion.section>
                     </div>
                 </div>
             </div>

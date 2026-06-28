@@ -7,6 +7,22 @@ import { useLocation } from '@/context/LocationProvider';
 
 import { useLangContext } from '../../hooks/useLang';
 
+const getIcon = (path: string) => {
+    switch (path.trim()) {
+        case '':
+        case ' ':
+            return 'fa-solid fa-house';
+        case 'projects':
+            return 'fa-solid fa-code';
+        case 'photography':
+            return 'fa-solid fa-camera';
+        case 'about':
+            return 'fa-solid fa-user';
+        default:
+            return 'fa-solid fa-link';
+    }
+};
+
 export default function Navbar() {
     const { visibleText } = useLangContext()
     const [isTime, setIsTime] = useState(true);
@@ -24,7 +40,7 @@ export default function Navbar() {
     const width = useTransform(smoothScroll, [0, 300], ['100vw', '70vw'])
     const top = useTransform(smoothScroll, [0, 300], ['-1px', '8px'])
     const bRadius = useTransform(smoothScroll, [0, 300], ['0px', '40px'])
-    const fontSize = useTransform(smoothScroll, [0, 300], ['clamp(0.2rem, 3vw, 2.5rem)', 'clamp(1rem, 4vw, 2rem)']);
+    // const fontSize = useTransform(smoothScroll, [0, 300], ['clamp(0.2rem, 3vw, 2.5rem)', 'clamp(1rem, 4vw, 2rem)']);
 
     // Update time every second
     useEffect(() => {
@@ -82,20 +98,22 @@ export default function Navbar() {
                     ref={menuRef}
                     className="px-7">
                     <div>
-                        <div className="justify-between items-center flex text-center my-2 ">
-                            <motion.h3
+                        <div className="justify-end items-center flex text-center my-2 w-full">
+                            {/* <motion.h3
                                 style={{
                                     fontSize: fontSize,
                                     fontWeight: 'bold'
                                 }}
                                 className='specific'
-                            >{visibleText.name}</motion.h3>
+                            >{visibleText.name}</motion.h3> */}
                             {/* <div className="burger block sm:hidden"></div> */}
-                            <ul className="list-none flex gap-5">
-                                <li className='text-sm border-2 min-w-18 my-auto rounded-lg'>{isTime ? time : `${weather}°C`}</li>
+                            <ul className="list-none flex gap-6 items-center ml-auto">
+                                <li className='text-sm border-2 px-2.5 py-0.5 min-w-18 my-auto rounded-lg'>{isTime ? time : `${weather}°C`}</li>
                                 {visibleText.navbar.map((value, id) =>
                                     <li key={id} className='py-1 hidden sm:flex'>
-                                        <Link href={`/${value[1].trim()}`} className='hover:text-[var(--accent)] transition-colors duration-250 font-medium'>{value[0]}</Link>
+                                        <Link href={`/${value[1].trim()}`} title={value[0]} className='hover:text-[var(--accent)] transition-colors duration-250 flex items-center justify-center'>
+                                            <i className={`${getIcon(value[1])}`} style={{ fontSize: '20px' }}></i>
+                                        </Link>
                                     </li>
                                 )}
                                 <li>
@@ -129,8 +147,9 @@ export default function Navbar() {
                                 sm:hidden 
                                 flex flex-col mt-2 pb-4 gap-3 text-center border-t border-[var(--text)] border-opacity-10 pt-3">
                                 {visibleText.navbar.map((value, id) =>
-                                    <Link key={id} href={`/${value[1].trim()}`} onClick={() => setIsOpen(false)} className="hover:text-[var(--accent)] transition-colors duration-250 py-1">
-                                        {value[0]}
+                                    <Link key={id} href={`/${value[1].trim()}`} onClick={() => setIsOpen(false)} className="hover:text-[var(--accent)] transition-colors duration-250 py-2 flex items-center justify-center gap-2">
+                                        <i className={`${getIcon(value[1])}`} style={{ fontSize: '18px' }}></i>
+                                        <span>{value[0]}</span>
                                     </Link>
                                 )}
                             </div>

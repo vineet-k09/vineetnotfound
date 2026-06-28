@@ -13,8 +13,8 @@ export default function CustomCursor() {
     const squareX = useSpring(mouseX, { damping: 15, stiffness: 100 });
     const squareY = useSpring(mouseY, { damping: 15, stiffness: 100 });
 
-    const vertY = useSpring(mouseY, { damping: 20, stiffness: 100 });
-    const horX = useSpring(mouseX, { damping: 20, stiffness: 100 });
+    // const vertY = useSpring(mouseY, { damping: 20, stiffness: 100 });
+    // const horX = useSpring(mouseX, { damping: 20, stiffness: 100 });
 
     // Apply a spring to the values for smoothing
     const smoothX = useSpring(mouseX, { damping: 20, stiffness: 150 });
@@ -57,20 +57,24 @@ export default function CustomCursor() {
             />
 
             {/* Vertical Line on Left */}
+            {/*
             <motion.div
                 className="vertical-follower"
                 style={{
                     y: vertY,
                 }}
             />
+            */}
 
             {/* Horizontal Line at Bottom */}
+            {/*
             <motion.div
                 className="horizontal-follower"
                 style={{
                     x: horX,
                 }}
             />
+            */}
         </>
     );
 }
