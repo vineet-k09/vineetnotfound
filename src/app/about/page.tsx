@@ -9,72 +9,251 @@ interface TerminalHistoryItem {
     output: string;
 }
 
-export default function About() {
-    
-    // Terminal States
-    const [history, setHistory] = useState<TerminalHistoryItem[]>([
-        { command: 'welcome', output: "System initialized. Welcome to Vineet's developer console.\nType 'help' to view available commands." }
-    ]);
-    const [inputValue, setInputValue] = useState('');
-    const terminalBodyRef = useRef<HTMLDivElement>(null);
-    const inputRef = useRef<HTMLInputElement>(null);
+// Skull ASCII Art for intro animation
+const skullASCII = `
+    .---.
+   /     \\
+  | () () |
+   \\  ^  /
+    |||||
+`;
 
-    // Focus terminal input
-    const focusTerminal = () => {
-        if (inputRef.current) {
-            inputRef.current.focus();
-        }
-    };
+// Audio click sound generation using Web Audio API (mechanical keyboard clicks)
+const playKeySound = () => {
+    const AudioContextClass = typeof window !== 'undefined' ? (window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext) : null;
+    if (!AudioContextClass) return;
 
-    // Scroll to bottom on history change
-    useEffect(() => {
-        if (terminalBodyRef.current) {
-            terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
-        }
-    }, [history]);
+    try {
+        const ctx = new AudioContextClass();
+        
+        // High frequency transient (the tick)
+        const oscTick = ctx.createOscillator();
+        const gainTick = ctx.createGain();
+        oscTick.type = 'sine';
+        oscTick.frequency.setValueAtTime(1300 + Math.random() * 400, ctx.currentTime);
+        gainTick.gain.setValueAtTime(0.012, ctx.currentTime);
+        gainTick.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.015);
+        oscTick.connect(gainTick);
+        gainTick.connect(ctx.destination);
+        
+        // Low frequency thump (the key bottom-out)
+        const oscThump = ctx.createOscillator();
+        const gainThump = ctx.createGain();
+        oscThump.type = 'triangle';
+        oscThump.frequency.setValueAtTime(140 + Math.random() * 60, ctx.currentTime);
+        gainThump.gain.setValueAtTime(0.009, ctx.currentTime);
+        gainThump.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.035);
+        oscThump.connect(gainThump);
+        gainThump.connect(ctx.destination);
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter') {
-            const command = inputValue.trim();
-            if (!command) return;
+        oscTick.start();
+        oscTick.stop(ctx.currentTime + 0.02);
 
-            const lowerCmd = command.toLowerCase();
-            let output = '';
+        oscThump.start();
+        oscThump.stop(ctx.currentTime + 0.04);
+    } catch {}
+};
 
-            switch (lowerCmd) {
-                case 'help':
-                    output = `Available commands:
-  bio       - Display my personal bio
-  education - Print academic studies and timeline
-  contact   - Print links to social media and email
-  clear     - Clear terminal logs
-  secret    - Execute easter egg command`;
-                    break;
-                case 'bio':
-                    output = `VINEET KUSHWAHA
+const playEnterSound = () => {
+    const AudioContextClass = typeof window !== 'undefined' ? (window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext) : null;
+    if (!AudioContextClass) return;
+
+    try {
+        const ctx = new AudioContextClass();
+        
+        // Pitch it down and make it longer for Enter bottom-out
+        const oscTick = ctx.createOscillator();
+        const gainTick = ctx.createGain();
+        oscTick.type = 'sine';
+        oscTick.frequency.setValueAtTime(750 + Math.random() * 100, ctx.currentTime);
+        gainTick.gain.setValueAtTime(0.02, ctx.currentTime);
+        gainTick.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.035);
+        oscTick.connect(gainTick);
+        gainTick.connect(ctx.destination);
+        
+        const oscThump = ctx.createOscillator();
+        const gainThump = ctx.createGain();
+        oscThump.type = 'triangle';
+        oscThump.frequency.setValueAtTime(90 + Math.random() * 30, ctx.currentTime);
+        gainThump.gain.setValueAtTime(0.018, ctx.currentTime);
+        gainThump.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.065);
+        oscThump.connect(gainThump);
+        gainThump.connect(ctx.destination);
+
+        oscTick.start();
+        oscTick.stop(ctx.currentTime + 0.04);
+
+        oscThump.start();
+        oscThump.stop(ctx.currentTime + 0.07);
+    } catch {}
+};
+
+// Mock files directory structure
+const mockFiles: Record<string, string> = {
+    'bio.txt': `VINEET KUSHWAHA
 ----------------
-Role: Full-Stack Developer & Data Science Student
-Core Philosophy: "Between pixels and Python, I’ve learned that building things—apps, ideas, futures—isn’t just about logic, it’s about heart."
-Status: Learning, breaking, and rebuilding daily.`;
-                    break;
-                case 'education':
-                    output = `ACADEMICS
+Role:             Full-Stack Developer & Data Science Student
+Core Philosophy:  "Between pixels and Python, I’ve learned that building things—apps, ideas, futures—isn’t just about logic, it’s about heart."
+Status:           Learning, breaking, and rebuilding daily.`,
+
+    'education.txt': `ACADEMICS
 ---------
 Degree:   Bachelor of Engineering - CSE (Data Science)
 College:  Acharya Institute of Technology
 Location: Bengaluru, India
-Timeline: Expected graduation 2026`;
-                    break;
-                case 'contact':
-                    output = `SOCIAL HANDLES
+Timeline: Expected graduation 2026`,
+
+    'contact.txt': `SOCIAL HANDLES
 --------------
 GitHub:    https://github.com/vineet-k09
 LinkedIn:  https://linkedin.com/in/vineet-kushwaha-2666b5257/
 Email:     vineetkushwaha6325@gmail.com
-Instagram: https://instagram.com/vineetwhy`;
+Instagram: https://instagram.com/vineetwhy`,
+
+    'projects.md': `SELECTED PROJECTS
+-----------------
+* Portfolio Site: Personal bento-grid website with multi-theme toggle.
+* Journey Catalog: Visual experience dashboard designed for dynamic logging.
+* Creative Sandbox: Experimental NextJS + Three.js canvas workspace.
+(You can navigate to /projects to view them with rich visual designs!)`,
+
+    'secrets.sh': `#!/bin/bash
+# TOP SECRET Sudo Script
+echo "🤖 Sudo Hack Initialized..."
+echo "Accessing mainframe..."
+echo "100% Complete."
+echo '"Reality is just a compilation of code. Make sure your runtime has good memory." - Secret Agent'`
+};
+
+export default function About() {
+    
+    // Terminal States
+    const [history, setHistory] = useState<TerminalHistoryItem[]>([]);
+    const [inputValue, setInputValue] = useState('');
+    const [animationFrame, setAnimationFrame] = useState('');
+    const [isAnimating, setIsAnimating] = useState(true);
+    const terminalBodyRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    // Initial state set on client only to prevent hydration mismatch
+    useEffect(() => {
+        let currentIdx = 0;
+        let direction = 1; // 1 = typing, -1 = erasing
+        let timer: NodeJS.Timeout;
+
+        const animate = () => {
+            if (direction === 1) {
+                if (currentIdx <= skullASCII.length) {
+                    setAnimationFrame(skullASCII.substring(0, currentIdx));
+                    if (currentIdx % 2 === 0) {
+                        playKeySound();
+                    }
+                    currentIdx++;
+                    timer = setTimeout(animate, 25);
+                } else {
+                    direction = -1;
+                    timer = setTimeout(animate, 1000); // pause for 1s
+                }
+            } else {
+                if (currentIdx >= 0) {
+                    setAnimationFrame(skullASCII.substring(0, currentIdx));
+                    if (currentIdx % 2 === 0) {
+                        playKeySound();
+                    }
+                    currentIdx--;
+                    timer = setTimeout(animate, 15);
+                } else {
+                    setIsAnimating(false);
+                    setHistory([
+                        { 
+                            command: 'welcome', 
+                            output: "System initialized. Welcome to Vineet's developer console.\nType 'help' to view available commands." 
+                        }
+                    ]);
+                }
+            }
+        };
+
+        // start animation after small delay
+        timer = setTimeout(animate, 500);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Focus terminal input
+    const focusTerminal = () => {
+        if (!isAnimating && inputRef.current) {
+            inputRef.current.focus();
+        }
+    };
+
+    // Scroll to bottom on history change or animation progress
+    useEffect(() => {
+        if (terminalBodyRef.current) {
+            terminalBodyRef.current.scrollTop = terminalBodyRef.current.scrollHeight;
+        }
+    }, [history, animationFrame]);
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            playEnterSound();
+            const command = inputValue.trim();
+            if (!command) return;
+
+            const parts = command.split(/\s+/);
+            const cmd = parts[0].toLowerCase();
+            const arg = parts.slice(1).join(' ');
+            let output = '';
+
+            switch (cmd) {
+                case 'help':
+                    output = `Available commands:
+  ls          - List available files
+  cat [file]  - Display file contents
+  bio         - Display my personal bio
+  education   - Print academic studies and timeline
+  contact     - Print links to social media and email
+  date        - Show current date & time
+  whoami      - Show current user
+  clear       - Clear terminal logs
+  secret      - Execute easter egg command`;
+                    break;
+                case 'ls':
+                    output = Object.keys(mockFiles).join('    ');
+                    break;
+                case 'cat':
+                    if (!arg) {
+                        output = `Usage: cat [filename]\nAvailable files:\n  ${Object.keys(mockFiles).join('\n  ')}`;
+                    } else {
+                        const foundKey = Object.keys(mockFiles).find(k => k.toLowerCase() === arg.toLowerCase());
+                        if (foundKey) {
+                            output = mockFiles[foundKey];
+                        } else {
+                            output = `cat: ${arg}: No such file or directory.`;
+                        }
+                    }
+                    break;
+                case 'bio':
+                    output = mockFiles['bio.txt'];
+                    break;
+                case 'education':
+                    output = mockFiles['education.txt'];
+                    break;
+                case 'contact':
+                    output = mockFiles['contact.txt'];
+                    break;
+                case 'date':
+                    output = new Date().toString();
+                    break;
+                case 'whoami':
+                    output = 'visitor';
                     break;
                 case 'secret':
-                    output = `🤖 Sudo Hack Initialized...
+                case './secrets.sh':
+                case 'secrets.sh':
+                case 'sh secrets.sh':
+                    output = mockFiles['secrets.sh'].substring(mockFiles['secrets.sh'].indexOf('\n') + 1) + `
+\n🤖 Sudo Hack Initialized...
 Accessing mainframe...
 [====================================>] 100%
 "Reality is just a compilation of code. Make sure your runtime has good memory." - Secret Agent`;
@@ -89,6 +268,11 @@ Accessing mainframe...
 
             setHistory(prev => [...prev, { command, output }]);
             setInputValue('');
+        } else {
+            // Play keyclick sound on printable keys and backspace
+            if (e.key.length === 1 || e.key === 'Backspace') {
+                playKeySound();
+            }
         }
     };
 
@@ -123,6 +307,12 @@ Accessing mainframe...
                             </div>
                             
                             <div ref={terminalBodyRef} className="terminal-body">
+                                {isAnimating && (
+                                    <div className="terminal-output text-[var(--accent)] font-mono whitespace-pre opacity-80 animate-pulse">
+                                        {animationFrame}
+                                    </div>
+                                )}
+                                
                                 {history.map((item, idx) => (
                                     <div key={idx}>
                                         {item.command !== 'welcome' && (
@@ -135,19 +325,22 @@ Accessing mainframe...
                                     </div>
                                 ))}
                                 
-                                <div className="terminal-input-wrapper flex items-center">
-                                    <span className="terminal-prompt">visitor@vineet:~$</span>
-                                    <input
-                                        ref={inputRef}
-                                        type="text"
-                                        value={inputValue}
-                                        onChange={(e) => setInputValue(e.target.value)}
-                                        onKeyDown={handleKeyDown}
-                                        className="terminal-input"
-                                        autoFocus
-                                        aria-label="Terminal input"
-                                    />
-                                </div>
+                                {!isAnimating && (
+                                    <div className="terminal-input-wrapper flex items-center">
+                                        <span className="terminal-prompt">visitor@vineet:~$</span>
+                                        <input
+                                            ref={inputRef}
+                                            type="text"
+                                            value={inputValue}
+                                            onChange={(e) => setInputValue(e.target.value)}
+                                            onKeyDown={handleKeyDown}
+                                            className="terminal-input"
+                                            autoFocus
+                                            placeholder="Type 'help' to start..."
+                                            aria-label="Terminal input"
+                                        />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </section>

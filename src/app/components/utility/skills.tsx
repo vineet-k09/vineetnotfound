@@ -1,4 +1,4 @@
-export const languages = [
+export const languagesAndFrontend = [
     {
         className: "devicon-python-plain",
         label: "Python",
@@ -18,37 +18,11 @@ export const languages = [
         className: "devicon-java-plain",
         label: "Java",
         link: "https://www.oracle.com/java/"
-    }
-];
-
-export const tools = [
-    {
-        className: "devicon-git-plain",
-        label: "Git",
-        link: "https://git-scm.com"
     },
-    {
-        className: "devicon-github-original",
-        label: "GitHub",
-        link: "https://github.com"
-    },
-    {
-        className: "devicon-linux-plain",
-        label: "Linux (Fedora)",
-        link: "https://getfedora.org"
-    }
-];
-
-export const frontend = [
     {
         className: "devicon-react-original",
         label: "ReactJS",
         link: "https://reactjs.org"
-    },
-    {
-        className: "devicon-vitejs-plain",
-        label: "Vite",
-        link: "https://vitejs.dev"
     },
     {
         className: "devicon-nextjs-plain",
@@ -59,38 +33,15 @@ export const frontend = [
         className: "devicon-angularjs-plain",
         label: "Angular",
         link: "https://angular.io"
+    },
+    {
+        className: "devicon-vitejs-plain",
+        label: "Vite",
+        link: "https://vitejs.dev"
     }
 ];
 
-export const databases = [
-    {
-        className: "devicon-postgresql-plain",
-        label: "PostgreSQL",
-        link: "https://www.postgresql.org"
-    },
-    {
-        className: "devicon-mongodb-plain",
-        label: "MongoDB",
-        link: "https://www.mongodb.com"
-    },
-    {
-        className: "devicon-redis-plain",
-        label: "Redis",
-        link: "https://redis.io"
-    },
-    {
-        className: "devicon-mysql-plain",
-        label: "MySQL",
-        link: "https://www.mysql.com"
-    },
-    {
-        className: "devicon-googlecloud-plain",
-        label: "BigQuery",
-        link: "https://cloud.google.com/bigquery"
-    }
-];
-
-export const backend = [
+export const backendAndDatabases = [
     {
         className: "devicon-nodejs-plain",
         label: "Node.js",
@@ -130,10 +81,35 @@ export const backend = [
         className: "fa-solid fa-cubes",
         label: "Microservices",
         link: "https://microservices.io"
+    },
+    {
+        className: "devicon-postgresql-plain",
+        label: "PostgreSQL",
+        link: "https://www.postgresql.org"
+    },
+    {
+        className: "devicon-mongodb-plain",
+        label: "MongoDB",
+        link: "https://www.mongodb.com"
+    },
+    {
+        className: "devicon-redis-plain",
+        label: "Redis",
+        link: "https://redis.io"
+    },
+    {
+        className: "devicon-mysql-plain",
+        label: "MySQL",
+        link: "https://www.mysql.com"
+    },
+    {
+        className: "devicon-googlecloud-plain",
+        label: "BigQuery",
+        link: "https://cloud.google.com/bigquery"
     }
 ];
 
-export const cloudDevops = [
+export const devopsAndTools = [
     {
         className: "devicon-googlecloud-plain",
         label: "GCP",
@@ -148,5 +124,20 @@ export const cloudDevops = [
         className: "devicon-githubactions-plain",
         label: "CI/CD (GitHub Actions)",
         link: "https://github.com/features/actions"
+    },
+    {
+        className: "devicon-git-plain",
+        label: "Git",
+        link: "https://git-scm.com"
+    },
+    {
+        className: "devicon-github-original",
+        label: "GitHub",
+        link: "https://github.com"
+    },
+    {
+        className: "devicon-linux-plain",
+        label: "Linux (Fedora)",
+        link: "https://getfedora.org"
     }
 ];

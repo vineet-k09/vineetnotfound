@@ -4,7 +4,7 @@ import { useLangContext } from '../../hooks/useLang';
 import Navbar from './navbar';
 import { useAudio } from '@/context/AudioContext';
 // import { useTheme } from '@/context/ThemeContext';
-import { languages, tools, frontend, databases, backend, cloudDevops } from './utility/skills';
+import { languagesAndFrontend, backendAndDatabases, devopsAndTools } from './utility/skills';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -310,19 +310,16 @@ export default function Home() {
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
                             variants={revealVariants}
-                            className='section grid grid-cols-7'
+                            className='section sm:gap-x-22'
                         >
                             <h2 className='col-span-1'>Skills</h2>
                             <div className="col-span-1"></div>
                             <div className="col-span-5">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="flex flex-col gap-6">
                                     {[
-                                        { title: "Languages", list: languages },
-                                        { title: "Tools", list: tools },
-                                        { title: "Frontend", list: frontend },
-                                        { title: "Databases", list: databases },
-                                        { title: "Backend", list: backend },
-                                        { title: "Cloud & DevOps", list: cloudDevops }
+                                        { title: "Languages & Frontend", list: languagesAndFrontend },
+                                        { title: "Backend & Databases", list: backendAndDatabases },
+                                        { title: "DevOps & Tools", list: devopsAndTools }
                                     ].map((cat, idx) => (
                                         <div key={idx} className="inverted-theme-card p-5 rounded-2xl">
                                             <h3 className="text-lg font-bold mb-4 border-b border-opacity-10 border-[var(--text)] pb-2 text-[var(--accent)]">{cat.title}</h3>

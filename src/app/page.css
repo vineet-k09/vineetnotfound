@@ -418,6 +418,27 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    /* Custom thin scrollbar for Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+/* Custom thin scrollbar for Webkit browsers (Chrome, Safari) */
+.terminal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.30);
 }
 
 .terminal-prompt {
