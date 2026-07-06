@@ -348,89 +348,122 @@ export default function Home() {
                                 {visibleText.experience?.list.map((exp, idx) => {
                                     const isLeft = idx % 2 === 1;
                                     return (
-                                        <div key={idx} className={`flex flex-col md:flex-row items-stretch w-full mb-16 relative ${isLeft ? 'md:flex-row-reverse' : ''}`}>
-                                            
-                                            {/* Branch Checkout Card Column */}
-                                            <div className="w-full md:w-1/2 flex flex-col justify-center order-1 px-4 md:px-8">
-                                                <div 
-                                                    className="flex flex-col gap-2.5 p-5 border rounded-2xl bg-[var(--text)] bg-opacity-[0.01] hover:bg-opacity-[0.03] transition-all duration-300 relative overflow-hidden"
-                                                    style={{ 
-                                                        borderColor: `${exp.color}35`,
-                                                        boxShadow: `0 4px 30px -10px ${exp.color}10`,
-                                                        borderLeftWidth: '5px',
-                                                        borderLeftColor: exp.color
-                                                    }}
-                                                >
-                                                    {/* Git switch command header */}
-                                                    <div className="flex items-center justify-between flex-wrap gap-2 border-b border-[var(--text)] border-opacity-5 pb-2 text-[var(--text)]">
-                                                        <div className="flex items-center gap-1.5">
-                                                            <span className="text-xs font-mono text-emerald-400 font-bold">$</span>
-                                                            <span className="text-xs font-mono opacity-60 text-gray-950">git switch</span>
-                                                            <span className="text-xs font-mono px-2 py-0.5 rounded font-bold" style={{ backgroundColor: `${exp.color}15`, color: exp.color, border: `1px solid ${exp.color}25` }}>
-                                                                {exp.branch}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    {/* Role & Company Metadata */}
-                                                    <div className="text-[var(--text)]">
-                                                        <h3 className="text-lg font-extrabold" style={{ color: exp.color }}>{exp.role}</h3>
-                                                        <div className="flex justify-between items-baseline mt-1 flex-wrap gap-1">
-                                                            <span className="text-sm font-bold opacity-90">{exp.company}</span>
-                                                            <span className="text-[11px] font-mono opacity-60 font-semibold">{exp.duration}</span>
-                                                        </div>
-                                                        <div className="text-[10px] font-mono opacity-40 mt-1">{exp.timeline}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
+																			<div
+																				key={idx}
+																				className={`flex flex-col md:flex-row items-stretch w-full mb-16 relative ${isLeft ? "md:flex-row-reverse" : ""}`}>
+																				{/* Branch Checkout Card Column */}
+																				<div className="w-full md:w-1/2 flex flex-col justify-center order-1 px-4 md:px-8">
+																					<div
+																						className="flex flex-col gap-2.5 p-5 border rounded-2xl bg-[var(--text)] bg-opacity-[0.01] hover:bg-opacity-[0.03] transition-all duration-300 relative overflow-hidden"
+																						style={{
+																							borderColor: `${exp.color}35`,
+																							boxShadow: `0 4px 30px -10px ${exp.color}10`,
+																							borderLeftWidth: "5px",
+																							borderLeftColor: exp.color,
+																						}}>
+																						{/* Git switch command header */}
+																						<div className="flex items-center justify-between flex-wrap gap-2 border-b border-[var(--text)] border-opacity-5 pb-2 text-[var(--text)]">
+																							<div className="flex items-center gap-1.5">
+																								<span className="text-xs font-mono text-emerald-400 font-bold">
+																									$
+																								</span>
+																								<span className="text-xs font-mono opacity-60 text-gray-950">
+																									git switch
+																								</span>
+																								<span
+																									className="text-xs font-mono px-2 py-0.5 rounded font-bold"
+																									style={{
+																										backgroundColor: `${exp.color}15`,
+																										color: exp.color,
+																										border: `1px solid ${exp.color}25`,
+																									}}>
+																									{exp.branch}
+																								</span>
+																							</div>
+																						</div>
 
-                                            {/* Center Axis Switch Node (only visible on desktop) */}
-                                            <div className="hidden md:flex w-16 justify-center items-center relative order-2 z-10">
-                                                {/* Node Circle */}
-                                                <div 
-                                                    className="w-4 h-4 rounded-full bg-[var(--bg)] border-[3px] transition-all duration-300 hover:scale-125 z-20"
-                                                    style={{ 
-                                                        borderColor: exp.color,
-                                                        boxShadow: `0 0 10px ${exp.color}`
-                                                    }}
-                                                />
-                                            </div>
+																						{/* Role & Company Metadata */}
+																						<div className="text-[var(--text)]">
+																							<h3
+																								className="text-lg font-extrabold"
+																								style={{ color: exp.color }}>
+																								{exp.role}
+																							</h3>
+																							<div className="flex justify-between items-baseline mt-1 flex-wrap gap-1 text-black">
+																								<span className="text-sm font-bold opacity-90 ">
+																									{exp.company}
+																								</span>
+																								<span className="text-[11px] font-mono opacity-60 font-semibold">
+																									{exp.duration}
+																								</span>
+																							</div>
+																							<div className="text-[10px] font-mono opacity-40 mt-1">
+																								{exp.timeline}
+																							</div>
+																						</div>
+																					</div>
+																				</div>
 
-                                            {/* Commit Log Details Column */}
-                                            <div className="w-full md:w-1/2 flex flex-col justify-center order-3 px-4 md:px-8 mt-4 md:mt-0">
-                                                <div className="relative pl-6 border-l-2 py-2" style={{ borderColor: `${exp.color}25` }}>
-                                                    {exp.commits.map((commit, commitIdx) => (
-                                                        <div key={commitIdx} className="relative group/commit mb-6 last:mb-0">
-                                                            
-                                                            {/* Commit node dot */}
-                                                            <div 
-                                                                className="absolute -left-[30px] top-1.5 w-2 h-2 rounded-full bg-[var(--bg)] border-2 transition-all duration-200 group-hover/commit:scale-125" 
-                                                                style={{ borderColor: exp.color }}
-                                                            />
-                                                            
-                                                            <div>
-                                                                <div className="flex flex-wrap items-baseline gap-2">
-                                                                    <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded" style={{ backgroundColor: `${exp.color}10`, color: exp.color, border: `1px solid ${exp.color}20` }}>
-                                                                        {commit.hash}
-                                                                    </span>
-                                                                    <h4 className="text-sm font-extrabold text-[var(--text)] transition-colors duration-250 group-hover/commit:text-[var(--accent)]">
-                                                                        {commit.msg}
-                                                                    </h4>
-                                                                </div>
-                                                                
-                                                                {/* Fixed description contrast */}
-                                                                <p className="text-xs text-[var(--text)] opacity-90 mt-1.5 font-normal leading-relaxed max-w-md">
-                                                                    {commit.desc}
-                                                                </p>
-                                                            </div>
-                                                            
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
+																				{/* Center Axis Switch Node (only visible on desktop) */}
+																				<div className="hidden md:flex w-16 justify-center items-center relative order-2 z-10">
+																					{/* Node Circle */}
+																					<div
+																						className="w-4 h-4 rounded-full bg-[var(--bg)] border-[3px] transition-all duration-300 hover:scale-125 z-20"
+																						style={{
+																							borderColor: exp.color,
+																							boxShadow: `0 0 10px ${exp.color}`,
+																						}}
+																					/>
+																				</div>
 
-                                        </div>
-                                    );
+																				{/* Commit Log Details Column */}
+																				<div className="w-full md:w-1/2 flex flex-col justify-center order-3 px-4 md:px-8 mt-4 md:mt-0">
+																					<div
+																						className="relative pl-6 border-l-2 py-2"
+																						style={{
+																							borderColor: `${exp.color}25`,
+																						}}>
+																						{exp.commits.map(
+																							(commit, commitIdx) => (
+																								<div
+																									key={commitIdx}
+																									className="relative group/commit mb-6 last:mb-0">
+																									{/* Commit node dot */}
+																									<div
+																										className="absolute -left-[30px] top-1.5 w-2 h-2 rounded-full bg-[var(--bg)] border-2 transition-all duration-200 group-hover/commit:scale-125"
+																										style={{
+																											borderColor: exp.color,
+																										}}
+																									/>
+
+																									<div>
+																										<div className="flex flex-wrap items-baseline gap-2">
+																											<span
+																												className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded"
+																												style={{
+																													backgroundColor: `${exp.color}10`,
+																													color: exp.color,
+																													border: `1px solid ${exp.color}20`,
+																												}}>
+																												{commit.hash}
+																											</span>
+																											<h4 className="text-sm font-extrabold text-[var(--text)] transition-colors duration-250 group-hover/commit:text-[var(--accent)]">
+																												{commit.msg}
+																											</h4>
+																										</div>
+
+																										{/* Fixed description contrast */}
+																										<p className="text-xs text-[var(--text)] opacity-90 mt-1.5 font-normal leading-relaxed max-w-md">
+																											{commit.desc}
+																										</p>
+																									</div>
+																								</div>
+																							),
+																						)}
+																					</div>
+																				</div>
+																			</div>
+																		);
                                 })}
                             </div>
                         </motion.section>
