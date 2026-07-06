@@ -12,7 +12,7 @@ interface FadeTextProps extends HTMLAttributes<HTMLElement> {
 }
 
 export default function FadeText({ as = "p", children, ...props }: FadeTextProps) {
-    const MotionTag = motion(as) as React.ElementType;
+    const MotionTag = motion(as) as React.ComponentType<React.HTMLAttributes<HTMLElement> & { initial?: object; animate?: object; transition?: object }>;
 
     return (
         <MotionTag

@@ -47,11 +47,17 @@ interface TranslationContent {
     experience?: {
         title: string;
         list: {
-            title: string;
             company: string;
+            role: string;
             duration: string;
-            description: string;
-            timeLine: string;
+            timeline: string;
+            branch: string;
+            color: string;
+            commits: {
+                hash: string;
+                msg: string;
+                desc: string;
+            }[];
         }[];
     };
     education?: {

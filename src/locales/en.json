@@ -94,25 +94,64 @@
 		"title": "Work Experience",
 		"list": [
 			{
-				"title": "Data Analyst",
 				"company": "Vodafone Intelligent Solutions (VOIS)",
+				"role": "Data Analyst",
 				"duration": "6 months",
-				"description": "Built and maintained SQL-driven dashboards and automated reporting pipelines to support KPI analysis and stakeholder decision-making. Improved report reliability and reduced manual data preparation through automation.",
-				"timeLine": "Jan 2026 - Present"
+				"timeline": "Jan 2026 - Present",
+				"branch": "feat/vois-data-analyst",
+				"color": "var(--accent)",
+				"commits": [
+					{
+						"hash": "d8b5a3c",
+						"msg": "feat: SQL KPI Dashboards",
+						"desc": "Built and maintained SQL-driven dashboards to track key performance indicators for business analytics."
+					},
+					{
+						"hash": "e9f2b1d",
+						"msg": "ci: Automated Reporting Pipelines",
+						"desc": "Designed automated ETL pipelines, reducing manual data preparation time."
+					},
+					{
+						"hash": "f3a7c6e",
+						"msg": "docs: Stakeholder Data Insights",
+						"desc": "Collaborated with business units to deliver monthly KPI reporting and metrics presentation."
+					}
+				]
 			},
 			{
-				"title": "Full Stack Developer",
 				"company": "Infosys Springboard",
+				"role": "Full Stack Developer",
 				"duration": "3 months",
-				"description": "Developed a full-stack platform connecting NGOs and volunteers. Designed RESTful APIs, implemented reusable React components, and collaborated on end-to-end user workflows from onboarding to task coordination.",
-				"timeLine": "Oct 2025 - Dec 2025"
+				"timeline": "Oct 2025 - Dec 2025",
+				"branch": "feat/infosys-fullstack",
+				"color": "#a855f7",
+				"commits": [
+					{
+						"hash": "a1b2c3d",
+						"msg": "feat: NGO Matching Platform",
+						"desc": "Developed a volunteer matching portal for NGOs, coordinating volunteer schedules."
+					},
+					{
+						"hash": "b4d5e6f",
+						"msg": "refactor: Modular React Architecture",
+						"desc": "Built responsive React components and designed RESTful endpoints."
+					}
+				]
 			},
 			{
-				"title": "Graphic Design Intern",
 				"company": "Curiosense Innovations Pvt. Ltd.",
+				"role": "Graphic Design Intern",
 				"duration": "6 months",
-				"description": "Designed branding and UI assets. Collaborated with product teams. Practiced Agile workflow.",
-				"timeLine": ""
+				"timeline": "Apr 2025 - Sep 2025",
+				"branch": "design/brand-identity",
+				"color": "#f59e0b",
+				"commits": [
+					{
+						"hash": "c7e8f9a",
+						"msg": "design: UI/UX Wireframes & Branding",
+						"desc": "Created mockups, social designs, and brand style guides using Figma and Adobe Suite."
+					}
+				]
 			}
 		]
 	},
@@ -154,9 +193,9 @@
 			"desc": "Explore web platforms, AI scheme recommenders, and database solutions."
 		},
 		"art": {
-			"title": "Photography & Design",
-			"stats": "UI/UX & Visuals",
-			"desc": "Browse branding projects, graphic layouts, and captured moments."
+			"title": "Creative Sandbox",
+			"stats": "Designs & UI/UX",
+			"desc": "Browse visual layouts, UI/UX mockups, graphics, and interactive shaders."
 		},
 		"about": {
 			"title": "Life & Philosophy",

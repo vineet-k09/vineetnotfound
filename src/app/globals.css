@@ -135,3 +135,45 @@ body::-webkit-scrollbar-thumb {
       rgba(0, 0, 0, 0.07),
       rgba(254, 250, 224, 0));
 }
+
+/* 🎥 Premium Film Grain Noise Overlay */
+.film-grain {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E') repeat;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain-animation 8s steps(10) infinite;
+}
+
+@keyframes grain-animation {
+  0%, 100% { transform:translate(0, 0); }
+  10% { transform:translate(-5%, -10%); }
+  20% { transform:translate(-15%, 5%); }
+  30% { transform:translate(7%, -25%); }
+  40% { transform:translate(-5%, 25%); }
+  50% { transform:translate(-15%, 10%); }
+  60% { transform:translate(15%, 0%); }
+  75% { transform:translate(5%, 25%); }
+  90% { transform:translate(-10%, 10%); }
+}
+
+/* 📐 Tech Grid Background Pattern */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px);
+  pointer-events: none;
+  z-index: -10;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+  transition: background-image 0.5s ease;
+}

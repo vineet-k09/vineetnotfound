@@ -18,14 +18,36 @@ const skullASCII = `
     |||||
 `;
 
+// Shared AudioContext to prevent browser thread exhaustion
+let sharedAudioCtx: AudioContext | null = null;
+
+const getAudioContext = (): AudioContext | null => {
+    if (typeof window === 'undefined') return null;
+    const AudioContextClass = window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AudioContextClass) return null;
+
+    if (!sharedAudioCtx) {
+        try {
+            sharedAudioCtx = new AudioContextClass();
+        } catch {
+            return null;
+        }
+    }
+    
+    // Resume context if suspended
+    if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') {
+        sharedAudioCtx.resume().catch(() => {});
+    }
+    
+    return sharedAudioCtx;
+};
+
 // Audio click sound generation using Web Audio API (mechanical keyboard clicks)
 const playKeySound = () => {
-    const AudioContextClass = typeof window !== 'undefined' ? (window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext) : null;
-    if (!AudioContextClass) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
 
     try {
-        const ctx = new AudioContextClass();
-        
         // High frequency transient (the tick)
         const oscTick = ctx.createOscillator();
         const gainTick = ctx.createGain();
@@ -55,12 +77,10 @@ const playKeySound = () => {
 };
 
 const playEnterSound = () => {
-    const AudioContextClass = typeof window !== 'undefined' ? (window.AudioContext || (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext) : null;
-    if (!AudioContextClass) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
 
     try {
-        const ctx = new AudioContextClass();
-        
         // Pitch it down and make it longer for Enter bottom-out
         const oscTick = ctx.createOscillator();
         const gainTick = ctx.createGain();
@@ -132,52 +152,147 @@ export default function About() {
     const [inputValue, setInputValue] = useState('');
     const [animationFrame, setAnimationFrame] = useState('');
     const [isAnimating, setIsAnimating] = useState(true);
+
+    const [animationQueue, setAnimationQueue] = useState<string[]>([]);
+    const [animationIndex, setAnimationIndex] = useState(0);
+    const [animationCallback, setAnimationCallback] = useState<(() => void) | null>(null);
+    const [animationDelay, setAnimationDelay] = useState(30);
+
     const terminalBodyRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
-    // Initial state set on client only to prevent hydration mismatch
+    // Progressive frame generation helper for skull drawing and erasing
+    const getDrawFrames = (text: string): string[] => {
+        const frames: string[] = [];
+        for (let i = 1; i <= text.length; i++) {
+            frames.push(text.substring(0, i));
+        }
+        for (let p = 0; p < 15; p++) {
+            frames.push(text);
+        }
+        for (let i = text.length - 1; i >= 0; i--) {
+            frames.push(text.substring(0, i));
+        }
+        return frames;
+    };
+
+    const getSecretFrames = (): string[] => {
+        const base = `Running secrets.sh...\n`;
+        const frames: string[] = [];
+        
+        frames.push(base + `.`);
+        frames.push(base + `..`);
+        frames.push(base + `...`);
+        
+        const bars = [
+            `[ACCESSING MAINFRAME] [==>                  ] 10%`,
+            `[ACCESSING MAINFRAME] [=====>               ] 25%`,
+            `[ACCESSING MAINFRAME] [=========>           ] 45%`,
+            `[ACCESSING MAINFRAME] [==============>      ] 70%`,
+            `[ACCESSING MAINFRAME] [===================> ] 90%`,
+            `[ACCESSING MAINFRAME] [====================>] 100%`
+        ];
+        for (const b of bars) {
+            frames.push(base + b);
+            frames.push(base + b);
+        }
+
+        const fullBar = base + `[ACCESSING MAINFRAME] [====================>] 100%\n\n`;
+        
+        for (let i = 1; i <= skullASCII.length; i++) {
+            frames.push(fullBar + skullASCII.substring(0, i));
+        }
+
+        const eyesFlash1 = fullBar + `
+    .---.
+   /  * * \\
+  | () () |
+   \\  ^  /
+    |||||
+`;
+        const eyesFlash2 = fullBar + `
+    .---.
+   /  o o \\
+  | () () |
+   \\  ^  /
+    |||||
+`;
+        const eyesFlash3 = fullBar + `
+    .---.
+   /  x x \\
+  | () () |
+   \\  ^  /
+    |||||
+`;
+        
+        for (let j = 0; j < 3; j++) {
+            frames.push(eyesFlash1);
+            frames.push(eyesFlash2);
+            frames.push(eyesFlash3);
+        }
+
+        for (let i = skullASCII.length - 1; i >= 0; i--) {
+            frames.push(fullBar + skullASCII.substring(0, i));
+        }
+
+        const secretMsg = `"Reality is just a compilation of code. Make sure your runtime has good memory." - Secret Agent`;
+        
+        for (let i = 1; i <= secretMsg.length; i++) {
+            frames.push(fullBar + secretMsg.substring(0, i));
+        }
+        
+        return frames;
+    };
+
+    // Animation queue frame runner
     useEffect(() => {
-        let currentIdx = 0;
-        let direction = 1; // 1 = typing, -1 = erasing
+        if (animationQueue.length === 0) return;
+
+        let active = true;
         let timer: NodeJS.Timeout;
 
-        const animate = () => {
-            if (direction === 1) {
-                if (currentIdx <= skullASCII.length) {
-                    setAnimationFrame(skullASCII.substring(0, currentIdx));
-                    if (currentIdx % 2 === 0) {
-                        playKeySound();
-                    }
-                    currentIdx++;
-                    timer = setTimeout(animate, 25);
-                } else {
-                    direction = -1;
-                    timer = setTimeout(animate, 1000); // pause for 1s
+        const nextFrame = (idx: number) => {
+            if (!active) return;
+
+            if (idx < animationQueue.length) {
+                setAnimationFrame(animationQueue[idx]);
+                setAnimationIndex(idx);
+                if (idx % 2 === 0) {
+                    playKeySound();
                 }
+                timer = setTimeout(() => nextFrame(idx + 1), animationDelay);
             } else {
-                if (currentIdx >= 0) {
-                    setAnimationFrame(skullASCII.substring(0, currentIdx));
-                    if (currentIdx % 2 === 0) {
-                        playKeySound();
-                    }
-                    currentIdx--;
-                    timer = setTimeout(animate, 15);
-                } else {
-                    setIsAnimating(false);
-                    setHistory([
-                        { 
-                            command: 'welcome', 
-                            output: "System initialized. Welcome to Vineet's developer console.\nType 'help' to view available commands." 
-                        }
-                    ]);
+                setAnimationFrame('');
+                setAnimationQueue([]);
+                setAnimationIndex(0);
+                if (animationCallback) {
+                    animationCallback();
                 }
             }
         };
 
-        // start animation after small delay
-        timer = setTimeout(animate, 500);
+        nextFrame(animationIndex);
 
-        return () => clearTimeout(timer);
+        return () => {
+            active = false;
+            clearTimeout(timer);
+        };
+    }, [animationQueue, animationIndex, animationDelay, animationCallback]);
+
+    // Initial state set on client only to prevent hydration mismatch
+    useEffect(() => {
+        const welcomeFrames = getDrawFrames(skullASCII);
+        setAnimationDelay(25);
+        setAnimationCallback(() => () => {
+            setIsAnimating(false);
+            setHistory([
+                { 
+                    command: 'welcome', 
+                    output: "System initialized. Welcome to Vineet's developer console.\nType 'help' to view available commands." 
+                }
+            ]);
+        });
+        setAnimationQueue(welcomeFrames);
     }, []);
 
     // Focus terminal input
@@ -194,7 +309,35 @@ export default function About() {
         }
     }, [history, animationFrame]);
 
+    // Synthesize a retro mechanical keyboard click
+    const playTick = () => {
+        const audioCtx = getAudioContext();
+        if (!audioCtx) return;
+        
+        try {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.type = 'sine';
+            // Click frequency structure
+            osc.frequency.setValueAtTime(1000, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(120, audioCtx.currentTime + 0.04);
+            
+            gain.gain.setValueAtTime(0.015, audioCtx.currentTime); // very quiet, satisfying tick
+            gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.04);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.04);
+        } catch {
+            // AudioContext block fallback
+        }
+    };
+
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        playTick();
         if (e.key === 'Enter') {
             playEnterSound();
             const command = inputValue.trim();
@@ -252,12 +395,22 @@ export default function About() {
                 case './secrets.sh':
                 case 'secrets.sh':
                 case 'sh secrets.sh':
-                    output = mockFiles['secrets.sh'].substring(mockFiles['secrets.sh'].indexOf('\n') + 1) + `
-\n🤖 Sudo Hack Initialized...
-Accessing mainframe...
-[====================================>] 100%
-"Reality is just a compilation of code. Make sure your runtime has good memory." - Secret Agent`;
-                    break;
+                    // Trigger the secrets animation!
+                    setIsAnimating(true);
+                    setAnimationDelay(30);
+                    setAnimationCallback(() => () => {
+                        setIsAnimating(false);
+                        setHistory(prev => [
+                            ...prev,
+                            {
+                                command: command,
+                                output: `secrets.sh run complete.`
+                            }
+                        ]);
+                    });
+                    setAnimationQueue(getSecretFrames());
+                    setInputValue('');
+                    return;
                 case 'clear':
                     setHistory([]);
                     setInputValue('');
@@ -283,7 +436,6 @@ Accessing mainframe...
                     
                     {/* Title Header */}
                     <div className="text-center max-w-2xl mx-auto mb-12">
-                        <span className="text-xs font-mono uppercase tracking-wider text-[var(--accent)] font-semibold mb-1 block">identity board</span>
                         <h2 className="text-4xl font-extrabold tracking-tight mb-4 text-center">About Vineet</h2>
                         <p className="text-sm opacity-80 leading-relaxed">
                             Full-Stack engineer by training, Data Science student by choice, and visual artist by passion.
