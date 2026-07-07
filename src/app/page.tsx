@@ -1,22 +1,22 @@
-'use client'
-import './page.css'
+"use client";
+import "./page.css";
 
-import Home from './components/home'
-import Navbar from './components/navbar'
-import Footer from './components/footer'
+import Home from "./components/home";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 // import { useTheme } from '@/context/ThemeContext'
 // import { useLangContext } from '@/hooks/useLang'
 // import Background from "./components/background"
 
 export default function Page() {
-  // const { themeVar, cycleTheme } = useTheme()
-  // const {changeLang, visibleText} = useLangContext()
-  return (
-    <main className="transition-theme duration-1500">
-      {/* <Background /> */}
-      <Navbar />
-      <Home />
-      {/*
+	// const { themeVar, cycleTheme } = useTheme()
+	// const {changeLang, visibleText} = useLangContext()
+	return (
+		<main className="transition-theme duration-1500">
+			{/* <Background /> */}
+			<Navbar />
+			<Home />
+			{/*
       <div className="wrapper fixed bottom-5 right-5 z-50 flex flex-col gap-1">
         <button
           onClick={cycleTheme}
@@ -34,7 +34,7 @@ export default function Page() {
         </button>
       </div>
       */}
-      <Footer />
-    </main>
-  );
+			<Footer />
+		</main>
+	);
 }

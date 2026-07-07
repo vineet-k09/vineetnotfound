@@ -31,7 +31,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		locationOrTool: "Figma",
 		width: 1916,
 		height: 937,
-		figma: "https://www.figma.com"
+		figma: "https://www.figma.com",
 	},
 	{
 		id: 2,
@@ -44,7 +44,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		locationOrTool: "Figma",
 		width: 1916,
 		height: 937,
-		figma: "https://www.figma.com"
+		figma: "https://www.figma.com",
 	},
 	{
 		id: 3,
@@ -57,7 +57,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		locationOrTool: "Figma",
 		width: 1916,
 		height: 937,
-		figma: "https://www.figma.com"
+		figma: "https://www.figma.com",
 	},
 	{
 		id: 4,
@@ -82,7 +82,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
 		locationOrTool: "Adobe Photoshop",
 		width: 1414,
 		height: 2000,
-	}
+	},
 ];
 
 export default function Creative() {
@@ -105,9 +105,7 @@ export default function Creative() {
 	return (
 		<PageWrapper>
 			<div className="w-full flex flex-col items-center my-6">
-				
-				{/* Interactive Title Banner */}
-				<div className="w-full relative h-[140px] md:h-[180px] mb-8 select-none overflow-hidden">
+				<div className="w-full relative h-[80px] md:h-[100px] mb-2 select-none overflow-hidden">
 					<TextPressure
 						text="SANDBOX"
 						flex={true}
@@ -118,14 +116,16 @@ export default function Creative() {
 						italic={true}
 						textColor="var(--accent)"
 						strokeColor="transparent"
-						minFontSize={60}
+						minFontSize={45}
 					/>
 				</div>
 
 				{/* Header Info */}
 				<div className="text-center max-w-2xl mb-10">
 					<p className="text-sm opacity-80 leading-relaxed text-center">
-						A curated collection of my visual outputs. Exploring the synergy between design systems and code through interface mockups, graphics, layouts, and typography.
+						A curated collection of my visual outputs. Exploring the synergy
+						between design systems and code through interface mockups, graphics,
+						layouts, and typography.
 					</p>
 				</div>
 
@@ -154,13 +154,13 @@ export default function Creative() {
 					))}
 				</div>
 
-				{/* Masonry Gallery Grid */}
-				<div className="masonry-grid w-full">
+				{/* Project Grid */}
+				<div className="archive-grid w-full">
 					{filteredItems.map((item, index) => (
 						<div
 							key={item.id}
 							onClick={() => openLightbox(item)}
-							className="masonry-item group border border-[var(--text)] border-opacity-10 rounded-2xl overflow-hidden bg-[var(--text)] bg-opacity-[0.02] hover:border-[var(--accent)] hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer">
+							className="group inverted-theme-card rounded-2xl overflow-hidden flex flex-col cursor-pointer">
 							{/* Image Container */}
 							<div className="w-full overflow-hidden relative bg-neutral-900 flex items-center justify-center">
 								<Image
@@ -260,8 +260,7 @@ export default function Creative() {
 											href={lightboxItem.figma}
 											target="_blank"
 											rel="noopener noreferrer"
-											className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent)] hover:underline"
-										>
+											className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent)] hover:underline">
 											<i className="devicon-figma-plain text-xs" />
 											<span>Open Figma Workspace</span>
 										</a>

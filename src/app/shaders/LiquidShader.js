@@ -9,7 +9,6 @@ export const vertexShader = `
   }
 `;
 
-
 export const fragmentShaderText = `
 varying vec2 vUv;
 uniform float uTime;

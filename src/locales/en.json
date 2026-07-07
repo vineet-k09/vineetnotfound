@@ -19,6 +19,30 @@
 		"title": "Projects",
 		"list": [
 			{
+				"title": "SAC Commenting",
+				"github": "",
+				"live": "",
+				"description": "Developed an embedded React widget consuming SAP Analytics Cloud postMessage events to capture dashboard context. Built Express.js APIs for comment storage, integrated Vertex AI for contextual JSON summaries, and implemented Puppeteer for automated snapshot generation.",
+				"stack": ["React", "Express.js", "Vertex AI", "Puppeteer", "SAP Analytics Cloud"],
+				"image": ["/projects/sac_commenting.jpg"]
+			},
+			{
+				"title": "iConnect 2.0",
+				"github": "",
+				"live": "",
+				"description": "Architected a microservice topology separating a Node.js/Express gateway from a FastAPI AI inference agent containerized on GCP Cloud Run. Secured inter-service OAuth 2.0 communication, designed BigQuery generation engines, and implemented transactional caching to reduce redundant Vertex AI invocations by 35%.",
+				"stack": ["React", "Node.js", "FastAPI", "GCP Cloud Run", "BigQuery", "Redis"],
+				"image": ["/projects/iconnect.jpg"]
+			},
+			{
+				"title": "Real-Time Hand Gesture MIDI Synthesizer",
+				"github": "https://github.com/shyamkrishnabnair/hand-gesture-recognition-mediapipe-main",
+				"live": "",
+				"description": "Developed a rule-based coordinate geometry classifier using MediaPipe landmark vectors to recognize 10 finger-count gestures with zero ML execution overhead. Optimized browser execution to achieve 60 FPS via frame skipping and offloaded synthesis to Web Workers, minimizing audio latency to ~12 ms.",
+				"stack": ["OpenCV", "MediaPipe", "Web Workers", "Web Audio API", "CustomTKinter"],
+				"image": []
+			},
+			{
 				"title": "SkillMatrix",
 				"github": "https://github.com/SkillMatrix-io/skillmatrix",
 				"description": "A full-stack learning platform supporting role-based access, course creation, and multimedia content delivery (text, PDFs, video). Designed backend APIs and database schema to handle user roles, enrollments, and content management.",
@@ -59,34 +83,6 @@
 					"/projects/biblioverse/3.png",
 					"/projects/biblioverse/4.png"
 				]
-			},
-			{
-				"title": "Real-Time Hand Gesture MIDI Synthesizer",
-				"github": "https://github.com/shyamkrishnabnair/hand-gesture-recognition-mediapipe-main",
-				"description": "Gesture-based MIDI controller built using OpenCV + MediaPipe for real-time music output.",
-				"stack": ["OpenCV", "MediaPipe", "CustomTKinter"],
-				"live": "",
-				"image": []
-			},
-			{
-				"title": "Bengaluru AI Road Guardian",
-				"github": "https://github.com/vineet-k09/potholeaAnalytics",
-				"description": "Smart city pothole reporter with AI-based image classification and emergency dashboards.",
-				"stack": ["HTML5", "CSS3", "ChartJs", "LeafletJs"],
-				"live": "",
-				"image": []
-			},
-			{
-				"title": "Portfolio Website",
-				"github": "https://github.com/vineet-k09/vineet-k09.github.io",
-				"description": "(Legacy Version) A personal site showcasing projects, resume, and creative UI experiments.",
-				"stack": ["HTLM5", "CSS3", "JavaScript"],
-				"live": "https://vineet-k09.github.io/indexOLD.html",
-				"image": [
-					"/projects/portfolioWeb/1.png",
-					"/projects/portfolioWeb/2.png",
-					"/projects/portfolioWeb/3.png"
-				]
 			}
 		]
 	},
@@ -97,30 +93,30 @@
 				"company": "Vodafone Intelligent Solutions (VOIS)",
 				"role": "Data Analyst",
 				"duration": "6 months",
-				"timeline": "Jan 2026 - Present",
+				"timeline": "Jan 2026 - July 2026",
 				"branch": "feat/vois-data-analyst",
 				"color": "var(--accent)",
 				"commits": [
 					{
 						"hash": "d8b5a3c",
-						"msg": "feat: SQL KPI Dashboards",
-						"desc": "Built and maintained SQL-driven dashboards to track key performance indicators for business analytics."
+						"msg": "feat: Automated Ingestion Pipeline",
+						"desc": "Engineered automated validation pipeline processing 400K+ monthly multi-market records, replacing manual workflows and reducing intervention by 90%."
 					},
 					{
 						"hash": "e9f2b1d",
-						"msg": "ci: Automated Reporting Pipelines",
-						"desc": "Designed automated ETL pipelines, reducing manual data preparation time."
+						"msg": "feat: Containerized Cloud Run Mesh",
+						"desc": "Designed and deployed containerized Node/Express microservice on GCP Cloud Run with secure IAM service account mesh communication."
 					},
 					{
 						"hash": "f3a7c6e",
-						"msg": "docs: Stakeholder Data Insights",
-						"desc": "Collaborated with business units to deliver monthly KPI reporting and metrics presentation."
+						"msg": "feat: Vertex AI Engagement Stream",
+						"desc": "Integrated Gemini 2.5 Flash Lite features to design Express API streaming interaction metadata into BigQuery for real-time engagement analytics."
 					}
 				]
 			},
 			{
 				"company": "Infosys Springboard",
-				"role": "Full Stack Developer",
+				"role": "Full Stack Developer Intern",
 				"duration": "3 months",
 				"timeline": "Oct 2025 - Dec 2025",
 				"branch": "feat/infosys-fullstack",
@@ -128,13 +124,18 @@
 				"commits": [
 					{
 						"hash": "a1b2c3d",
-						"msg": "feat: NGO Matching Platform",
-						"desc": "Developed a volunteer matching portal for NGOs, coordinating volunteer schedules."
+						"msg": "feat: Stateful JWT REST APIs",
+						"desc": "Developed secure REST endpoints with HttpOnly cookies, bcrypt hashing, and schema-level validation using Zod."
 					},
 					{
 						"hash": "b4d5e6f",
-						"msg": "refactor: Modular React Architecture",
-						"desc": "Built responsive React components and designed RESTful endpoints."
+						"msg": "feat: Dev Team Leadership",
+						"desc": "Led team of 4 developers driving technical decisions, task allocation, project planning, and frontend/backend feature delivery."
+					},
+					{
+						"hash": "c5e6f7a",
+						"msg": "feat: Full-Stack Feature Delivery",
+						"desc": "Designed and integrated full-stack features using React, Node, Express, and MongoDB collaborating across the lifecycle."
 					}
 				]
 			},
@@ -152,6 +153,26 @@
 						"desc": "Created mockups, social designs, and brand style guides using Figma and Adobe Suite."
 					}
 				]
+			},
+			{
+				"company": "Acharya Institute of Technology",
+				"role": "Bachelor of Engineering - CSE (Data Science)",
+				"duration": "4 years",
+				"timeline": "Nov 2022 - June 2026",
+				"branch": "edu/acharya-cse",
+				"color": "#10b981",
+				"commits": [
+					{
+						"hash": "edu2026",
+						"msg": "feat: CSE - Data Science Degree",
+						"desc": "Studying algorithms, data structures, machine learning models, and database engineering."
+					},
+					{
+						"hash": "iedc01",
+						"msg": "lead: IEDC Content Head",
+						"desc": "Led content operations, copywriting, and marketing materials for the Innovation and Entrepreneurship Development Cell."
+					}
+				]
 			}
 		]
 	},
@@ -159,10 +180,11 @@
 		"title": "Education",
 		"list": [
 			{
-				"degree": "Bachelor of Engineering - CSE (Data Science)",
+				"degree": "B.E. CSE (Data Science)",
 				"institute": "Acharya Institute of Technology",
-				"duration": "Expected 2026",
-				"location": "Bengaluru"
+				"duration": "June 2026",
+				"location": "CGPA: 8.7 | Bengaluru",
+				"details": "Content Head: Innovation and Entrepreneurship Development Cells (IEDC) Acharya Institute of Technology"
 			}
 		]
 	},

@@ -1,179 +1,220 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #121214;
-  --bg-rgba: rgba(18, 18, 20, 0.5);
-  --text: #e2e8f0;
-  --card-bg: #1e1e24;
-  --accent: #38bdf8;
-  --accent-rgb: 56, 189, 248;
-  --selection: #334155;
-  --lg-width: 500px;
-  --sm-width: 200px;
+	--bg: #121214;
+	--bg-rgba: rgba(18, 18, 20, 0.5);
+	--text: #e2e8f0;
+	--card-bg: #1e1e24;
+	--accent: #38bdf8;
+	--accent-rgb: 56, 189, 248;
+	--selection: #334155;
+	--lg-width: 500px;
+	--sm-width: 200px;
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    --bg: #f5f2eb;
-    --bg-rgba: rgba(245, 242, 235, 0.5);
-    --text: #332f2c;
-    --card-bg: #eae6da;
-    --accent: #b45309;
-    --accent-rgb: 180, 83, 9;
-    --selection: #f0e9d2;
-  }
+	:root {
+		--bg: #f5f2eb;
+		--bg-rgba: rgba(245, 242, 235, 0.5);
+		--text: #332f2c;
+		--card-bg: #eae6da;
+		--accent: #b45309;
+		--accent-rgb: 180, 83, 9;
+		--selection: #f0e9d2;
+	}
 }
 
 .theme-crimson {
-  --bg: #150a0e;
-  --bg-rgba: rgba(21, 10, 14, 0.5);
-  --text: #f1e6ed;
-  --card-bg: #231219;
-  --accent: #f43f5e;
-  --accent-rgb: 244, 63, 94;
-  --selection: #4c1d24;
+	--bg: #150a0e;
+	--bg-rgba: rgba(21, 10, 14, 0.5);
+	--text: #f1e6ed;
+	--card-bg: #231219;
+	--accent: #f43f5e;
+	--accent-rgb: 244, 63, 94;
+	--selection: #4c1d24;
 }
 
 .theme-charcoal {
-  --bg: #121214;
-  --bg-rgba: rgba(18, 18, 20, 0.5);
-  --text: #e2e8f0;
-  --card-bg: #1e1e24;
-  --accent: #38bdf8;
-  --accent-rgb: 56, 189, 248;
-  --selection: #334155;
+	--bg: #121214;
+	--bg-rgba: rgba(18, 18, 20, 0.5);
+	--text: #e2e8f0;
+	--card-bg: #1e1e24;
+	--accent: #38bdf8;
+	--accent-rgb: 56, 189, 248;
+	--selection: #334155;
 }
 
 .theme-sunlight {
-  --bg: #f5f2eb;
-  --bg-rgba: rgba(245, 242, 235, 0.5);
-  --text: #332f2c;
-  --card-bg: #eae6da;
-  --accent: #b45309;
-  --accent-rgb: 180, 83, 9;
-  --selection: #f0e9d2;
+	--bg: #f5f2eb;
+	--bg-rgba: rgba(245, 242, 235, 0.5);
+	--text: #332f2c;
+	--card-bg: #eae6da;
+	--accent: #b45309;
+	--accent-rgb: 180, 83, 9;
+	--selection: #f0e9d2;
 }
 
 .theme-neon {
-  --bg: #faf7dc;
-  --bg-rgba: rgba(250, 247, 220, 0.5);
-  --text: #201f1c;
-  --card-bg: #efecc6;
-  --accent: #d97706;
-  --accent-rgb: 217, 119, 6;
-  --selection: #f4efb5;
+	--bg: #faf7dc;
+	--bg-rgba: rgba(250, 247, 220, 0.5);
+	--text: #201f1c;
+	--card-bg: #efecc6;
+	--accent: #d97706;
+	--accent-rgb: 217, 119, 6;
+	--selection: #f4efb5;
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
-  transition: color 500ms;
-  transition: background-color 1700ms;
+	background: var(--bg);
+	color: var(--text);
+	font-family: Arial, Helvetica, sans-serif;
+	transition: color 500ms;
+	transition: background-color 1700ms;
 }
 
 body::selection {
-  color: var(--text);
-  background-color: var(--selection);
+	color: var(--text);
+	background-color: var(--selection);
 }
 
 body::-webkit-scrollbar {
-  width: 5px;
+	width: 5px;
 }
 
 body::-webkit-scrollbar-track {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: var(--accent);
-  border-radius: 40px;
+	background-color: var(--accent);
+	border-radius: 40px;
 }
 
 .specific::selection {
-  color: var(--accent);
+	color: var(--accent);
 }
 
 .shadow {
-  box-shadow: 0 0 12px 0px var(--accent);
+	box-shadow: 0 0 12px 0px var(--accent);
 }
 
 :root {
-  --glint-bg: radial-gradient(circle at center,
-      rgba(14, 165, 233, 0.05),
-      rgba(26, 26, 26, 0));
+	--glint-bg: radial-gradient(
+		circle at center,
+		rgba(14, 165, 233, 0.05),
+		rgba(26, 26, 26, 0)
+	);
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    --glint-bg: radial-gradient(circle at center,
-        rgba(196, 127, 23, 0.07),
-        rgba(243, 240, 230, 0));
-  }
+	:root {
+		--glint-bg: radial-gradient(
+			circle at center,
+			rgba(196, 127, 23, 0.07),
+			rgba(243, 240, 230, 0)
+		);
+	}
 }
 
 .theme-crimson {
-  --glint-bg: radial-gradient(circle at center,
-      rgba(220, 38, 38, 0.11),
-      rgba(30, 14, 20, 0.4));
+	--glint-bg: radial-gradient(
+		circle at center,
+		rgba(220, 38, 38, 0.11),
+		rgba(30, 14, 20, 0.4)
+	);
 }
 
 .theme-charcoal {
-  --glint-bg: radial-gradient(circle at center,
-      rgba(14, 165, 233, 0.05),
-      rgba(26, 26, 26, 0));
+	--glint-bg: radial-gradient(
+		circle at center,
+		rgba(14, 165, 233, 0.05),
+		rgba(26, 26, 26, 0)
+	);
 }
 
 .theme-sunlight {
-  --glint-bg: radial-gradient(circle at center,
-      rgba(204, 207, 27, 0.1),
-      rgba(243, 240, 230, 0.11));
+	--glint-bg: radial-gradient(
+		circle at center,
+		rgba(204, 207, 27, 0.1),
+		rgba(243, 240, 230, 0.11)
+	);
 }
 
 .theme-neon {
-  --glint-bg: radial-gradient(circle at center,
-      rgba(0, 0, 0, 0.07),
-      rgba(254, 250, 224, 0));
+	--glint-bg: radial-gradient(
+		circle at center,
+		rgba(0, 0, 0, 0.07),
+		rgba(254, 250, 224, 0)
+	);
 }
 
 /* 🎥 Premium Film Grain Noise Overlay */
 .film-grain {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%;
-  width: 200%;
-  height: 200%;
-  background: transparent url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E') repeat;
-  opacity: 0.035;
-  pointer-events: none;
-  z-index: 9999;
-  animation: grain-animation 8s steps(10) infinite;
+	position: fixed;
+	top: -50%;
+	left: -50%;
+	right: -50%;
+	bottom: -50%;
+	width: 200%;
+	height: 200%;
+	background: transparent
+		url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")
+		repeat;
+	opacity: 0.035;
+	pointer-events: none;
+	z-index: 9999;
+	animation: grain-animation 8s steps(10) infinite;
 }
 
 @keyframes grain-animation {
-  0%, 100% { transform:translate(0, 0); }
-  10% { transform:translate(-5%, -10%); }
-  20% { transform:translate(-15%, 5%); }
-  30% { transform:translate(7%, -25%); }
-  40% { transform:translate(-5%, 25%); }
-  50% { transform:translate(-15%, 10%); }
-  60% { transform:translate(15%, 0%); }
-  75% { transform:translate(5%, 25%); }
-  90% { transform:translate(-10%, 10%); }
+	0%,
+	100% {
+		transform: translate(0, 0);
+	}
+	10% {
+		transform: translate(-5%, -10%);
+	}
+	20% {
+		transform: translate(-15%, 5%);
+	}
+	30% {
+		transform: translate(7%, -25%);
+	}
+	40% {
+		transform: translate(-5%, 25%);
+	}
+	50% {
+		transform: translate(-15%, 10%);
+	}
+	60% {
+		transform: translate(15%, 0%);
+	}
+	75% {
+		transform: translate(5%, 25%);
+	}
+	90% {
+		transform: translate(-10%, 10%);
+	}
 }
 
 /* 📐 Tech Grid Background Pattern */
 .grid-bg {
-  position: fixed;
-  inset: 0;
-  background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(var(--accent-rgb), 0.04) 1px, transparent 1px);
-  pointer-events: none;
-  z-index: -10;
-  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
-  transition: background-image 0.5s ease;
+	position: fixed;
+	inset: 0;
+	background-size: 50px 50px;
+	background-image:
+		linear-gradient(
+			to right,
+			rgba(var(--accent-rgb), 0.04) 1px,
+			transparent 1px
+		),
+		linear-gradient(
+			to bottom,
+			rgba(var(--accent-rgb), 0.04) 1px,
+			transparent 1px
+		);
+	pointer-events: none;
+	z-index: -10;
+	mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+	transition: background-image 0.5s ease;
 }

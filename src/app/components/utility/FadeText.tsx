@@ -5,23 +5,31 @@ import { motion } from "framer-motion";
 
 type Tag = keyof ReactTypes.JSX.IntrinsicElements;
 
-
 interface FadeTextProps extends HTMLAttributes<HTMLElement> {
-    as?: Tag;
-    children: React.ReactNode;
+	as?: Tag;
+	children: React.ReactNode;
 }
 
-export default function FadeText({ as = "p", children, ...props }: FadeTextProps) {
-    const MotionTag = motion(as) as React.ComponentType<React.HTMLAttributes<HTMLElement> & { initial?: object; animate?: object; transition?: object }>;
+export default function FadeText({
+	as = "p",
+	children,
+	...props
+}: FadeTextProps) {
+	const MotionTag = motion(as) as React.ComponentType<
+		React.HTMLAttributes<HTMLElement> & {
+			initial?: object;
+			animate?: object;
+			transition?: object;
+		}
+	>;
 
-    return (
-        <MotionTag
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            {...props}
-        >
-            {children}
-        </MotionTag>
-    );
+	return (
+		<MotionTag
+			initial={{ opacity: 0, y: 10 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.4 }}
+			{...props}>
+			{children}
+		</MotionTag>
+	);
 }
