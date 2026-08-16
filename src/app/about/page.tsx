@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../page.css";
 import PageWrapper from "../components/utility/pageWrapper";
+import TextPretextCanvas from "../components/render/TextPretextCanvas";
 
 interface TerminalHistoryItem {
 	command: string;
@@ -55,7 +56,6 @@ const getAudioContext = (): AudioContext | null => {
 		}
 	}
 
-	// Resume context if suspended
 	if (sharedAudioCtx && sharedAudioCtx.state === "suspended") {
 		sharedAudioCtx.resume().catch(() => {});
 	}
@@ -69,31 +69,29 @@ const playKeySound = () => {
 	if (!ctx) return;
 
 	try {
-		// High frequency transient (the tick)
 		const oscTick = ctx.createOscillator();
 		const gainTick = ctx.createGain();
 		oscTick.type = "sine";
 		oscTick.frequency.setValueAtTime(
 			1300 + Math.random() * 400,
-			ctx.currentTime,
+			ctx.currentTime
 		);
 		gainTick.gain.setValueAtTime(0.012, ctx.currentTime);
 		gainTick.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.015);
 		oscTick.connect(gainTick);
 		gainTick.connect(ctx.destination);
 
-		// Low frequency thump (the key bottom-out)
 		const oscThump = ctx.createOscillator();
 		const gainThump = ctx.createGain();
 		oscThump.type = "triangle";
 		oscThump.frequency.setValueAtTime(
 			140 + Math.random() * 60,
-			ctx.currentTime,
+			ctx.currentTime
 		);
 		gainThump.gain.setValueAtTime(0.009, ctx.currentTime);
 		gainThump.gain.exponentialRampToValueAtTime(
 			0.0001,
-			ctx.currentTime + 0.035,
+			ctx.currentTime + 0.035
 		);
 		oscThump.connect(gainThump);
 		gainThump.connect(ctx.destination);
@@ -111,13 +109,12 @@ const playEnterSound = () => {
 	if (!ctx) return;
 
 	try {
-		// Pitch it down and make it longer for Enter bottom-out
 		const oscTick = ctx.createOscillator();
 		const gainTick = ctx.createGain();
 		oscTick.type = "sine";
 		oscTick.frequency.setValueAtTime(
 			750 + Math.random() * 100,
-			ctx.currentTime,
+			ctx.currentTime
 		);
 		gainTick.gain.setValueAtTime(0.02, ctx.currentTime);
 		gainTick.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.035);
@@ -131,7 +128,7 @@ const playEnterSound = () => {
 		gainThump.gain.setValueAtTime(0.018, ctx.currentTime);
 		gainThump.gain.exponentialRampToValueAtTime(
 			0.0001,
-			ctx.currentTime + 0.065,
+			ctx.currentTime + 0.065
 		);
 		oscThump.connect(gainThump);
 		gainThump.connect(ctx.destination);
@@ -148,30 +145,30 @@ const playEnterSound = () => {
 const mockFiles: Record<string, string> = {
 	"bio.txt": `VINEET KUSHWAHA
 ----------------
-Role:             Full-Stack Developer & Data Science Student
-Core Philosophy:  "Between pixels and Python, I’ve learned that building things—apps, ideas, futures—isn’t just about logic, it’s about heart."
-Status:           Learning, breaking, and rebuilding daily.`,
+Role:             Full-Stack Engineer & CSE (Data Science)
+Specialization:   Scalable Node/Express APIs, Cloud Run Microservices, BigQuery Data Pipelines & Generative AI Integration.
+Core Philosophy:  "Between pixels and Python, building things isn't just about logic—it's about craft, performance, and memory."
+Status:           Engineering, optimizing, and deploying daily.`,
 
-	"education.txt": `ACADEMICS
----------
-Degree:   B.E. CSE (Data Science)
-College:  Acharya Institute of Technology
-Date:     June 2026 (CGPA: 8.7)
-Activity: Content Head: Innovation and Entrepreneurship Development Cells (IEDC) Acharya Institute of Technology`,
+	"education.txt": `ACADEMICS & ROLES
+----------------
+Degree:   B.E. Computer Science Engineering (Data Science)
+College:  Acharya Institute of Technology, Bengaluru
+Date:     Nov 2022 - Jun 2026 (CGPA: 8.7 / 10)
+Activity: Content Head: Innovation and Entrepreneurship Development Cell (IEDC)`,
 
-	"contact.txt": `SOCIAL HANDLES
---------------
+	"contact.txt": `DEVELOPER CHANNELS
+------------------
 GitHub:    https://github.com/vineet-k09
-LinkedIn:  https://linkedin.com/in/vineet-kushwaha-2666b5257/
+LinkedIn:  https://linkedin.com/in/vineet-k09
 Email:     vineetkushwaha6325@gmail.com
-Instagram: https://instagram.com/vineetwhy`,
+Web:       https://vineetnotfound.vercel.app`,
 
-	"projects.md": `SELECTED PROJECTS
------------------
-* SAC Commenting: Context-Aware Analytics Collaboration Tool. Embedded React widget utilizing SAP Analytics Cloud postMessage events, Express.js, and Vertex AI.
-* iConnect 2.0: AI-Powered Enterprise Learning Platform. Node.js/Express gateway and FastAPI AI inference agent on GCP Cloud Run.
-* Real-Time Hand Gesture MIDI Synthesizer: Rule-based coordinate geometry classifier using MediaPipe and multi-threaded Web Workers.
-(You can navigate to /projects to view them with rich visual designs!)`,
+	"projects.md": `ENGINEERING HIGHLIGHTS
+--------------------
+* SAC Commenting: Context-aware analytics collaboration tool replacing $500K proprietary writeback solution (React, Express, GCP KMS, Vertex AI, Puppeteer).
+* iConnect 2.0: AI-powered enterprise learning platform with Node.js/Express gateway & FastAPI inference agent on Cloud Run (cached model invocations saving 35% token overhead).
+* Real-Time Hand Gesture MIDI Synth: Rule-based landmark vector classifier with zero ML execution overhead, 60 FPS frame skipping & Web Worker audio synthesis.`,
 
 	"secrets.sh": `#!/bin/bash
 # TOP SECRET Sudo Script
@@ -194,11 +191,11 @@ export default function About() {
 		(() => void) | null
 	>(null);
 	const [animationDelay, setAnimationDelay] = useState(15);
+	const [copiedEmail, setCopiedEmail] = useState(false);
 
 	const terminalBodyRef = useRef<HTMLDivElement>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
 
-	// Progressive frame generation helper for skull drawing and erasing
 	const getDrawFrames = (text: string): string[] => {
 		const frames: string[] = [];
 		for (let i = 1; i <= text.length; i++) {
@@ -339,7 +336,7 @@ export default function About() {
 				{
 					command: "welcome",
 					output:
-						"System initialized. Welcome to Vineet's developer console.\nType 'help' to view available commands.",
+						"System initialized. Welcome to Vineet's developer console.\nType 'help' or click command shortcuts below.",
 				},
 			]);
 		});
@@ -360,151 +357,218 @@ export default function About() {
 		}
 	}, [history, animationFrame]);
 
-	// Synthesize a retro mechanical keyboard click
-	const playTick = () => {
-		const audioCtx = getAudioContext();
-		if (!audioCtx) return;
+	const executeCommandStr = (rawCmd: string) => {
+		const command = rawCmd.trim();
+		if (!command) return;
 
-		try {
-			const osc = audioCtx.createOscillator();
-			const gain = audioCtx.createGain();
+		const parts = command.split(/\s+/);
+		const cmd = parts[0].toLowerCase();
+		const arg = parts.slice(1).join(" ");
+		let output = "";
 
-			osc.connect(gain);
-			gain.connect(audioCtx.destination);
-
-			osc.type = "sine";
-			// Click frequency structure
-			osc.frequency.setValueAtTime(1000, audioCtx.currentTime);
-			osc.frequency.exponentialRampToValueAtTime(
-				120,
-				audioCtx.currentTime + 0.04,
-			);
-
-			gain.gain.setValueAtTime(0.015, audioCtx.currentTime); // very quiet, satisfying tick
-			gain.gain.exponentialRampToValueAtTime(
-				0.0001,
-				audioCtx.currentTime + 0.04,
-			);
-
-			osc.start();
-			osc.stop(audioCtx.currentTime + 0.04);
-		} catch {
-			// AudioContext block fallback
+		switch (cmd) {
+			case "help":
+				output = `Available commands:
+  ls          - List available files
+  cat [file]  - Display file contents
+  bio         - Display personal engineer summary
+  education   - Print academic background
+  contact     - Print social handles and contact info
+  projects    - Summary of core engineering projects
+  date        - Show current system date & time
+  whoami      - Show active session user
+  clear       - Clear terminal logs
+  secret      - Trigger easter egg execution`;
+				break;
+			case "ls":
+				output = Object.keys(mockFiles).join("    ");
+				break;
+			case "cat":
+				if (!arg) {
+					output = `Usage: cat [filename]\nAvailable files:\n  ${Object.keys(mockFiles).join("\n  ")}`;
+				} else {
+					const foundKey = Object.keys(mockFiles).find(
+						(k) => k.toLowerCase() === arg.toLowerCase()
+					);
+					if (foundKey) {
+						output = mockFiles[foundKey];
+					} else {
+						output = `cat: ${arg}: No such file or directory.`;
+					}
+				}
+				break;
+			case "bio":
+				output = mockFiles["bio.txt"];
+				break;
+			case "education":
+				output = mockFiles["education.txt"];
+				break;
+			case "contact":
+				output = mockFiles["contact.txt"];
+				break;
+			case "projects":
+				output = mockFiles["projects.md"];
+				break;
+			case "date":
+				output = new Date().toString();
+				break;
+			case "whoami":
+				output = "visitor";
+				break;
+			case "secret":
+			case "./secrets.sh":
+			case "secrets.sh":
+			case "sh secrets.sh":
+				setHistory([]);
+				setIsAnimating(true);
+				setAnimationDelay(30);
+				setAnimationCallback(() => () => {
+					setIsAnimating(false);
+					setHistory([
+						{
+							command: command,
+							output: `secrets.sh run complete.`,
+						},
+					]);
+				});
+				setAnimationQueue(getSecretFrames());
+				setInputValue("");
+				return;
+			case "clear":
+				setHistory([]);
+				setInputValue("");
+				return;
+			default:
+				output = `Command not found: '${command}'. Type 'help' to see valid operations.`;
 		}
+
+		setHistory((prev) => [...prev, { command, output }]);
+		setInputValue("");
 	};
 
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-		playTick();
+		playKeySound();
 		if (e.key === "Enter") {
 			playEnterSound();
-			const command = inputValue.trim();
-			if (!command) return;
-
-			const parts = command.split(/\s+/);
-			const cmd = parts[0].toLowerCase();
-			const arg = parts.slice(1).join(" ");
-			let output = "";
-
-			switch (cmd) {
-				case "help":
-					output = `Available commands:
-  ls          - List available files
-  cat [file]  - Display file contents
-  bio         - Display my personal bio
-  education   - Print academic studies and timeline
-  contact     - Print links to social media and email
-  date        - Show current date & time
-  whoami      - Show current user
-  clear       - Clear terminal logs
-  secret      - Execute easter egg command`;
-					break;
-				case "ls":
-					output = Object.keys(mockFiles).join("    ");
-					break;
-				case "cat":
-					if (!arg) {
-						output = `Usage: cat [filename]\nAvailable files:\n  ${Object.keys(mockFiles).join("\n  ")}`;
-					} else {
-						const foundKey = Object.keys(mockFiles).find(
-							(k) => k.toLowerCase() === arg.toLowerCase(),
-						);
-						if (foundKey) {
-							output = mockFiles[foundKey];
-						} else {
-							output = `cat: ${arg}: No such file or directory.`;
-						}
-					}
-					break;
-				case "bio":
-					output = mockFiles["bio.txt"];
-					break;
-				case "education":
-					output = mockFiles["education.txt"];
-					break;
-				case "contact":
-					output = mockFiles["contact.txt"];
-					break;
-				case "date":
-					output = new Date().toString();
-					break;
-				case "whoami":
-					output = "visitor";
-					break;
-				case "secret":
-				case "./secrets.sh":
-				case "secrets.sh":
-				case "sh secrets.sh":
-					// Trigger the secrets animation!
-					setHistory([]); // Clear history immediately
-					setIsAnimating(true);
-					setAnimationDelay(30);
-					setAnimationCallback(() => () => {
-						setIsAnimating(false);
-						setHistory([
-							{
-								command: command,
-								output: `secrets.sh run complete.`,
-							},
-						]);
-					});
-					setAnimationQueue(getSecretFrames());
-					setInputValue("");
-					return;
-				case "clear":
-					setHistory([]);
-					setInputValue("");
-					return;
-				default:
-					output = `Command not found: '${command}'. Type 'help' to see valid operations.`;
-			}
-
-			setHistory((prev) => [...prev, { command, output }]);
-			setInputValue("");
-		} else {
-			// Play keyclick sound on printable keys and backspace
-			if (e.key.length === 1 || e.key === "Backspace") {
-				playKeySound();
-			}
+			executeCommandStr(inputValue);
 		}
+	};
+
+	const handleCopyEmail = () => {
+		navigator.clipboard.writeText("vineetkushwaha6325@gmail.com");
+		setCopiedEmail(true);
+		setTimeout(() => setCopiedEmail(false), 2000);
 	};
 
 	return (
 		<PageWrapper>
 			<div className="grid-layout">
-				<div className="content-area sm:px-10 flex flex-col justify-center my-10 w-full">
-					{/* Title Header */}
-					<div className="text-center max-w-2xl mx-auto mb-12">
-						<h2 className="text-4xl font-extrabold tracking-tight mb-4 text-center">
-							About Vineet
-						</h2>
-						<p className="text-sm opacity-80 leading-relaxed">
-							Full-Stack engineer by training, Data Science student by choice,
-							and visual artist by passion.
-						</p>
-					</div>
+				<div className="content-area sm:px-4 my-6 w-full flex flex-col gap-12">
+					
+					{/* 🚀 Hero Section - Dynamic Asymmetric Developer Profile */}
+					<section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+						<div className="lg:col-span-8 flex flex-col items-start gap-4">
+							<div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--accent)] border-opacity-30 bg-[var(--accent)] bg-opacity-10 text-[var(--accent)] text-xs font-mono font-semibold tracking-wide">
+								<span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-ping" />
+								SYSTEMS & DATA ENGINEER // BENGALURU
+							</div>
 
-					{/* Interactive CLI Terminal Widget */}
-					<section className="mb-14">
+							<h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-[var(--text)] m-0">
+								Engineering Scalable APIs, AI Pipelines & Interactive Canvas
+							</h1>
+
+							<p className="text-base sm:text-lg opacity-85 leading-relaxed font-normal text-[var(--text)] max-w-2xl">
+								Backend-focused software engineer specialized in designing containerized microservices, high-throughput data ingestion pipelines, and integrating generative AI workflows across GCP and client applications.
+							</p>
+
+							{/* Key Metrics / Highlights Bar */}
+							<div className="flex flex-wrap gap-3 pt-2">
+								<div className="px-3.5 py-1.5 rounded-xl border border-[var(--text)] border-opacity-10 bg-[var(--card-bg)] text-xs font-mono">
+									🎓 <span className="opacity-70">BE CSE (Data Science) @ AIT</span>
+								</div>
+								<div className="px-3.5 py-1.5 rounded-xl border border-[var(--text)] border-opacity-10 bg-[var(--card-bg)] text-xs font-mono">
+									⚡ <span className="opacity-70">Vodafone Intelligent Solutions</span>
+								</div>
+								<div className="px-3.5 py-1.5 rounded-xl border border-[var(--text)] border-opacity-10 bg-[var(--card-bg)] text-xs font-mono">
+									☁️ <span className="opacity-70">GCP Cloud Run & BigQuery Mesh</span>
+								</div>
+							</div>
+						</div>
+
+						{/* Quick Developer Identity Card */}
+						<div className="lg:col-span-4 inverted-theme-card p-6 rounded-2xl flex flex-col justify-between gap-5 relative overflow-hidden">
+							<div className="flex items-center justify-between border-b border-[var(--text)] border-opacity-10 pb-4">
+								<div className="flex items-center gap-3">
+									<div className="w-10 h-10 rounded-full bg-[var(--accent)] bg-opacity-15 flex items-center justify-center font-mono font-bold text-[var(--accent)]">
+										VK
+									</div>
+									<div>
+										<h3 className="text-base font-bold m-0 text-[var(--text)]">Vineet Kushwaha</h3>
+										<span className="text-xs opacity-60 font-mono">vineetnotfound</span>
+									</div>
+								</div>
+								<span className="w-2.5 h-2.5 rounded-full bg-emerald-500" title="Active developer session" />
+							</div>
+
+							<div className="space-y-2 text-xs font-mono">
+								<div className="flex justify-between">
+									<span className="opacity-50">Location:</span>
+									<span className="font-semibold">Bengaluru, IN</span>
+								</div>
+								<div className="flex justify-between">
+									<span className="opacity-50">Primary Stack:</span>
+									<span className="font-semibold">Node, Python, GCP</span>
+								</div>
+								<div className="flex justify-between">
+									<span className="opacity-50">Status:</span>
+									<span className="font-semibold text-emerald-400">Available for projects</span>
+								</div>
+							</div>
+
+							<div className="pt-2 flex items-center gap-3">
+								<button
+									onClick={handleCopyEmail}
+									className="flex-1 py-2 px-3 rounded-xl bg-[var(--accent)] text-[var(--bg)] font-mono text-xs font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 cursor-pointer">
+									<i className="fa-solid fa-copy" />
+									{copiedEmail ? "Copied to Clipboard!" : "Copy Email"}
+								</button>
+								<a
+									href="https://github.com/vineet-k09"
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label="GitHub Profile"
+									className="p-2 px-3 rounded-xl border border-[var(--text)] border-opacity-15 text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all flex items-center justify-center">
+									<i className="fa-brands fa-github text-xl" />
+								</a>
+							</div>
+						</div>
+					</section>
+
+					{/* 💻 Developer Shell Console (Moved to top of About page) */}
+					<section className="flex flex-col gap-4">
+						<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+							<div>
+								<h2 className="text-2xl font-bold tracking-tight m-0 text-[var(--text)]">
+									Developer Shell Console
+								</h2>
+								<p className="text-xs opacity-60 font-mono m-0">
+									Interactive terminal emulator with sound feedback & executable commands
+								</p>
+							</div>
+
+							{/* Quick Executable Command Buttons */}
+							<div className="flex flex-wrap gap-2">
+								{["bio", "education", "projects", "contact", "secret", "clear"].map((cmd) => (
+									<button
+										key={cmd}
+										onClick={() => executeCommandStr(cmd)}
+										className="px-2.5 py-1 rounded-lg border border-[var(--text)] border-opacity-15 bg-[var(--card-bg)] text-xs font-mono text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all cursor-pointer">
+										${cmd}
+									</button>
+								))}
+							</div>
+						</div>
+
 						<div
 							className="terminal-window cursor-text"
 							onClick={focusTerminal}>
@@ -515,7 +579,7 @@ export default function About() {
 									<span className="terminal-dot green" />
 								</div>
 								<span className="terminal-title">visitor@vineet: ~</span>
-								<div className="w-12" /> {/* spacer */}
+								<span className="text-[10px] font-mono opacity-40">bash 5.2</span>
 							</div>
 
 							<div ref={terminalBodyRef} className="terminal-body">
@@ -554,7 +618,7 @@ export default function About() {
 											onKeyDown={handleKeyDown}
 											className="terminal-input"
 											autoFocus
-											placeholder="Type 'help' to start..."
+											placeholder="Type 'help' or click shortcuts..."
 											aria-label="Terminal input"
 										/>
 									</div>
@@ -563,183 +627,265 @@ export default function About() {
 						</div>
 					</section>
 
-					{/* Creative Storytelling Panel (Chapters) */}
-					<section className="mb-14">
-						<h2 className="text-2xl font-bold mb-6 border-b border-[var(--text)] border-opacity-10 pb-3">
-							My Chapters
+					{/* 🧱 Asymmetric Engineering Bento Grid */}
+					<section className="flex flex-col gap-6">
+						<h2 className="text-2xl font-bold border-b border-[var(--text)] border-opacity-10 pb-3 m-0 text-[var(--text)]">
+							Engineering & Focus Areas
 						</h2>
-						<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-							<div className="inverted-theme-card p-6 rounded-2xl flex flex-col justify-between">
+
+						<div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+							
+							{/* Card 1: Microservice & Data Ingestion Mesh */}
+							<div className="md:col-span-7 inverted-theme-card p-6 rounded-2xl flex flex-col justify-between gap-4">
 								<div>
-									<div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-2xl inverted-tag">
-										<i
-											className="fa-solid fa-code"
-											style={{ fontSize: "20px" }}
-										/>
+									<div className="flex items-center gap-3 mb-3">
+										<div className="w-10 h-10 rounded-xl inverted-tag flex items-center justify-center text-lg text-[var(--accent)]">
+											<i className="fa-solid fa-server" />
+										</div>
+										<div>
+											<span className="text-xs font-mono font-semibold text-[var(--accent)] uppercase tracking-wider">
+												01. Microservices & Data Infra
+											</span>
+											<h3 className="text-xl font-bold m-0 text-[var(--text)]">
+												Containerized Services & Cloud Pipelines
+											</h3>
+										</div>
 									</div>
-									<h3 className="text-lg font-bold mb-2">01. The Code</h3>
-									<p className="text-sm leading-relaxed">
-										Building solid, functional, and responsive applications.
-										Striving to write intention-driven code that bridges
-										interface styling with scalable backend endpoints.
+									<p className="text-sm opacity-85 leading-relaxed mb-4">
+										Architecting secure server-to-server microservices on GCP Cloud Run with IAM service account authentication. Experienced in query performance tuning and automating massive multi-market data pipelines.
 									</p>
+									<ul className="space-y-2 text-xs opacity-80 pl-0 list-none">
+										<li className="flex items-start gap-2">
+											<span className="text-[var(--accent)] font-bold">›</span>
+											<span><strong>Automated Ingestion Pipeline:</strong> Processed 400K+ monthly multi-market records at Vodafone Intelligent Solutions, reducing manual intervention by 90%.</span>
+										</li>
+										<li className="flex items-start gap-2">
+											<span className="text-[var(--accent)] font-bold">›</span>
+											<span><strong>Vertex AI & Gemini Stream:</strong> Built streaming Express APIs feeding BigQuery engagement telemetry and persisting recommendations to save 35% model invocation token overhead.</span>
+										</li>
+									</ul>
 								</div>
-								<div className="text-xs font-mono opacity-60 mt-4">
-									React, Node.js, Express
+								<div className="flex flex-wrap gap-2 pt-3 border-t border-[var(--text)] border-opacity-10 text-[11px] font-mono opacity-70">
+									<span>Node.js</span> • <span>Express</span> • <span>FastAPI</span> • <span>GCP Cloud Run</span> • <span>BigQuery</span> • <span>Vertex AI</span>
 								</div>
 							</div>
 
-							<div className="inverted-theme-card p-6 rounded-2xl flex flex-col justify-between">
+							{/* Card 2: Real-Time Audio & Vision Systems */}
+							<div className="md:col-span-5 inverted-theme-card p-6 rounded-2xl flex flex-col justify-between gap-4">
 								<div>
-									<div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-2xl inverted-tag">
-										<i
-											className="fa-solid fa-chart-line"
-											style={{ fontSize: "20px" }}
-										/>
+									<div className="flex items-center gap-3 mb-3">
+										<div className="w-10 h-10 rounded-xl inverted-tag flex items-center justify-center text-lg text-[var(--accent)]">
+											<i className="fa-solid fa-bolt" />
+										</div>
+										<div>
+											<span className="text-xs font-mono font-semibold text-[var(--accent)] uppercase tracking-wider">
+												02. Real-Time Vision & Audio
+											</span>
+											<h3 className="text-xl font-bold m-0 text-[var(--text)]">
+												Zero-ML MIDI Synthesizer
+											</h3>
+										</div>
 									</div>
-									<h3 className="text-lg font-bold mb-2">02. The Data</h3>
-									<p className="text-sm leading-relaxed">
-										Peering behind the pixels to structure the underlying
-										patterns. Currently studying CSE (Data Science) to automate
-										analysis, classify imagery, and extract insights.
+									<p className="text-sm opacity-85 leading-relaxed mb-4">
+										Designed a rule-based coordinate geometry classifier using MediaPipe hand landmark vectors to recognize gestures with zero machine learning runtime overhead.
 									</p>
+									<ul className="space-y-2 text-xs opacity-80 pl-0 list-none">
+										<li className="flex items-start gap-2">
+											<span className="text-[var(--accent)] font-bold">›</span>
+											<span><strong>60 FPS Browser Execution:</strong> Achieved fluid frame rates with canvas frame skipping.</span>
+										</li>
+										<li className="flex items-start gap-2">
+											<span className="text-[var(--accent)] font-bold">›</span>
+											<span><strong>Web Worker Synthesis:</strong> Offloaded audio generation to Web Workers for ~12 ms latency.</span>
+										</li>
+									</ul>
 								</div>
-								<div className="text-xs font-mono opacity-60 mt-4">
-									Python, SQL, PySpark
+								<div className="flex flex-wrap gap-2 pt-3 border-t border-[var(--text)] border-opacity-10 text-[11px] font-mono opacity-70">
+									<span>MediaPipe</span> • <span>Web Workers</span> • <span>Web Audio API</span> • <span>Canvas 2D</span>
 								</div>
 							</div>
 
-							<div className="inverted-theme-card p-6 rounded-2xl flex flex-col justify-between">
+							{/* Card 3: Context-Aware Analytics & Security */}
+							<div className="md:col-span-5 inverted-theme-card p-6 rounded-2xl flex flex-col justify-between gap-4">
 								<div>
-									<div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-2xl inverted-tag">
-										<i
-											className="fa-solid fa-camera"
-											style={{ fontSize: "20px" }}
-										/>
+									<div className="flex items-center gap-3 mb-3">
+										<div className="w-10 h-10 rounded-xl inverted-tag flex items-center justify-center text-lg text-[var(--accent)]">
+											<i className="fa-solid fa-lock" />
+										</div>
+										<div>
+											<span className="text-xs font-mono font-semibold text-[var(--accent)] uppercase tracking-wider">
+												03. Enterprise Analytics & Security
+											</span>
+											<h3 className="text-xl font-bold m-0 text-[var(--text)]">
+												SAC Commenting Collaboration
+											</h3>
+										</div>
 									</div>
-									<h3 className="text-lg font-bold mb-2">03. The Lens</h3>
-									<p className="text-sm leading-relaxed">
-										Capturing architecture details, long light trails in
-										Bengaluru, and minimal geometric shapes. Translating spatial
-										aesthetics into clean UI templates.
+									<p className="text-sm opacity-85 leading-relaxed mb-4">
+										Engineered a custom React writeback tool replacing a $500K proprietary solution for SAP Analytics Cloud. Integrated GCP KMS encryption mapped to filter state C4 class data, Puppeteer snapshot automation, and Vertex AI comment summarization.
 									</p>
 								</div>
-								<div className="text-xs font-mono opacity-60 mt-4">
-									DSLR, Figma, Illustrator
+								<div className="flex flex-wrap gap-2 pt-3 border-t border-[var(--text)] border-opacity-10 text-[11px] font-mono opacity-70">
+									<span>React</span> • <span>GCP KMS</span> • <span>Puppeteer</span> • <span>JWT & Zod</span>
 								</div>
 							</div>
+
+							{/* Card 4: Academic & Leadership Background */}
+							<div className="md:col-span-7 inverted-theme-card p-6 rounded-2xl flex flex-col justify-between gap-4">
+								<div>
+									<div className="flex items-center gap-3 mb-3">
+										<div className="w-10 h-10 rounded-xl inverted-tag flex items-center justify-center text-lg text-[var(--accent)]">
+											<i className="fa-solid fa-graduation-cap" />
+										</div>
+										<div>
+											<span className="text-xs font-mono font-semibold text-[var(--accent)] uppercase tracking-wider">
+												04. Academics & Leadership
+											</span>
+											<h3 className="text-xl font-bold m-0 text-[var(--text)]">
+												B.E. CSE (Data Science) @ Acharya Institute of Tech
+											</h3>
+										</div>
+									</div>
+									<p className="text-sm opacity-85 leading-relaxed mb-3">
+										Studying Data Science with a <strong>8.7 / 10 CGPA</strong> (Graduating June 2026). Active leadership as Content Head for the Innovation and Entrepreneurship Development Cell (IEDC).
+									</p>
+									<p className="text-sm opacity-85 leading-relaxed">
+										Combining rigorous computer science fundamentals—data structures, database architecture, network security, and machine learning—with real-world project execution.
+									</p>
+								</div>
+								<div className="flex flex-wrap gap-2 pt-3 border-t border-[var(--text)] border-opacity-10 text-[11px] font-mono opacity-70">
+									<span>Data Science</span> • <span>Algorithms</span> • <span>PostgreSQL</span> • <span>IEDC Content Head</span>
+								</div>
+							</div>
+
+						</div>
+
+						{/* Subtle Embedded Text Pretext Physics Easter Egg */}
+						<div className="inverted-theme-card p-5 rounded-2xl flex flex-col gap-3 relative overflow-hidden my-2">
+							<div className="flex items-center justify-between border-b border-[var(--text)] border-opacity-10 pb-2">
+								<span className="text-xs font-mono text-[var(--accent)] font-semibold uppercase tracking-wider">
+									✦ Interactive Pretext Physics (Easter Egg)
+								</span>
+								<span className="text-[10px] font-mono opacity-50">hover cursor over text to repel words</span>
+							</div>
+							<TextPretextCanvas
+								initialText="Between pixels and Python, building things—apps, ideas, systems—isn't just about logic, it's about craft, precision, and memory."
+								height={120}
+								fontSize={16}
+								lineHeight={30}
+								repelRadius={100}
+								showControls={false}
+							/>
 						</div>
 					</section>
 
-					{/* Creative Toolbox / Gear */}
-					<section className="mb-14">
-						<h2 className="text-2xl font-bold mb-6 border-b border-[var(--text)] border-opacity-10 pb-3">
-							My Workspace Gear
+					{/* 🧰 Workspace Gear & Technical Matrix */}
+					<section className="flex flex-col gap-6">
+						<h2 className="text-2xl font-bold border-b border-[var(--text)] border-opacity-10 pb-3 m-0 text-[var(--text)]">
+							Technical Stack & Environment
 						</h2>
+
 						<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 							{[
 								{
-									title: "Primary Editor",
-									detail: "VS Code",
-									icon: "fa-solid fa-terminal",
+									category: "Languages",
+									spec: "TypeScript, Python, JavaScript, SQL",
+									icon: "fa-solid fa-code",
 								},
 								{
-									title: "Developer Playground",
-									detail: "Fedora & Bash",
-									icon: "fa-solid fa-pen-nib",
+									category: "Backend & Cloud",
+									spec: "Node.js, Express, FastAPI, GCP Cloud Run, Docker",
+									icon: "fa-solid fa-cloud",
 								},
 								{
-									title: "Capture Gear",
-									detail: "Just my phone",
-									icon: "fa-solid fa-camera-retro",
-								},
-								{
-									title: "Data Stack",
-									detail: "Python & Excel",
+									category: "Databases & AI",
+									spec: "PostgreSQL, BigQuery, Redis, Vertex AI, Gemini",
 									icon: "fa-solid fa-database",
+								},
+								{
+									category: "Dev Environment",
+									spec: "Linux (Fedora), VS Code, Git, GitHub Actions",
+									icon: "fa-solid fa-terminal",
 								},
 							].map((item, idx) => (
 								<div
 									key={idx}
-									className="inverted-theme-card p-4 rounded-xl flex items-center gap-3">
-									<i
-										className={`${item.icon} text-[var(--accent)]`}
-										style={{ fontSize: "20px" }}
-									/>
-									<div>
-										<h4 className="text-xs font-mono opacity-50 text-[var(--accent)] mb-0.5">
-											{item.title}
+									className="inverted-theme-card p-5 rounded-2xl flex flex-col gap-2">
+									<div className="flex items-center gap-2.5 text-[var(--accent)]">
+										<i className={`${item.icon} text-lg`} />
+										<h4 className="text-xs font-mono uppercase tracking-wider font-bold m-0">
+											{item.category}
 										</h4>
-										<span className="text-sm text-[var(--text)] font-semibold">
-											{item.detail}
-										</span>
 									</div>
+									<p className="text-xs font-mono opacity-80 leading-relaxed m-0 text-[var(--text)]">
+										{item.spec}
+									</p>
 								</div>
 							))}
 						</div>
 					</section>
 
-					{/* Contact Details */}
-					<section>
-						<h2 className="text-2xl font-bold mb-6 border-b border-[var(--text)] border-opacity-10 pb-3">
-							Connect
+					{/* 🤝 Contact & Network Hub */}
+					<section className="flex flex-col gap-6">
+						<h2 className="text-2xl font-bold border-b border-[var(--text)] border-opacity-10 pb-3 m-0 text-[var(--text)]">
+							Connect & Collaboration
 						</h2>
+
 						<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 							<a
 								href="https://github.com/vineet-k09"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="border border-[var(--text)] border-opacity-10 p-5 rounded-2xl flex items-center justify-between hover:border-[var(--accent)] hover:-translate-y-1 hover:bg-[var(--accent)] hover:bg-opacity-[0.03] hover:shadow-md transition-all duration-300 group no-underline text-inherit">
+								className="inverted-theme-card p-5 rounded-2xl flex items-center justify-between hover:border-[var(--accent)] transition-all group no-underline text-inherit">
 								<div className="flex items-center gap-3">
 									<i
-										className="devicon-github-original text-2xl opacity-70 group-hover:opacity-100 duration-300"
+										className="devicon-github-original text-2xl opacity-70 group-hover:opacity-100 transition-opacity"
 										style={{ fontSize: "26px" }}
 									/>
 									<div>
-										<h4 className="text-sm font-bold m-0">GitHub</h4>
-										<span className="text-xs opacity-60">@vineet-k09</span>
+										<h4 className="text-sm font-bold m-0 text-[var(--text)]">GitHub</h4>
+										<span className="text-xs opacity-60 font-mono">@vineet-k09</span>
 									</div>
 								</div>
-								<i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-40 group-hover:opacity-100 duration-300" />
+								<i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-40 group-hover:opacity-100 transition-opacity" />
 							</a>
 
 							<a
-								href="https://www.linkedin.com/in/vineet-kushwaha-2666b5257/"
+								href="https://www.linkedin.com/in/vineet-k09/"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="border border-[var(--text)] border-opacity-10 p-5 rounded-2xl flex items-center justify-between hover:border-[var(--accent)] hover:-translate-y-1 hover:bg-[var(--accent)] hover:bg-opacity-[0.03] hover:shadow-md transition-all duration-300 group no-underline text-inherit">
+								className="inverted-theme-card p-5 rounded-2xl flex items-center justify-between hover:border-[var(--accent)] transition-all group no-underline text-inherit">
 								<div className="flex items-center gap-3">
 									<i
-										className="devicon devicon-linkedin-plain text-2xl opacity-70 group-hover:opacity-100 duration-300"
+										className="devicon devicon-linkedin-plain text-2xl opacity-70 group-hover:opacity-100 transition-opacity"
 										style={{ fontSize: "26px" }}
 									/>
 									<div>
-										<h4 className="text-sm font-bold m-0">LinkedIn</h4>
-										<span className="text-xs opacity-60">Vineet Kushwaha</span>
+										<h4 className="text-sm font-bold m-0 text-[var(--text)]">LinkedIn</h4>
+										<span className="text-xs opacity-60 font-mono">Vineet Kushwaha</span>
 									</div>
 								</div>
-								<i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-40 group-hover:opacity-100 duration-300" />
+								<i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-40 group-hover:opacity-100 transition-opacity" />
 							</a>
 
 							<a
-								href="mailTo:vineetkushwaha6325@gmail.com"
-								className="border border-[var(--text)] border-opacity-10 p-5 rounded-2xl flex items-center justify-between hover:border-[var(--accent)] hover:-translate-y-1 hover:bg-[var(--accent)] hover:bg-opacity-[0.03] hover:shadow-md transition-all duration-300 group no-underline text-inherit">
+								href="mailto:vineetkushwaha6325@gmail.com"
+								className="inverted-theme-card p-5 rounded-2xl flex items-center justify-between hover:border-[var(--accent)] transition-all group no-underline text-inherit">
 								<div className="flex items-center gap-3">
 									<i
-										className="fa-solid fa-envelope text-2xl opacity-70 group-hover:opacity-100 duration-300"
+										className="fa-solid fa-envelope text-2xl opacity-70 group-hover:opacity-100 transition-opacity"
 										style={{ fontSize: "24px" }}
 									/>
 									<div>
-										<h4 className="text-sm font-bold m-0">Email</h4>
-										<span className="text-xs opacity-60">
-											vineetkushwaha6325...
-										</span>
+										<h4 className="text-sm font-bold m-0 text-[var(--text)]">Email</h4>
+										<span className="text-xs opacity-60 font-mono">vineetkushwaha6325...</span>
 									</div>
 								</div>
-								<i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-40 group-hover:opacity-100 duration-300" />
+								<i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-40 group-hover:opacity-100 transition-opacity" />
 							</a>
 						</div>
 					</section>
+
 				</div>
 			</div>
 		</PageWrapper>

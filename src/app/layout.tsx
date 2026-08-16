@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, VT323 } from "next/font/google";
 import { Metadata } from "next";
 import "./globals.css";
 import { LangProvider } from "@/hooks/useLang"; // make sure path is correct
@@ -16,6 +16,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
 	variable: "--font-geist-mono",
+	subsets: ["latin"],
+});
+
+const vt323 = VT323({
+	weight: "400",
+	variable: "--font-vt323",
 	subsets: ["latin"],
 });
 
@@ -43,7 +49,7 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+				className={`${geistSans.variable} ${geistMono.variable} ${vt323.variable} antialiased`}>
 				<div className="film-grain" />
 				<div className="grid-bg" />
 				<ThemeProvider>

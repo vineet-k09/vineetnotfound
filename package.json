@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "mkdir -p /tmp/vineetnotfound-next && (test -L /tmp/vineetnotfound-next/node_modules || ln -s \"$PWD/node_modules\" /tmp/vineetnotfound-next/node_modules) && (test -L .next || (rm -rf .next && ln -s /tmp/vineetnotfound-next .next)) && next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

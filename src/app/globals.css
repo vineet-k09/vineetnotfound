@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@keyframes preloaderBlink {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0; }
+}
+
+.animate-preloader-blink {
+	animation: preloaderBlink 0.8s step-end infinite;
+}
+
+.font-pixelated {
+	font-family: var(--font-vt323), 'VT323', monospace;
+	text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
 :root {
 	--bg: #121214;
 	--bg-rgba: rgba(18, 18, 20, 0.5);

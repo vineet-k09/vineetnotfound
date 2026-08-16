@@ -69,16 +69,18 @@ function TypedName({ name }: { name: string }) {
 	}, [text, isDeleting, lastName]);
 
 	return (
-		<span className="inline-flex items-baseline">
-			<span>{firstName}&nbsp;</span>
-			<span
-				style={{ WebkitTextStroke: "1.5px var(--text)", color: "transparent" }}>
-				{text}
-			</span>
-			<span
-				className="transition-opacity duration-100"
-				style={{ color: "var(--accent)", opacity: cursorVisible ? 1 : 0 }}>
-				.
+		<span className="flex flex-col sm:inline-flex sm:flex-row items-start sm:items-baseline">
+			<span className="select-none">{firstName}</span>
+			<span className="inline-flex items-baseline sm:ml-3 min-w-[6ch] min-h-[1.2em]">
+				<span
+					style={{ WebkitTextStroke: "1.5px var(--text)", color: "transparent" }}>
+					{text}
+				</span>
+				<span
+					className="transition-opacity duration-100"
+					style={{ color: "var(--accent)", opacity: cursorVisible ? 1 : 0 }}>
+					.
+				</span>
 			</span>
 		</span>
 	);
@@ -443,7 +445,7 @@ export default function Home() {
 			title: homeCards.github.title,
 			stats: homeCards.github.stats,
 			desc: homeCards.github.desc,
-			icon: "devicon-github-original",
+			icon: "fa-brands fa-github",
 			link: "https://github.com/vineet-k09",
 			isExternal: true,
 		},
@@ -517,26 +519,35 @@ export default function Home() {
 												aria-label="GitHub"
 												className="flex items-center justify-center">
 												<i
-													className="devicon devicon-github-original hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-full duration-250 flex items-center justify-center"
-													style={{ fontSize: "16px" }}></i>
+													className="fa-brands fa-github hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center text-[var(--text)]"
+													style={{ fontSize: "18px" }}></i>
 											</a>
 											<a
-												href="https://www.linkedin.com/in/vineet-kushwaha-2666b5257/"
+												href="https://www.linkedin.com/in/vineet-k09/"
 												target="_blank"
 												aria-label="LinkedIn"
 												className="flex items-center justify-center">
 												<i
-													className="devicon devicon-linkedin-plain hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center"
-													style={{ fontSize: "16px" }}></i>
+													className="devicon devicon-linkedin-plain hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center text-[var(--text)]"
+													style={{ fontSize: "18px" }}></i>
 											</a>
 											<a
-												href="mailTo:vineetkushwaha6325@gmail.com"
+												href="mailto:vineetkushwaha6325@gmail.com"
 												aria-label="Email"
 												className="flex items-center justify-center">
 												<i
-													className="fa-regular fa-envelope hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center"
-													style={{ fontSize: "16px" }}></i>
+													className="fa-regular fa-envelope hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center text-[var(--text)]"
+													style={{ fontSize: "18px" }}></i>
 											</a>
+											<Link
+												href="/about"
+												aria-label="Developer Shell Console"
+												className="flex items-center justify-center"
+												title="Terminal Console">
+												<i
+													className="fa-solid fa-terminal hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center text-[var(--text)]"
+													style={{ fontSize: "16px" }}></i>
+											</Link>
 											<button
 												style={{
 													color: isPlaying ? "var(--accent)" : "var(--bg)",
