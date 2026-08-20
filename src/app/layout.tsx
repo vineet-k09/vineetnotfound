@@ -1,10 +1,8 @@
 import { Geist, Geist_Mono, VT323 } from "next/font/google";
 import { Metadata } from "next";
 import "./globals.css";
-import { LangProvider } from "@/hooks/useLang"; // make sure path is correct
-import CustomCursor from "./components/render/cursor";
+// import CustomCursor from "./components/render/cursor";
 import Preloader from "./components/render/Preloader";
-import { Analytics } from "@vercel/analytics/next";
 import { AudioProvider } from "@/context/AudioContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { LocationProvider } from "@/context/LocationProvider";
@@ -54,12 +52,9 @@ export default function RootLayout({
 				<div className="grid-bg" />
 				<ThemeProvider>
 					<AudioProvider>
-						<Analytics />
-						<CustomCursor />
+						{/* <CustomCursor /> */}
 						<Preloader />
-						<LangProvider>
-							<LocationProvider>{children}</LocationProvider>
-						</LangProvider>
+						<LocationProvider>{children}</LocationProvider>
 					</AudioProvider>
 				</ThemeProvider>
 			</body>

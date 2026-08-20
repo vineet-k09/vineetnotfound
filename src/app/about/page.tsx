@@ -145,7 +145,7 @@ const playEnterSound = () => {
 const mockFiles: Record<string, string> = {
 	"bio.txt": `VINEET KUSHWAHA
 ----------------
-Role:             Full-Stack Engineer & CSE (Data Science)
+Role:             Software Engineer & CSE (Data Science)
 Specialization:   Scalable Node/Express APIs, Cloud Run Microservices, BigQuery Data Pipelines & Generative AI Integration.
 Core Philosophy:  "Between pixels and Python, building things isn't just about logic—it's about craft, performance, and memory."
 Status:           Engineering, optimizing, and deploying daily.`,
@@ -329,7 +329,7 @@ export default function About() {
 	// Initial state set on client only to prevent hydration mismatch
 	useEffect(() => {
 		const welcomeFrames = getDrawFrames(dragonASCII);
-		setAnimationDelay(15);
+		setAnimationDelay(5);
 		setAnimationCallback(() => () => {
 			setIsAnimating(false);
 			setHistory([
@@ -468,31 +468,17 @@ export default function About() {
 					{/* 🚀 Hero Section - Dynamic Asymmetric Developer Profile */}
 					<section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 						<div className="lg:col-span-8 flex flex-col items-start gap-4">
-							<div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--accent)] border-opacity-30 bg-[var(--accent)] bg-opacity-10 text-[var(--accent)] text-xs font-mono font-semibold tracking-wide">
-								<span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-ping" />
-								SYSTEMS & DATA ENGINEER // BENGALURU
+							<div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--accent)] border-opacity-30 bg-[var(--accent)] bg-opacity-10 text-black text-xs font-mono font-semibold tracking-wide">
+								SOFTWARE & DATA ENGINEER // BENGALURU
 							</div>
 
 							<h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-[var(--text)] m-0">
-								Engineering Scalable APIs, AI Pipelines & Interactive Canvas
+								Engineering Scalable APIs & AI Pipelines
 							</h1>
 
 							<p className="text-base sm:text-lg opacity-85 leading-relaxed font-normal text-[var(--text)] max-w-2xl">
 								Backend-focused software engineer specialized in designing containerized microservices, high-throughput data ingestion pipelines, and integrating generative AI workflows across GCP and client applications.
 							</p>
-
-							{/* Key Metrics / Highlights Bar */}
-							<div className="flex flex-wrap gap-3 pt-2">
-								<div className="px-3.5 py-1.5 rounded-xl border border-[var(--text)] border-opacity-10 bg-[var(--card-bg)] text-xs font-mono">
-									🎓 <span className="opacity-70">BE CSE (Data Science) @ AIT</span>
-								</div>
-								<div className="px-3.5 py-1.5 rounded-xl border border-[var(--text)] border-opacity-10 bg-[var(--card-bg)] text-xs font-mono">
-									⚡ <span className="opacity-70">Vodafone Intelligent Solutions</span>
-								</div>
-								<div className="px-3.5 py-1.5 rounded-xl border border-[var(--text)] border-opacity-10 bg-[var(--card-bg)] text-xs font-mono">
-									☁️ <span className="opacity-70">GCP Cloud Run & BigQuery Mesh</span>
-								</div>
-							</div>
 						</div>
 
 						{/* Quick Developer Identity Card */}
@@ -549,11 +535,8 @@ export default function About() {
 						<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
 							<div>
 								<h2 className="text-2xl font-bold tracking-tight m-0 text-[var(--text)]">
-									Developer Shell Console
+									You can ask about me here ~
 								</h2>
-								<p className="text-xs opacity-60 font-mono m-0">
-									Interactive terminal emulator with sound feedback & executable commands
-								</p>
 							</div>
 
 							{/* Quick Executable Command Buttons */}
@@ -578,7 +561,7 @@ export default function About() {
 									<span className="terminal-dot yellow" />
 									<span className="terminal-dot green" />
 								</div>
-								<span className="terminal-title">visitor@vineet: ~</span>
+								<span className="terminal-title">vineetnotfound</span>
 								<span className="text-[10px] font-mono opacity-40">bash 5.2</span>
 							</div>
 
@@ -594,7 +577,7 @@ export default function About() {
 										{item.command !== "welcome" && (
 											<div className="flex items-center">
 												<span className="terminal-prompt">
-													visitor@vineet:~$
+													shh@vineetnotfound:~$
 												</span>
 												<span className="text-[#e0af68] ml-2">
 													{item.command}
@@ -618,7 +601,7 @@ export default function About() {
 											onKeyDown={handleKeyDown}
 											className="terminal-input"
 											autoFocus
-											placeholder="Type 'help' or click shortcuts..."
+											placeholder="Type 'help'"
 											aria-label="Terminal input"
 										/>
 									</div>
@@ -630,7 +613,7 @@ export default function About() {
 					{/* 🧱 Asymmetric Engineering Bento Grid */}
 					<section className="flex flex-col gap-6">
 						<h2 className="text-2xl font-bold border-b border-[var(--text)] border-opacity-10 pb-3 m-0 text-[var(--text)]">
-							Engineering & Focus Areas
+							Focus
 						</h2>
 
 						<div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -761,131 +744,17 @@ export default function About() {
 						</div>
 
 						{/* Subtle Embedded Text Pretext Physics Easter Egg */}
-						<div className="inverted-theme-card p-5 rounded-2xl flex flex-col gap-3 relative overflow-hidden my-2">
-							<div className="flex items-center justify-between border-b border-[var(--text)] border-opacity-10 pb-2">
-								<span className="text-xs font-mono text-[var(--accent)] font-semibold uppercase tracking-wider">
-									✦ Interactive Pretext Physics (Easter Egg)
-								</span>
-								<span className="text-[10px] font-mono opacity-50">hover cursor over text to repel words</span>
-							</div>
+						<div className="inverted-theme-card p-5 rounded-2xl gap-3 my-2">
 							<TextPretextCanvas
 								initialText="Between pixels and Python, building things—apps, ideas, systems—isn't just about logic, it's about craft, precision, and memory."
-								height={120}
-								fontSize={16}
+								height={140}
+								fontSize={20}
 								lineHeight={30}
 								repelRadius={100}
 								showControls={false}
 							/>
 						</div>
 					</section>
-
-					{/* 🧰 Workspace Gear & Technical Matrix */}
-					<section className="flex flex-col gap-6">
-						<h2 className="text-2xl font-bold border-b border-[var(--text)] border-opacity-10 pb-3 m-0 text-[var(--text)]">
-							Technical Stack & Environment
-						</h2>
-
-						<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-							{[
-								{
-									category: "Languages",
-									spec: "TypeScript, Python, JavaScript, SQL",
-									icon: "fa-solid fa-code",
-								},
-								{
-									category: "Backend & Cloud",
-									spec: "Node.js, Express, FastAPI, GCP Cloud Run, Docker",
-									icon: "fa-solid fa-cloud",
-								},
-								{
-									category: "Databases & AI",
-									spec: "PostgreSQL, BigQuery, Redis, Vertex AI, Gemini",
-									icon: "fa-solid fa-database",
-								},
-								{
-									category: "Dev Environment",
-									spec: "Linux (Fedora), VS Code, Git, GitHub Actions",
-									icon: "fa-solid fa-terminal",
-								},
-							].map((item, idx) => (
-								<div
-									key={idx}
-									className="inverted-theme-card p-5 rounded-2xl flex flex-col gap-2">
-									<div className="flex items-center gap-2.5 text-[var(--accent)]">
-										<i className={`${item.icon} text-lg`} />
-										<h4 className="text-xs font-mono uppercase tracking-wider font-bold m-0">
-											{item.category}
-										</h4>
-									</div>
-									<p className="text-xs font-mono opacity-80 leading-relaxed m-0 text-[var(--text)]">
-										{item.spec}
-									</p>
-								</div>
-							))}
-						</div>
-					</section>
-
-					{/* 🤝 Contact & Network Hub */}
-					<section className="flex flex-col gap-6">
-						<h2 className="text-2xl font-bold border-b border-[var(--text)] border-opacity-10 pb-3 m-0 text-[var(--text)]">
-							Connect & Collaboration
-						</h2>
-
-						<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-							<a
-								href="https://github.com/vineet-k09"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inverted-theme-card p-5 rounded-2xl flex items-center justify-between hover:border-[var(--accent)] transition-all group no-underline text-inherit">
-								<div className="flex items-center gap-3">
-									<i
-										className="devicon-github-original text-2xl opacity-70 group-hover:opacity-100 transition-opacity"
-										style={{ fontSize: "26px" }}
-									/>
-									<div>
-										<h4 className="text-sm font-bold m-0 text-[var(--text)]">GitHub</h4>
-										<span className="text-xs opacity-60 font-mono">@vineet-k09</span>
-									</div>
-								</div>
-								<i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-40 group-hover:opacity-100 transition-opacity" />
-							</a>
-
-							<a
-								href="https://www.linkedin.com/in/vineet-k09/"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inverted-theme-card p-5 rounded-2xl flex items-center justify-between hover:border-[var(--accent)] transition-all group no-underline text-inherit">
-								<div className="flex items-center gap-3">
-									<i
-										className="devicon devicon-linkedin-plain text-2xl opacity-70 group-hover:opacity-100 transition-opacity"
-										style={{ fontSize: "26px" }}
-									/>
-									<div>
-										<h4 className="text-sm font-bold m-0 text-[var(--text)]">LinkedIn</h4>
-										<span className="text-xs opacity-60 font-mono">Vineet Kushwaha</span>
-									</div>
-								</div>
-								<i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-40 group-hover:opacity-100 transition-opacity" />
-							</a>
-
-							<a
-								href="mailto:vineetkushwaha6325@gmail.com"
-								className="inverted-theme-card p-5 rounded-2xl flex items-center justify-between hover:border-[var(--accent)] transition-all group no-underline text-inherit">
-								<div className="flex items-center gap-3">
-									<i
-										className="fa-solid fa-envelope text-2xl opacity-70 group-hover:opacity-100 transition-opacity"
-										style={{ fontSize: "24px" }}
-									/>
-									<div>
-										<h4 className="text-sm font-bold m-0 text-[var(--text)]">Email</h4>
-										<span className="text-xs opacity-60 font-mono">vineetkushwaha6325...</span>
-									</div>
-								</div>
-								<i className="fa-solid fa-arrow-up-right-from-square text-xs opacity-40 group-hover:opacity-100 transition-opacity" />
-							</a>
-						</div>
-					</section>
-
 				</div>
 			</div>
 		</PageWrapper>

@@ -1,85 +1,145 @@
 "use client";
 
-import { useLangContext } from "../../hooks/useLang";
 import Navbar from "./navbar";
 import { useAudio } from "@/context/AudioContext";
-// import { useTheme } from '@/context/ThemeContext';
-import {
-	languagesAndFrontend,
-	backendAndDatabases,
-	devopsAndTools,
-} from "./utility/skills";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 import Link from "next/link";
 import Image from "next/image";
 
-type ThemeType =
-	| "theme-charcoal"
-	| "theme-sunlight"
-	| "theme-crimson"
-	| "theme-neon";
+const experiencesData = [
+	{
+		company: "Vodafone Intelligent Solutions (VOIS)",
+		role: "Data Analyst",
+		duration: "6 months",
+		timeline: "Jan 2026 - July 2026",
+		branch: "feat/vois-data-analyst",
+		color: "#a855f7",
+		commits: [
+			{
+				hash: "d8b5a3c",
+				msg: "Automated Ingestion Pipeline",
+				desc: "Engineered automated validation pipeline processing 400K+ monthly multi-market records, replacing manual workflows and reducing intervention by 90%.",
+			},
+			{
+				hash: "e9f2b1d",
+				msg: "Containerized Cloud Run Mesh",
+				desc: "Designed and deployed containerized Node/Express microservice on GCP Cloud Run with secure IAM service account mesh communication.",
+			},
+			{
+				hash: "f3a7c6e",
+				msg: "Vertex AI Engagement Stream",
+				desc: "Integrated Gemini 2.5 Flash Lite features to design Express API streaming interaction metadata into BigQuery for real-time engagement analytics.",
+			},
+		],
+	},
+	{
+		company: "Infosys Springboard",
+		role: "Full Stack Developer Intern",
+		duration: "3 months",
+		timeline: "Oct 2025 - Dec 2025",
+		branch: "feat/infosys-fullstack",
+		color: "#a855f7",
+		commits: [
+			{
+				hash: "a1b2c3d",
+				msg: "Stateful JWT REST APIs",
+				desc: "Developed secure REST endpoints with HttpOnly cookies, bcrypt hashing, and schema-level validation using Zod.",
+			},
+			{
+				hash: "b4d5e6f",
+				msg: "Dev Team Leadership",
+				desc: "Led team of 4 developers driving technical decisions, task allocation, project planning, and frontend/backend feature delivery.",
+			},
+			{
+				hash: "c5e6f7a",
+				msg: "Full-Stack Feature Delivery",
+				desc: "Designed and integrated full-stack features using React, Node, Express, and MongoDB collaborating across the lifecycle.",
+			},
+		],
+	},
+	{
+		company: "Curiosense Innovations Pvt. Ltd.",
+		role: "Graphic Design Intern",
+		duration: "6 months",
+		timeline: "Apr 2025 - Sep 2025",
+		branch: "design/brand-identity",
+		color: "#a855f7",
+		commits: [
+			{
+				hash: "c7e8f9a",
+				msg: "design: UI/UX Wireframes & Branding",
+				desc: "Created mockups, social designs, and brand style guides using Figma and Adobe Suite.",
+			},
+		],
+	},
+	{
+		company: "Acharya Institute of Technology",
+		role: "Bachelor of Engineering - CSE (Data Science)",
+		duration: "4 years",
+		timeline: "Nov 2022 - June 2026",
+		branch: "edu/acharya-cse",
+		color: "#a855f7",
+		commits: [
+			{
+				hash: "edu2026",
+				msg: "CSE - Data Science Degree",
+				desc: "Studying algorithms, data structures, machine learning models, and database engineering.",
+			},
+			{
+				hash: "iedc01",
+				msg: "IED Cell Content Head",
+				desc: "Led content operations, copywriting, and marketing materials for the Innovation and Entrepreneurship Development Cell.",
+			},
+		],
+	},
+];
+
+const featuredProjects = [
+	{
+		title: "Endxiety",
+		github: "https://github.com/vineet-k09/Endxiety",
+		description:
+			"An AI-assisted mental wellness platform featuring anonymous chat, emotion tracking, and journaling. Focused on privacy-aware design, state management, and integrating LLM-based insights into user workflows.",
+		live: "",
+		stack: ["React", "MongoDB", "Vite", "OpenAI API"],
+		image: ["/projects/endxiety/1.png"],
+	},
+	{
+		title: "BiblioVerse",
+		github: "https://github.com/vineet-k09/E-Book-Recommendation",
+		description:
+			"An AI-driven ebook recommendation system combining big-data filtering with a modern web interface. Implemented data pipelines using Hadoop and PySpark, and integrated recommendations into a full-stack Next.js application.",
+		stack: ["NextJs", "MongoDB", "Node.js", "Hadoop", "PySpark"],
+		figma:
+			"https://www.figma.com/board/LqTWwlRKuz1x7wg0yX0gpk/Ebook-Recommendation?node-id=0-1&t=Kq1JFQZV9aFP1RLp-1",
+		live: "",
+		image: [
+			"/projects/biblioverse/1.png",
+			"/projects/biblioverse/2.png",
+			"/projects/biblioverse/3.png",
+			"/projects/biblioverse/4.png",
+		],
+	},
+];
+
 
 function TypedName({ name }: { name: string }) {
 	const parts = name.split(" ");
 	const firstName = parts[0] || "";
 	const lastName = parts.slice(1).join(" ") || "";
 
-	const [text, setText] = useState("");
-	const [isDeleting, setIsDeleting] = useState(false);
-	const [cursorVisible, setCursorVisible] = useState(true);
-
-	useEffect(() => {
-		setText("");
-		setIsDeleting(false);
-	}, [lastName]);
-
-	useEffect(() => {
-		if (!lastName) return;
-		const cursorInterval = setInterval(() => {
-			setCursorVisible((prev) => !prev);
-		}, 530);
-		return () => clearInterval(cursorInterval);
-	}, [lastName]);
-
-	useEffect(() => {
-		if (!lastName) return;
-
-		let timer: NodeJS.Timeout;
-		if (isDeleting) {
-			timer = setTimeout(() => {
-				setText((prev) => prev.slice(0, -1));
-			}, 80);
-		} else {
-			timer = setTimeout(() => {
-				setText(lastName.slice(0, text.length + 1));
-			}, 100);
-		}
-
-		if (!isDeleting && text === lastName) {
-			timer = setTimeout(() => {
-				setIsDeleting(true);
-			}, 2000);
-		} else if (isDeleting && text === "") {
-			setIsDeleting(false);
-		}
-
-		return () => clearTimeout(timer);
-	}, [text, isDeleting, lastName]);
-
 	return (
 		<span className="flex flex-col sm:inline-flex sm:flex-row items-start sm:items-baseline">
 			<span className="select-none">{firstName}</span>
 			<span className="inline-flex items-baseline sm:ml-3 min-w-[6ch] min-h-[1.2em]">
 				<span
-					style={{ WebkitTextStroke: "1.5px var(--text)", color: "transparent" }}>
-					{text}
-				</span>
-				<span
-					className="transition-opacity duration-100"
-					style={{ color: "var(--accent)", opacity: cursorVisible ? 1 : 0 }}>
-					.
+					style={{
+						WebkitTextStroke: "1.5px var(--text)",
+						color: "transparent",
+					}}>
+					{lastName}
 				</span>
 			</span>
 		</span>
@@ -172,115 +232,6 @@ function TiltCard({
 		</Link>
 	);
 }
-
-const brandColors: Record<string, { bg: string; text: string }> = {
-	"Python": { bg: "#3776AB", text: "#FFFFFF" },
-	"JavaScript": { bg: "#F7DF1E", text: "#000000" },
-	"TypeScript": { bg: "#3178C6", text: "#FFFFFF" },
-	"Java": { bg: "#ED8B00", text: "#FFFFFF" },
-	"ReactJS": { bg: "#61DAFB", text: "#20232A" },
-	"NextJS": { bg: "#000000", text: "#FFFFFF" },
-	"Angular": { bg: "#DD0031", text: "#FFFFFF" },
-	"Vite": { bg: "#646CFF", text: "#FFFFFF" },
-	"Node.js": { bg: "#339933", text: "#FFFFFF" },
-	"Express.js": { bg: "#F7DF1E", text: "#000000" },
-	"Django": { bg: "#092E20", text: "#FFFFFF" },
-	"FastAPI": { bg: "#009688", text: "#FFFFFF" },
-	"REST APIs": { bg: "#0EA5E9", text: "#FFFFFF" },
-	"JWT Authentication": { bg: "#D63AFF", text: "#FFFFFF" },
-	"Prisma": { bg: "#2D3748", text: "#FFFFFF" },
-	"Microservices": { bg: "#7C3AED", text: "#FFFFFF" },
-	"PostgreSQL": { bg: "#336791", text: "#FFFFFF" },
-	"MongoDB": { bg: "#47A248", text: "#FFFFFF" },
-	"Redis": { bg: "#DC382D", text: "#FFFFFF" },
-	"MySQL": { bg: "#4479A1", text: "#FFFFFF" },
-	"BigQuery": { bg: "#4285F4", text: "#FFFFFF" },
-	"GCP": { bg: "#4285F4", text: "#FFFFFF" },
-	"Docker": { bg: "#2496ED", text: "#FFFFFF" },
-	"CI/CD (GitHub Actions)": { bg: "#2088FF", text: "#FFFFFF" },
-	"Git": { bg: "#F05032", text: "#FFFFFF" },
-	"GitHub": { bg: "#181717", text: "#FFFFFF" },
-	"Linux (Fedora)": { bg: "#294172", text: "#FFFFFF" },
-};
-
-function ScrollSkillTag({
-	label,
-	className,
-	link,
-}: {
-	label: string;
-	className: string;
-	link: string;
-}) {
-	const ref = useRef<HTMLAnchorElement>(null);
-	const [progress, setProgress] = useState(0);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			if (!ref.current) return;
-			const rect = ref.current.getBoundingClientRect();
-			const windowHeight = window.innerHeight;
-
-			// Start filling when the top of the element enters the bottom 95% of viewport
-			// Full fill when the top is at the bottom 45% of viewport (fully colored earlier)
-			const start = windowHeight * 0.95;
-			const end = windowHeight * 0.45;
-
-			let p = (start - rect.top) / (start - end);
-			p = Math.max(0, Math.min(1, p));
-			
-			// Round to nearest 0.01 to avoid microscopic state updates
-			const roundedP = Math.round(p * 100) / 100;
-			setProgress((prev) => (prev !== roundedP ? roundedP : prev));
-		};
-
-		window.addEventListener("scroll", handleScroll, { passive: true });
-		window.addEventListener("resize", handleScroll);
-
-		// Initial check
-		handleScroll();
-
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-			window.removeEventListener("resize", handleScroll);
-		};
-	}, []);
-
-	const brand = brandColors[label] || { bg: "var(--accent)", text: "var(--bg)" };
-	const clipPercent = 100 - progress * 100;
-
-	return (
-		<a
-			ref={ref}
-			href={link}
-			target="_blank"
-			rel="noopener noreferrer"
-			className="inverted-tag flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm no-underline font-medium hover:scale-103 transition-transform duration-200 relative overflow-hidden whitespace-nowrap"
-			style={{ position: "relative" }}
-		>
-			<i className={`${className}`} style={{ fontSize: "14px" }} />
-			<span>{label}</span>
-
-			{/* Brand colored overlay, clipped top-to-bottom based on scroll */}
-			<span
-				className="absolute inset-0 flex items-center gap-2 px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-all duration-75"
-				style={{
-					backgroundColor: brand.bg,
-					color: brand.text,
-					clipPath: `inset(${clipPercent}% 0 0 0)`,
-					pointerEvents: "none",
-					borderRadius: "inherit",
-					border: `1px solid ${brand.bg}`,
-					boxSizing: "border-box",
-				}}
-			>
-				<i className={`${className}`} style={{ fontSize: "14px", color: brand.text }} />
-				<span style={{ color: brand.text }}>{label}</span>
-			</span>
-		</a>
-	);
-}
-
 
 const revealVariants = {
 	hidden: { opacity: 0, y: 35 },
@@ -384,67 +335,15 @@ function DirectionalHoverButton({ href, children }: { href: string; children: Re
 }
 
 export default function Home() {
-	const { visibleText } = useLangContext();
 	const { toggleAudio, isPlaying } = useAudio();
-	// const { theme, setTheme } = useTheme();
-
-	// const [savedTheme, setSavedTheme] = useState<ThemeType>('theme-charcoal');
-	// const [hoveredTheme, setHoveredTheme] = useState<ThemeType | null>(null);
-
-	// Keep savedTheme in sync with the global theme when not hovering
-	// useEffect(() => {
-	//     if (!hoveredTheme) {
-	//         setSavedTheme(theme as ThemeType);
-	//     }
-	// }, [theme, hoveredTheme]);
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const handleMouseEnter = (cardTheme: ThemeType) => {
-		// setHoveredTheme(cardTheme);
-		// setTheme(cardTheme);
-	};
-
-	const handleMouseLeave = () => {
-		// setHoveredTheme(null);
-		// setTheme(savedTheme);
-	};
-
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const handleCardClick = (cardTheme: ThemeType) => {
-		// setSavedTheme(cardTheme);
-		// setTheme(cardTheme);
-	};
-
-	const homeCards = visibleText.homeCards || {
-		github: {
-			title: "Codebase & GitHub",
-			stats: "70+ Repositories",
-			desc: "Check out my open-source work, scripts, notebooks, and automation tools.",
-		},
-		projects: {
-			title: "Projects & Labs",
-			stats: "7+ Featured Works",
-			desc: "Explore web platforms, AI scheme recommenders, and database solutions.",
-		},
-		art: {
-			title: "Photography & Design",
-			stats: "UI/UX & Visuals",
-			desc: "Browse branding projects, graphic layouts, and captured moments.",
-		},
-		about: {
-			title: "Life & Philosophy",
-			stats: "CSE Student (DS)",
-			desc: "Read about my background, learning process, and what drives me.",
-		},
-	};
 
 	const cards = [
 		{
 			key: "github",
 			theme: "theme-charcoal" as const,
-			title: homeCards.github.title,
-			stats: homeCards.github.stats,
-			desc: homeCards.github.desc,
+			title: "Codebase & GitHub",
+			stats: "50+ Repositories",
+			desc: "Check out my open-source work, scripts, notebooks, and automation tools.",
 			icon: "fa-brands fa-github",
 			link: "https://github.com/vineet-k09",
 			isExternal: true,
@@ -452,9 +351,9 @@ export default function Home() {
 		{
 			key: "projects",
 			theme: "theme-sunlight" as const,
-			title: homeCards.projects.title,
-			stats: homeCards.projects.stats,
-			desc: homeCards.projects.desc,
+			title: "Projects & Labs",
+			stats: "7+ Featured Works",
+			desc: "Explore web platforms, AI scheme recommenders, and database solutions.",
 			icon: "fa-regular fa-folder-open",
 			link: "/projects",
 			isExternal: false,
@@ -462,9 +361,9 @@ export default function Home() {
 		{
 			key: "about",
 			theme: "theme-neon" as const,
-			title: homeCards.about.title,
-			stats: homeCards.about.stats,
-			desc: homeCards.about.desc,
+			title: "Life & Philosophy",
+			stats: "CSE Student (DS)",
+			desc: "Read about my background, learning process, and what drives me.",
 			icon: "fa-solid fa-circle-info",
 			link: "/about",
 			isExternal: false,
@@ -472,9 +371,9 @@ export default function Home() {
 		{
 			key: "art",
 			theme: "theme-crimson" as const,
-			title: homeCards.art.title,
-			stats: homeCards.art.stats,
-			desc: homeCards.art.desc,
+			title: "Creative Sandbox",
+			stats: "Designs & UI/UX",
+			desc: "Browse visual layouts, UI/UX mockups, graphics, and interactive shaders.",
 			icon: "fa-solid fa-palette",
 			link: "/creative",
 			isExternal: false,
@@ -497,19 +396,15 @@ export default function Home() {
 							<div className="flex flex-col md:flex-row justify-between items-center gap-10 mb-8">
 								<div className="flex-1">
 									<h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-2 transition-all duration-500">
-										<TypedName name={visibleText.name} />
+										<TypedName name="Vineet Kushwaha" />
 									</h1>
 									<p className="text-lg md:text-xl opacity-80 font-medium transition-all duration-500 mb-6">
-										{visibleText.role}
+										Software & Data Engineer
 									</p>
 									<p className="text-lg opacity-90 max-w-2xl mb-6 leading-relaxed font-normal">
-										I&apos;m a{" "}
-										<span className="text-[var(--accent)] font-semibold">
-											{visibleText["aboutme13"]}
-										</span>{" "}
-										with a strong grip on React, Node.js, and data analytics.
-										Below is a mix-and-match interactive playground of my
-										domains — hover to explore each theme.
+										I build things, break them, and occasionally figure out why
+										they broke. I&apos;m Vineet — an engineer interested in
+										software, data, and everything in between.
 									</p>
 									<div className="flex items-center gap-4 h-12 mt-4">
 										<div className="reactOut flex gap-3 items-center h-full">
@@ -528,7 +423,7 @@ export default function Home() {
 												aria-label="LinkedIn"
 												className="flex items-center justify-center">
 												<i
-													className="devicon devicon-linkedin-plain hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center text-[var(--text)]"
+													className="fa-brands fa-linkedin hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center text-[var(--text)]"
 													style={{ fontSize: "18px" }}></i>
 											</a>
 											<a
@@ -539,15 +434,6 @@ export default function Home() {
 													className="fa-regular fa-envelope hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center text-[var(--text)]"
 													style={{ fontSize: "18px" }}></i>
 											</a>
-											<Link
-												href="/about"
-												aria-label="Developer Shell Console"
-												className="flex items-center justify-center"
-												title="Terminal Console">
-												<i
-													className="fa-solid fa-terminal hover:text-[var(--accent)] border-2 p-1.5 border-transparent hover:border-[var(--accent)] rounded-xl duration-250 flex items-center justify-center text-[var(--text)]"
-													style={{ fontSize: "16px" }}></i>
-											</Link>
 											<button
 												style={{
 													color: isPlaying ? "var(--accent)" : "var(--bg)",
@@ -587,9 +473,6 @@ export default function Home() {
 										key={card.key}
 										href={card.link}
 										isExternal={card.isExternal}
-										onMouseEnter={() => handleMouseEnter(card.theme)}
-										onMouseLeave={handleMouseLeave}
-										onClick={() => handleCardClick(card.theme)}
 										className={`horizontal-bento-card ${card.theme} no-underline`}>
 										<div className="horizontal-bento-card-inner">
 											<div className="card-icon-wrapper">
@@ -619,14 +502,15 @@ export default function Home() {
 							variants={revealVariants}
 							className="w-full my-20 flex flex-col items-center">
 							<h2 className="text-3xl font-extrabold tracking-tight mb-16 text-center w-full text-[var(--text)] border-b border-[var(--text)] border-opacity-5 pb-4">
-								{visibleText.experience?.title}
+								Work Experience
 							</h2>
 
 							<div className="relative w-full max-w-5xl mx-auto flex flex-col">
 								{/* Vertical Central Git Main Track */}
-								<div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[2px] bg-[var(--text)] bg-opacity-10 hidden md:block" />
+								<div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-[2px] bg-[var(--text)] bg-opacity-10 hidden md:block">
+								</div>
 
-								{visibleText.experience?.list.map((exp, idx) => {
+								{experiencesData.map((exp, idx) => {
 									const isLeft = idx % 2 === 1;
 									return (
 										<div
@@ -643,7 +527,7 @@ export default function Home() {
 														borderLeftColor: exp.color,
 													}}>
 													{/* Git switch command header */}
-													<div className="flex items-center justify-between flex-wrap gap-2 border-b border-[var(--text)] border-opacity-10 pb-2 text-[var(--text)]">
+													<div className="flex items-center justify-between flex-wrap gap-2 border-b border-[var(--text)] border-opacity-10 pb-5 text-[var(--text)]">
 														<div className="flex items-center gap-1.5">
 															<span className="text-xs font-mono text-emerald-600 dark:text-emerald-500 font-bold">
 																$
@@ -685,27 +569,12 @@ export default function Home() {
 												</div>
 											</div>
 
-											{/* Center Axis Switch Node (only visible on desktop) */}
-											<div className="hidden md:flex w-16 justify-center items-center relative order-2 z-10">
-												{/* Straight Vertical axis line */}
-												<div className="absolute top-0 bottom-0 w-[2px] bg-[var(--text)] bg-opacity-15" />
-
-												{/* Node Circle */}
-												<div
-													className="w-4 h-4 rounded-full bg-[var(--bg)] border-[3.5px] z-20 transition-all duration-300 hover:scale-125"
-													style={{
-														borderColor: exp.color,
-														boxShadow: `0 0 10px ${exp.color}`,
-													}}
-												/>
-											</div>
-
 											{/* Commit Log Details Column */}
 											<div className="w-full md:w-1/2 flex flex-col justify-center order-3 px-4 md:px-8 mt-4 md:mt-0">
 												<div
 													className="relative pl-6 border-l-2 py-2"
 													style={{
-														borderColor: `${exp.color}25`,
+														borderColor: `${exp.color}`
 													}}>
 													{exp.commits.map((commit, commitIdx) => (
 														<div
@@ -713,7 +582,7 @@ export default function Home() {
 															className="relative group/commit mb-6 last:mb-0">
 															{/* Commit node dot */}
 															<div
-																className="absolute -left-[30px] top-1.5 w-2 h-2 rounded-full bg-[var(--bg)] border-2 transition-all duration-200 group-hover/commit:scale-125"
+																className="absolute -left-[29px] top-1.5 w-2 h-2 rounded-full bg-[var(--bg)] border-2 transition-all duration-200 group-hover/commit:scale-125"
 																style={{
 																	borderColor: exp.color,
 																}}
@@ -734,8 +603,6 @@ export default function Home() {
 																		{commit.msg}
 																	</h4>
 																</div>
-
-																{/* Fixed description contrast */}
 																<p className="text-xs text-[var(--text)] opacity-90 mt-1.5 font-normal leading-relaxed max-w-md">
 																	{commit.desc}
 																</p>
@@ -755,123 +622,79 @@ export default function Home() {
 							whileInView="visible"
 							viewport={{ once: true, margin: "-100px" }}
 							variants={revealVariants}
-							className="mb-16 w-full">
-							<h2 className="text-3xl font-extrabold mb-8 border-b border-opacity-10 border-[var(--text)] pb-3">
-								Skills
-							</h2>
-							<div className="inverted-theme-card p-6 md:p-8 rounded-2xl w-full">
-								{[
-									{ title: "Languages & Frontend", list: languagesAndFrontend },
-									{ title: "Backend & Databases", list: backendAndDatabases },
-									{ title: "DevOps & Tools", list: devopsAndTools },
-								].map((cat, idx) => (
-									<div
-										key={idx}
-										className="flex flex-col md:flex-row md:items-start gap-4 py-5 border-b border-opacity-10 border-[var(--text)] last:border-b-0 last:pb-0 first:pt-0"
-									>
-										<div className="md:w-1/4 flex-shrink-0 md:pt-1">
-											<h3 className="text-sm md:text-base font-extrabold text-[var(--accent)] uppercase tracking-wider font-mono">
-												{cat.title}
-											</h3>
-										</div>
-										<div className="md:w-3/4 w-full">
-											<ul className="flex flex-wrap gap-3 list-none p-0 m-0">
-												{cat.list.map(({ className, label, link }) => (
-													<li key={label} className="list-none">
-														<ScrollSkillTag
-															label={label}
-															className={className}
-															link={link}
-														/>
-													</li>
-												))}
-											</ul>
-										</div>
-									</div>
-								))}
-							</div>
-						</motion.section>
-
-						<motion.section
-							initial="hidden"
-							whileInView="visible"
-							viewport={{ once: true, margin: "-100px" }}
-							variants={revealVariants}
 							className="section">
 							{/* 🚀 Projects Section */}
-							<h2 className="col-span-1">{visibleText.projects?.title}</h2>
+							<h2 className="col-span-1">Projects</h2>
 							<div className="col-span-1"></div>
 							<div className="col-span-5 flex flex-col gap-8">
 								<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-									{visibleText.projects?.list
-										?.slice(0, 2)
-										.map((project, idx) => (
-											<div
-												key={idx}
-												className="inverted-theme-card overflow-hidden rounded-2xl flex flex-col justify-between hover:border-[var(--accent)] hover:shadow-lg transition-all duration-300">
-												{/* Project Image Cover */}
-												{project.image && project.image.length > 0 && (
-													<div className="w-full h-48 overflow-hidden relative bg-neutral-900 border-b border-[var(--text)] border-opacity-10">
-														<Image
-															src={project.image[0]}
-															alt={project.title}
-															fill
-															sizes="(max-width: 640px) 100vw, 50vw"
-															className="object-cover hover:scale-105 transition-transform duration-500"
-														/>
-													</div>
-												)}
-												<div className="p-6 flex-grow flex flex-col justify-between">
-													<div>
-														<div className="flex justify-between items-start mb-3">
-															<h3 className="text-xl font-bold">
-																{project.title}
-															</h3>
-															<div className="flex gap-2">
-																{project.github && (
-																	<a
-																		href={project.github}
-																		target="_blank"
-																		rel="noreferrer"
-																		className="hover:text-[var(--accent)] transition-colors duration-200"
-																		aria-label="GitHub repo">
-																		<i
-																			className="devicon-github-original"
-																			style={{ fontSize: "20px" }}
-																		/>
-																	</a>
-																)}
-																{project.live && (
-																	<a
-																		href={project.live}
-																		target="_blank"
-																		rel="noreferrer"
-																		className="hover:text-[var(--accent)] transition-colors duration-200"
-																		aria-label="Live demo">
-																		<i
-																			className="fa-solid fa-arrow-up-right-from-square"
-																			style={{ fontSize: "18px" }}
-																		/>
-																	</a>
-																)}
-															</div>
+									{featuredProjects.map((project, idx) => (
+										<div
+											key={idx}
+											className="inverted-theme-card overflow-hidden rounded-2xl flex flex-col justify-between hover:border-[var(--accent)] hover:shadow-lg transition-all duration-300">
+											{/* Project Image Cover */}
+											{project.image && project.image.length > 0 && (
+												<div className="w-full h-48 overflow-hidden relative bg-neutral-900 border-b border-[var(--text)] border-opacity-10">
+													<Image
+														src={project.image[0]}
+														alt={project.title}
+														fill
+														sizes="(max-width: 640px) 100vw, 50vw"
+														className="object-cover hover:scale-105 transition-transform duration-500"
+													/>
+												</div>
+											)}
+											<div className="p-6 flex-grow flex flex-col justify-between">
+												<div>
+													<div className="flex justify-between items-start mb-3">
+														<h3 className="text-xl font-bold">
+															{project.title}
+														</h3>
+														<div className="flex gap-2">
+															{project.github && (
+																<a
+																	href={project.github}
+																	target="_blank"
+																	rel="noreferrer"
+																	className="hover:text-[var(--accent)] transition-colors duration-200"
+																	aria-label="GitHub repo">
+																	<i
+																		className="devicon-github-original"
+																		style={{ fontSize: "20px" }}
+																	/>
+																</a>
+															)}
+															{project.live && (
+																<a
+																	href={project.live}
+																	target="_blank"
+																	rel="noreferrer"
+																	className="hover:text-[var(--accent)] transition-colors duration-200"
+																	aria-label="Live demo">
+																	<i
+																		className="fa-solid fa-arrow-up-right-from-square"
+																		style={{ fontSize: "18px" }}
+																	/>
+																</a>
+															)}
 														</div>
-														<p className="text-sm mb-4 leading-relaxed opacity-80">
-															{project.description}
-														</p>
 													</div>
-													<div className="flex flex-wrap gap-2 mt-2">
-														{project.stack?.map((tech, i) => (
-															<span
-																key={i}
-																className="inverted-tag text-xs px-2 py-1 rounded font-mono">
-																{tech}
-															</span>
-														))}
-													</div>
+													<p className="text-sm mb-4 leading-relaxed opacity-80">
+														{project.description}
+													</p>
+												</div>
+												<div className="flex flex-wrap gap-2 mt-2">
+													{project.stack?.map((tech, i) => (
+														<span
+															key={i}
+															className="inverted-tag text-xs px-2 py-1 rounded font-mono">
+															{tech}
+														</span>
+													))}
 												</div>
 											</div>
-										))}
+										</div>
+									))}
 								</div>
 
 								{/* View More Projects Button */}

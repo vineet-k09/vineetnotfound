@@ -6,7 +6,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocation } from "@/context/LocationProvider";
 
-import { useLangContext } from "../../hooks/useLang";
+const navItems = [
+	{ label: "Home", path: "" },
+	{ label: "Projects", path: "projects" },
+	{ label: "Creative", path: "creative" },
+	{ label: "About", path: "about" },
+] as const;
 
 const getIcon = (path: string) => {
 	switch (path.trim()) {
@@ -26,7 +31,6 @@ const getIcon = (path: string) => {
 };
 
 export default function Navbar() {
-	const { visibleText } = useLangContext();
 	const pathname = usePathname();
 	const [isTime, setIsTime] = useState(true);
 	const [time, setTime] = useState("");
@@ -100,12 +104,12 @@ export default function Navbar() {
 				<nav ref={menuRef} className="px-7">
 					<div>
 						<div className="flex justify-between items-center my-2 w-full">
-							<div className="text-sm border-2 px-2.5 py-0.5 min-w-18 my-auto rounded-lg border-[var(--text)] border-opacity-10 text-[var(--text)]">
+							<div className="text-sm border-2 text-center py-0.5 min-w-18 my-auto rounded-lg border-[var(--text)] border-opacity-10 text-[var(--text)]">
 								{isTime ? time : `${weather}°C`}
 							</div>
 							<ul className="list-none flex gap-4 items-center">
-								{visibleText.navbar.map((value, id) => {
-									const path = value[1].trim();
+								{navItems.map((item, id) => {
+									const path = item.path.trim();
 									const isActive =
 										pathname === `/${path}` ||
 										(pathname === "/" && path === "");
@@ -126,7 +130,7 @@ export default function Navbar() {
 												<i
 													className={`${getIcon(path)}`}
 													style={{ fontSize: "13px" }}></i>
-												<span>{value[0]}</span>
+												<span>{item.label}</span>
 											</Link>
 										</li>
 									);
@@ -155,16 +159,16 @@ export default function Navbar() {
 								className="
                                 sm:hidden 
                                 flex flex-col mt-2 pb-4 gap-3 text-center border-t border-[var(--text)] border-opacity-10 pt-3">
-								{visibleText.navbar.map((value, id) => (
+								{navItems.map((item, id) => (
 									<Link
 										key={id}
-										href={`/${value[1].trim()}`}
+										href={`/${item.path.trim()}`}
 										onClick={() => setIsOpen(false)}
 										className="hover:text-[var(--accent)] transition-colors duration-250 py-2 flex items-center justify-center gap-2">
 										<i
-											className={`${getIcon(value[1])}`}
+											className={`${getIcon(item.path)}`}
 											style={{ fontSize: "18px" }}></i>
-										<span>{value[0]}</span>
+										<span>{item.label}</span>
 									</Link>
 								))}
 							</div>

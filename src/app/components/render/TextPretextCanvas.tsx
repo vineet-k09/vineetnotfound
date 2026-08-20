@@ -32,7 +32,7 @@ const DEFAULT_PRESETS = [
 export default function TextPretextCanvas({
 	initialText = DEFAULT_PRESETS[1],
 	height = 260,
-	fontSize = 20,
+	fontSize = 36,
 	lineHeight = 34,
 	repelRadius = 110,
 	showControls = true,
@@ -67,17 +67,21 @@ export default function TextPretextCanvas({
 		canvas.style.width = `${width}px`;
 		canvas.style.height = `${height}px`;
 
+		const fontVar = typeof window !== "undefined" ? getComputedStyle(document.documentElement).getPropertyValue("--font-geist-mono").trim() : "";
+		const fontFamily = fontVar ? `${fontVar}, monospace, sans-serif` : "monospace, sans-serif";
+		const effectiveLineHeight = lineHeight && lineHeight >= fontSize ? lineHeight : Math.round(fontSize * 1.35);
+
 		const ctx = canvas.getContext("2d");
 		if (!ctx) return;
 
 		ctx.scale(dpr, dpr);
-		ctx.font = `600 ${fontSize}px var(--font-geist-mono), system-ui, -apple-system, sans-serif`;
+		ctx.font = `600 ${fontSize}px ${fontFamily}`;
 
 		const rawWords = text.split(/\s+/).filter(Boolean);
 		const newWords: Word[] = [];
 
 		const paddingX = 24;
-		const paddingY = 40;
+		const paddingY = fontSize + 12;
 		const maxWidth = width - paddingX * 2;
 
 		let curX = paddingX;
@@ -91,7 +95,7 @@ export default function TextPretextCanvas({
 
 			if (curX + wordW > paddingX + maxWidth && curX > paddingX) {
 				curX = paddingX;
-				curY += lineHeight;
+				curY += effectiveLineHeight;
 			}
 
 			newWords.push({
@@ -148,8 +152,10 @@ export default function TextPretextCanvas({
 			const computedStyle = getComputedStyle(document.documentElement);
 			const accentColor = computedStyle.getPropertyValue("--accent").trim() || "#3b82f6";
 			const textColor = computedStyle.getPropertyValue("--text").trim() || "#e5e7eb";
+			const fontVar = computedStyle.getPropertyValue("--font-geist-mono").trim();
+			const fontFamily = fontVar ? `${fontVar}, monospace, sans-serif` : "monospace, sans-serif";
 
-			ctx.font = `600 ${fontSize}px var(--font-geist-mono), system-ui, -apple-system, sans-serif`;
+			ctx.font = `600 ${fontSize}px ${fontFamily}`;
 			ctx.textBaseline = "alphabetic";
 
 			const mouse = mouseRef.current;
