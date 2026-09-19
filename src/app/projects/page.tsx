@@ -4,7 +4,17 @@ import ProjectCarousel from "../components/render/carousel";
 import "../page.css";
 import PageWrapper from "../components/utility/pageWrapper";
 
-const projectsData = [
+interface Project {
+	title: string;
+	github?: string;
+	figma?: string;
+	live?: string;
+	description: string;
+	stack: string[];
+	image?: string[];
+}
+
+const mainProjects: Project[] = [
 	{
 		title: "Endxiety",
 		github: "https://github.com/vineet-k09/Endxiety",
@@ -31,6 +41,21 @@ const projectsData = [
 		],
 	},
 	{
+		title: "AirNotes",
+		github: "https://github.com/vineet-k09/airnotes",
+		description:
+			"Real-time computer vision and audio gesture music synthesizer. Tracks hand landmarks using MediaPipe to convert finger combinations and motion into live notes, volume pinch controls, rolling staff notation, and session recording across Qt desktop and Web Audio API.",
+		stack: [
+			"Python",
+			"PySide6",
+			"MediaPipe",
+			"Web Audio API",
+			"FastAPI",
+			"WebSockets",
+		],
+		image: ["/projects/airnotes/anotes.png"],
+	},
+	{
 		title: "Saarthi AI",
 		github: "https://github.com/Sarthi-AI/saarthi-ai",
 		description:
@@ -53,18 +78,11 @@ const projectsData = [
 		image: ["/projects/skillmatrix/1.png", "/projects/skillmatrix/2.png"],
 	},
 	{
-		title: "Real-Time Hand Gesture MIDI Synthesizer",
-		github:
-			"https://github.com/shyamkrishnabnair/hand-gesture-recognition-mediapipe-main",
+		title: "DB Notes",
+		github: "https://github.com/vineet-k09/db-notes",
 		description:
-			"Developed a rule-based coordinate geometry classifier using MediaPipe landmark vectors to recognize 10 finger-count gestures with zero ML execution overhead. Optimized browser execution to achieve 60 FPS via frame skipping and offloaded synthesis to Web Workers, minimizing audio latency to ~12 ms.",
-		stack: [
-			"OpenCV",
-			"MediaPipe",
-			"Web Workers",
-			"Web Audio API",
-			"CustomTKinter",
-		],
+			"A Notion clone and high-productivity system for daily activity and progress tracking. Automatically handles dynamic schema relationships, sub-activity rollups, pre-generated calendar tracking, and PostgreSQL JSONB schema flexibility.",
+		stack: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "TailwindCSS"],
 		image: [],
 	},
 	{
@@ -96,6 +114,113 @@ const projectsData = [
 	},
 ];
 
+const labProjects: Project[] = [
+	{
+		title: "ViewBlk",
+		github: "https://github.com/vineet-k09/viewblk",
+		description:
+			"An ultra-fast, lightweight (~840KB) CLI utility in Rust that renders a human-friendly breakdown of drives and partitions with visual disk usage progress bars and instant NVMe/HDD detection in under 2ms.",
+		stack: ["Rust", "CLI", "Linux System API"],
+		image: [],
+	},
+	{
+		title: "GitHub Repo Curator",
+		github: "https://github.com/vineet-k09/github-repo-curator",
+		description:
+			"A privacy-first, zero-backend Web Dashboard and CLI toolkit to audit, filter, organize, and bulk-manage GitHub repositories (visibility toggle, bulk tagging, MIT license/README generation, and repository deletion).",
+		stack: ["Python", "JavaScript", "GitHub REST API", "Vercel"],
+		image: [],
+	},
+	{
+		title: "Readit",
+		github: "https://github.com/vineet-k09/readit",
+		description:
+			"Instant, zero-bloat Markdown & README viewer for Linux with sub-200ms cold boot. Features live hot-reloading, relative local asset resolution, GitHub visual styling, KaTeX math rendering, and desktop MIME integration.",
+		stack: ["Python", "JavaScript", "Markdown", "Linux Desktop API"],
+		image: ["/projects/readit/1.jpg", "/projects/readit/2.jpg"],
+	},
+	{
+		title: "Gmail Desktop Widget",
+		github: "https://github.com/vineet-k09/mail-widget",
+		description:
+			"A lightweight, zero-latency desktop mail widget for Linux desktop environments (GNOME/KDE). Built with PySide6, QtWebEngine, and SQLite local caching to eliminate browser startup overhead and operate at ~30-50MB RAM.",
+		stack: ["Python", "PySide6", "QtWebEngine", "SQLite", "Gmail API"],
+		image: [],
+	},
+];
+
+function ProjectCard({ project, idx }: { project: Project; idx: number }) {
+	return (
+		<div
+			id={idx.toString()}
+			className="inverted-theme-card rounded-2xl overflow-hidden flex flex-col justify-between">
+			{/* Screenshot Carousel Area */}
+			{project.image && project.image.length > 0 && (
+				<div className="w-full relative bg-neutral-900 border-b border-black border-opacity-10">
+					<ProjectCarousel images={project.image} />
+				</div>
+			)}
+
+			{/* Content Details */}
+			<div className="p-6 flex-grow flex flex-col justify-between">
+				<div>
+					<div className="flex items-center justify-between mb-2">
+						<h3 className="text-2xl font-bold">{project.title}</h3>
+						<div className="flex items-center gap-3">
+							{project.github && (
+								<a
+									href={project.github}
+									target="_blank"
+									rel="noreferrer"
+									className="text-lg opacity-70 hover:opacity-100 transition-opacity"
+									title="View Repository">
+									<i className="fa-brands fa-github" />
+								</a>
+							)}
+							{project.figma && (
+								<a
+									href={project.figma}
+									target="_blank"
+									rel="noreferrer"
+									className="text-lg opacity-70 hover:opacity-100 transition-opacity"
+									title="View Figma">
+									<i className="fa-brands fa-figma" />
+								</a>
+							)}
+							{project.live && (
+								<a
+									href={project.live}
+									target="_blank"
+									rel="noreferrer"
+									className="text-lg opacity-70 hover:opacity-100 transition-opacity"
+									title="Live Preview">
+									<i className="fa-solid fa-arrow-up-right-from-square" />
+								</a>
+							)}
+						</div>
+					</div>
+					<p className="text-sm leading-relaxed mb-4">
+						{project.description}
+					</p>
+				</div>
+
+				<div>
+					{/* Tech Stack Tags */}
+					<div className="flex flex-wrap gap-2 mb-4">
+						{project.stack?.map((tech, i) => (
+							<span
+								key={i}
+								className="inverted-tag text-xs px-2.5 py-1 rounded font-mono font-medium">
+								{tech}
+							</span>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+}
+
 export default function Projects() {
 	return (
 		<PageWrapper>
@@ -110,48 +235,38 @@ export default function Projects() {
 							Projects
 						</h2>
 						<p className="text-sm opacity-80 leading-relaxed">
-							A showcase of web applications, AI models, data pipelines, and
-							interactive developer tools. Click icons to explore codebase or
+							A showcase of web applications, AI models, data pipelines,
+							interactive developer tools, and desktop utilities. Click icons to explore codebase or
 							live deployments.
 						</p>
 					</div>
 
-					{/* 3-Column Grid */}
-					<div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
-						{projectsData.map((project, idx) => (
-							<div
-								key={idx}
-								id={idx.toString()}
-								className="inverted-theme-card rounded-2xl overflow-hidden flex flex-col justify-between">
-								{/* Screenshot Carousel Area */}
-								<div className="w-full relative bg-neutral-900 border-b border-black border-opacity-10">
-									<ProjectCarousel images={project?.image} />
-								</div>
+					{/* Section 1: Applications & Platforms */}
+					<div className="w-full mb-14">
+						<div className="flex items-center gap-3 mb-6 pb-2 border-b border-neutral-700/30">
+							<span className="text-xs font-mono uppercase tracking-wider text-[var(--accent)] font-semibold">
+								01 // Applications & Platforms
+							</span>
+						</div>
+						<div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
+							{mainProjects.map((project, idx) => (
+								<ProjectCard key={idx} project={project} idx={idx} />
+							))}
+						</div>
+					</div>
 
-								{/* Content Details */}
-								<div className="p-6 flex-grow flex flex-col justify-between">
-									<div>
-										<h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-										<p className="text-sm leading-relaxed mb-4">
-											{project.description}
-										</p>
-									</div>
-
-									<div>
-										{/* Tech Stack Tags */}
-										<div className="flex flex-wrap gap-2 mb-4">
-											{project.stack?.map((tech, i) => (
-												<span
-													key={i}
-													className="inverted-tag text-xs px-2.5 py-1 rounded font-mono font-medium">
-													{tech}
-												</span>
-											))}
-										</div>
-									</div>
-								</div>
-							</div>
-						))}
+					{/* Section 2: Developer Tools & Desktop Utilities */}
+					<div className="w-full">
+						<div className="flex items-center gap-3 mb-6 pb-2 border-b border-neutral-700/30">
+							<span className="text-xs font-mono uppercase tracking-wider text-[var(--accent)] font-semibold">
+								02 // Developer Tools & Desktop Utilities
+							</span>
+						</div>
+						<div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
+							{labProjects.map((project, idx) => (
+								<ProjectCard key={idx + mainProjects.length} project={project} idx={idx + mainProjects.length} />
+							))}
+						</div>
 					</div>
 				</div>
 			</div>
