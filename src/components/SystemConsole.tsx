@@ -1,13 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal as TerminalIcon, Play, Trash2 } from "lucide-react";
 import profileData from "@data/profile.json";
 
 export const SystemConsole: React.FC = () => {
   const [history, setHistory] = useState<Array<{ command: string; output: string }>>([
     {
       command: "welcome",
-      output: "System initialized. Welcome to Vineet's developer console.\nType 'help' or click shortcuts below to explore system records.",
+      output: "System initialized. Welcome to Vineet's console.\nType 'help' or click shortcuts below to explore system records.",
     },
   ]);
   const [inputVal, setInputVal] = useState("");
@@ -27,11 +26,11 @@ export const SystemConsole: React.FC = () => {
     switch (raw) {
       case "help":
         output = `Available system queries:
-  bio        - Engineer bio & core specialization summary
-  education  - Degree, college, CGPA, leadership
-  contact    - Developer links, email & social handles
-  projects   - Summary of high-impact engineering highlights
-  clear      - Clear terminal window logs`;
+  bio        - Engineer bio & core summary
+  education  - Degree, college, CGPA & roles
+  contact    - Developer channels & social links
+  projects   - Summary of core engineering highlights
+  clear      - Clear console output`;
         break;
       case "bio":
         output = profileData.mockFiles["bio.txt"];
@@ -57,44 +56,69 @@ export const SystemConsole: React.FC = () => {
     setInputVal("");
   };
 
+  const animateVariants = {
+    hidden: { opacity: 0, y: 28 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 240,
+        damping: 24,
+      },
+    },
+  };
+
   return (
-    <section className="py-20 border-b border-white/[0.06]">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col gap-8">
+    <section id="console" className="py-20 border-b border-white/[0.05] relative">
+      <div className="max-w-6xl mx-auto px-6 sm:px-12 flex flex-col gap-8">
         
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        {/* Header with Scroll Animation */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.25 }}
+          variants={animateVariants}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-4"
+        >
           <div className="flex flex-col gap-2">
-            <span className="text-xs font-mono font-semibold text-cyan-400 uppercase tracking-widest">
+            <span className="font-mono text-xs font-bold text-rose-500 uppercase tracking-widest">
               03 // INTERACTIVE CLI
             </span>
-            <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-              Developer Shell Console
+            <h2 className="font-display text-4xl sm:text-6xl font-black text-white tracking-tight">
+              Developer Console
             </h2>
           </div>
 
-          {/* Quick Buttons */}
+          {/* All-Caps Shortcut Buttons */}
           <div className="flex flex-wrap gap-2">
             {["bio", "education", "contact", "projects", "clear"].map((cmd) => (
               <button
                 key={cmd}
                 onClick={() => handleCommand(cmd)}
-                className="px-3 py-1 rounded-lg bg-white/[0.03] border border-white/[0.06] hover:border-cyan-500/30 hover:text-cyan-300 font-mono text-xs text-neutral-300 transition-all cursor-pointer"
+                className="spider-cut-sm font-nav text-xs tracking-[0.15em] font-medium uppercase px-3 py-1.5 bg-[#141620] border border-white/10 hover:border-rose-500/40 hover:text-rose-300 text-neutral-300 transition-all cursor-pointer"
               >
                 ${cmd}
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Terminal Window */}
-        <div className="rounded-2xl border border-white/10 bg-[#0d0e12] overflow-hidden shadow-2xl">
-          <div className="px-4 py-3 bg-white/[0.03] border-b border-white/[0.06] flex items-center justify-between">
+        {/* Cartoon Edge-Cut Terminal Window */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={animateVariants}
+          className="spider-cut bg-[#0e1017] border border-white/10 pop-shadow-dark overflow-hidden"
+        >
+          <div className="px-5 py-3 bg-[#141620] border-b border-white/5 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-rose-500/80" />
-              <span className="w-3 h-3 rounded-full bg-amber-500/80" />
-              <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+              <span className="w-3 h-3 rounded-full bg-rose-500" />
+              <span className="w-3 h-3 rounded-full bg-amber-500" />
+              <span className="w-3 h-3 rounded-full bg-emerald-500" />
               <span className="ml-2 font-mono text-xs text-neutral-400 font-medium">
-                vineetnotfound: ~/sys-shell
+                vineetnotfound: ~/shell
               </span>
             </div>
             <span className="font-mono text-[10px] text-neutral-500">zsh 5.9</span>
@@ -107,9 +131,9 @@ export const SystemConsole: React.FC = () => {
             {history.map((item, index) => (
               <div key={index} className="flex flex-col gap-1">
                 {item.command !== "welcome" && (
-                  <div className="flex items-center gap-2 text-cyan-400">
+                  <div className="flex items-center gap-2 text-rose-400">
                     <span>visitor@vineetnotfound:~$</span>
-                    <span className="text-white">{item.command}</span>
+                    <span className="text-white font-semibold">{item.command}</span>
                   </div>
                 )}
                 <pre className="text-neutral-300 whitespace-pre-wrap font-mono leading-relaxed opacity-90">
@@ -125,7 +149,7 @@ export const SystemConsole: React.FC = () => {
               }}
               className="flex items-center gap-2 pt-2"
             >
-              <span className="text-cyan-400">visitor@vineetnotfound:~$</span>
+              <span className="text-rose-400">visitor@vineetnotfound:~$</span>
               <input
                 type="text"
                 value={inputVal}
@@ -135,7 +159,7 @@ export const SystemConsole: React.FC = () => {
               />
             </form>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

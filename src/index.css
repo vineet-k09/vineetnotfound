@@ -2,16 +2,17 @@
 
 @layer base {
   :root {
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-display: 'Syne', 'Space Grotesk', sans-serif;
+    --font-nav: 'Outfit', sans-serif;
+    --font-body: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
     --font-code: 'JetBrains Mono', monospace;
   }
 }
 
 body {
   font-family: var(--font-body);
-  background-color: #0b0c0e;
-  color: #e6e8ec;
+  background-color: #0c0d12;
+  color: #e8eaef;
   overflow-x: hidden;
 }
 
@@ -19,39 +20,73 @@ body {
   font-family: var(--font-display);
 }
 
+.font-nav {
+  font-family: var(--font-nav);
+}
+
 .font-mono {
   font-family: var(--font-code);
 }
 
-/* Subtle Engineering Grid background */
-.bg-grid {
-  background-size: 40px 40px;
+/* 🕷️ Spider-Verse Edge-Cut Polygon Utility Classes */
+.spider-cut {
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+.spider-cut-lg {
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+}
+
+.spider-cut-sm {
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.spider-cut-reverse {
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+}
+
+.spider-badge-cut {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
+}
+
+/* Comic / Animated Hard Pop Shadow */
+.pop-shadow-rose {
+  box-shadow: 5px 5px 0px 0px rgba(244, 63, 94, 0.4);
+}
+
+.pop-shadow-dark {
+  box-shadow: 4px 4px 0px 0px #06070a;
+}
+
+.pop-shadow-amber {
+  box-shadow: 5px 5px 0px 0px rgba(245, 158, 11, 0.4);
+}
+
+/* Halftone Dot Pattern Background */
+.halftone-dots {
+  background-image: radial-gradient(rgba(244, 63, 94, 0.07) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* Electric Animated Mesh Lines */
+.bg-comic-grid {
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
-/* Smooth noise overlay */
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 50;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-}
-
-/* Smooth scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0c0e;
+  background: #0c0d12;
 }
 ::-webkit-scrollbar-thumb {
-  background: #22262d;
+  background: #241620;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b4252;
+  background: #e11d48;
 }

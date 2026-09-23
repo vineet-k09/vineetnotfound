@@ -18,14 +18,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0c0e] text-[#e6e8ec] relative selection:bg-cyan-500/20 selection:text-cyan-300">
-      {/* Subtle Noise Texture Overlay */}
-      <div className="noise-overlay" />
-      
-      {/* Background Engineering Grid */}
-      <div className="fixed inset-0 bg-grid opacity-40 pointer-events-none z-0" />
+    <div className="min-h-screen bg-[#0c0d12] text-[#e8eaef] relative selection:bg-rose-500/30 selection:text-rose-200">
+      {/* Spider-Verse Halftone & Mesh Background Layers */}
+      <div className="fixed inset-0 halftone-dots opacity-40 pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-comic-grid opacity-50 pointer-events-none z-0" />
 
-      {/* Main Content Wrapper */}
+      {/* Main Content Layout */}
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
         
