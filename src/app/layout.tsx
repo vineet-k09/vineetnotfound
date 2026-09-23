@@ -1,11 +1,6 @@
-import { Geist, Geist_Mono, VT323 } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Metadata } from "next";
 import "./globals.css";
-// import CustomCursor from "./components/render/cursor";
-import Preloader from "./components/render/Preloader";
-import { AudioProvider } from "@/context/AudioContext";
-import { ThemeProvider } from "@/context/ThemeContext";
-import { LocationProvider } from "@/context/LocationProvider";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -17,15 +12,9 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
-const vt323 = VT323({
-	weight: "400",
-	variable: "--font-vt323",
-	subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-	title: "vineetnotfound",
-	description: "Personal portfolio",
+	title: "Vineet Kushwaha — Clean Slate",
+	description: "Personal website & portfolio",
 };
 
 export default function RootLayout({
@@ -47,16 +36,8 @@ export default function RootLayout({
 				/>
 			</head>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${vt323.variable} antialiased`}>
-				<div className="film-grain" />
-				<div className="grid-bg" />
-				<ThemeProvider>
-					<AudioProvider>
-						{/* <CustomCursor /> */}
-						<Preloader />
-						<LocationProvider>{children}</LocationProvider>
-					</AudioProvider>
-				</ThemeProvider>
+				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-950 text-neutral-100 min-h-screen flex flex-col justify-between p-8 font-sans`}>
+				{children}
 			</body>
 		</html>
 	);

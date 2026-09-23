@@ -1,0 +1,62 @@
+{
+  "galleryItems": [
+    {
+      "id": 1,
+      "title": "VOIS Landing Page Mockup",
+      "category": "uiux",
+      "categoryLabel": "UI/UX Design",
+      "src": "/creative/uiux/vois_mockup_front.png",
+      "description": "A modern landing page concept created for a VOIS-themed web experience, emphasizing clean layouts and intuitive navigation.",
+      "locationOrTool": "Figma",
+      "width": 1916,
+      "height": 937,
+      "figma": "https://www.figma.com"
+    },
+    {
+      "id": 2,
+      "title": "VOIS About Us Page",
+      "category": "uiux",
+      "categoryLabel": "UI/UX Design",
+      "src": "/creative/uiux/vois_mockup_aboutus_page.png",
+      "description": "An About Us page mockup designed to present company information with clarity, visual consistency, and strong information hierarchy.",
+      "locationOrTool": "Figma",
+      "width": 1916,
+      "height": 937,
+      "figma": "https://www.figma.com"
+    },
+    {
+      "id": 3,
+      "title": "VOIS Contact Page",
+      "category": "uiux",
+      "categoryLabel": "UI/UX Design",
+      "src": "/creative/uiux/vois_mockup_contact_us_page.png",
+      "description": "A responsive contact page concept focused on accessibility, user-friendly forms, and a polished visual identity.",
+      "locationOrTool": "Figma",
+      "width": 1916,
+      "height": 937,
+      "figma": "https://www.figma.com"
+    },
+    {
+      "id": 4,
+      "title": "Murder Mystery Competition Poster",
+      "category": "graphics",
+      "categoryLabel": "Poster Design",
+      "src": "/creative/designs/murdermysterycompetetion.png",
+      "description": "A promotional poster designed for a murder mystery competition, focusing on suspenseful visuals and bold typography.",
+      "locationOrTool": "Adobe Photoshop",
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": 5,
+      "title": "Short Film Competition Poster",
+      "category": "graphics",
+      "categoryLabel": "Poster Design",
+      "src": "/creative/designs/short movie making competition.png",
+      "description": "A creative event poster designed to promote a short movie making competition with a cinematic visual style.",
+      "locationOrTool": "Adobe Photoshop",
+      "width": 1414,
+      "height": 2000
+    }
+  ]
+}
