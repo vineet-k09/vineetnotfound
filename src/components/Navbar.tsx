@@ -17,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const sections = [
     { id: "overview", label: "OVERVIEW" },
+    { id: "about", label: "ABOUT" },
     { id: "projects", label: "ENGINEERING" },
     { id: "skills", label: "STACK" },
   ];

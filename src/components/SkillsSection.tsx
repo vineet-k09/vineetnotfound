@@ -29,14 +29,13 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
   ];
 
   const animateVariants = {
-    hidden: { opacity: 0, y: 28 },
+    hidden: { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 240,
-        damping: 24,
+        duration: 0.45,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -54,12 +53,12 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.25 }}
+          viewport={{ once: false, margin: "-60px" }}
           variants={animateVariants}
           className="flex flex-col gap-2"
         >
           <span className="font-mono text-xs font-bold text-rose-600 dark:text-rose-500 uppercase tracking-widest">
-            02 // TECH MATRIX
+            03 // TECH MATRIX
           </span>
           <h2
             className={`font-display text-4xl sm:text-5xl font-black tracking-tight ${
@@ -79,7 +78,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
                 key={idx}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: false, margin: "-60px" }}
                 variants={animateVariants}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className={`spider-cut p-6 border flex flex-col justify-between gap-6 transition-all ${
@@ -98,7 +97,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
                       className={`w-9 h-9 spider-cut-sm flex items-center justify-center border ${
                         isDark
                           ? "bg-rose-500/10 border-rose-500/20 text-rose-400"
-                          : "bg-rose-50 border-rose-200 text-rose-600"
+                          : "bg-rose-100 border-rose-300 text-rose-700"
                       }`}
                     >
                       <Icon className="w-4 h-4 stroke-[2.5]" />

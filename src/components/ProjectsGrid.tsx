@@ -41,14 +41,13 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
   }
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 24 },
+    hidden: { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 240,
-        damping: 24,
+        duration: 0.45,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -66,13 +65,13 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.25 }}
+          viewport={{ once: false, margin: "-60px" }}
           variants={containerVariants}
           className="flex flex-col md:flex-row md:items-end justify-between gap-6"
         >
           <div className="flex flex-col gap-2">
             <span className="font-mono text-xs font-bold text-rose-600 dark:text-rose-500 uppercase tracking-widest">
-              01 // CORE ENGINEERING
+              02 // CORE ENGINEERING
             </span>
             <h2
               className={`font-display text-4xl sm:text-5xl font-black tracking-tight ${
@@ -118,9 +117,9 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
                 layout
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: false, margin: "-60px" }}
                 variants={containerVariants}
-                exit={{ opacity: 0, scale: 0.95, y: 16 }}
+                exit={{ opacity: 0, scale: 0.95, y: 12 }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
                 className={`spider-cut group p-6 flex flex-col justify-between gap-6 transition-all border ${
                   isDark

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Zap, Terminal, Shield, Layers } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import profileData from "@data/profile.json";
 
 interface HeroSectionProps {
@@ -12,15 +12,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
   const isDark = theme === "dark";
 
   const animateVariants = {
-    hidden: { opacity: 0, y: 28, scale: 0.98 },
+    hidden: { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        type: "spring",
-        stiffness: 240,
-        damping: 24,
+        duration: 0.45,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -28,7 +26,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
   return (
     <section
       id="overview"
-      className={`relative pt-10 sm:pt-10 pb-16 sm:pb-16 overflow-hidden border-b ${
+      className={`relative pt-12 sm:pt-16 pb-20 sm:pb-24 overflow-hidden border-b ${
         isDark ? "border-white/[0.06]" : "border-slate-200"
       }`}
     >
@@ -44,13 +42,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
         }`}
       />
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-12 flex flex-col gap-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 sm:px-12 flex flex-col gap-10 relative z-10">
         
-        {/* Tag Badge with Crisp Light Mode Highlight Background */}
+        {/* Tag Badge */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, margin: "-60px" }}
           variants={animateVariants}
           className="flex items-center gap-3"
         >
@@ -83,7 +81,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, margin: "-60px" }}
           variants={animateVariants}
           className="flex flex-col gap-6 max-w-5xl"
         >
@@ -112,9 +110,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, margin: "-60px" }}
           variants={animateVariants}
-          className="flex flex-wrap items-center gap-5"
+          className="flex flex-wrap items-center gap-5 pt-2"
         >
           <button
             onClick={onExploreProjects}
@@ -134,80 +132,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
           >
             <span>{profileData.developer.email}</span>
           </a>
-        </motion.div>
-
-        {/* 4 Clean System Cards */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: { staggerChildren: 0.1 },
-            },
-          }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-4"
-        >
-          {[
-            {
-              icon: Zap,
-              title: "Cloud Microservices",
-              desc: "Containerized Node & FastAPI on GCP Cloud Run with zero-downtime routing.",
-            },
-            {
-              icon: Layers,
-              title: "High Throughput Data",
-              desc: "Automated multi-market data ingestion processing 400K+ records with BigQuery.",
-            },
-            {
-              icon: Terminal,
-              title: "CLI & Desktop Tools",
-              desc: "Sub-2ms NVMe partition inspection in Rust & zero-bloat desktop mail widgets.",
-            },
-            {
-              icon: Shield,
-              title: "Enterprise Systems",
-              desc: "Custom React postMessage widgets replacing $500K proprietary solutions.",
-            },
-          ].map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={idx}
-                variants={animateVariants}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`spider-cut p-6 border flex flex-col justify-between gap-4 group transition-all ${
-                  isDark
-                    ? "bg-[#12141c] border-white/10 hover:border-rose-500/40 pop-shadow-dark"
-                    : "bg-white border-slate-200 hover:border-rose-400 pop-shadow-light"
-                }`}
-              >
-                <div
-                  className={`w-10 h-10 spider-cut-sm flex items-center justify-center border ${
-                    isDark
-                      ? "bg-rose-500/10 border-rose-500/20 text-rose-400"
-                      : "bg-rose-100 border-rose-300 text-rose-700"
-                  }`}
-                >
-                  <Icon className="w-5 h-5 stroke-[2.5]" />
-                </div>
-                <div>
-                  <h3
-                    className={`font-display font-bold text-base mb-1 transition-colors ${
-                      isDark ? "text-white group-hover:text-rose-300" : "text-slate-900 group-hover:text-rose-700"
-                    }`}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className={`text-xs leading-relaxed font-body ${isDark ? "text-neutral-400" : "text-slate-600"}`}>
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
         </motion.div>
 
       </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
+import { AboutSection } from "./components/AboutSection";
 import { ProjectsGrid } from "./components/ProjectsGrid";
 import { SkillsSection } from "./components/SkillsSection";
 import { Footer } from "./components/Footer";
@@ -15,7 +16,7 @@ export default function App() {
 
   // Automatically update active nav link when scrolling through sections
   useEffect(() => {
-    const sectionIds = ["overview", "projects", "skills"];
+    const sectionIds = ["overview", "about", "projects", "skills"];
 
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200; // Offset for navbar height
@@ -78,6 +79,7 @@ export default function App() {
         
         <main className="flex-1">
           <HeroSection onExploreProjects={() => handleNavClick("projects")} theme={theme} />
+          <AboutSection theme={theme} />
           <ProjectsGrid theme={theme} />
           <SkillsSection theme={theme} />
         </main>
