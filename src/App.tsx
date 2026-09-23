@@ -1,19 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar } from "./components/Navbar";
 import { HeroSection } from "./components/HeroSection";
 import { ProjectsGrid } from "./components/ProjectsGrid";
 import { SkillsSection } from "./components/SkillsSection";
-import { SystemConsole } from "./components/SystemConsole";
 import { Footer } from "./components/Footer";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("overview");
 
-  const scrollToProjects = () => {
-    setActiveTab("projects");
-    const el = document.getElementById("projects");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+  // Automatically update active nav link when scrolling through sections
+  useEffect(() => {
+    const sectionIds = ["overview", "projects", "skills"];
+
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 200; // Offset for navbar height
+
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveTab(sectionIds[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavClick = (id: string) => {
+    setActiveTab(id);
+    if (id === "overview") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -25,16 +50,15 @@ export default function App() {
 
       {/* Main Content Layout */}
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+        <Navbar activeTab={activeTab} setActiveTab={handleNavClick} />
         
         <main className="flex-1">
-          <HeroSection onExploreProjects={scrollToProjects} />
+          <HeroSection onExploreProjects={() => handleNavClick("projects")} />
           <ProjectsGrid />
           <SkillsSection />
-          <SystemConsole />
         </main>
 
-        <Footer />
+        <Footer onNavClick={handleNavClick} />
       </div>
     </div>
   );
