@@ -56,7 +56,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
     <section
       id="projects"
       className={`py-20 border-b relative ${
-        isDark ? "border-white/[0.06]" : "border-slate-200"
+        isDark ? "border-white/[0.06]" : "border-[#e2dfd7]"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-12 flex flex-col gap-10">
@@ -70,15 +70,12 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6"
         >
           <div className="flex flex-col gap-2">
-            <span className="font-mono text-xs font-bold text-rose-600 dark:text-rose-500 uppercase tracking-widest">
-              02 // CORE ENGINEERING
-            </span>
             <h2
               className={`font-display text-4xl sm:text-5xl font-black tracking-tight ${
                 isDark ? "text-white" : "text-slate-900"
               }`}
             >
-              Systems & Repositories
+              Systems,<span className="text-rose-600 dark:text-rose-500"> Solutions.</span>
             </h2>
           </div>
 
@@ -95,7 +92,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
                       ? "bg-rose-600 text-white font-semibold pop-shadow-rose"
                       : isDark
                       ? "bg-[#13151d] text-neutral-400 hover:text-white border border-white/5"
-                      : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200"
+                      : "bg-[#e8e4d8] text-slate-800 hover:text-rose-700 border border-[#d4cebe] font-bold"
                   }`}
                 >
                   {cat.label}
@@ -124,7 +121,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
                 className={`spider-cut group p-6 flex flex-col justify-between gap-6 transition-all border ${
                   isDark
                     ? "bg-[#12141c] border-white/10 hover:border-rose-500/40 pop-shadow-dark"
-                    : "bg-white border-slate-200 hover:border-rose-400 pop-shadow-light"
+                    : "bg-white border-[#d4cebe] hover:border-rose-400 pop-shadow-light"
                 }`}
               >
                 <div className="flex flex-col gap-4">
@@ -135,7 +132,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
                       className={`spider-badge-cut text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 border ${
                         isDark
                           ? "bg-rose-500/10 border-rose-500/20 text-rose-400"
-                          : "bg-rose-50 border-rose-200 text-rose-600"
+                          : "bg-rose-100/80 border-rose-300 text-rose-700"
                       }`}
                     >
                       {category}
@@ -150,7 +147,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
                           className={`p-1.5 rounded-md transition-all ${
                             isDark
                               ? "text-neutral-400 hover:text-white hover:bg-white/10"
-                              : "text-slate-400 hover:text-slate-900 hover:bg-slate-100"
+                              : "text-slate-500 hover:text-slate-900 hover:bg-slate-100"
                           }`}
                           title="View Repository"
                         >
@@ -165,7 +162,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
                           className={`p-1.5 rounded-md transition-all ${
                             isDark
                               ? "text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10"
-                              : "text-slate-400 hover:text-rose-600 hover:bg-rose-50"
+                              : "text-slate-500 hover:text-rose-600 hover:bg-rose-50"
                           }`}
                           title="Live Preview"
                         >
@@ -181,14 +178,14 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
                       className={`font-display text-xl font-bold transition-colors mb-2 ${
                         isDark
                           ? "text-white group-hover:text-rose-300"
-                          : "text-slate-900 group-hover:text-rose-600"
+                          : "text-slate-900 group-hover:text-rose-700"
                       }`}
                     >
                       {project.title}
                     </h3>
                     <p
                       className={`text-xs leading-relaxed font-body ${
-                        isDark ? "text-neutral-300" : "text-slate-600"
+                        isDark ? "text-neutral-300" : "text-slate-700"
                       }`}
                     >
                       {project.description}
@@ -208,7 +205,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
                       className={`spider-cut-sm text-[11px] font-mono px-2.5 py-0.5 border ${
                         isDark
                           ? "text-neutral-300 bg-[#181a24] border-white/5"
-                          : "text-slate-700 bg-slate-100 border-slate-200"
+                          : "text-slate-800 bg-[#f0ede4] border-[#d8d3c5] font-semibold"
                       }`}
                     >
                       {tech}

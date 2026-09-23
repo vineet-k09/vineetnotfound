@@ -25,7 +25,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ theme }) => {
     <section
       id="about"
       className={`py-20 border-b relative ${
-        isDark ? "border-white/[0.06]" : "border-slate-200"
+        isDark ? "border-white/[0.06]" : "border-[#e2dfd7]"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-12 flex flex-col gap-12">
@@ -38,15 +38,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ theme }) => {
           variants={animateVariants}
           className="flex flex-col gap-2"
         >
-          <span className="font-mono text-xs font-bold text-rose-600 dark:text-rose-500 uppercase tracking-widest">
-            01 // BACKGROUND & PROFILE
-          </span>
           <h2
             className={`font-display text-4xl sm:text-5xl font-black tracking-tight ${
               isDark ? "text-white" : "text-slate-900"
             }`}
           >
-            Engineering Profile
+            ABOUT
+            <span className="text-rose-600 dark:text-rose-500">ME</span>
           </h2>
         </motion.div>
 
@@ -58,13 +56,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ theme }) => {
           variants={animateVariants}
           className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch"
         >
-          {/* Developer Photo / Avatar Box (4 Cols) */}
+          {/* Developer Photo Box */}
           <div className="md:col-span-4 flex flex-col">
             <div
               className={`spider-cut relative p-2 border flex flex-col items-center justify-center overflow-hidden h-full ${
                 isDark
                   ? "bg-[#12141c] border-white/10 pop-shadow-dark"
-                  : "bg-white border-slate-200 pop-shadow-light"
+                  : "bg-white border-[#d4cebe] pop-shadow-light"
               }`}
             >
               <div className="spider-cut overflow-hidden w-full h-72 sm:h-80 md:h-full min-h-[260px] relative bg-slate-900">
@@ -83,17 +81,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ theme }) => {
             </div>
           </div>
 
-          {/* Description & Systems Box (8 Cols) */}
+          {/* Description Box */}
           <div className="md:col-span-8 flex flex-col justify-between">
             <div
               className={`spider-cut p-6 sm:p-8 border flex flex-col justify-between gap-6 h-full ${
                 isDark
                   ? "bg-[#12141c] border-white/10 pop-shadow-dark"
-                  : "bg-white border-slate-200 pop-shadow-light"
+                  : "bg-white border-[#d4cebe] pop-shadow-light"
               }`}
             >
               <div className="flex flex-col gap-4">
-                <div className="border-b pb-4 border-white/5 dark:border-white/5 light:border-slate-100">
+                <div className="border-b pb-4 border-slate-200 dark:border-white/5">
                   <h3
                     className={`font-display text-2xl font-extrabold tracking-tight ${
                       isDark ? "text-white" : "text-slate-900"
@@ -113,7 +111,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ theme }) => {
 
                 <p
                   className={`text-xs leading-relaxed font-body ${
-                    isDark ? "text-neutral-400" : "text-slate-500"
+                    isDark ? "text-neutral-400" : "text-slate-600"
                   }`}
                 >
                   Beyond full-stack APIs, I lead content and technical direction as Content Head for the Innovation & Entrepreneurship Development Cell (IEDC), bridging machine learning pipelines with high-throughput cloud delivery.
@@ -121,7 +119,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ theme }) => {
               </div>
 
               {/* Quick Specs Tags */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 border-t border-white/5 dark:border-white/5 light:border-slate-100 font-mono text-xs">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 border-t border-slate-200 dark:border-white/5 font-mono text-xs">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-3.5 h-3.5 text-rose-500" />
                   <span className={isDark ? "text-neutral-300" : "text-slate-700"}>Bengaluru, IN</span>
@@ -185,14 +183,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ theme }) => {
                 className={`spider-cut p-6 border flex flex-col justify-between gap-4 group transition-all ${
                   isDark
                     ? "bg-[#12141c] border-white/10 hover:border-rose-500/40 pop-shadow-dark"
-                    : "bg-white border-slate-200 hover:border-rose-400 pop-shadow-light"
+                    : "bg-white border-[#d4cebe] hover:border-rose-400 pop-shadow-light"
                 }`}
               >
                 <div
                   className={`w-10 h-10 spider-cut-sm flex items-center justify-center border ${
                     isDark
                       ? "bg-rose-500/10 border-rose-500/20 text-rose-400"
-                      : "bg-rose-100 border-rose-300 text-rose-700"
+                      : "bg-rose-100/80 border-rose-300 text-rose-700"
                   }`}
                 >
                   <Icon className="w-5 h-5 stroke-[2.5]" />

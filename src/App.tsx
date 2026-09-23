@@ -53,18 +53,18 @@ export default function App() {
       className={`min-h-screen transition-colors duration-500 relative ${
         theme === "dark"
           ? "bg-[#0c0d12] text-[#e8eaef] selection:bg-rose-500/30 selection:text-rose-200"
-          : "bg-[#f8f9fa] text-[#0f172a] selection:bg-rose-200 selection:text-rose-900"
+          : "bg-[#f4f2ee] text-[#0f172a] selection:bg-rose-200 selection:text-rose-900"
       }`}
     >
       {/* Spider-Verse Halftone & Mesh Background Layers */}
       <div
         className={`fixed inset-0 halftone-dots pointer-events-none z-0 ${
-          theme === "dark" ? "opacity-40" : "opacity-25"
+          theme === "dark" ? "opacity-40" : "opacity-30"
         }`}
       />
       <div
         className={`fixed inset-0 pointer-events-none z-0 ${
-          theme === "dark" ? "bg-comic-grid-dark opacity-50" : "bg-comic-grid-light opacity-60"
+          theme === "dark" ? "bg-comic-grid-dark opacity-50" : "bg-comic-grid-light opacity-70"
         }`}
       />
 

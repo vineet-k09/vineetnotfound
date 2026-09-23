@@ -44,7 +44,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
     <section
       id="skills"
       className={`py-20 border-b relative ${
-        isDark ? "border-white/[0.06]" : "border-slate-200"
+        isDark ? "border-white/[0.06]" : "border-[#e2dfd7]"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 sm:px-12 flex flex-col gap-10">
@@ -57,15 +57,12 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
           variants={animateVariants}
           className="flex flex-col gap-2"
         >
-          <span className="font-mono text-xs font-bold text-rose-600 dark:text-rose-500 uppercase tracking-widest">
-            03 // TECH MATRIX
-          </span>
           <h2
             className={`font-display text-4xl sm:text-5xl font-black tracking-tight ${
               isDark ? "text-white" : "text-slate-900"
             }`}
           >
-            Stack & Infrastructure
+            Stack<span className="text-rose-600 dark:text-rose-500">&</span>Infrastructure
           </h2>
         </motion.div>
 
@@ -84,7 +81,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
                 className={`spider-cut p-6 border flex flex-col justify-between gap-6 transition-all ${
                   isDark
                     ? "bg-[#12141c] border-white/10 hover:border-rose-500/40 pop-shadow-dark"
-                    : "bg-white border-slate-200 hover:border-rose-400 pop-shadow-light"
+                    : "bg-white border-[#d4cebe] hover:border-rose-400 pop-shadow-light"
                 }`}
               >
                 <div>
@@ -97,7 +94,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
                       className={`w-9 h-9 spider-cut-sm flex items-center justify-center border ${
                         isDark
                           ? "bg-rose-500/10 border-rose-500/20 text-rose-400"
-                          : "bg-rose-100 border-rose-300 text-rose-700"
+                          : "bg-rose-100/80 border-rose-300 text-rose-700"
                       }`}
                     >
                       <Icon className="w-4 h-4 stroke-[2.5]" />
@@ -121,14 +118,14 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ theme }) => {
                         className={`spider-cut-sm group text-xs font-mono px-3 py-1.5 border transition-all flex items-center gap-2 ${
                           isDark
                             ? "bg-[#181a24] border-white/5 hover:border-rose-500/40 hover:bg-rose-500/10 hover:text-rose-300 text-neutral-300"
-                            : "bg-slate-100 border-slate-200 hover:border-rose-400 hover:bg-rose-50 hover:text-rose-600 text-slate-700"
+                            : "bg-[#f0ede4] border-[#d8d3c5] hover:border-rose-400 hover:bg-rose-100/80 hover:text-rose-700 text-slate-800 font-semibold"
                         }`}
                       >
                         <i
                           className={`${skill.className} text-xs transition-colors ${
                             isDark
                               ? "text-neutral-400 group-hover:text-rose-400"
-                              : "text-slate-500 group-hover:text-rose-600"
+                              : "text-slate-600 group-hover:text-rose-700"
                           }`}
                         />
                         <span>{skill.label}</span>

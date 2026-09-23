@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
     <section
       id="overview"
       className={`relative pt-12 sm:pt-16 pb-20 sm:pb-24 overflow-hidden border-b ${
-        isDark ? "border-white/[0.06]" : "border-slate-200"
+        isDark ? "border-white/[0.06]" : "border-[#e2dfd7]"
       }`}
     >
       {/* Red Glow Orbs */}
@@ -55,10 +55,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
           <div className="spider-badge-cut bg-gradient-to-r from-rose-600 to-rose-500 p-[1px]">
             <div
               className={`px-4 py-1.5 flex items-center gap-2 ${
-                isDark ? "bg-[#0c0d12]" : "bg-rose-50 border border-rose-200"
+                isDark ? "bg-[#0c0d12]" : "bg-white border border-rose-200"
               }`}
             >
-              <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse" />
               <span
                 className={`font-mono text-xs font-bold tracking-wider uppercase ${
                   isDark ? "text-rose-400" : "text-rose-700"
@@ -68,13 +67,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
               </span>
             </div>
           </div>
-          <span
-            className={`font-mono text-xs tracking-wider hidden sm:inline ${
-              isDark ? "text-neutral-500" : "text-slate-500 font-medium"
-            }`}
-          >
-            [BENGALURU, IN]
-          </span>
         </motion.div>
 
         {/* Headline Typography */}
@@ -127,7 +119,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExploreProjects, the
             className={`spider-cut font-mono text-xs px-6 py-3.5 transition-all flex items-center gap-2 border ${
               isDark
                 ? "bg-[#141620] hover:bg-[#1c1f2d] border-white/10 text-neutral-200"
-                : "bg-white hover:bg-slate-50 border-slate-300 text-slate-800 font-semibold"
+                : "bg-white hover:bg-slate-50 border-[#d4cebe] text-slate-800 font-bold pop-shadow-light"
             }`}
           >
             <span>{profileData.developer.email}</span>

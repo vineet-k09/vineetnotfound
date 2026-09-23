@@ -73,37 +73,37 @@ body {
   transform: scaleX(1);
 }
 
-/* Comic / Animated Hard Pop Shadow */
+/* Comic Pop Shadows */
 .pop-shadow-rose {
   box-shadow: 5px 5px 0px 0px rgba(225, 29, 72, 0.4);
 }
 
 .pop-shadow-dark {
-  box-shadow: 4px 4px 0px 0px rgba(15, 23, 42, 0.6);
+  box-shadow: 4px 4px 0px 0px rgba(6, 7, 10, 0.8);
 }
 
 .pop-shadow-light {
-  box-shadow: 4px 4px 0px 0px rgba(203, 213, 225, 0.8);
+  box-shadow: 4px 4px 0px 0px #d4cebe;
 }
 
 /* Halftone & Grid Backgrounds */
 .halftone-dots {
-  background-image: radial-gradient(rgba(225, 29, 72, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(225, 29, 72, 0.09) 1px, transparent 1px);
   background-size: 16px 16px;
 }
 
 .bg-comic-grid-dark {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 .bg-comic-grid-light {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
 }
 
 /* Custom Scrollbar */
