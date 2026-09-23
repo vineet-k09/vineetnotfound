@@ -1,0 +1,58 @@
+{
+  "developer": {
+    "name": "Vineet Kushwaha",
+    "handle": "vineetnotfound",
+    "role": "Software Engineer & CSE (Data Science)",
+    "location": "Bengaluru, IN",
+    "status": "Available for projects",
+    "email": "vineetkushwaha6325@gmail.com",
+    "primaryStack": ["Node.js", "Python", "GCP"],
+    "philosophy": "Between pixels and Python, building things isn't just about logic—it's about craft, performance, and memory.",
+    "social": {
+      "github": "https://github.com/vineet-k09",
+      "linkedin": "https://linkedin.com/in/vineet-k09",
+      "email": "vineetkushwaha6325@gmail.com",
+      "web": "https://vineetnotfound.vercel.app"
+    }
+  },
+  "education": {
+    "degree": "B.E. Computer Science Engineering (Data Science)",
+    "institution": "Acharya Institute of Technology, Bengaluru",
+    "period": "Nov 2022 - Jun 2026",
+    "cgpa": "8.7 / 10",
+    "leadership": "Content Head: Innovation and Entrepreneurship Development Cell (IEDC)"
+  },
+  "focusAreas": [
+    {
+      "title": "Microservices & Data Infra",
+      "description": "Architecting secure server-to-server microservices on GCP Cloud Run with IAM service account authentication. Experienced in query performance tuning and automating massive multi-market data pipelines.",
+      "highlights": [
+        "Automated Ingestion Pipeline: Processed 400K+ monthly multi-market records at Vodafone Intelligent Solutions, reducing manual intervention by 90%.",
+        "Vertex AI & Gemini Stream: Built streaming Express APIs feeding BigQuery engagement telemetry and persisting recommendations to save 35% model invocation token overhead."
+      ],
+      "tags": ["Node.js", "Express", "FastAPI", "GCP Cloud Run", "BigQuery", "Vertex AI"]
+    },
+    {
+      "title": "Real-Time Vision & Audio Systems",
+      "description": "Designed a rule-based coordinate geometry classifier using MediaPipe hand landmark vectors to recognize gestures with zero machine learning runtime overhead.",
+      "highlights": [
+        "60 FPS Browser Execution: Achieved fluid frame rates with canvas frame skipping.",
+        "Web Worker Synthesis: Offloaded audio generation to Web Workers for ~12 ms latency."
+      ],
+      "tags": ["MediaPipe", "Web Workers", "Web Audio API", "Canvas 2D"]
+    },
+    {
+      "title": "Enterprise Analytics & Security",
+      "description": "Engineered a custom React writeback tool replacing a $500K proprietary solution for SAP Analytics Cloud. Integrated GCP KMS encryption mapped to filter state C4 class data, Puppeteer snapshot automation, and Vertex AI comment summarization.",
+      "highlights": [],
+      "tags": ["React", "GCP KMS", "Puppeteer", "JWT & Zod"]
+    }
+  ],
+  "mockFiles": {
+    "bio.txt": "VINEET KUSHWAHA\n----------------\nRole:             Software Engineer & CSE (Data Science)\nSpecialization:   Scalable Node/Express APIs, Cloud Run Microservices, BigQuery Data Pipelines & Generative AI Integration.\nCore Philosophy:  \"Between pixels and Python, building things isn't just about logic—it's about craft, performance, and memory.\"\nStatus:           Engineering, optimizing, and deploying daily.",
+    "education.txt": "ACADEMICS & ROLES\n----------------\nDegree:   B.E. Computer Science Engineering (Data Science)\nCollege:  Acharya Institute of Technology, Bengaluru\nDate:     Nov 2022 - Jun 2026 (CGPA: 8.7 / 10)\nActivity: Content Head: Innovation and Entrepreneurship Development Cell (IEDC)",
+    "contact.txt": "DEVELOPER CHANNELS\n------------------\nGitHub:    https://github.com/vineet-k09\nLinkedIn:  https://linkedin.com/in/vineet-k09\nEmail:     vineetkushwaha6325@gmail.com\nWeb:       https://vineetnotfound.vercel.app",
+    "projects.md": "ENGINEERING HIGHLIGHTS\n--------------------\n* SAC Commenting: Context-aware analytics collaboration tool replacing $500K proprietary writeback solution (React, Express, GCP KMS, Vertex AI, Puppeteer).\n* iConnect 2.0: AI-powered enterprise learning platform with Node.js/Express gateway & FastAPI inference agent on Cloud Run (cached model invocations saving 35% token overhead).\n* Real-Time Hand Gesture MIDI Synth: Rule-based landmark vector classifier with zero ML execution overhead, 60 FPS frame skipping & Web Worker audio synthesis.",
+    "secrets.sh": "#!/bin/bash\n# TOP SECRET Sudo Script\necho \"🤖 Sudo Hack Initialized...\"\necho \"Accessing mainframe...\"\necho \"100% Complete.\"\necho '\"Reality is just a compilation of code. Make sure your runtime has good memory.\" - Secret Agent'"
+  }
+}
