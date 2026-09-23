@@ -7,6 +7,11 @@ import { Footer } from "./components/Footer";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState("overview");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
   // Automatically update active nav link when scrolling through sections
   useEffect(() => {
@@ -43,22 +48,41 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0c0d12] text-[#e8eaef] relative selection:bg-rose-500/30 selection:text-rose-200">
+    <div
+      className={`min-h-screen transition-colors duration-500 relative ${
+        theme === "dark"
+          ? "bg-[#0c0d12] text-[#e8eaef] selection:bg-rose-500/30 selection:text-rose-200"
+          : "bg-[#f8f9fa] text-[#0f172a] selection:bg-rose-200 selection:text-rose-900"
+      }`}
+    >
       {/* Spider-Verse Halftone & Mesh Background Layers */}
-      <div className="fixed inset-0 halftone-dots opacity-40 pointer-events-none z-0" />
-      <div className="fixed inset-0 bg-comic-grid opacity-50 pointer-events-none z-0" />
+      <div
+        className={`fixed inset-0 halftone-dots pointer-events-none z-0 ${
+          theme === "dark" ? "opacity-40" : "opacity-25"
+        }`}
+      />
+      <div
+        className={`fixed inset-0 pointer-events-none z-0 ${
+          theme === "dark" ? "bg-comic-grid-dark opacity-50" : "bg-comic-grid-light opacity-60"
+        }`}
+      />
 
       {/* Main Content Layout */}
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar activeTab={activeTab} setActiveTab={handleNavClick} />
+        <Navbar
+          activeTab={activeTab}
+          setActiveTab={handleNavClick}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
         
         <main className="flex-1">
-          <HeroSection onExploreProjects={() => handleNavClick("projects")} />
-          <ProjectsGrid />
-          <SkillsSection />
+          <HeroSection onExploreProjects={() => handleNavClick("projects")} theme={theme} />
+          <ProjectsGrid theme={theme} />
+          <SkillsSection theme={theme} />
         </main>
 
-        <Footer onNavClick={handleNavClick} />
+        <Footer onNavClick={handleNavClick} theme={theme} />
       </div>
     </div>
   );

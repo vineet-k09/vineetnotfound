@@ -13,7 +13,12 @@ interface Project {
   image?: string[];
 }
 
-export const ProjectsGrid: React.FC = () => {
+interface ProjectsGridProps {
+  theme: "dark" | "light";
+}
+
+export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ theme }) => {
+  const isDark = theme === "dark";
   const [filter, setFilter] = useState<"all" | "main" | "lab">("all");
 
   const categories = [
@@ -49,10 +54,15 @@ export const ProjectsGrid: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-20 border-b border-white/[0.05] relative">
+    <section
+      id="projects"
+      className={`py-20 border-b relative ${
+        isDark ? "border-white/[0.06]" : "border-slate-200"
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-6 sm:px-12 flex flex-col gap-10">
         
-        {/* Section Header with Scroll Animation */}
+        {/* Section Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -61,15 +71,19 @@ export const ProjectsGrid: React.FC = () => {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6"
         >
           <div className="flex flex-col gap-2">
-            <span className="font-mono text-xs font-bold text-rose-500 uppercase tracking-widest">
+            <span className="font-mono text-xs font-bold text-rose-600 dark:text-rose-500 uppercase tracking-widest">
               01 // CORE ENGINEERING
             </span>
-            <h2 className="font-display text-4xl sm:text-6xl font-black text-white tracking-tight">
+            <h2
+              className={`font-display text-4xl sm:text-5xl font-black tracking-tight ${
+                isDark ? "text-white" : "text-slate-900"
+              }`}
+            >
               Systems & Repositories
             </h2>
           </div>
 
-          {/* Minimalist Uppercase Category Selector */}
+          {/* Category Selector */}
           <div className="flex items-center gap-2 self-start md:self-auto flex-wrap">
             {categories.map((cat) => {
               const isActive = filter === cat.id;
@@ -79,8 +93,10 @@ export const ProjectsGrid: React.FC = () => {
                   onClick={() => setFilter(cat.id)}
                   className={`spider-cut-sm font-nav text-xs tracking-[0.15em] font-medium px-4 py-2 transition-all cursor-pointer ${
                     isActive
-                      ? "bg-gradient-to-r from-rose-600 to-amber-500 text-white font-semibold pop-shadow-rose"
-                      : "bg-[#13151d] text-neutral-400 hover:text-white border border-white/5"
+                      ? "bg-rose-600 text-white font-semibold pop-shadow-rose"
+                      : isDark
+                      ? "bg-[#13151d] text-neutral-400 hover:text-white border border-white/5"
+                      : "bg-white text-slate-600 hover:text-slate-900 border border-slate-200"
                   }`}
                 >
                   {cat.label}
@@ -96,7 +112,7 @@ export const ProjectsGrid: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map(({ project, category }, idx) => (
+            {filteredProjects.map(({ project, category }) => (
               <motion.div
                 key={project.title}
                 layout
@@ -106,13 +122,23 @@ export const ProjectsGrid: React.FC = () => {
                 variants={containerVariants}
                 exit={{ opacity: 0, scale: 0.95, y: 16 }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="spider-cut group bg-[#12141c] border border-white/10 hover:border-rose-500/40 p-6 flex flex-col justify-between gap-6 transition-all pop-shadow-dark"
+                className={`spider-cut group p-6 flex flex-col justify-between gap-6 transition-all border ${
+                  isDark
+                    ? "bg-[#12141c] border-white/10 hover:border-rose-500/40 pop-shadow-dark"
+                    : "bg-white border-slate-200 hover:border-rose-400 pop-shadow-light"
+                }`}
               >
                 <div className="flex flex-col gap-4">
                   
                   {/* Category Tag & Links */}
                   <div className="flex items-center justify-between">
-                    <span className="spider-badge-cut text-[10px] font-mono font-bold uppercase tracking-wider text-rose-400 px-3 py-1 bg-rose-500/10 border border-rose-500/20">
+                    <span
+                      className={`spider-badge-cut text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 border ${
+                        isDark
+                          ? "bg-rose-500/10 border-rose-500/20 text-rose-400"
+                          : "bg-rose-50 border-rose-200 text-rose-600"
+                      }`}
+                    >
                       {category}
                     </span>
                     
@@ -122,7 +148,11 @@ export const ProjectsGrid: React.FC = () => {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-1.5 rounded-md text-neutral-400 hover:text-white hover:bg-white/10 transition-all"
+                          className={`p-1.5 rounded-md transition-all ${
+                            isDark
+                              ? "text-neutral-400 hover:text-white hover:bg-white/10"
+                              : "text-slate-400 hover:text-slate-900 hover:bg-slate-100"
+                          }`}
                           title="View Repository"
                         >
                           <Github className="w-4 h-4" />
@@ -133,7 +163,11 @@ export const ProjectsGrid: React.FC = () => {
                           href={project.live}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-1.5 rounded-md text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10 transition-all"
+                          className={`p-1.5 rounded-md transition-all ${
+                            isDark
+                              ? "text-neutral-400 hover:text-rose-400 hover:bg-rose-500/10"
+                              : "text-slate-400 hover:text-rose-600 hover:bg-rose-50"
+                          }`}
                           title="Live Preview"
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -144,21 +178,39 @@ export const ProjectsGrid: React.FC = () => {
 
                   {/* Title & Description */}
                   <div>
-                    <h3 className="font-display text-xl font-bold text-white group-hover:text-rose-300 transition-colors mb-2">
+                    <h3
+                      className={`font-display text-xl font-bold transition-colors mb-2 ${
+                        isDark
+                          ? "text-white group-hover:text-rose-300"
+                          : "text-slate-900 group-hover:text-rose-600"
+                      }`}
+                    >
                       {project.title}
                     </h3>
-                    <p className="text-xs text-neutral-300 leading-relaxed font-body">
+                    <p
+                      className={`text-xs leading-relaxed font-body ${
+                        isDark ? "text-neutral-300" : "text-slate-600"
+                      }`}
+                    >
                       {project.description}
                     </p>
                   </div>
                 </div>
 
-                {/* Tech Stack Matrix Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/5">
+                {/* Tech Stack Tags */}
+                <div
+                  className={`flex flex-wrap gap-1.5 pt-4 border-t ${
+                    isDark ? "border-white/5" : "border-slate-100"
+                  }`}
+                >
                   {project.stack.map((tech, tIdx) => (
                     <span
                       key={tIdx}
-                      className="spider-cut-sm text-[11px] font-mono text-neutral-300 bg-[#181a24] px-2.5 py-0.5 border border-white/5"
+                      className={`spider-cut-sm text-[11px] font-mono px-2.5 py-0.5 border ${
+                        isDark
+                          ? "text-neutral-300 bg-[#181a24] border-white/5"
+                          : "text-slate-700 bg-slate-100 border-slate-200"
+                      }`}
                     >
                       {tech}
                     </span>

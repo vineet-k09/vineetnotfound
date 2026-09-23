@@ -11,8 +11,7 @@
 
 body {
   font-family: var(--font-body);
-  background-color: #0c0d12;
-  color: #e8eaef;
+  transition: background-color 0.4s ease, color 0.4s ease;
   overflow-x: hidden;
 }
 
@@ -28,7 +27,7 @@ body {
   font-family: var(--font-code);
 }
 
-/* 🕷️ Spider-Verse Edge-Cut Polygon Utility Classes */
+/* 🕷️ Edge-Cut Polygon Utility Classes */
 .spider-cut {
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
 }
@@ -49,31 +48,62 @@ body {
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
 }
 
+/* 🎯 Slow Sweep Fill Effect for Buttons */
+.slow-fill-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slow-fill-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #e11d48 0%, #f43f5e 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.slow-fill-btn:hover::before {
+  transform: scaleX(1);
+}
+
 /* Comic / Animated Hard Pop Shadow */
 .pop-shadow-rose {
-  box-shadow: 5px 5px 0px 0px rgba(244, 63, 94, 0.4);
+  box-shadow: 5px 5px 0px 0px rgba(225, 29, 72, 0.4);
 }
 
 .pop-shadow-dark {
-  box-shadow: 4px 4px 0px 0px #06070a;
+  box-shadow: 4px 4px 0px 0px rgba(15, 23, 42, 0.6);
 }
 
-.pop-shadow-amber {
-  box-shadow: 5px 5px 0px 0px rgba(245, 158, 11, 0.4);
+.pop-shadow-light {
+  box-shadow: 4px 4px 0px 0px rgba(203, 213, 225, 0.8);
 }
 
-/* Halftone Dot Pattern Background */
+/* Halftone & Grid Backgrounds */
 .halftone-dots {
-  background-image: radial-gradient(rgba(244, 63, 94, 0.07) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(225, 29, 72, 0.08) 1px, transparent 1px);
   background-size: 16px 16px;
 }
 
-/* Electric Animated Mesh Lines */
-.bg-comic-grid {
+.bg-comic-grid-dark {
   background-size: 32px 32px;
   background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.bg-comic-grid-light {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
 }
 
 /* Custom Scrollbar */
@@ -81,10 +111,10 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0c0d12;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #241620;
+  background: #cbd5e1;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
